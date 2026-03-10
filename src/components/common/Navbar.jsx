@@ -186,98 +186,98 @@ const mainCategories = [
 // react-icons/fc — flat color icons (Icons8-style) — unique icon per sub-item
 const SUB_FC_ICON_MAP = {
     // Government Exams
-    'TNPSC':                      FcGlobe,
-    'UPSC':                       FcOrganization,
-    'SSC':                        FcDocument,
-    'Banking Exams':              FcCurrencyExchange,
-    'Railway Exams':              FcShipped,
-    'Police Exams':               FcDataProtection,
-    'State PSC':                  FcDeployment,
-    'Exam Notifications':         FcCalendar,
-    'Previous Year Questions':    FcReading,
-    'Exam Syllabus':              FcViewDetails,
+    'TNPSC': FcGlobe,
+    'UPSC': FcOrganization,
+    'SSC': FcDocument,
+    'Banking Exams': FcCurrencyExchange,
+    'Railway Exams': FcShipped,
+    'Police Exams': FcDataProtection,
+    'State PSC': FcDeployment,
+    'Exam Notifications': FcCalendar,
+    'Previous Year Questions': FcReading,
+    'Exam Syllabus': FcViewDetails,
     // Aptitude
-    'Quantitative Aptitude':      FcCalculator,
-    'Logical Reasoning':          FcMindMap,
-    'Verbal Ability':             FcAbout,
-    'Data Interpretation':        FcBullish,
-    'Non-Verbal Reasoning':       FcPieChart,
-    'Practice Questions':         FcSurvey,
-    'Shortcut Tricks':            FcMakeDecision,
+    'Quantitative Aptitude': FcCalculator,
+    'Logical Reasoning': FcMindMap,
+    'Verbal Ability': FcAbout,
+    'Data Interpretation': FcBullish,
+    'Non-Verbal Reasoning': FcPieChart,
+    'Practice Questions': FcSurvey,
+    'Shortcut Tricks': FcMakeDecision,
     // Programming
-    'C Programming':              FcCommandLine,
-    'C++':                        FcProcess,
-    'Java':                       FcLibrary,
-    'Python':                     FcFlowChart,
-    'JavaScript':                 FcGenealogy,
-    'Data Structures':            FcTreeStructure,
-    'Algorithms':                 FcTimeline,
-    'Web Development':            FcTemplate,
-    'Cybersecurity Basics':       FcKey,
+    'C Programming': FcCommandLine,
+    'C++': FcProcess,
+    'Java': FcLibrary,
+    'Python': FcFlowChart,
+    'JavaScript': FcGenealogy,
+    'Data Structures': FcTreeStructure,
+    'Algorithms': FcTimeline,
+    'Web Development': FcTemplate,
+    'Cybersecurity Basics': FcKey,
     // Interview
-    'HR Interview Questions':     FcBusinessContact,
-    'Technical Interview':        FcElectronics,
-    'Company Wise Questions':     FcBriefcase,
-    'Group Discussion':           FcConferenceCall,
-    'Resume & Portfolio Tips':    FcRules,
-    'Mock Interviews':            FcVideoCall,
+    'HR Interview Questions': FcBusinessContact,
+    'Technical Interview': FcElectronics,
+    'Company Wise Questions': FcBriefcase,
+    'Group Discussion': FcConferenceCall,
+    'Resume & Portfolio Tips': FcRules,
+    'Mock Interviews': FcVideoCall,
     // Current Affairs
-    'Daily Current Affairs':      FcNews,
-    'Weekly Current Affairs':     FcBookmark,
-    'Monthly Current Affairs':    FcStatistics,
-    'Current Affairs Quiz':       FcQuestions,
-    'Government Schemes':         FcApproval,
-    'Important GK Topics':        FcSearch,
+    'Daily Current Affairs': FcNews,
+    'Weekly Current Affairs': FcBookmark,
+    'Monthly Current Affairs': FcStatistics,
+    'Current Affairs Quiz': FcQuestions,
+    'Government Schemes': FcApproval,
+    'Important GK Topics': FcSearch,
     // Mock Tests
-    'Aptitude Tests':             FcRating,
-    'Government Exam Tests':      FcGoodDecision,
-    'Programming MCQs':           FcPuzzle,
-    'Technical Tests':            FcInspection,
+    'Aptitude Tests': FcRating,
+    'Government Exam Tests': FcGoodDecision,
+    'Programming MCQs': FcPuzzle,
+    'Technical Tests': FcInspection,
     'Full Length Practice Tests': FcAlarmClock,
     // Study Materials
-    'Notes':                      FcTodoList,
-    'PDFs':                       FcDownload,
-    'Cheat Sheets':               FcList,
-    'Important Formulas':         FcNumericalSorting12,
-    'Exam Guides':                FcGraduationCap,
+    'Notes': FcTodoList,
+    'PDFs': FcDownload,
+    'Cheat Sheets': FcList,
+    'Important Formulas': FcNumericalSorting12,
+    'Exam Guides': FcGraduationCap,
     // Blog
-    'Career Guidance':            FcPositiveDynamic,
-    'Exam Preparation Tips':      FcIdea,
-    'Programming Tutorials':      FcVoicePresentation,
-    'Productivity':               FcSportsMode,
-    'Student Success Stories':    FcVip,
+    'Career Guidance': FcPositiveDynamic,
+    'Exam Preparation Tips': FcIdea,
+    'Programming Tutorials': FcVoicePresentation,
+    'Productivity': FcSportsMode,
+    'Student Success Stories': FcVip,
     // Jobs
-    'IT Jobs':                    FcSmartphoneTablet,
-    'Government Jobs':            FcPodiumWithSpeaker,
-    'Internships':                FcCollaboration,
-    'Walk-In Drives':             FcInTransit,
-    'Placement Updates':          FcLineChart,
+    'IT Jobs': FcSmartphoneTablet,
+    'Government Jobs': FcPodiumWithSpeaker,
+    'Internships': FcCollaboration,
+    'Walk-In Drives': FcInTransit,
+    'Placement Updates': FcLineChart,
 };
 
 const accentMap = {
-    'text-blue-500':    ['#3b82f6', '#1d4ed8'],
-    'text-purple-500':  ['#a855f7', '#7c3aed'],
-    'text-green-500':   ['#22c55e', '#15803d'],
-    'text-orange-500':  ['#f97316', '#c2410c'],
-    'text-red-500':     ['#ef4444', '#b91c1c'],
-    'text-cyan-500':    ['#06b6d4', '#0e7490'],
-    'text-indigo-500':  ['#6366f1', '#4338ca'],
-    'text-pink-500':    ['#ec4899', '#be185d'],
+    'text-blue-500': ['#3b82f6', '#1d4ed8'],
+    'text-purple-500': ['#a855f7', '#7c3aed'],
+    'text-green-500': ['#22c55e', '#15803d'],
+    'text-orange-500': ['#f97316', '#c2410c'],
+    'text-red-500': ['#ef4444', '#b91c1c'],
+    'text-cyan-500': ['#06b6d4', '#0e7490'],
+    'text-indigo-500': ['#6366f1', '#4338ca'],
+    'text-pink-500': ['#ec4899', '#be185d'],
     'text-emerald-500': ['#10b981', '#065f46'],
-    'text-yellow-500':  ['#eab308', '#a16207'],
+    'text-yellow-500': ['#eab308', '#a16207'],
 };
 
 const CAT_FC_ICON_MAP = {
-    'Government Exams':      FcOrganization,
-    'Aptitude & Reasoning':  FcCalculator,
-    'Programming':           FcElectronics,
+    'Government Exams': FcOrganization,
+    'Aptitude & Reasoning': FcCalculator,
+    'Programming': FcElectronics,
     'Interview Preparation': FcConferenceCall,
-    'Current Affairs':       FcCalendar,
-    'Mock Tests':            FcAlarmClock,
-    'Study Materials':       FcLibrary,
-    'Blog':                  FcIdea,
-    'Jobs & Internships':    FcBullish,
-    'Resources':             FcReading,
+    'Current Affairs': FcCalendar,
+    'Mock Tests': FcAlarmClock,
+    'Study Materials': FcLibrary,
+    'Blog': FcIdea,
+    'Jobs & Internships': FcBullish,
+    'Resources': FcReading,
 };
 
 const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
@@ -295,11 +295,10 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            className={`absolute left-0 right-0 top-full z-[300] overflow-hidden border-x border-b ${
-                isDark
-                    ? 'border-[#2a2a2a]'
-                    : 'border-gray-200'
-            }`}
+            className={`absolute left-0 right-0 top-full z-[300] overflow-hidden border-x border-b ${isDark
+                ? 'border-[#2a2a2a]'
+                : 'border-gray-200'
+                }`}
         >
             <div className='flex min-h-[300px]'>
 
@@ -312,11 +311,11 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                     {/* SVG Grid Squares pattern */}
                     <svg className='absolute inset-0 w-full h-full' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'>
                         <defs>
-                            <pattern id={`grid-${cat.title.replace(/\s/g,'')}`} x='0' y='0' width='28' height='28' patternUnits='userSpaceOnUse'>
-                                <rect x='0' y='0' width='26' height='26' rx='4' fill='none' stroke='rgba(255,255,255,0.22)' strokeWidth='1'/>
+                            <pattern id={`grid-${cat.title.replace(/\s/g, '')}`} x='0' y='0' width='28' height='28' patternUnits='userSpaceOnUse'>
+                                <rect x='0' y='0' width='26' height='26' rx='4' fill='none' stroke='rgba(255,255,255,0.22)' strokeWidth='1' />
                             </pattern>
                         </defs>
-                        <rect width='100%' height='100%' fill={`url(#grid-${cat.title.replace(/\s/g,'')})`}/>
+                        <rect width='100%' height='100%' fill={`url(#grid-${cat.title.replace(/\s/g, '')})`} />
                     </svg>
 
                     {/* Glow circles */}
@@ -425,13 +424,22 @@ const Navbar = () => {
     const { isDark, toggleTheme } = useTheme();
     const location = useLocation();
 
-    const [scrolled, setScrolled]       = useState(false);
-    const [mobileOpen, setMobileOpen]   = useState(false);
-    const [activeMenu, setActiveMenu]   = useState(null);
+    const [scrolled, setScrolled] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(null);
     const [mobileExpanded, setMobileExpanded] = useState(null);
     const [profileOpen, setProfileOpen] = useState(false);
-    const navRef    = useRef(null);
+    const navRef = useRef(null);
     const closeTimer = useRef(null);
+    const [logoTrigger, setLogoTrigger] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setLogoTrigger(true);
+            setTimeout(() => setLogoTrigger(false), 2000);
+        }, 30000); // 30,000ms = 30 seconds
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 4);
@@ -477,28 +485,108 @@ const Navbar = () => {
     return (
         <header
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-200 ${
-                isDark ? 'bg-[#0f0f0f]' : 'bg-white'
-            } ${scrolled ? (isDark ? 'shadow-[0_1px_0_#222]' : 'shadow-sm') : ''}`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-200 ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'
+                } ${scrolled ? (isDark ? 'shadow-[0_1px_0_#222]' : 'shadow-sm') : ''}`}
         >
+            {/* ══ LOGO ANIMATION VARIANTS ══ */}
+            <style>{`
+                @keyframes logo-float {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-3px); }
+                }
+                .logo-container:hover .logo-icon {
+                    animation: logo-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                }
+                @keyframes logo-bounce {
+                    0% { transform: scale(1); }
+                    30% { transform: scale(1.2) rotate(-5deg); }
+                    50% { transform: scale(0.9) rotate(5deg); }
+                    70% { transform: scale(1.1) rotate(-2deg); }
+                    100% { transform: scale(1) rotate(0); }
+                }
+            `}</style>
+
             {/* ══ TOP BAR ══ */}
             <div className={`h-[60px] flex items-center border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
                 <div className='w-full max-w-[1440px] mx-auto px-1 lg:px-2 flex items-center gap-2'>
 
                     {/* Logo */}
-                    <Link to='/' className='flex items-center gap-0 shrink-0'>
-                        <img src='/logo.png' alt='Logo' className='h-16 w-auto object-contain' />
-                        <span id='navbar-brand' className='text-[18px] font-bold tracking-tight hidden sm:block ml-[-14px]' style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em' }}>
-                            <span className='brand-practice'>Practice</span><em style={{ fontStyle:'normal', background:'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Forever</em>
-                        </span>
+                    <Link to='/' className='flex items-center gap-0 shrink-0 group/logo logo-container'>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="flex items-center"
+                        >
+                            <img
+                                src='/logo.png'
+                                alt='Logo'
+                                className='h-16 w-auto object-contain logo-icon transition-transform duration-300'
+                            />
+                            <motion.span
+                                id='navbar-brand'
+                                className='text-[18px] font-bold tracking-tight hidden sm:flex items-center ml-[-14px]'
+                                style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em' }}
+                                initial="initial"
+                                whileHover="hover"
+                                animate={logoTrigger ? "hover" : "initial"}
+                            >
+                                <span className='flex'>
+                                    {"Practice".split("").map((char, i) => (
+                                        <motion.span
+                                            key={i}
+                                            variants={{
+                                                initial: { y: 0, rotate: 0 },
+                                                hover: {
+                                                    y: [0, -8, 2, 0],
+                                                    rotate: [0, -10, 10, 0],
+                                                    scale: [1, 1.3, 0.9, 1],
+                                                    color: ["#111111", "#FFC107", "#111111"],
+                                                    transition: { delay: i * 0.04, duration: 0.5 }
+                                                }
+                                            }}
+                                            className="brand-practice inline-block origin-bottom"
+                                            style={{ color: isDark ? '#fff' : '#111' }}
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
+                                </span>
+                                <span className='flex'>
+                                    {"Forever".split("").map((char, i) => (
+                                        <motion.span
+                                            key={i}
+                                            variants={{
+                                                initial: { y: 0, rotate: 0 },
+                                                hover: {
+                                                    y: [0, -8, 2, 0],
+                                                    rotate: [0, 10, -10, 0],
+                                                    scale: [1, 1.3, 0.9, 1],
+                                                    filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+                                                    transition: { delay: (i + 8) * 0.04, duration: 0.5 }
+                                                }
+                                            }}
+                                            className="brand-forever inline-block origin-bottom"
+                                            style={{
+                                                fontStyle: 'normal',
+                                                background: 'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)',
+                                                WebkitBackgroundClip: 'text',
+                                                WebkitTextFillColor: 'transparent',
+                                                backgroundClip: 'text'
+                                            }}
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
+                                </span>
+                            </motion.span>
+                        </motion.div>
                     </Link>
 
                     {/* Search */}
-                    <div className={`hidden md:flex w-[240px] lg:w-[300px] shrink-0 items-center rounded-lg border px-3 gap-2 h-9 transition-all duration-200 ${
-                        isDark
-                            ? 'bg-[#1a1a1a] border-[#333] focus-within:border-[#FFC107] focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.12)]'
-                            : 'bg-gray-50 border-gray-200 focus-within:border-[#FFC107] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.1)]'
-                    }`}>
+                    <div className={`hidden md:flex w-[240px] lg:w-[300px] shrink-0 items-center rounded-lg border px-3 gap-2 h-9 transition-all duration-200 ${isDark
+                        ? 'bg-[#1a1a1a] border-[#333] focus-within:border-[#FFC107] focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.12)]'
+                        : 'bg-gray-50 border-gray-200 focus-within:border-[#FFC107] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.1)]'
+                        }`}>
                         <Search size={14} className='text-gray-400 shrink-0' />
                         <input
                             type='text'
@@ -506,19 +594,18 @@ const Navbar = () => {
                             className='flex-1 min-w-0 bg-transparent text-[13px] outline-none placeholder-gray-400'
                             spellCheck='false'
                         />
-                        <kbd className={`text-[10px] font-medium px-1.5 py-0.5 rounded hidden lg:inline shrink-0 ${
-                            isDark ? 'bg-[#2a2a2a] text-gray-500' : 'bg-gray-200 text-gray-500'
-                        }`}>⌘K</kbd>
+                        <kbd className={`text-[10px] font-medium px-1.5 py-0.5 rounded hidden lg:inline shrink-0 ${isDark ? 'bg-[#2a2a2a] text-gray-500' : 'bg-gray-200 text-gray-500'
+                            }`}>⌘K</kbd>
                     </div>
 
                     {/* ── Quick Feature Pills ── */}
                     <div className='hidden xl:flex items-center gap-1.5 flex-1 justify-center'>
                         {[
-                            { label: 'Free Mock Test', path: '/mock-tests',            LIcon: Target,    hot: true, bg: '#d97706', iconBg: '#92400e' },
-                            { label: 'Daily GK',       path: '/current-affairs/daily', LIcon: Globe2,             bg: '#2563eb', iconBg: '#1e3a8a' },
-                            { label: 'Latest News',    path: '/current-affairs',       LIcon: Newspaper,          bg: '#16a34a', iconBg: '#14532d' },
-                            { label: 'Leaderboard',    path: '/dashboard',             LIcon: Trophy,             bg: '#db2777', iconBg: '#831843' },
-                            { label: 'Study PDFs',     path: '/study-materials',       LIcon: Library,            bg: '#7c3aed', iconBg: '#4c1d95' },
+                            { label: 'Free Mock Test', path: '/mock-tests', LIcon: Target, hot: true, bg: '#d97706', iconBg: '#92400e' },
+                            { label: 'Daily GK', path: '/current-affairs/daily', LIcon: Globe2, bg: '#2563eb', iconBg: '#1e3a8a' },
+                            { label: 'Latest News', path: '/current-affairs', LIcon: Newspaper, bg: '#16a34a', iconBg: '#14532d' },
+                            { label: 'Leaderboard', path: '/dashboard', LIcon: Trophy, bg: '#db2777', iconBg: '#831843' },
+                            { label: 'Study PDFs', path: '/study-materials', LIcon: Library, bg: '#7c3aed', iconBg: '#4c1d95' },
                         ].map(({ label, path, LIcon, hot, bg, iconBg }) => (
                             <Link
                                 key={label}
@@ -543,21 +630,19 @@ const Navbar = () => {
                     {/* Right controls */}
                     <div className='flex items-center gap-1'>
                         {/* Notification Bell */}
-                        <button className={`relative w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${
-                            isDark
-                                ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
-                                : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
-                        }`}>
+                        <button className={`relative w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
+                            ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
+                            : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
+                            }`}>
                             <Bell size={16} />
                             <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
                         </button>
 
                         {/* Theme Toggle */}
-                        <button onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${
-                            isDark
-                                ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
-                                : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
-                        }`}>
+                        <button onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
+                            ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
+                            : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
+                            }`}>
                             {isDark ? <Sun size={16} /> : <Moon size={16} />}
                         </button>
 
@@ -565,9 +650,8 @@ const Navbar = () => {
                             <div className='relative ml-1'>
                                 <button
                                     onClick={() => setProfileOpen(p => !p)}
-                                    className={`flex items-center gap-2 h-9 px-2 rounded-lg border transition-colors ${
-                                        isDark ? 'border-[#2a2a2a] hover:border-[#444] text-gray-200' : 'border-gray-200 hover:border-gray-300 text-gray-700'
-                                    }`}
+                                    className={`flex items-center gap-2 h-9 px-2 rounded-lg border transition-colors ${isDark ? 'border-[#2a2a2a] hover:border-[#444] text-gray-200' : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                                        }`}
                                 >
                                     <div className='w-6 h-6 rounded-full bg-[#FFC107] text-black font-bold text-xs flex items-center justify-center'>
                                         {user?.name?.charAt(0)?.toUpperCase() || 'U'}
@@ -582,9 +666,8 @@ const Navbar = () => {
                                             animate={{ opacity: 1, y: 0, scale: 1 }}
                                             exit={{ opacity: 0, y: 4, scale: 0.97 }}
                                             transition={{ duration: 0.12 }}
-                                            className={`absolute right-0 top-full mt-2 w-52 rounded-xl border shadow-xl overflow-hidden z-[400] ${
-                                                isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-200'
-                                            }`}
+                                            className={`absolute right-0 top-full mt-2 w-52 rounded-xl border shadow-xl overflow-hidden z-[400] ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-200'
+                                                }`}
                                         >
                                             <div className={`px-4 py-3 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
                                                 <p className={`text-[13px] font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
@@ -592,14 +675,14 @@ const Navbar = () => {
                                             </div>
                                             <div className='p-1.5 flex flex-col gap-0.5'>
                                                 <Link to='/dashboard' className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-700 hover:bg-gray-50'}`}>
-                                                    <LayoutDashboard size={15}/> Dashboard
+                                                    <LayoutDashboard size={15} /> Dashboard
                                                 </Link>
                                                 <Link to='/profile' className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-700 hover:bg-gray-50'}`}>
-                                                    <User size={15}/> My Profile
+                                                    <User size={15} /> My Profile
                                                 </Link>
                                                 <div className={`my-1 h-px ${isDark ? 'bg-[#222]' : 'bg-gray-100'}`} />
                                                 <button onClick={logout} className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg text-red-500 ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}>
-                                                    <LogOut size={15}/> Sign Out
+                                                    <LogOut size={15} /> Sign Out
                                                 </button>
                                             </div>
                                         </motion.div>
@@ -608,11 +691,10 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className='flex items-center gap-2 ml-1'>
-                                <Link to='/login' className={`hidden sm:flex h-9 px-4 items-center text-[13px] font-semibold rounded-lg border whitespace-nowrap transition-all duration-150 ${
-                                    isDark
-                                        ? 'border-[#333] text-gray-300 hover:border-[#FFC107]/50 hover:text-[#FFC107] hover:bg-[#FFC107]/5'
-                                        : 'border-gray-300 text-gray-600 hover:border-[#FFC107] hover:text-[#c49000] hover:bg-amber-50'
-                                }`}>Log In</Link>
+                                <Link to='/login' className={`hidden sm:flex h-9 px-4 items-center text-[13px] font-semibold rounded-lg border whitespace-nowrap transition-all duration-150 ${isDark
+                                    ? 'border-[#333] text-gray-300 hover:border-[#FFC107]/50 hover:text-[#FFC107] hover:bg-[#FFC107]/5'
+                                    : 'border-gray-300 text-gray-600 hover:border-[#FFC107] hover:text-[#c49000] hover:bg-amber-50'
+                                    }`}>Log In</Link>
                                 <Link to='/register' className='h-9 px-4 flex items-center text-[13px] font-semibold rounded-lg text-black transition-all duration-150 hover:scale-[1.03] hover:shadow-md' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
                                     Register
                                 </Link>
@@ -620,9 +702,8 @@ const Navbar = () => {
                         )}
 
                         <button
-                            className={`md:hidden ml-1 w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
-                                isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-600 hover:bg-gray-100'
-                            }`}
+                            className={`md:hidden ml-1 w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-600 hover:bg-gray-100'
+                                }`}
                             onClick={() => setMobileOpen(true)}
                         >
                             <Menu size={20} />
@@ -638,13 +719,12 @@ const Navbar = () => {
                     <div className='flex items-center gap-x-0 overflow-x-auto no-scrollbar'>
 
                         {/* Home */}
-                        <Link to='/' className={`shrink-0 flex items-center h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors ${
-                            location.pathname === '/'
-                                ? 'border-[#FFC107] text-[#FFC107]'
-                                : isDark
-                                    ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
-                                    : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
-                        }`}>Home</Link>
+                        <Link to='/' className={`shrink-0 flex items-center h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors ${location.pathname === '/'
+                            ? 'border-[#FFC107] text-[#FFC107]'
+                            : isDark
+                                ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
+                                : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
+                            }`}>Home</Link>
 
                         {mainCategories.map((cat) => (
                             <div
@@ -653,18 +733,16 @@ const Navbar = () => {
                                 onMouseEnter={() => handleMenuEnter(cat.title)}
                                 onMouseLeave={handleMenuLeave}
                             >
-                                <button className={`flex items-center gap-1 h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors whitespace-nowrap ${
-                                    activeMenu === cat.title || isActive(cat.path)
-                                        ? 'border-[#FFC107] text-[#FFC107]'
-                                        : isDark
-                                            ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
-                                            : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
-                                }`}>
+                                <button className={`flex items-center gap-1 h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors whitespace-nowrap ${activeMenu === cat.title || isActive(cat.path)
+                                    ? 'border-[#FFC107] text-[#FFC107]'
+                                    : isDark
+                                        ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
+                                        : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
+                                    }`}>
                                     {cat.title}
                                     {cat.subcategories && (
-                                        <ChevronDown size={12} className={`transition-transform duration-150 ${
-                                            activeMenu === cat.title ? 'rotate-180 text-[#FFC107]' : 'opacity-60'
-                                        }`} />
+                                        <ChevronDown size={12} className={`transition-transform duration-150 ${activeMenu === cat.title ? 'rotate-180 text-[#FFC107]' : 'opacity-60'
+                                            }`} />
                                     )}
                                 </button>
                             </div>
@@ -698,17 +776,73 @@ const Navbar = () => {
                         <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                             transition={{ type: 'tween', duration: 0.28 }}
-                            className={`fixed inset-y-0 left-0 w-[82%] max-w-[340px] z-[70] flex flex-col ${
-                                isDark ? 'bg-[#0f0f0f]' : 'bg-white'
-                            }`}
+                            className={`fixed inset-y-0 left-0 w-[82%] max-w-[340px] z-[70] flex flex-col ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'
+                                }`}
                         >
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-4 h-14 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                <Link to='/' onClick={() => setMobileOpen(false)} className='flex items-center gap-0'>
-                                    <img src='/logo.png' alt='Logo' className='h-11 w-auto object-contain' />
-                                    <span id='navbar-brand' className='text-[16px] font-bold' style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em', marginLeft: '-10px' }}>
-                                        <span className='brand-practice'>Practice</span><em style={{ fontStyle:'normal', background:'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Forever</em>
-                                    </span>
+                                <Link to='/' onClick={() => setMobileOpen(false)} className='flex items-center gap-0 group/mobile-logo'>
+                                    <motion.div
+                                        animate={{ y: [0, -2, 0] }}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                        className="flex items-center"
+                                    >
+                                        <img src='/logo.png' alt='Logo' className='h-11 w-auto object-contain transition-transform group-hover/mobile-logo:scale-110' />
+                                        <span id='navbar-brand' className='text-[16px] font-bold' style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em', marginLeft: '-10px' }}>
+                                            <span className='flex'>
+                                                {"Practice".split("").map((c, i) => (
+                                                    <motion.span
+                                                        key={i}
+                                                        variants={{
+                                                            initial: { y: 0, scale: 1, rotate: 0 },
+                                                            hover: {
+                                                                y: -5,
+                                                                scale: 1.25,
+                                                                rotate: [0, -5, 5, 0],
+                                                                color: "#FFC107",
+                                                                transition: { duration: 0.4 }
+                                                            }
+                                                        }}
+                                                        animate={logoTrigger ? "hover" : "initial"}
+                                                        whileHover="hover"
+                                                        className="brand-practice inline-block"
+                                                        style={{ color: isDark ? '#fff' : '#111' }}
+                                                    >
+                                                        {c}
+                                                    </motion.span>
+                                                ))}
+                                            </span>
+                                            <span className='flex'>
+                                                {"Forever".split("").map((c, i) => (
+                                                    <motion.span
+                                                        key={i}
+                                                        variants={{
+                                                            initial: { y: 0, scale: 1, rotate: 0 },
+                                                            hover: {
+                                                                y: -5,
+                                                                scale: 1.25,
+                                                                rotate: [0, 5, -5, 0],
+                                                                filter: "brightness(1.5)",
+                                                                transition: { duration: 0.4 }
+                                                            }
+                                                        }}
+                                                        animate={logoTrigger ? "hover" : "initial"}
+                                                        whileHover="hover"
+                                                        className="brand-forever inline-block"
+                                                        style={{
+                                                            fontStyle: 'normal',
+                                                            background: 'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)',
+                                                            WebkitBackgroundClip: 'text',
+                                                            WebkitTextFillColor: 'transparent',
+                                                            backgroundClip: 'text'
+                                                        }}
+                                                    >
+                                                        {c}
+                                                    </motion.span>
+                                                ))}
+                                            </span>
+                                        </span>
+                                    </motion.div>
                                 </Link>
                                 <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-md flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
                                     <X size={18} />
@@ -737,11 +871,10 @@ const Navbar = () => {
                                             {cat.subcategories ? (
                                                 <button
                                                     onClick={() => setMobileExpanded(isExpanded ? null : cat.title)}
-                                                    className={`w-full flex items-center justify-between h-11 px-3 text-[14px] font-medium rounded-lg ${
-                                                        isExpanded
-                                                            ? isDark ? 'bg-[#1a1a1a] text-[#FFC107]' : 'bg-yellow-50 text-[#b8860b]'
-                                                            : isDark ? 'text-gray-200 hover:bg-[#1a1a1a]' : 'text-gray-800 hover:bg-gray-50'
-                                                    }`}
+                                                    className={`w-full flex items-center justify-between h-11 px-3 text-[14px] font-medium rounded-lg ${isExpanded
+                                                        ? isDark ? 'bg-[#1a1a1a] text-[#FFC107]' : 'bg-yellow-50 text-[#b8860b]'
+                                                        : isDark ? 'text-gray-200 hover:bg-[#1a1a1a]' : 'text-gray-800 hover:bg-gray-50'
+                                                        }`}
                                                 >
                                                     <div className='flex items-center gap-2.5'>
                                                         <div className={`w-6 h-6 rounded-md flex items-center justify-center ${cat.bgCls} ${cat.colorCls}`}>
@@ -777,11 +910,10 @@ const Navbar = () => {
                                                                         key={sub.name}
                                                                         to={sub.path}
                                                                         onClick={() => setMobileOpen(false)}
-                                                                        className={`flex items-center gap-3 px-4 py-2.5 text-[13px] border-b last:border-0 ${
-                                                                            isDark
-                                                                                ? 'text-gray-400 border-[#1a1a1a] hover:text-white hover:bg-[#141414]'
-                                                                                : 'text-gray-600 border-gray-100 hover:text-gray-900 hover:bg-white'
-                                                                        }`}
+                                                                        className={`flex items-center gap-3 px-4 py-2.5 text-[13px] border-b last:border-0 ${isDark
+                                                                            ? 'text-gray-400 border-[#1a1a1a] hover:text-white hover:bg-[#141414]'
+                                                                            : 'text-gray-600 border-gray-100 hover:text-gray-900 hover:bg-white'
+                                                                            }`}
                                                                     >
                                                                         <SubIcon size={14} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
                                                                         {sub.name}
