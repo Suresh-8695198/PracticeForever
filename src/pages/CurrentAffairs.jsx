@@ -81,16 +81,9 @@ const CurrentAffairs = () => {
     return (
         <div className={`min-h-screen ${isDark ? 'bg-[#0f0f11]' : 'bg-[#fff]'} text-zinc-900 dark:text-zinc-100 font-sans selection:bg-rose-100 selection:text-rose-900 pb-20 pt-[120px]`}>
 
-            {/* ── TOP UTILITY BAR (Reference Image Style) ── */}
+            {/* ── TOP UTILITY BAR ── */}
             <div className={`border-b border-zinc-100 dark:border-zinc-800 ${isDark ? 'bg-zinc-900/50' : 'bg-white'}`}>
-                <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-                    <div className="flex items-center gap-6 text-[13px] font-medium opacity-60">
-                        <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> 09 Mar 2026</div>
-                        <div className={`flex items-center gap-2 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}><Clock className="w-4 h-4" /> 65 min read</div>
-                        <button className={`${isDark ? 'bg-rose-500/20 text-rose-400' : 'bg-rose-500 text-white'} px-4 py-1.5 rounded-lg text-[12px] font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-sm ml-4`}>
-                            <Download className="w-3.5 h-3.5" /> Daily Saraansh
-                        </button>
-                    </div>
+                <div className="max-w-7xl mx-auto px-6 h-14 flex items-center">
                     <div className="flex items-center gap-4">
                         <Link to="/" className="text-[11px] font-black uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity flex items-center gap-1">
                             HOME <ChevronRight className="w-3 h-3 translate-y-[-1px]" />
@@ -165,10 +158,97 @@ const CurrentAffairs = () => {
                         <div className="text-[13px] font-bold text-rose-500">Source:PIB</div>
 
                         {selectedDate === '2026-03-09' ? (
-                            // ...existing code for 9 March content...
                             <div className="space-y-12">
-                                {/* ...existing code for 9 March content... */}
-                                {/* All the ICC T20 World Cup content remains unchanged here */}
+                                <section>
+                                    <h2 className="text-xl font-bold mb-4 text-zinc-800 dark:text-zinc-200 border-l-4 border-rose-500 pl-4 py-1">Why in News?</h2>
+                                    <p className="text-[16px] leading-relaxed text-zinc-700 dark:text-zinc-300 font-medium">
+                                        The Indian Men's Cricket Team secured a historic victory in the <strong className="text-rose-600 dark:text-rose-400">ICC Men's T20 World Cup 2026</strong>, defeating New Zealand in a thrilling final match at the Narendra Modi Stadium, Ahmedabad. This marks another major milestone in India's sporting achievements on the global stage.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2 className="text-xl font-bold mb-4 text-zinc-800 dark:text-zinc-200 border-l-4 border-rose-500 pl-4 py-1">Key Points</h2>
+                                    <ul className="space-y-4">
+                                        <li className="flex gap-4 items-start">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2.5 shrink-0" />
+                                            <p className="text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300">
+                                                <strong className="text-zinc-900 dark:text-white block mb-1">Unbeaten Streak:</strong>
+                                                India remained unbeaten throughout the tournament, showcasing exceptional teamwork and strategic brilliance across all phases of the game.
+                                            </p>
+                                        </li>
+                                        <li className="flex gap-4 items-start">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2.5 shrink-0" />
+                                            <p className="text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300">
+                                                <strong className="text-zinc-900 dark:text-white block mb-1">Player of the Tournament:</strong>
+                                                Jasprit Bumrah was named the Player of the Tournament for his exceptional bowling performance, taking 22 wickets at an incredible economy rate.
+                                            </p>
+                                        </li>
+                                        <li className="flex gap-4 items-start">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2.5 shrink-0" />
+                                            <p className="text-[15px] leading-relaxed text-zinc-700 dark:text-zinc-300">
+                                                <strong className="text-zinc-900 dark:text-white block mb-1">Final Match Highlights:</strong>
+                                                Sanju Samson's crucial 85* runs and hard-hitting finishing by the lower order helped India set a massive target of 215, which New Zealand failed to chase down.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </section>
+
+                                <section className={`p-6 rounded-2xl ${isDark ? 'bg-[#1a1a1a]' : 'bg-zinc-50'} border ${borderColor}`}>
+                                    <h2 className="text-lg font-bold mb-4 text-zinc-800 dark:text-zinc-200 flex items-center gap-2">
+                                        <Info className="w-5 h-5 text-rose-500" />
+                                        About the ICC T20 World Cup
+                                    </h2>
+                                    <p className="text-[14.5px] leading-relaxed text-zinc-600 dark:text-zinc-400 mb-4">
+                                        The ICC Men's T20 World Cup is the international championship of Twenty20 cricket. Organized by cricket's governing body, the International Cricket Council (ICC), the tournament currently consists of 20 teams.
+                                    </p>
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                                        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center">
+                                            <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">First Edition</p>
+                                            <p className="text-lg font-black text-rose-500">2007</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center">
+                                            <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Admin</p>
+                                            <p className="text-[14px] font-black text-rose-500 mt-1">ICC</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center">
+                                            <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Format</p>
+                                            <p className="text-[14px] font-black text-rose-500 mt-1">T20I</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center">
+                                            <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-1">Most Titles</p>
+                                            <p className="text-[14px] font-black text-rose-500 mt-1">India / England</p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <div className="border-t border-zinc-100 dark:border-zinc-800 pt-8 mt-12">
+                                    <h3 className="text-lg font-bold mb-4">UPSC Prelims Practice Question</h3>
+                                    <div className={`p-6 rounded-xl border ${borderColor} ${cardBg} space-y-4`}>
+                                        <p className="font-medium text-[15px]">Q. Consider the following statements regarding the ICC T20 World Cup:</p>
+                                        <ol className="list-decimal list-inside space-y-2 text-[14.5px] text-zinc-600 dark:text-zinc-400 ml-2">
+                                            <li>The first ever ICC T20 World Cup was held in South Africa in 2007.</li>
+                                            <li>It is organized every 4 years by the International Cricket Council (ICC).</li>
+                                            <li>India and West Indies are the only teams to win it more than once.</li>
+                                        </ol>
+                                        <p className="font-medium text-[15px] pt-4">Which of the statements given above is/are correct?</p>
+                                        <div className="grid grid-cols-2 gap-3 mt-4">
+                                            <div className={`p-3 border ${borderColor} rounded-lg text-[14px]`}>A) 1 only</div>
+                                            <div className={`p-3 border ${borderColor} rounded-lg text-[14px]`}>B) 1 and 3 only</div>
+                                            <div className={`p-3 border ${borderColor} rounded-lg text-[14px]`}>C) 2 and 3 only</div>
+                                            <div className={`p-3 border ${borderColor} rounded-lg text-[14px]`}>D) 1, 2 and 3</div>
+                                        </div>
+
+                                        <details className="mt-4 group">
+                                            <summary className="cursor-pointer text-sm font-bold text-rose-500 hover:text-rose-600 list-none flex items-center gap-2">
+                                                <ChevronRight className="w-4 h-4 group-open:rotate-90 transition-transform" /> View Answer
+                                            </summary>
+                                            <div className="mt-4 p-4 bg-rose-50 dark:bg-rose-900/10 rounded-lg text-[14px] text-zinc-700 dark:text-zinc-300">
+                                                <strong className="text-zinc-900 dark:text-white">Answer: A (1 only)</strong>
+                                                <p className="mt-2"><strong>Explanation:</strong> Statement 1 is correct. The first edition was held in 2007 in South Africa, which India won. Statement 2 is incorrect as the tournament is generally held every two years. Statement 3 is incorrect as England has also won it twice (2010, 2022) alongside West Indies, and India has now won it multiple times.</p>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </div>
                             </div>
                         ) : (
                             <div className="text-lg font-bold text-zinc-500 py-20">No Current Affairs posted for today. Please select a previous date to view content.</div>
