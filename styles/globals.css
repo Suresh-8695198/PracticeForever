@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Mega menu sidebar — ID selector (1,0,x) beats any class chain including 6-:not() span rule (0,7,2) */
+#nav-mega-sidebar,
+#nav-mega-sidebar * {
+  color: #ffffff !important;
+}/* Exception: white pill elements that need dark text */
+#nav-mega-sidebar .sidebar-dark-pill,
+#nav-mega-sidebar .sidebar-dark-pill * {
+  color: #1a1a1a !important;
+}
+
+/* Navbar brand text colors */
+#navbar-brand .brand-practice { color: #111111 !important; }
+body.dark #navbar-brand .brand-practice { color: #ffffff !important; }
+#navbar-brand .brand-forever  { color: #FFC107 !important; }
+body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
+@layer base {
+  body {
+    @apply font-sans antialiased transition-colors duration-200;
+  }
+
+  /* Dark Mode (Default) */
+  body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  /* Light Mode */
+  body.light {
+    @apply bg-light-bg text-light-text;
+  }
+
+  /* Force black text in light mode */
+  body.light h1,
+  body.light h2,
+  body.light h3,
+  body.light h4,
+  body.light h5,
+  body.light h6,
+  body.light p,
+  body.light span:not(.text-primary-yellow):not(.text-yellow):not(.text-accent-success):not(.text-accent-error):not(.text-accent-warning):not(.text-accent-info) {
+    color: #000000 !important;
+  }
+
+  body.light .text-dark-text {
+    color: #000000 !important;
+  }
+
+  body.light .text-dark-text-secondary {
+    color: #495057 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+
+}
+
+@layer components {
+  /* Card Styles - Dark Mode */
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-xl p-6 transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply border-primary-yellow/50;
+  }
+
+  /* Card Styles - Light Mode */
+  .light .card {
+    @apply bg-light-card border-light-border;
+  }
+
+  .light .card:hover {
+    @apply border-primary-yellow/70;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer hover:scale-[1.01];
+  }
+
+  /* Button Styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-yellow hover:bg-primary-yellow-light text-black font-semibold focus:ring-primary-yellow;
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark-card hover:bg-dark-card-hover text-dark-text border border-dark-border focus:ring-primary-yellow;
+  }
+
+  .light .btn-secondary {
+    @apply bg-light-card hover:bg-light-card-hover text-light-text border-light-border;
+  }
+
+  .btn-success {
+    @apply btn bg-accent-success hover:bg-accent-success/90 text-white focus:ring-accent-success;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-dark-card text-dark-text-secondary hover:text-dark-text;
+  }
+
+  .light .btn-ghost {
+    @apply hover:bg-light-card text-light-text-secondary hover:text-light-text;
+  }
+
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-2 bg-dark-card border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:border-transparent transition-all;
+  }
+
+  .light .input {
+    @apply bg-white border-light-border text-light-text placeholder-light-text-secondary;
+  }
+
+  /* Progress Ring */
+  .progress-ring {
+    @apply relative inline-flex items-center justify-center;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-easy {
+    @apply bg-accent-success/20 text-accent-success border border-accent-success/30;
+  }
+
+  .badge-medium {
+    @apply bg-primary-yellow/20 text-primary-yellow border border-primary-yellow/30;
+  }
+
+  .badge-hard {
+    @apply bg-accent-error/20 text-accent-error border border-accent-error/30;
+  }
+
+  /* Checkbox Custom */
+  .checkbox {
+    @apply w-5 h-5 rounded border-2 border-dark-border bg-dark-card checked:bg-primary-yellow checked:border-primary-yellow focus:ring-2 focus:ring-primary-yellow transition-all cursor-pointer;
+  }
+
+  .light .checkbox {
+    @apply border-light-border bg-white;
+  }
+
+  /* Star Rating */
+  .star-icon {
+    @apply text-primary-yellow cursor-pointer transition-all hover:scale-110;
+  }
+
+  /* Scrollbar - Dark Mode */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-dark-card;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-yellow;
+  }
+
+  /* Scrollbar - Light Mode */
+  .light .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-light-card;
+  }
+
+  .light .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-light-border;
+  }
+
+  .light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-yellow;
+  }
+
+  /* Yellow Text */
+  .text-yellow {
+    @apply text-primary-yellow;
+  }
+
+  /* Section Divider */
+  .section-divider {
+    @apply border-t border-dark-border my-8;
+  }
+
+  .light .section-divider {
+    @apply border-light-border;
+  }
+
+  /* Loading Spinner */
+  .spinner {
+    @apply inline-block w-6 h-6 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full h-2 bg-dark-card rounded-full overflow-hidden;
+  }
+
+  .light .progress-bar {
+    @apply bg-light-card;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-primary-yellow transition-all duration-500;
+  }
+
+  /* Theme Toggle Button */
+  .theme-toggle {
+    @apply p-2 rounded-lg bg-dark-card hover:bg-dark-card-hover border border-dark-border transition-all;
+  }
+
+  .light .theme-toggle {
+    @apply bg-white hover:bg-light-card-hover border-light-border;
+  }
+
+  /* Category Pills */
+  .category-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer;
+  }
+
+  .category-pill-active {
+    @apply bg-primary-yellow text-black;
+  }
+
+  .category-pill-inactive {
+    @apply bg-dark-card text-dark-text-secondary hover:bg-dark-card-hover hover:text-dark-text;
+  }
+
+  .light .category-pill-inactive {
+    @apply bg-light-card text-light-text-secondary hover:bg-light-card-hover hover:text-light-text;
+  }
+
+  /* Table Styles */
+  .table-container {
+    @apply w-full overflow-x-auto custom-scrollbar;
+  }
+
+  .task-table {
+    @apply w-full border-collapse;
+  }
+
+  .task-table th {
+    @apply text-left text-xs font-medium text-dark-text-secondary uppercase tracking-wider px-4 py-3 border-b border-dark-border;
+  }
+
+  .light .task-table th {
+    @apply text-light-text-secondary border-light-border;
+  }
+
+  .task-table td {
+    @apply px-4 py-3 border-b border-dark-border;
+  }
+
+  .light .task-table td {
+    @apply border-light-border;
+  }
+
+  .task-table tr:hover {
+    @apply bg-dark-card-hover;
+  }
+
+  .light .task-table tr:hover {
+    @apply bg-light-card-hover;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    @apply w-80 bg-dark-card border-l border-dark-border p-6 custom-scrollbar overflow-y-auto;
+  }
+
+  .light .sidebar {
+    @apply bg-white border-light-border;
+  }
+
+  /* Collapsible Section */
+  .collapsible-header {
+    @apply flex items-center justify-between w-full px-4 py-3 bg-dark-card hover:bg-dark-card-hover rounded-lg transition-all cursor-pointer;
+  }
+
+  .light .collapsible-header {
+    @apply bg-light-card hover:bg-light-card-hover;
+  }
+
+  /* Navbar */
+  .navbar {
+    @apply sticky top-0 z-50 backdrop-blur-md border-b;
+  }
+
+  .navbar-dark {
+    @apply bg-dark-bg/80 border-dark-border;
+  }
+
+  .navbar-light {
+    @apply bg-white/80 border-light-border;
+  }
+
+  /* Special Section Cards (for Company Prep and Roadmaps) */
+  .section-card-dark {
+    @apply bg-black border border-dark-border rounded-xl p-8;
+  }
+
+  .light .section-card-dark {
+    @apply bg-white border-light-border;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Animation Classes */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Shimmer animation for progress bars */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}

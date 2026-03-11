@@ -1,85 +1,50 @@
-const jwt = require('jsonwebtoken');
+const pool = require('../config/db');
 const bcrypt = require('bcryptjs');
-const User = require('../models/userModel');
+const jwt = require('jsonwebtoken');
 
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET || 'secret123', {
-        expiresIn: '30d',
-    });
-};
-
-const registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
-
-    try {
-        if (!name || !email || !password) {
-            return res.status(400).json({ message: 'Please add all fields' });
-        }
-
-        const userExists = await User.findOne({ where: { email } });
-
-        if (userExists) {
-            return res.status(400).json({ message: 'User already exists' });
-        }
-
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        const user = await User.create({
-            name,
-            email,
-            password: hashedPassword
-        });
-
-        if (user) {
-            res.status(201).json({
-                _id: user.id,
-                name: user.name,
-                email: user.email,
-                token: generateToken(user.id)
-            });
-        } else {
-            res.status(400).json({ message: 'Invalid user data' });
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-const loginUser = async (req, res) => {
+exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ where: { email } });
-
-        if (user && (await bcrypt.compare(password, user.password))) {
-            res.json({
-                _id: user.id,
-                name: user.name,
-                email: user.email,
-                token: generateToken(user.id)
-            });
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
+        // Find admin by email
+        const result = await pool.query('SELECT admins.*, roles.name as role_name FROM admins JOIN roles ON admins.role_id = roles.id WHERE email = $1', [email]);
+        
+        if (result.rows.length === 0) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
         }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
 
-const getMe = async (req, res) => {
-    try {
-        const user = await User.findByPk(req.user.id, {
-            attributes: { exclude: ['password'] }
+        const admin = result.rows[0];
+
+        // Check password
+        const isMatch = await bcrypt.compare(password, admin.password_hash);
+        if (!isMatch) {
+            return res.status(401).json({ success: false, message: 'Invalid credentials' });
+        }
+
+        // Create JWT
+        const token = jwt.sign(
+            { id: admin.id, role: admin.role_name },
+            process.env.JWT_SECRET || 'fallback_secret_key_for_dev_only',
+            { expiresIn: '12h' }
+        );
+
+        res.json({
+            success: true,
+            token,
+            admin: {
+                id: admin.id,
+                name: admin.name,
+                email: admin.email,
+                role: admin.role_name
+            }
         });
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
     }
 };
 
-module.exports = {
-    registerUser,
-    loginUser,
-    getMe
+exports.logout = (req, res) => {
+    // In JWT, logout is usually handled by the client removing the token
+    res.json({ success: true, message: 'Logged out successfully' });
 };
