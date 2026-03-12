@@ -3,9 +3,7 @@ export const theory = [
     "title": "H.C.F (Highest Common Factor)",
     "image": "/images/aptitude/hcf-lcm/hcf.svg",
     "formulas": [
-      { "label": "Definition", "value": "Greatest number that divides two or more given numbers exactly." },
-      { "label": "Product Rule", "value": "H.C.F × L.C.M = Product of two numbers" },
-      { "label": "H.C.F of Fractions", "value": "H.C.F of Numerators / L.C.M of Denominators" }
+      { "label": "Definition", "value": "Greatest number that divides two or more given numbers exactly." }
     ]
   },
   {
@@ -13,8 +11,7 @@ export const theory = [
     "image": "/images/aptitude/hcf-lcm/lcm.svg",
     "formulas": [
       { "label": "Definition", "value": "Smallest number which is exactly divisible by each of the given numbers." },
-      { "label": "Method", "value": "Common Division Method or Prime Factorization." },
-      { "label": "L.C.M of Fractions", "value": "L.C.M of Numerators / H.C.F of Denominators" }
+      { "label": "Method", "value": "Common Division Method or Prime Factorization." }
     ]
   },
   {
@@ -22,8 +19,23 @@ export const theory = [
     "image": "/images/aptitude/hcf-lcm/coprime.svg",
     "formulas": [
       { "label": "Property", "value": "Two numbers are co-prime if their H.C.F is 1." },
-      { "label": "Example", "value": "(2, 3), (8, 9), (14, 15)" },
-      { "label": "LCM of Co-primes", "value": "Product of the numbers itself." }
+      { "label": "Example", "value": "(2, 3), (8, 9), (14, 15)" }
+    ]
+  },
+  {
+    "title": "Product Rule",
+    "image": "/images/aptitude/hcf-lcm/product-rule.svg",
+    "formulas": [
+      { "label": "Rule", "value": "Product of two numbers = H.C.F × L.C.M" },
+      { "label": "Formula", "value": "a × b = H(a,b) × L(a,b)" }
+    ]
+  },
+  {
+    "title": "HCF & LCM of Fractions",
+    "image": "/images/aptitude/hcf-lcm/fractions.svg",
+    "formulas": [
+      { "label": "HCF of Fractions", "value": "HCF of Numerators / LCM of Denominators" },
+      { "label": "LCM of Fractions", "value": "LCM of Numerators / HCF of Denominators" }
     ]
   }
 ];
