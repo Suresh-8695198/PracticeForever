@@ -1,0 +1,24 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="q-grad" x1="20" y1="150" x2="180" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ef4444" /> <!-- Discount -->
+      <stop offset="0.5" stop-color="#3b82f6" /> <!-- Par -->
+      <stop offset="1" stop-color="#10b981" /> <!-- Premium -->
+    </linearGradient>
+  </defs>
+  
+  <!-- Gauge Arc -->
+  <path d="M40 140 C40 80 160 80 160 140" stroke="url(#q-grad)" stroke-width="15" stroke-linecap="round" fill="none" />
+  
+  <!-- Indicator Needle -->
+  <line x1="100" y1="140" x2="140" y2="90" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+  <circle cx="100" cy="140" r="8" fill="#1f2937" />
+  
+  <!-- Labels -->
+  <text x="35" y="160" fill="#ef4444" font-family="Arial" font-weight="bold" font-size="10">Discount</text>
+  <text x="90" y="70" fill="#3b82f6" font-family="Arial" font-weight="bold" font-size="10">Par</text>
+  <text x="145" y="160" fill="#10b981" font-family="Arial" font-weight="bold" font-size="10">Premium</text>
+  
+  <!-- Center Label -->
+  <text x="80" y="130" fill="#3b82f6" font-family="Arial" font-weight="bold" font-size="12">MARKET</text>
+</svg>

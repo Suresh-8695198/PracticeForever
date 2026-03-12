@@ -12,7 +12,6 @@ import Dashboard from './pages/Dashboard';
 import CareerPage from './pages/CareerPage';
 import ProfilePage from './pages/ProfilePage';
 import CommunicationPage from './pages/CommunicationPage';
-import CurrentAffairs from './pages/CurrentAffairs';
 import './index.css';
 
 // Protected Route Component
@@ -61,37 +60,36 @@ function AppContent() {
       <Navbar />
       <main className="flex-1">
         <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-          <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
 
-          {/* Protected Routes */}
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        {/* Protected Routes */}
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        
+        {/* New Pages */}
+        <Route path="/exams" element={<div className="pt-24 text-center"><h1>Government Exams</h1><p>Coming Soon...</p></div>} />
+        <Route path="/interviews" element={<div className="pt-24 text-center"><h1>Interview Prep</h1><p>Coming Soon...</p></div>} />
+        <Route path="/programming" element={<div className="pt-24 text-center"><h1>Programming</h1><p>Coming Soon...</p></div>} />
+        <Route path="/practice" element={<ProtectedRoute><div className="pt-24 text-center"><h1>Coding Practice</h1><p>Coming Soon...</p></div></ProtectedRoute>} />
+        <Route path="/aptitude" element={<div className="pt-24 text-center"><h1>Aptitude</h1><p>Coming Soon...</p></div>} />
+        
+        <Route path="/current-affairs" element={<div className="pt-24 text-center"><h1>Current Affairs</h1><p>Coming Soon...</p></div>} />
+        <Route path="/mock-tests" element={<ProtectedRoute><div className="pt-24 text-center"><h1>Mock Tests</h1><p>Coming Soon...</p></div></ProtectedRoute>} />
+        <Route path="/study-materials" element={<div className="pt-24 text-center"><h1>Study Materials</h1><p>Coming Soon...</p></div>} />
+        <Route path="/blog" element={<div className="pt-24 text-center"><h1>Blog</h1><p>Coming Soon...</p></div>} />
+        <Route path="/jobs" element={<div className="pt-24 text-center"><h1>Jobs & Internships</h1><p>Coming Soon...</p></div>} />
 
-          {/* New Pages */}
-          <Route path="/exams" element={<div className="pt-24 text-center"><h1>Government Exams</h1><p>Coming Soon...</p></div>} />
-          <Route path="/interviews" element={<div className="pt-24 text-center"><h1>Interview Prep</h1><p>Coming Soon...</p></div>} />
-          <Route path="/programming" element={<div className="pt-24 text-center"><h1>Programming</h1><p>Coming Soon...</p></div>} />
-          <Route path="/practice" element={<ProtectedRoute><div className="pt-24 text-center"><h1>Coding Practice</h1><p>Coming Soon...</p></div></ProtectedRoute>} />
-          <Route path="/aptitude" element={<div className="pt-24 text-center"><h1>Aptitude</h1><p>Coming Soon...</p></div>} />
+        <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
 
-          <Route path="/current-affairs" element={<CurrentAffairs />} />
-          <Route path="/current-affairs/*" element={<CurrentAffairs />} />
-          <Route path="/mock-tests" element={<ProtectedRoute><div className="pt-24 text-center"><h1>Mock Tests</h1><p>Coming Soon...</p></div></ProtectedRoute>} />
-          <Route path="/study-materials" element={<div className="pt-24 text-center"><h1>Study Materials</h1><p>Coming Soon...</p></div>} />
-          <Route path="/blog" element={<div className="pt-24 text-center"><h1>Blog</h1><p>Coming Soon...</p></div>} />
-          <Route path="/jobs" element={<div className="pt-24 text-center"><h1>Jobs & Internships</h1><p>Coming Soon...</p></div>} />
+        {/* Legacy routes mappings */}
+        <Route path="/career" element={<CareerPage />} />
+        <Route path="/communication" element={<CommunicationPage />} />
 
-          <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-
-          {/* Legacy routes mappings */}
-          <Route path="/career" element={<CareerPage />} />
-          <Route path="/communication" element={<CommunicationPage />} />
-
-          {/* 404 */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        {/* 404 */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
       </main>
       <Footer />
     </div>

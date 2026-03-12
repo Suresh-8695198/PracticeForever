@@ -1,0 +1,28 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lcm-grad1" x1="20" y1="100" x2="180" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6" />
+      <stop offset="1" stop-color="#7C3AED" />
+    </linearGradient>
+    <filter id="lcm-glow" x="0" y="0" width="200" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Number Line -->
+  <line x1="30" y1="140" x2="170" y2="140" stroke="#E2E8F0" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Cycle 1 (e.g., jumps of 3) -->
+  <path d="M30 140 Q50 90 70 140 Q90 90 110 140 Q130 90 150 140" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="4 4" opacity="0.4" />
+  
+  <!-- Cycle 2 (e.g., jumps of 4) -->
+  <path d="M30 140 Q60 70 90 140 Q120 70 150 140" stroke="#7C3AED" stroke-width="4" fill="none" />
+  
+  <!-- Meeting Point (LCM) -->
+  <circle cx="150" cy="140" r="8" fill="#7C3AED" filter="url(#lcm-glow)" />
+  <path d="M150 125 L155 132 H145 L150 125 Z" fill="white" />
+  
+  <!-- Decorative elements -->
+  <circle cx="30" cy="140" r="4" fill="#334155" />
+</svg>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import AnimatedLogo from './AnimatedLogo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -433,6 +434,7 @@ const Navbar = () => {
     const [profileOpen, setProfileOpen] = useState(false);
     const navRef = useRef(null);
     const closeTimer = useRef(null);
+    const enterTimer = useRef(null);
     const [logoTrigger, setLogoTrigger] = useState(false);
 
     useEffect(() => {
@@ -473,12 +475,36 @@ const Navbar = () => {
     }, [mobileOpen]);
 
     const handleMenuEnter = useCallback((title) => {
+        // Clear any pending close timers
         clearTimeout(closeTimer.current);
-        setActiveMenu(title);
-    }, []);
+        
+        // If a menu is ALREADY open, switch instantly for better UX
+        // If NO menu is open, wait 150ms to confirm "hover intent" (prevents accidental "grazing" triggers)
+        if (activeMenu) {
+            clearTimeout(enterTimer.current);
+            setActiveMenu(title);
+        } else {
+            clearTimeout(enterTimer.current);
+            enterTimer.current = setTimeout(() => {
+                setActiveMenu(title);
+            }, 150);
+        }
+    }, [activeMenu]);
 
     const handleMenuLeave = useCallback(() => {
-        closeTimer.current = setTimeout(() => setActiveMenu(null), 90);
+        clearTimeout(enterTimer.current);
+        // Small delay before closing to allow crossing the gap between button and dropdown
+        closeTimer.current = setTimeout(() => {
+            setActiveMenu(null);
+        }, 120);
+    }, []);
+
+    // Also close menu when mouse leaves the entire header area for maximum robustness
+    const handleHeaderLeave = useCallback(() => {
+        clearTimeout(enterTimer.current);
+        clearTimeout(closeTimer.current);
+        setActiveMenu(null);
+        setProfileOpen(false);
     }, []);
 
     const isActive = (path) => location.pathname === path || location.pathname.startsWith(path + '/');
@@ -487,6 +513,7 @@ const Navbar = () => {
     return (
         <header
             ref={navRef}
+            onMouseLeave={handleHeaderLeave}
             className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-200 ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'
                 } ${scrolled ? (isDark ? 'shadow-[0_1px_0_#222]' : 'shadow-sm') : ''}`}
         >
@@ -514,74 +541,14 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <Link href='/' className='flex items-center gap-0 shrink-0 group/logo logo-container'>
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center"
-                        >
-                            <img
-                                src='/logo.png'
-                                alt='Logo'
-                                className='h-16 w-auto object-contain logo-icon transition-transform duration-300'
-                            />
-                            <motion.span
-                                id='navbar-brand'
-                                className='text-[18px] font-bold tracking-tight hidden sm:flex items-center ml-[-14px]'
-                                style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em' }}
-                                initial="initial"
-                                whileHover="hover"
-                                animate={logoTrigger ? "hover" : "initial"}
-                            >
-                                <span className='flex'>
-                                    {"Practice".split("").map((char, i) => (
-                                        <motion.span
-                                            key={i}
-                                            variants={{
-                                                initial: { y: 0, rotate: 0 },
-                                                hover: {
-                                                    y: [0, -8, 2, 0],
-                                                    rotate: [0, -10, 10, 0],
-                                                    scale: [1, 1.3, 0.9, 1],
-                                                    color: ["#111111", "#FFC107", "#111111"],
-                                                    transition: { delay: i * 0.04, duration: 0.5 }
-                                                }
-                                            }}
-                                            className="brand-practice inline-block origin-bottom"
-                                            style={{ color: isDark ? '#fff' : '#111' }}
-                                        >
-                                            {char}
-                                        </motion.span>
-                                    ))}
-                                </span>
-                                <span className='flex'>
-                                    {"Forever".split("").map((char, i) => (
-                                        <motion.span
-                                            key={i}
-                                            variants={{
-                                                initial: { y: 0, rotate: 0 },
-                                                hover: {
-                                                    y: [0, -8, 2, 0],
-                                                    rotate: [0, 10, -10, 0],
-                                                    scale: [1, 1.3, 0.9, 1],
-                                                    filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
-                                                    transition: { delay: (i + 8) * 0.04, duration: 0.5 }
-                                                }
-                                            }}
-                                            className="brand-forever inline-block origin-bottom"
-                                            style={{
-                                                fontStyle: 'normal',
-                                                background: 'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)',
-                                                WebkitBackgroundClip: 'text',
-                                                WebkitTextFillColor: 'transparent',
-                                                backgroundClip: 'text'
-                                            }}
-                                        >
-                                            {char}
-                                        </motion.span>
-                                    ))}
-                                </span>
-                            </motion.span>
-                        </motion.div>
+                        <img
+                            src='/logo.png'
+                            alt='Logo'
+                            className='h-14 w-auto object-contain logo-icon transition-transform duration-300'
+                        />
+                        <div className='hidden sm:block ml-[-12px]'>
+                            <AnimatedLogo size="sm" loopInterval={30000} />
+                        </div>
                     </Link>
 
                     {/* Search */}
@@ -784,67 +751,10 @@ const Navbar = () => {
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-4 h-14 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
                                 <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center gap-0 group/mobile-logo'>
-                                    <motion.div
-                                        animate={{ y: [0, -2, 0] }}
-                                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                        className="flex items-center"
-                                    >
-                                        <img src='/logo.png' alt='Logo' className='h-11 w-auto object-contain transition-transform group-hover/mobile-logo:scale-110' />
-                                        <span id='navbar-brand' className='text-[16px] font-bold' style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, letterSpacing: '0.02em', marginLeft: '-10px' }}>
-                                            <span className='flex'>
-                                                {"Practice".split("").map((c, i) => (
-                                                    <motion.span
-                                                        key={i}
-                                                        variants={{
-                                                            initial: { y: 0, scale: 1, rotate: 0 },
-                                                            hover: {
-                                                                y: -5,
-                                                                scale: 1.25,
-                                                                rotate: [0, -5, 5, 0],
-                                                                color: "#FFC107",
-                                                                transition: { duration: 0.4 }
-                                                            }
-                                                        }}
-                                                        animate={logoTrigger ? "hover" : "initial"}
-                                                        whileHover="hover"
-                                                        className="brand-practice inline-block"
-                                                        style={{ color: isDark ? '#fff' : '#111' }}
-                                                    >
-                                                        {c}
-                                                    </motion.span>
-                                                ))}
-                                            </span>
-                                            <span className='flex'>
-                                                {"Forever".split("").map((c, i) => (
-                                                    <motion.span
-                                                        key={i}
-                                                        variants={{
-                                                            initial: { y: 0, scale: 1, rotate: 0 },
-                                                            hover: {
-                                                                y: -5,
-                                                                scale: 1.25,
-                                                                rotate: [0, 5, -5, 0],
-                                                                filter: "brightness(1.5)",
-                                                                transition: { duration: 0.4 }
-                                                            }
-                                                        }}
-                                                        animate={logoTrigger ? "hover" : "initial"}
-                                                        whileHover="hover"
-                                                        className="brand-forever inline-block"
-                                                        style={{
-                                                            fontStyle: 'normal',
-                                                            background: 'linear-gradient(135deg,#FFC107 0%,#FF8C00 100%)',
-                                                            WebkitBackgroundClip: 'text',
-                                                            WebkitTextFillColor: 'transparent',
-                                                            backgroundClip: 'text'
-                                                        }}
-                                                    >
-                                                        {c}
-                                                    </motion.span>
-                                                ))}
-                                            </span>
-                                        </span>
-                                    </motion.div>
+                                    <img src='/logo.png' alt='Logo' className='h-11 w-auto object-contain transition-transform group-hover/mobile-logo:scale-110' />
+                                    <div className='ml-[-10px]'>
+                                        <AnimatedLogo size="sm" loopInterval={30000} />
+                                    </div>
                                 </Link>
                                 <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-md flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
                                     <X size={18} />

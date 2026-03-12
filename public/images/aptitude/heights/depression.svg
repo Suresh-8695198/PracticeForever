@@ -1,0 +1,41 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="white"/>
+  <rect width="400" height="300" fill="url(#grid)"/>
+
+  <!-- Ground Line -->
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Horizontal Line from Observer (Dashed) -->
+  <line x1="100" y1="100" x2="250" y2="100" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="260" y="105" fill="#64748b" font-family="Arial" font-size="12">Horizontal Level</text>
+
+  <!-- Triangle ABC -->
+  <!-- A is top observer, B is bottom of building, C is object -->
+  <path d="M 100 100 L 300 250 L 100 250 Z" fill="#eff6ff" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Right Angle Symbol -->
+  <path d="M 110 250 L 110 240 L 100 240" stroke="#3b82f6" stroke-width="2" fill="none"/>
+
+  <!-- Points -->
+  <circle cx="100" cy="100" r="4" fill="#1e40af"/> <!-- A -->
+  <circle cx="100" cy="250" r="4" fill="#1e40af"/> <!-- B -->
+  <circle cx="300" cy="250" r="4" fill="#1e40af"/> <!-- C -->
+
+  <text x="70" y="95" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">A (Eye)</text>
+  <text x="70" y="265" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">B</text>
+  <text x="310" y="265" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">C (Object)</text>
+
+  <!-- Angle Mark (Depression) -->
+  <path d="M 140 100 A 40 40 0 0 1 133 125" stroke="#e11d48" stroke-width="2" fill="none"/>
+  <text x="145" y="125" fill="#e11d48" font-family="Arial" font-size="12" font-weight="bold">θ (Depression)</text>
+
+  <!-- Labels -->
+  <text x="50" y="180" fill="#64748b" font-family="Arial" font-size="12" transform="rotate(-90, 50, 180)">Tower Height</text>
+  <text x="220" y="180" fill="#64748b" font-family="Arial" font-size="12" transform="rotate(37, 220, 180)">Line of Sight</text>
+</svg>

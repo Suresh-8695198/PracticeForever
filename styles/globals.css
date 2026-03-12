@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,11 +9,12 @@
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
-/* Mega menu sidebar — ID selector (1,0,x) beats any class chain including 6-:not() span rule (0,7,2) */
+/* Mega menu sidebar -- ID selector beats class chains */
 #nav-mega-sidebar,
 #nav-mega-sidebar * {
   color: #ffffff !important;
-}/* Exception: white pill elements that need dark text */
+}
+/* Exception: white pill elements that need dark text */
 #nav-mega-sidebar .sidebar-dark-pill,
 #nav-mega-sidebar .sidebar-dark-pill * {
   color: #1a1a1a !important;
@@ -24,6 +25,7 @@
 body.dark #navbar-brand .brand-practice { color: #ffffff !important; }
 #navbar-brand .brand-forever  { color: #FFC107 !important; }
 body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
+
 @layer base {
   body {
     @apply font-sans antialiased transition-colors duration-200;
@@ -40,30 +42,28 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
   }
 
   /* Force black text in light mode */
-  body.light h1,
-  body.light h2,
-  body.light h3,
-  body.light h4,
-  body.light h5,
-  body.light h6,
-  body.light p,
-  body.light span:not(.text-primary-yellow):not(.text-yellow):not(.text-accent-success):not(.text-accent-error):not(.text-accent-warning):not(.text-accent-info) {
+  body.light h1:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light h2:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light h3:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light h4:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light h5:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light h6:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light p:not(#admin-right-panel *):not(.force-white):not(.keep-color),
+  body.light span:not(.text-primary-yellow):not(.text-yellow):not(.text-accent-success):not(.text-accent-error):not(.text-accent-warning):not(.text-accent-info):not(#admin-right-panel *):not([class*="highlight-"]):not(.force-white):not(.keep-color) {
     color: #000000 !important;
   }
 
-  body.light .text-dark-text {
+  body.light .text-dark-text:not(#admin-right-panel *) {
     color: #000000 !important;
   }
 
-  body.light .text-dark-text-secondary {
+  body.light .text-dark-text-secondary:not(#admin-right-panel *) {
     color: #495057 !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
-
-
 }
 
 @layer components {
@@ -127,11 +127,6 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
     @apply bg-white border-light-border text-light-text placeholder-light-text-secondary;
   }
 
-  /* Progress Ring */
-  .progress-ring {
-    @apply relative inline-flex items-center justify-center;
-  }
-
   /* Badge Styles */
   .badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
@@ -192,11 +187,6 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
 
   .light .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-yellow;
-  }
-
-  /* Yellow Text */
-  .text-yellow {
-    @apply text-primary-yellow;
   }
 
   /* Section Divider */
@@ -360,4 +350,160 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
   .animate-pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+}
+
+/* User-requested highlights for Current Affairs */
+.highlight-blue {
+  color: #1E40AF !important;
+  font-weight: 600;
+}
+.highlight-green {
+  color: #047857 !important;
+  font-weight: 600;
+}
+.highlight-purple {
+  color: #7C3AED !important;
+  font-weight: 600;
+}
+.highlight-orange {
+  color: #EA580C !important;
+  font-weight: 600;
+}
+.highlight-teal {
+  color: #0D9488 !important;
+  font-weight: 600;
+}
+.highlight-red {
+  color: #DC2626 !important;
+  font-weight: 600;
+}
+.highlight-eco {
+  color: #166534 !important;
+  font-weight: 600;
+}
+.highlight-yellow {
+  color: #856404 !important; /* Darker yellow for readability in light mode */
+  font-weight: 600;
+}
+
+/* Dark mode adjustments for readability */
+body.dark .highlight-blue { color: #60A5FA !important; }
+body.dark .highlight-green { color: #34D399 !important; }
+body.dark .highlight-purple { color: #A78BFA !important; }
+body.dark .highlight-orange { color: #FB923C !important; }
+body.dark .highlight-teal { color: #2DD4BF !important; }
+body.dark .highlight-red { color: #F87171 !important; }
+body.dark .highlight-eco { color: #4ADE80 !important; }
+body.dark .highlight-yellow { color: #FBBF24 !important; }
+
+/* Article Content Images */
+.article-img-container img {
+  @apply transition-all duration-500 hover:scale-[1.02] cursor-zoom-in;
+}
+
+.revision-bullet li {
+  position: relative;
+  padding-left: 32px !important;
+  list-style: none !important;
+}
+
+.revision-bullet li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://img.icons8.com/external-tal-revivo-green-tal-revivo/36/external-notification-of-a-reminder-in-phone-application-wireframe-green-tal-revivo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* News Article Professional Styling */
+.news-feed-content strong.section-title {
+  @apply block text-[20px] font-extrabold text-black dark:text-white mb-5 tracking-tight leading-tight !bg-transparent !p-0 !shadow-none !rounded-none;
+}
+
+.news-feed-content strong.sub-title {
+  @apply block text-[13.5px] font-bold text-rose-500 dark:text-rose-400 mt-6 mb-3 uppercase tracking-wider !bg-transparent !p-0 !shadow-none !rounded-none;
+}
+
+.news-feed-content p {
+  @apply text-[16px] leading-[1.8] text-black dark:text-zinc-200 mb-5 font-medium;
+}
+
+.news-feed-content ul {
+  @apply space-y-2.5 mb-6;
+}
+
+.news-feed-content li {
+  @apply relative pl-6 text-[15.5px] leading-relaxed text-black dark:text-zinc-200 font-semibold;
+}
+
+.news-feed-content li::before {
+  content: "•";
+  @apply absolute left-0 text-amber-500 font-black text-xl -top-[3px];
+}
+
+.news-feed-content .editorial-box {
+  @apply pl-6 py-5 border-l-4 my-10 rounded-r-xl transition-all duration-300;
+}
+
+.news-feed-content .editorial-box.blue {
+  @apply border-blue-600 bg-blue-50/40 dark:bg-blue-900/10;
+}
+
+.news-feed-content .editorial-box.rose {
+  @apply border-rose-600 bg-rose-50/40 dark:bg-rose-900/10;
+}
+
+.news-feed-content .editorial-box.amber {
+  @apply border-amber-600 bg-amber-50/40 dark:bg-amber-900/10;
+}
+
+.news-feed-content .editorial-box.emerald {
+  @apply border-emerald-600 bg-emerald-50/40 dark:bg-emerald-900/10;
+}
+
+.news-feed-content .editorial-box strong {
+  @apply block text-[12px] font-black uppercase tracking-wider mb-2.5 !p-0 !bg-transparent !shadow-none !rounded-none;
+  font-family: inherit;
+}
+
+.news-feed-content .editorial-box.blue strong { @apply text-blue-700 dark:text-blue-400; }
+.news-feed-content .editorial-box.rose strong { @apply text-rose-700 dark:text-rose-400; }
+.news-feed-content .editorial-box.amber strong { @apply text-amber-700 dark:text-amber-400; }
+.news-feed-content .editorial-box.emerald strong { @apply text-emerald-700 dark:text-emerald-400; }
+
+.news-feed-content .editorial-box p {
+  @apply text-black dark:text-zinc-200 mb-0 leading-[1.7] font-semibold text-[15.5px];
+}
+
+/* ── GOOGLE TRANSLATE CUSTOM STYLE ── */
+.goog-te-banner-frame.skiptranslate, 
+#goog-gt-tt, 
+.goog-te-balloon-frame, 
+.goog-te-gadget-icon,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+#google_translate_element {
+    display: none !important;
+}
+
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }

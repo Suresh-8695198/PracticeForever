@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from '../../context/ThemeContext';
+import AnimatedLogo from '../common/AnimatedLogo';
 import {
     LayoutDashboard,
     FileText,
@@ -62,14 +63,9 @@ export default function AdminLayout({ children, title }) {
             {/* Sidebar */}
             <aside className={`fixed inset-y-0 left-0 z-[100] w-64 border-r transition-all duration-300 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 ${navBg}`}>
                 <div className="h-full flex flex-col">
-                    <div className="p-6 flex items-center gap-3">
-                        <div className="w-9 h-9 bg-amber-500 rounded-lg flex items-center justify-center shadow-sm">
-                            <span className="text-white font-bold text-sm italic">CP</span>
-                        </div>
-                        <div>
-                            <span className={`block font-bold text-base leading-tight ${textMain}`}>Career Platform</span>
-                            <span className="block text-[10px] font-bold text-amber-500 uppercase tracking-widest -mt-0.5">Admin Panel</span>
-                        </div>
+                    <div className="px-5 pt-5 pb-4">
+                        <AnimatedLogo size="sm" autoPlay={true} loopInterval={15000} />
+                        <span className="block text-[10px] font-bold text-amber-500 uppercase tracking-widest mt-0.5 ml-0.5">Admin Panel</span>
                     </div>
 
                     <nav className="flex-1 px-4 py-4 space-y-1">

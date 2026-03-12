@@ -1,0 +1,23 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="white"/>
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+  
+  <!-- Standing part of tree -->
+  <line x1="100" y1="250" x2="100" y2="180" stroke="#8b4513" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Broken part bending down -->
+  <line x1="100" y1="180" x2="250" y2="250" stroke="#8b4513" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 100 183 L 115 175 L 105 168 Z" fill="#8b4513"/> <!-- Break point detail -->
+
+  <!-- Labels -->
+  <text x="100" y="270" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="12" font-weight="bold">Foot</text>
+  <text x="250" y="270" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="12" font-weight="bold">Top</text>
+  
+  <!-- Info -->
+  <path d="M 220 250 A 30 30 0 0 0 215 233" stroke="#2563eb" stroke-width="2" fill="none"/>
+  <text x="195" y="240" fill="#2563eb" font-family="Arial" font-size="14" font-weight="bold">30°</text>
+  
+  <text x="80" y="215" fill="#64748b" font-family="Arial" font-size="12" transform="rotate(-90, 80, 215)">Standing (h1)</text>
+  <text x="175" y="210" fill="#64748b" font-family="Arial" font-size="12" transform="rotate(25, 175, 210)">Broken part (h2)</text>
+  <text x="175" y="270" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Distance (10m)</text>
+</svg>

@@ -1,0 +1,1542 @@
+[
+  {
+    "id": 1,
+    "text": "Which one of the following is not a prime number?",
+    "options": [
+      {
+        "id": "A",
+        "text": "31"
+      },
+      {
+        "id": "B",
+        "text": "61"
+      },
+      {
+        "id": "C",
+        "text": "71"
+      },
+      {
+        "id": "D",
+        "text": "91"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "91 is divisible by 7. So, it is not a prime number."
+  },
+  {
+    "id": 2,
+    "text": "The difference between the local value and the face value of 7 in the numberal\n32675149 is",
+    "options": [
+      {
+        "id": "A",
+        "text": "75142"
+      },
+      {
+        "id": "B",
+        "text": "64851"
+      },
+      {
+        "id": "C",
+        "text": "5149"
+      },
+      {
+        "id": "D",
+        "text": "69993"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "(Local value of 7) - (Face value of 7)\n= (70000 - 7) = 69993"
+  },
+  {
+    "id": 3,
+    "text": "If 1400 \u00c3\u2014 x = 1050. Then, x = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/4"
+      },
+      {
+        "id": "B",
+        "text": "3/5"
+      },
+      {
+        "id": "C",
+        "text": "2/3"
+      },
+      {
+        "id": "D",
+        "text": "3/4"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "1400 \u00c3\u2014 x = 1050\nx = 1050 / 1400 = 3/4"
+  },
+  {
+    "id": 4,
+    "text": "If the number 91876 * 2 is completely divisible by 8, then the smallest whole\nnumber in place of * will be :",
+    "options": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "The number 632 must be divisible by 8. So, x = 3, as 632 is divisible by 8."
+  },
+  {
+    "id": 5,
+    "text": "How many 3 digit numbers are divisible by 6 in all?",
+    "options": [
+      {
+        "id": "A",
+        "text": "149"
+      },
+      {
+        "id": "B",
+        "text": "150"
+      },
+      {
+        "id": "C",
+        "text": "151"
+      },
+      {
+        "id": "D",
+        "text": "166"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Required numbers are 102, 108, 114 \u00e2\u20ac\u00a6. 996\nThis is an A.P. in which a = 102, d = 6 and L = 996\nLet the number of terms be n. Then,\nA + (n - 1) d = 996\n102 + (n - 1) \u00c3\u2014 6 = 996\n6 \u00c3\u2014 (n - 1) = 894\n(n - 1) = 149\nn = 150\nRequired number of terms = 150"
+  },
+  {
+    "id": 6,
+    "text": "The smallest 3 digit prime number is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "103"
+      },
+      {
+        "id": "B",
+        "text": "107"
+      },
+      {
+        "id": "C",
+        "text": "109"
+      },
+      {
+        "id": "D",
+        "text": "113"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "E",
+    "explanation": "The smallest 3 digit number is 100, which is divisible by 2\nSo, 100 is not a prime number.\n\u00e2\u02c6\u0161101 < 11 and 101 is not divisible by any of the prime numbers 2, 3, 5, 7, 11\nSo, 101 is a prime number\nHence 101 is the smallest 3 digit prime number."
+  },
+  {
+    "id": 7,
+    "text": "The difference between a positive proper fraction and its reciprocal is 9/20. The\nfraction is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "3/5"
+      },
+      {
+        "id": "B",
+        "text": "3/10"
+      },
+      {
+        "id": "C",
+        "text": "4/5"
+      },
+      {
+        "id": "D",
+        "text": "5/4"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Let the required fraction be x. Then, 1/x - x = 9/20\n(1 - x^2) / x = 9/20\n20 - 20x^2 = 9x\n20x^2 + 9x - 20 = 0\n20x^2 + 25x - 16x - 20 = 0\n5x (4x + 5) - 4 (4x + 5) = 0\n(4x + 5) (5x - 4) = 0\nx = 4/5"
+  },
+  {
+    "id": 8,
+    "text": "Which one of the following is the common factor of (47^43 + 43^43) and (47^47 +\n43^47) ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "(47 - 43)"
+      },
+      {
+        "id": "B",
+        "text": "(47 + 43)"
+      },
+      {
+        "id": "C",
+        "text": "(47^43 + 43^43)"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "When n is odd, (x^n + a^n) is always divisible by (x + a)\nSo, each one of 47^43 + 43^43 and 47^47 + 43^47 is divisible by 47 + 43"
+  },
+  {
+    "id": 9,
+    "text": "(112 \u00c3\u2014 5^4) = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "67000"
+      },
+      {
+        "id": "B",
+        "text": "70000"
+      },
+      {
+        "id": "C",
+        "text": "76500"
+      },
+      {
+        "id": "D",
+        "text": "77200"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "(112 \u00c3\u2014 5^4) = 112 \u00c3\u2014 [10/2]^4 = (112 \u00c3\u2014 10^4) / 2^4 = 1120000 / 16 = 70000"
+  },
+  {
+    "id": 10,
+    "text": "If the number 517 * 324 is completely divisible by 3, then the smallest whole\nnumber in place of * will be :",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Sum of digits = (5 + 1 + 7 + x + 3 + 2 + 4) = (22 + x), which must be divisible by 3\nSo, x = 2"
+  },
+  {
+    "id": 11,
+    "text": "Which of the following numbers is divisible by 24?",
+    "options": [
+      {
+        "id": "A",
+        "text": "35718"
+      },
+      {
+        "id": "B",
+        "text": "63810"
+      },
+      {
+        "id": "C",
+        "text": "537804"
+      },
+      {
+        "id": "D",
+        "text": "3125736"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "24 = 3 \u00c3\u2014 8, where 3 and 8 are co-primes.\nClearly, 35718 is not divisible by 8, as 718 is not divisible by 8\nSimilarly, 63810 is not divisible by 8 and 537804 is not divisible by 8.\nConsider part (d)\nSum of digits = (3 + 1 + 2 + 5 + 7 + 3 + 6) = 27, which is divisible by 3.\nAlso, 736 is divisibly by 8.\nSo, 3125736 is divisible by (3 \u00c3\u2014 8), i.e. 24."
+  },
+  {
+    "id": 12,
+    "text": "How many prime numbers are less than 50?",
+    "options": [
+      {
+        "id": "A",
+        "text": "16"
+      },
+      {
+        "id": "B",
+        "text": "15"
+      },
+      {
+        "id": "C",
+        "text": "14"
+      },
+      {
+        "id": "D",
+        "text": "18"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Prime numbers less than 50 are :\n2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47\nTheir number is 15."
+  },
+  {
+    "id": 13,
+    "text": "On dividing a number by 56, we get 29 as remainder. On dividing the same number\nby 8, what will be the remainder?",
+    "options": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Let x be the number & y be the quotient. Then,\nx = 56 \u00c3\u2014 y + 29 = (8 \u00c3\u2014 7y) + (8 \u00c3\u2014 3) + 5 = 8 \u00c3\u2014 (7y + 3) + 5\nSo, required remainder = 5"
+  },
+  {
+    "id": 14,
+    "text": "The difference of the squares of two consecutive even integers is divisible by which\nof the following integers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Let the two consecutive even integers be 2n and (2n + 2). Then\n(2n + 2)^2 - (2n)^2 = (2n + 2 + 2n) (2n + 2 - 2n)\n= 2 (4n + 2) = 4 (2n + 1), which is divisible by 4."
+  },
+  {
+    "id": 15,
+    "text": "Which one of the following numbers will completely divide (4^61 + 4^62 + 4^63 +\n4^64) ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "10"
+      },
+      {
+        "id": "C",
+        "text": "11"
+      },
+      {
+        "id": "D",
+        "text": "13"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "(4^61 + 4^62 + 4^63 + 4^64) = 4^61 \u00c3\u2014 (1 + 4 + 4^2 + 4^3) = 4^61 \u00c3\u2014 85\n= 4^60 \u00c3\u2014 (4 \u00c3\u2014 85) = (4^60 \u00c3\u2014 340), which is divisible by 10."
+  },
+  {
+    "id": 16,
+    "text": "How many natural numbers are there between 23 and 100 which are exactly\ndivisible by 6?",
+    "options": [
+      {
+        "id": "A",
+        "text": "8"
+      },
+      {
+        "id": "B",
+        "text": "11"
+      },
+      {
+        "id": "C",
+        "text": "12"
+      },
+      {
+        "id": "D",
+        "text": "13"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Required numbers are 24, 30, 36, 42 \u00e2\u20ac\u00a6. 96.\nThis is an A.P. in which a = 24, d = 6 and L = 96.\nLe the number of terms in it be n.\nThen, t_n = 96\na + (n - 1) d = 96\n24 + (n - 1) \u00c3\u2014 6 = 96\n(n - 1) \u00c3\u2014 6 = 72\n(n - 1) = 12\nn = 13\nRequired number of numbers = 13"
+  },
+  {
+    "id": 17,
+    "text": "(935421 \u00c3\u2014 625) = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "575648125"
+      },
+      {
+        "id": "B",
+        "text": "584638125"
+      },
+      {
+        "id": "C",
+        "text": "584649125"
+      },
+      {
+        "id": "D",
+        "text": "585628125"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "935421 \u00c3\u2014 625 = 935421 \u00c3\u2014 5^4 = 935421 \u00c3\u2014 [10/2]^4 = (935421 \u00c3\u2014 10^4) / 2^4 = 9354210000 / 16 = 584638125"
+  },
+  {
+    "id": 18,
+    "text": "1397 \u00c3\u2014 1397 = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1951609"
+      },
+      {
+        "id": "B",
+        "text": "1981709"
+      },
+      {
+        "id": "C",
+        "text": "18362619"
+      },
+      {
+        "id": "D",
+        "text": "2031719"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "1397 \u00c3\u2014 1397 = (1397)^2 = (1400 \u00e2\u02c6\u2019 3)^2 = (1400)^2 + (3)^2 - (2 \u00c3\u2014 1400 \u00c3\u2014 3)\n= 1960000 + 9 - 8400 = 1960009 - 8400 = 1951609"
+  },
+  {
+    "id": 19,
+    "text": "If the number 481 * 673 is completely divisible by 9, then the smallest whole\nnumber in place of * will be ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Sum of digits = (4 + 8 + 1 + x + 6 + 7 + 3) = (29 + x), which must be divisible by 9.\nx = 7"
+  },
+  {
+    "id": 20,
+    "text": "How many of the following numbers are divisible by 132? 264, 396, 462, 792, 968,\n2178, 5184, 6336",
+    "options": [
+      {
+        "id": "A",
+        "text": "4"
+      },
+      {
+        "id": "B",
+        "text": "5"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "7"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "132 = 4 \u00c3\u2014 3 \u00c3\u2014 11\nSo, if the number divisible by all the three number 4, 3 and 11, then the number is divisible by 132 also.\n264 \u00e2\u0178\u00b6 11, 3, 4 (/)\n396 \u00e2\u0178\u00b6 11, 3, 4 (/)\n462 \u00e2\u0178\u00b6 11, 3 (x)\n792 \u00e2\u0178\u00b6 11, 3, 4 (/)\n968 \u00e2\u0178\u00b6 11, 4 (x)\n2178 \u00e2\u0178\u00b6 11, 3 (x)\n5184 \u00e2\u0178\u00b6 3, 4 (x)\n6336 \u00e2\u0178\u00b6 11, 3, 4 (/)\nTherefore the following numbers are divisible by 132 : 264, 396, 792 and 6336.\nRequired number of number = 4"
+  },
+  {
+    "id": 21,
+    "text": "On dividing a number by 357, we get 39 as remainder. On dividing the same\nnumber by 17, what will be the remainder?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "11"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Let x be the number and y be the quotient. Then,\nx = 357 \u00c3\u2014 y + 39 = (17 \u00c3\u2014 21 \u00c3\u2014 y) + (17 \u00c3\u2014 2) + 5 = 17 \u00c3\u2014 (21y + 2) + 5\nSo, required number = 5"
+  },
+  {
+    "id": 22,
+    "text": "What is the unit digit in [(6374)^1793 \u00c3\u2014 (625)^317 \u00c3\u2014 (341)^491] ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "3"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Unit digit in (6374)^1793 = Unit digit in (4)^1793 = Unit digit in (4^2)^896 \u00c3\u2014 4\n= Unit digit in (6 \u00c3\u2014 4) = 4\nUnit digit in (625)^317 = Unit digit in (5)^317 = 5\nUnit digit in (341)^491 = Unit digit in (1)^491 = 1\nRequired digit = Unit digit in (4 \u00c3\u2014 5 \u00c3\u2014 1) = 0"
+  },
+  {
+    "id": 23,
+    "text": "The difference of the squares of two consecutive odd integers is divisible by which\nof the following integers?",
+    "options": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Let the two consecutive odd integers be (2n + 1) and (2n + 3). Then,\n(2n + 3)^2 - (2n + 1)^2 = (2n + 3 + 2n + 1) (2n + 3 - 2n - 1)\n= (4n + 4) \u00c3\u2014 2 = 8 (n + 1), which is divisible by 8."
+  },
+  {
+    "id": 24,
+    "text": "5358 \u00c3\u2014 51 = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "273258"
+      },
+      {
+        "id": "B",
+        "text": "273268"
+      },
+      {
+        "id": "C",
+        "text": "273348"
+      },
+      {
+        "id": "D",
+        "text": "273358"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "5358 \u00c3\u2014 51 = 5358 \u00c3\u2014 (50 + 1) = 5358 \u00c3\u2014 50 + 5358 \u00c3\u2014 1 = 267900 + 5358 = 273258"
+  },
+  {
+    "id": 25,
+    "text": "Which one of the following numbers will completely divide 3^25 + 3^26 + 3^27 + 3^28",
+    "options": [
+      {
+        "id": "A",
+        "text": "11"
+      },
+      {
+        "id": "B",
+        "text": "16"
+      },
+      {
+        "id": "C",
+        "text": "25"
+      },
+      {
+        "id": "D",
+        "text": "30"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "3^25 + 3^26 + 3^27 + 3^28 = 3^25 \u00c3\u2014 (1 + 3 + 3^2 + 3^3) = 3^25 \u00c3\u2014 40\n= 3^24 \u00c3\u2014 3 \u00c3\u2014 4 \u00c3\u2014 10 = (3^24 \u00c3\u2014 4 \u00c3\u2014 30), which is divisible by 30."
+  },
+  {
+    "id": 26,
+    "text": "The difference of two numbers is 1365. On dividing the larger number by the\nsmaller, we get 6 as quotient and the 15 as remainder. What is the smaller number?",
+    "options": [
+      {
+        "id": "A",
+        "text": "240"
+      },
+      {
+        "id": "B",
+        "text": "270"
+      },
+      {
+        "id": "C",
+        "text": "295"
+      },
+      {
+        "id": "D",
+        "text": "360"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Let the smaller number be x. Then larger number = (x + 1365)\nSo, x + 1365 = 6x + 15\n5x = 1350\nx = 270\nSo, smaller number = 270"
+  },
+  {
+    "id": 27,
+    "text": "The sum of all two digit numbers divisible by 5 is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "1035"
+      },
+      {
+        "id": "B",
+        "text": "1245"
+      },
+      {
+        "id": "C",
+        "text": "1230"
+      },
+      {
+        "id": "D",
+        "text": "945"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "Required numbers are 10, 15, 20, 25 \u00e2\u20ac\u00a6. 95\nThis is an A.P. in which a = 10, d = 5 and L = 95\nLet the number of terms in it be n. Then\nt_n = 95\na + (n - 1) d = 95\n10 + (n - 1) \u00c3\u2014 5 = 95\n(n - 1) \u00c3\u2014 5 = 85\n(n - 1) = 17\nn = 18\nRequired sum = (n/2) * (a + L) = (18/2) * (10 + 95) = (9 \u00c3\u2014 105) = 945"
+  },
+  {
+    "id": 28,
+    "text": "(12)^3 \u00c3\u2014 (6)^4 \u00c3\u00b7 432 = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5184"
+      },
+      {
+        "id": "B",
+        "text": "5060"
+      },
+      {
+        "id": "C",
+        "text": "5148"
+      },
+      {
+        "id": "D",
+        "text": "5084"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "= ((12)^3 \u00c3\u2014 (6)^4) / 432 = ((12)^3 \u00c3\u2014 (6)^4) / (12 \u00c3\u2014 6^2)\n= 12^2 \u00c3\u2014 6^2 = 72^2 = 5184"
+  },
+  {
+    "id": 29,
+    "text": "1904 \u00c3\u2014 1904 = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "3654316"
+      },
+      {
+        "id": "B",
+        "text": "3632646"
+      },
+      {
+        "id": "C",
+        "text": "3625216"
+      },
+      {
+        "id": "D",
+        "text": "3623436"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "1904 \u00c3\u2014 1904 = (1904)^2 = (1900 + 4)^2 = (1900)^2 + 4^2 + 2 \u00c3\u2014 1900 \u00c3\u2014 4 = 3610000 + 16 + 15200 = 3625216"
+  },
+  {
+    "id": 30,
+    "text": "72519 \u00c3\u2014 9999 = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "725117481"
+      },
+      {
+        "id": "B",
+        "text": "674217481"
+      },
+      {
+        "id": "C",
+        "text": "685126481"
+      },
+      {
+        "id": "D",
+        "text": "696217481"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "72519 \u00c3\u2014 9999 = 72519 \u00c3\u2014 (10000 - 1) = 72519 \u00c3\u2014 10000 - 72519 \u00c3\u2014 1 = 725117481"
+  },
+  {
+    "id": 31,
+    "text": "If the number 97215 * 6 is completely divisible by 11, then the smallest whole\nnumber in place of * will be :",
+    "options": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Given number = 97215 * 6\n(6 + 5 + 2 + 9) - (x + 1 + 7) = (14 - x), which must be divisible by 11\nSo, x = 3"
+  },
+  {
+    "id": 32,
+    "text": "Which one of the following numbers is exactly divisible by 11?",
+    "options": [
+      {
+        "id": "A",
+        "text": "235641"
+      },
+      {
+        "id": "B",
+        "text": "245642"
+      },
+      {
+        "id": "C",
+        "text": "315624"
+      },
+      {
+        "id": "D",
+        "text": "415624"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "(4 + 5 + 2) - (1 + 6 + 3) = 1, not divisible by 11\n(2 + 6 + 4) - (4 + 5 + 2) = 1, not divisible by 11\n(4 + 6 + 1) - (2 + 5 + 3) = 1, not divisible by 11\n(4 + 6 + 1) - (2 + 5 + 4) = 0, So, 415624 is divisible by 11."
+  },
+  {
+    "id": 33,
+    "text": "(?) - 19657 - 33994 = 9999",
+    "options": [
+      {
+        "id": "A",
+        "text": "63650"
+      },
+      {
+        "id": "B",
+        "text": "53760"
+      },
+      {
+        "id": "C",
+        "text": "59640"
+      },
+      {
+        "id": "D",
+        "text": "61560"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "(?) - 19657 - 33994 = 9999\nx - (19657 + 33994) = 9999\nx - 53651 = 9999\nx = 9999 + 53651 = 63650"
+  },
+  {
+    "id": 34,
+    "text": "(753^2 + 247^2 - 753 \u00c3\u2014 247) / (753^3 + 247^3) = ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/1000"
+      },
+      {
+        "id": "B",
+        "text": "1/506"
+      },
+      {
+        "id": "C",
+        "text": "253/500"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "Given exp. = (a^2 + b^2 - ab) / (a^3 + b^3) = 1 / (a + b) = 1 / (753 + 247) = 1/1000"
+  },
+  {
+    "id": 35,
+    "text": "The cube root of .000216 is",
+    "options": [
+      {
+        "id": "A",
+        "text": ".6"
+      },
+      {
+        "id": "B",
+        "text": ".06"
+      },
+      {
+        "id": "C",
+        "text": ".006"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "(.000216)^(1/3) = [216/10^6]^(1/3) = [6^3 / (10^2)^3]^(1/3) = 6/100 = 0.06"
+  },
+  {
+    "id": 36,
+    "text": "The largest four digit number which is a perfect cube, is",
+    "options": [
+      {
+        "id": "A",
+        "text": "8000"
+      },
+      {
+        "id": "B",
+        "text": "9261"
+      },
+      {
+        "id": "C",
+        "text": "9999"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "Clearly, 9261 is a perfect cube satisfying the given property."
+  },
+  {
+    "id": 37,
+    "text": "What is the square root of 0.16?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.004"
+      },
+      {
+        "id": "B",
+        "text": "0.04"
+      },
+      {
+        "id": "C",
+        "text": "0.4"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "\u00e2\u02c6\u01610.16 = \u00e2\u02c6\u0161(16/100) = 4/10 = 0.4"
+  },
+  {
+    "id": 38,
+    "text": "What number should be divided by \u00e2\u02c6\u01610.25 to give the results as 25?",
+    "options": [
+      {
+        "id": "A",
+        "text": "12.5"
+      },
+      {
+        "id": "B",
+        "text": "25"
+      },
+      {
+        "id": "C",
+        "text": "50"
+      },
+      {
+        "id": "D",
+        "text": "125"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "x / \u00e2\u02c6\u01610.25 = 25 => x / 0.5 = 25 => x = 25 \u00c3\u2014 0.5 = 12.5"
+  },
+  {
+    "id": 39,
+    "text": "By what least number 675 be multiplied to obtain a number which is a perfect cube?",
+    "options": [
+      {
+        "id": "A",
+        "text": "5"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "675 = 5 \u00c3\u2014 5 \u00c3\u2014 3 \u00c3\u2014 3 \u00c3\u2014 3\nTo make it a perfect cube, it must be multiplied by 5."
+  },
+  {
+    "id": 40,
+    "text": "Find the smallest number by which 5808 should be multiplied so that the product\nbecomes a perfect square?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "7"
+      },
+      {
+        "id": "D",
+        "text": "11"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "5808 = 2^2 \u00c3\u2014 2^2 \u00c3\u2014 3 \u00c3\u2014 11^2\nTo make it a perfect square, it must be multiplied by 3."
+  },
+  {
+    "id": 41,
+    "text": "(\u00e2\u02c6\u0161.081 \u00c3\u2014 .484) / (\u00e2\u02c6\u0161.0064 \u00c3\u2014 6.25) is equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.9"
+      },
+      {
+        "id": "B",
+        "text": "0.99"
+      },
+      {
+        "id": "C",
+        "text": "9"
+      },
+      {
+        "id": "D",
+        "text": "99"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "\u00e2\u02c6\u0161(0.081 \u00c3\u2014 0.484) / \u00e2\u02c6\u0161(0.0064 \u00c3\u2014 6.25) = (0.09 * 0.22) / (0.08 * 2.5) = 0.99"
+  },
+  {
+    "id": 42,
+    "text": "If a = 0.1039, then the value of \u00e2\u02c6\u0161(4a^2 - 4a + 1) + 3a is",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.1039"
+      },
+      {
+        "id": "B",
+        "text": "0.2078"
+      },
+      {
+        "id": "C",
+        "text": "1.1039"
+      },
+      {
+        "id": "D",
+        "text": "2.1039"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "\u00e2\u02c6\u0161(4a^2 - 4a + 1) + 3a = \u00e2\u02c6\u0161(1 - 2a)^2 + 3a = (1 - 2a) + 3a = 1 + a = 1.1039"
+  },
+  {
+    "id": 43,
+    "text": "\u00e2\u02c6\u016150 \u00c3\u2014 \u00e2\u02c6\u016198 is equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "63.75"
+      },
+      {
+        "id": "B",
+        "text": "65.95"
+      },
+      {
+        "id": "C",
+        "text": "70"
+      },
+      {
+        "id": "D",
+        "text": "70.25"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "\u00e2\u02c6\u016150 \u00c3\u2014 \u00e2\u02c6\u016198 = \u00e2\u02c6\u0161(50 \u00c3\u2014 98) = \u00e2\u02c6\u01614900 = 70"
+  },
+  {
+    "id": 44,
+    "text": "If x * y = x + y + \u00e2\u02c6\u0161xy then the value of 6 * 24 is",
+    "options": [
+      {
+        "id": "A",
+        "text": "41"
+      },
+      {
+        "id": "B",
+        "text": "42"
+      },
+      {
+        "id": "C",
+        "text": "43"
+      },
+      {
+        "id": "D",
+        "text": "44"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "6 * 24 = 6 + 24 + \u00e2\u02c6\u0161(6 \u00c3\u2014 24) = 30 + 12 = 42"
+  },
+  {
+    "id": 45,
+    "text": "A group of students decided to collect as many paise from each member of the\ngroup as is the number of members. If the total collection amounts to Rs.59.29, the\nnumber of members in the group is",
+    "options": [
+      {
+        "id": "A",
+        "text": "57"
+      },
+      {
+        "id": "B",
+        "text": "67"
+      },
+      {
+        "id": "C",
+        "text": "77"
+      },
+      {
+        "id": "D",
+        "text": "87"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "Number of members = \u00e2\u02c6\u01615929 = 77"
+  },
+  {
+    "id": 46,
+    "text": "If \u00e2\u02c6\u01615 = 2.236, then the value of 1/\u00e2\u02c6\u01615 is",
+    "options": [
+      {
+        "id": "A",
+        "text": ".367"
+      },
+      {
+        "id": "B",
+        "text": ".447"
+      },
+      {
+        "id": "C",
+        "text": ".745"
+      },
+      {
+        "id": "D",
+        "text": "Data inadequate"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "1/\u00e2\u02c6\u01615 = \u00e2\u02c6\u01615/5 = 2.236/5 = 0.447"
+  },
+  {
+    "id": 47,
+    "text": "(\u00e2\u02c6\u0161625 / 11) \u00c3\u2014 (14 / \u00e2\u02c6\u016125) \u00c3\u2014 (11 / \u00e2\u02c6\u0161196) is equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "5"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "8"
+      },
+      {
+        "id": "D",
+        "text": "11"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "(25/11) \u00c3\u2014 (14/5) \u00c3\u2014 (11/14) = 5"
+  },
+  {
+    "id": 48,
+    "text": "If 2 * 3 = \u00e2\u02c6\u016112 and 3 * 4 = 5, then the value of 5 * 12 is",
+    "options": [
+      {
+        "id": "A",
+        "text": "13"
+      },
+      {
+        "id": "B",
+        "text": "15"
+      },
+      {
+        "id": "C",
+        "text": "18"
+      },
+      {
+        "id": "D",
+        "text": "21"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "a * b = \u00e2\u02c6\u0161(a^2 + b^2) = \u00e2\u02c6\u0161(5^2 + 12^2) = \u00e2\u02c6\u0161169 = 13"
+  },
+  {
+    "id": 49,
+    "text": "The least prefect square, which is divisible by each of 21, 36 and 66 is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "213444"
+      },
+      {
+        "id": "B",
+        "text": "214344"
+      },
+      {
+        "id": "C",
+        "text": "214434"
+      },
+      {
+        "id": "D",
+        "text": "231444"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "LCM of 21, 36 and 66 = 2772 = 2^2 \u00c3\u2014 3^2 \u00c3\u2014 7 \u00c3\u2014 11\nRequired number = 2^2 \u00c3\u2014 3^2 \u00c3\u2014 7^2 \u00c3\u2014 11^2 = 213444"
+  },
+  {
+    "id": 50,
+    "text": "If 3\u00e2\u02c6\u01615 + \u00e2\u02c6\u0161125 = 17.88, then what will be the value of \u00e2\u02c6\u016180 + 6\u00e2\u02c6\u01615 ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "13.41"
+      },
+      {
+        "id": "B",
+        "text": "20.46"
+      },
+      {
+        "id": "C",
+        "text": "21.66"
+      },
+      {
+        "id": "D",
+        "text": "22.35"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "D",
+    "explanation": "3\u00e2\u02c6\u01615 + 5\u00e2\u02c6\u01615 = 17.88 => 8\u00e2\u02c6\u01615 = 17.88 => \u00e2\u02c6\u01615 = 2.235\n\u00e2\u02c6\u016180 + 6\u00e2\u02c6\u01615 = 4\u00e2\u02c6\u01615 + 6\u00e2\u02c6\u01615 = 10\u00e2\u02c6\u01615 = 22.35"
+  },
+  {
+    "id": 51,
+    "text": "If x = (\u00e2\u02c6\u01613 + 1) / (\u00e2\u02c6\u01613 - 1) and y = (\u00e2\u02c6\u01613 - 1) / (\u00e2\u02c6\u01613 + 1), then the value of (x^2 + y^2) is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "10"
+      },
+      {
+        "id": "B",
+        "text": "13"
+      },
+      {
+        "id": "C",
+        "text": "14"
+      },
+      {
+        "id": "D",
+        "text": "15"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "C",
+    "explanation": "x = (\u00e2\u02c6\u01613+1)^2 / 2 = 2 + \u00e2\u02c6\u01613\ny = (\u00e2\u02c6\u01613-1)^2 / 2 = 2 - \u00e2\u02c6\u01613\nx^2 + y^2 = (2+\u00e2\u02c6\u01613)^2 + (2-\u00e2\u02c6\u01613)^2 = 2(4+3) = 14"
+  },
+  {
+    "id": 52,
+    "text": "The square root of (7 + 3\u00e2\u02c6\u01615) (7 - 3\u00e2\u02c6\u01615) is",
+    "options": [
+      {
+        "id": "A",
+        "text": "\u00e2\u02c6\u01615"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "3\u00e2\u02c6\u01615"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "\u00e2\u02c6\u0161(7^2 - (3\u00e2\u02c6\u01615)^2) = \u00e2\u02c6\u0161(49 - 45) = 2"
+  },
+  {
+    "id": 53,
+    "text": "\u00e2\u02c6\u01610.0169 \u00c3\u2014 ? = 1.3",
+    "options": [
+      {
+        "id": "A",
+        "text": "10"
+      },
+      {
+        "id": "B",
+        "text": "100"
+      },
+      {
+        "id": "C",
+        "text": "1000"
+      },
+      {
+        "id": "D",
+        "text": "10000"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "\u00e2\u02c6\u01610.0169 \u00c3\u2014 x = 1.3 => 0.0169x = 1.69 => x = 100"
+  },
+  {
+    "id": 54,
+    "text": "\u00e2\u02c6\u016181 + \u00e2\u02c6\u01610.81 = 10.09 - x",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.019"
+      },
+      {
+        "id": "B",
+        "text": "0.19"
+      },
+      {
+        "id": "C",
+        "text": "0.9"
+      },
+      {
+        "id": "D",
+        "text": "0.109"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "B",
+    "explanation": "9 + 0.9 = 10.09 - x => x = 0.19"
+  },
+  {
+    "id": 55,
+    "text": "What is the smallest number by which 3600 be divided to make it a perfect cube?",
+    "options": [
+      {
+        "id": "A",
+        "text": "450"
+      },
+      {
+        "id": "B",
+        "text": "445"
+      },
+      {
+        "id": "C",
+        "text": "440"
+      },
+      {
+        "id": "D",
+        "text": "430"
+      },
+      {
+        "id": "E",
+        "text": "None of these"
+      }
+    ],
+    "answer": "A",
+    "explanation": "3600 = 2^3 * 2 * 5^2 * 3^2. Divid by (2 * 5^2 * 3^2) = 450."
+  }
+]

@@ -188,21 +188,6 @@ const Home = () => {
             20%  { left:120%; }
             100% { left:120%; }
           }
-          @keyframes draw-underline {
-            0%, 7% { stroke-dashoffset: 212; opacity: 0; }
-            7% { opacity: 1; }
-            95% { stroke-dashoffset: 0; opacity: 1; }
-            100% { stroke-dashoffset: 0; opacity: 0; }
-          }
-          @keyframes marker-move {
-            0% { transform: translate(0, 0) rotate(-10deg); opacity: 0; }
-            5% { transform: translate(0, 0) rotate(-10deg); opacity: 1; }
-            27.5% { transform: translate(53px, -3px) rotate(5deg); }
-            50% { transform: translate(106px, 2px) rotate(-5deg); }
-            72.5% { transform: translate(159px, -4px) rotate(5deg); }
-            95% { transform: translate(212px, -2px) rotate(10deg); opacity: 1; }
-            100% { transform: translate(212px, -2px) rotate(10deg); opacity: 0; }
-          }
         `}</style>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 flex items-center gap-2 sm:gap-3 h-9 sm:h-10">
           <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 28, marginRight: 16 }}>
@@ -368,23 +353,8 @@ const Home = () => {
               </p>
               <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
                 Prepare Better. Achieve Your{' '}
-                <em style={{ position: 'relative', display: 'inline-block', fontStyle: 'normal', background: 'linear-gradient(to right, #FFC107, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <em style={{ position: 'relative', display: 'inline-block', fontStyle: 'normal', color: '#FFC107' }}>
                   Goals Faster.
-                  <img
-                    src="https://img.icons8.com/color/48/pen.png"
-                    alt=""
-                    style={{
-                      position: 'absolute',
-                      left: -24,
-                      bottom: -12,
-                      width: 32,
-                      height: 32,
-                      zIndex: 20,
-                      pointerEvents: 'none',
-                      animation: 'marker-move 3s linear infinite',
-                      transformOrigin: 'bottom right'
-                    }}
-                  />
                   {/* Marker-style curved underline */}
                   <svg
                     aria-hidden="true"
@@ -399,12 +369,7 @@ const Home = () => {
                       strokeWidth="4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      style={{
-                        opacity: 0.85,
-                        strokeDasharray: 212,
-                        strokeDashoffset: 212,
-                        animation: 'draw-underline 3s linear infinite'
-                      }}
+                      style={{ opacity: 0.85 }}
                     />
                     {/* Second slightly offset stroke for marker thickness effect */}
                     <path
@@ -414,17 +379,11 @@ const Home = () => {
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      style={{
-                        opacity: 0.45,
-                        strokeDasharray: 212,
-                        strokeDashoffset: 212,
-                        animation: 'draw-underline 3s linear infinite'
-                      }}
+                      style={{ opacity: 0.45 }}
                     />
                   </svg>
                 </em>
               </h1>
-
               <p className={`text-[15px] md:text-[16px] mb-8 max-w-2xl leading-relaxed ${muted}`} style={bodyFont}>
                 Practice aptitude questions, prepare for government exams, learn programming, and stay updated with daily current affairs - all in one platform built for students preparing for competitive exams and technical careers.
               </p>

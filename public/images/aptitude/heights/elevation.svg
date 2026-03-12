@@ -1,0 +1,41 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Grid (Subtle) -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="white"/>
+  <rect width="400" height="300" fill="url(#grid)"/>
+
+  <!-- Ground Line -->
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Triangle ABC -->
+  <!-- B is root of tower, A is top, C is observer -->
+  <path d="M 300 250 L 300 100 L 100 250 Z" fill="#eff6ff" stroke="#3b82f6" stroke-width="3" stroke-linejoin="round"/>
+  
+  <!-- Right Angle Symbol -->
+  <path d="M 300 240 L 290 240 L 290 250" stroke="#3b82f6" stroke-width="2" fill="none"/>
+
+  <!-- Points and Labels -->
+  <circle cx="300" cy="100" r="4" fill="#1e40af"/> <!-- A -->
+  <circle cx="300" cy="250" r="4" fill="#1e40af"/> <!-- B -->
+  <circle cx="100" cy="250" r="4" fill="#1e40af"/> <!-- C -->
+
+  <text x="310" y="95" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">A (Top)</text>
+  <text x="310" y="265" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">B (Foot)</text>
+  <text x="70" y="265" fill="#1e40af" font-family="Arial" font-size="14" font-weight="bold">C (Eye)</text>
+
+  <!-- Angle Mark -->
+  <path d="M 130 250 A 30 30 0 0 0 126 231" stroke="#2563eb" stroke-width="2" fill="none"/>
+  <text x="135" y="240" fill="#2563eb" font-family="Arial" font-size="12" font-weight="bold">θ</text>
+  
+  <!-- Labels -->
+  <text x="140" y="285" fill="#64748b" font-family="Arial" font-size="12" font-style="italic">Angle of Elevation (θ)</text>
+  <text x="310" y="175" fill="#64748b" font-family="Arial" font-size="12" text-anchor="start">Tower / Height</text>
+  <text x="200" y="265" fill="#64748b" font-family="Arial" font-size="12" text-anchor="middle">Distance</text>
+  
+  <!-- Line of sight label -->
+  <text x="180" y="160" fill="#64748b" font-family="Arial" font-size="12" transform="rotate(-37, 180, 160)">Line of Sight</text>
+</svg>

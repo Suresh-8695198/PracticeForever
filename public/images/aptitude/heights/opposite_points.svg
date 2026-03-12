@@ -1,0 +1,32 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="white"/>
+  
+  <!-- Bridge/Plane Altitude -->
+  <line x1="50" y1="100" x2="350" y2="100" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+  <circle cx="200" cy="100" r="5" fill="#ef4444"/> <!-- Observer -->
+  <text x="200" y="85" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="12" font-weight="bold">Observer</text>
+
+  <!-- River and Banks -->
+  <rect x="50" y="240" width="300" height="10" fill="#3b82f6" opacity="0.3"/> <!-- River water -->
+  <line x1="50" y1="240" x2="350" y2="240" stroke="#cbd5e1" stroke-width="2"/> <!-- Ground -->
+  
+  <circle cx="100" cy="240" r="4" fill="#1e40af"/> <!-- Bank B -->
+  <circle cx="320" cy="240" r="4" fill="#1e40af"/> <!-- Bank C -->
+  <text x="100" y="260" text-anchor="middle" font-family="Arial" font-size="12">Bank 1</text>
+  <text x="320" y="260" text-anchor="middle" font-family="Arial" font-size="12">Bank 2</text>
+
+  <!-- Lines of Sight -->
+  <line x1="200" y1="100" x2="100" y2="240" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="200" y1="100" x2="320" y2="240" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Altitude Line -->
+  <line x1="200" y1="100" x2="200" y2="240" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="210" y="170" fill="#64748b" font-family="Arial" font-size="12">Height (H)</text>
+
+  <!-- Depression Angles -->
+  <path d="M 160 100 A 40 40 0 0 0 168 122" stroke="#e11d48" stroke-width="2" fill="none"/>
+  <text x="145" y="130" fill="#e11d48" font-family="Arial" font-size="10" font-weight="bold">30°</text>
+  
+  <path d="M 240 100 A 40 40 0 0 1 232 122" stroke="#e11d48" stroke-width="2" fill="none"/>
+  <text x="235" y="130" fill="#e11d48" font-family="Arial" font-size="10" font-weight="bold">45°</text>
+</svg>

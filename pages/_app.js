@@ -5,6 +5,7 @@ import { StreakProvider } from '../context/StreakContext';
 import { ThemeProvider } from '../context/ThemeContext';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
+import ScrollToTop from '../components/common/ScrollToTop';
 import Head from 'next/head';
 
 import dynamic from 'next/dynamic';
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps, router }) {
                     <Component {...pageProps} />
                   </main>
                   {!isAdminPath && <Footer />}
+                  {!isAdminPath && <ScrollToTop />}
                 </div>
               </StreakProvider>
             </ProgressProvider>
