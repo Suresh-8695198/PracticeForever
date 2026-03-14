@@ -189,7 +189,7 @@ const AptitudePage = () => {
                       }
                     }}
                   >
-                    <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex items-center gap-3 min-w-0 flex-1 pr-2">
                       <div className="shrink-0 w-6 h-6 transition-transform group-hover:scale-110">
                         <img 
                           src="https://img.icons8.com/3d-fluency/94/folder-invoices.png" 
@@ -197,12 +197,14 @@ const AptitudePage = () => {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <span 
-                        className="topic-span text-[14px] font-medium tracking-tight whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 group-hover:translate-x-1 keep-color"
-                        style={{ ...bodyFont }}
-                      >
-                        {topic}
-                      </span>
+                      <div className="flex items-center gap-1.5 transition-all duration-300 group-hover:translate-x-1 min-w-0">
+                        <span 
+                          className="topic-span text-[14px] font-medium tracking-tight truncate keep-color"
+                          style={{ ...bodyFont }}
+                        >
+                          {topic}
+                        </span>
+                      </div>
                     </div>
                     <ChevronRight 
                       size={14} 

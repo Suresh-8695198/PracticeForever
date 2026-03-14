@@ -41,23 +41,23 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
     @apply bg-light-bg text-light-text;
   }
 
-  /* Force black text in light mode */
-  body.light h1:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light h2:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light h3:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light h4:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light h5:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light h6:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light p:not(#admin-right-panel *):not(.force-white):not(.keep-color),
-  body.light span:not(.text-primary-yellow):not(.text-yellow):not(.text-accent-success):not(.text-accent-error):not(.text-accent-warning):not(.text-accent-info):not(#admin-right-panel *):not([class*="highlight-"]):not(.force-white):not(.keep-color) {
+  /* Force black text in light mode, but gracefully skip elements with explicit Tailwind text classes */
+  body.light h1:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light h2:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light h3:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light h4:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light h5:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light h6:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light p:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
+  body.light span:not(#admin-right-panel *):not(#nav-mega-sidebar *):not([class*="highlight-"]):not(.force-white):not(.keep-color):not([class*="text-"]) {
     color: #000000 !important;
   }
 
-  body.light .text-dark-text:not(#admin-right-panel *) {
+  body.light .text-dark-text:not(#admin-right-panel *):not([class*="text-"]) {
     color: #000000 !important;
   }
 
-  body.light .text-dark-text-secondary:not(#admin-right-panel *) {
+  body.light .text-dark-text-secondary:not(#admin-right-panel *):not([class*="text-"]) {
     color: #495057 !important;
   }
 
@@ -506,4 +506,74 @@ body {
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+/* ── TILTED CARD CSS ── */
+.tilted-card-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-card-mobile-alert {
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tilted-card-caption {
+    display: none;
+  }
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+.tilted-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(30px);
+}
+
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #2d2d2d;
+  opacity: 0;
+  z-index: 3;
 }

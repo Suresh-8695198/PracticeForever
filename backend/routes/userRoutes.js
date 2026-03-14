@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/userModel');
 const Progress = require('../models/progressModel');
-const { protect } = require('../middleware/authMiddleware');
+const { verifyToken: protect } = require('../middleware/authMiddleware');
 
 // Get Profile for Logged In User
 router.get('/profile', protect, async (req, res) => {

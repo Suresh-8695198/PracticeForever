@@ -10,6 +10,7 @@ const aptitudeRoutes = require('./routes/aptitudeRoutes');
 const mockTestRoutes = require('./routes/mockTestRoutes');
 const userRoutes = require('./routes/userRoutes');
 const progressRoutes = require('./routes/progressRoutes');
+const managementRoutes = require('./routes/managementRoutes');
 
 const app = express();
 

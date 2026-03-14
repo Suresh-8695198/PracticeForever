@@ -8,7 +8,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useSession, signIn, signOut as nextSignOut } from 'next-auth/react';
 import {
     Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight,
-    User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper,
+    User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper, RotateCcw,
     // Category icons
     Landmark, Brain, Terminal, Mic, Rss, Timer, Library, Feather, Handshake, Package,
     // Government Exam subs

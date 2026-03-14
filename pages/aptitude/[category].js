@@ -2,13 +2,14 @@ import React, { useState, useMemo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronRight, Search, ArrowLeft, ArrowRight, BookOpen, Clock, 
   Hash, LayoutGrid, Calculator, Brain, Languages, PieChart, Shapes, CircleHelp, Wand2,
-  Command
+  Command, RotateCcw
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { topicData } from '../../data/aptitude';
 
 const aptitudeCatalog = {
   'quantitative': {
@@ -112,13 +113,104 @@ const CategoryPage = () => {
   const { isDark } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [isExploreHovered, setIsExploreHovered] = useState(false);
+  const [progressData, setProgressData] = useState({});
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
   const data = useMemo(() => aptitudeCatalog[category] || aptitudeCatalog['quantitative'], [category]);
 
+  React.useEffect(() => {
+    if (!data || !data.topics) return;
+    
+    const newProgress = {};
+    
+    const shuffleArray = (array, seed = 0) => {
+      const shuffled = [...array];
+      let seedNum = typeof seed === 'string' ? 
+        seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) : seed;
+
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(((seedNum * (i + 1)) % 100) / 100 * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        seedNum = (seedNum * 9301 + 49297) % 233280;
+      }
+      return shuffled;
+    };
+
+    const getCorrectAnswer = (q) => {
+      if (!q.options) return q.answer;
+      const correctOpt = q.options.find(o => o.id === q.answer);
+      const shuffled = shuffleArray(q.options, q.id || q.text);
+      let newAnswer = q.answer;
+      shuffled.forEach((opt, idx) => {
+        if (opt === correctOpt) newAnswer = String.fromCharCode(65 + idx);
+      });
+      return newAnswer;
+    };
+
+    data.topics.forEach(topic => {
+      const topicSlug = topic.toLowerCase().replace(/\s+/g, '-');
+      const key = topicSlug.toLowerCase();
+      const spacedKey = topicSlug.replace(/-/g, ' ').toLowerCase();
+      const tData = topicData[key] || topicData[spacedKey] || [];
+      const baseData = Array.isArray(tData) ? { questions: tData, theory: [] } : tData;
+      const questions = baseData.questions || [];
+      
+      let total = 0;
+      let solved = 0;
+      
+      const flatQuestions = questions.reduce((acc, q) => {
+        if (q.type === 'passage-group' && q.subQuestions) {
+          total += q.subQuestions.length;
+          return [...acc, ...q.subQuestions];
+        }
+        total += 1;
+        return [...acc, q];
+      }, []);
+
+      let localAttempts = {};
+      try {
+        const stored = localStorage.getItem(`progress_${topicSlug}`);
+        if (stored) {
+          localAttempts = JSON.parse(stored);
+        }
+      } catch(e) {}
+
+      if (total > 0) {
+        flatQuestions.forEach(q => {
+          const attempts = localAttempts[q.id] || [];
+          const ans = getCorrectAnswer(q);
+          if (attempts.includes(ans)) {
+            solved++;
+          }
+        });
+      }
+      
+      newProgress[topicSlug] = { solved, total };
+    });
+    
+    setProgressData(newProgress);
+  }, [category, data]);
+
+  const confirmResetCategory = async () => {
+    setIsResetting(true);
+    // Add small delay for perception
+    await new Promise(resolve => setTimeout(resolve, 600));
+    
+    data.topics.forEach(topic => {
+      const topicSlug = topic.toLowerCase().replace(/\s+/g, '-');
+      localStorage.removeItem(`progress_${topicSlug}`);
+    });
+    
+    setProgressData({});
+    setShowResetModal(false);
+    setIsResetting(false);
+  };
+
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f8fafc] text-gray-900';
   const borderColor = isDark ? 'border-gray-800' : 'border-gray-100';
-  const headFont = { fontFamily: 'Outfit, sans-serif' };
-  const bodyFont = { fontFamily: 'Outfit, sans-serif' };
+  const headFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
+  const bodyFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
 
   const filteredTopics = data.topics.filter(topic => 
     topic.toLowerCase().includes(searchQuery.toLowerCase())
@@ -128,9 +220,63 @@ const CategoryPage = () => {
 
   return (
     <div className={`min-h-screen pt-24 pb-20 ${bg}`} style={bodyFont}>
+      {/* Professional Reset Confirmation Modal */}
+      <AnimatePresence>
+        {showResetModal && (
+          <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowResetModal(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-[400px] bg-white dark:bg-[#121212] rounded-[32px] overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5"
+              style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
+            >
+              <div className="p-8 flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-3xl bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center mb-6">
+                  <RotateCcw size={32} className="text-rose-500" strokeWidth={2.5} />
+                </div>
+                
+                <h3 className="text-[24px] font-black text-gray-900 dark:text-white mb-3 tracking-tight">Reset Category?</h3>
+                <p className="text-[14px] text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8">
+                  This will permanently clear your progress for all topics in <span className="text-rose-500 font-bold uppercase tracking-wider text-[12px]">{data.title}</span>. This action cannot be undone.
+                </p>
+                
+                <div className="flex flex-col w-full gap-3">
+                  <button 
+                    onClick={confirmResetCategory}
+                    disabled={isResetting}
+                    className="h-14 w-full bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-2xl font-black text-[15px] transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+                  >
+                    {isResetting ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      "Confirm Reset"
+                    )}
+                  </button>
+                  
+                  <button 
+                    onClick={() => setShowResetModal(false)}
+                    className="h-14 w-full bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 rounded-2xl font-bold text-[14px] transition-all active:scale-[0.98]"
+                  >
+                    Keep My Progress
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <Head>
         <title>{data.title} - Prep Guide | Career Platform</title>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -286,14 +432,47 @@ const CategoryPage = () => {
               </p>
             </div>
           </div>
+
+          <div className="flex flex-wrap items-center gap-4 text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider bg-gray-50/80 dark:bg-[#141414] px-4 py-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <div className="flex items-center gap-2">
+              <img src="https://img.icons8.com/3d-fluency/94/like--v3.png" alt="Fully Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
+              <span>Fully Completed</span>
+            </div>
+            <div className="hidden sm:block w-px h-3.5 bg-gray-200 dark:bg-gray-800"></div>
+            <div className="flex items-center gap-2">
+              <img src="https://img.icons8.com/3d-fluency/94/like--v8.png" alt="Partially Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
+              <span>Partially Completed</span>
+            </div>
+            <div className="hidden sm:block w-px h-3.5 bg-gray-200 dark:bg-gray-800"></div>
+            <button 
+              onClick={() => setShowResetModal(true)}
+              className="flex items-center gap-1.5 text-rose-500 hover:text-rose-600 transition-colors"
+            >
+              <RotateCcw size={13} strokeWidth={2.5} />
+              <span>Reset All Progress</span>
+            </button>
+          </div>
         </div>
 
         {/* Topics List - Premium & Consistent Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-2">
-          {filteredTopics.map((topic, index) => (
+          {filteredTopics.map((topic, index) => {
+            const topicSlug = topic.toLowerCase().replace(/\s+/g, '-');
+            const topicProgress = progressData[topicSlug] || { solved: 0, total: 0 };
+            const isCompleted = topicProgress.total > 0 && topicProgress.solved === topicProgress.total;
+            const isPartiallyCompleted = topicProgress.total > 0 && topicProgress.solved > 0 && topicProgress.solved < topicProgress.total;
+            
+            let heartIcon = null;
+            if (isCompleted) {
+              heartIcon = "https://img.icons8.com/3d-fluency/94/like--v3.png";
+            } else if (isPartiallyCompleted) {
+              heartIcon = "https://img.icons8.com/3d-fluency/94/like--v8.png";
+            }
+
+            return (
             <Link 
               key={topic} 
-              href={`/aptitude/${category}/${topic.toLowerCase().replace(/\s+/g, '-')}`}
+              href={`/aptitude/${category}/${topicSlug}`}
               className="group flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800 transition-all duration-300"
               onMouseEnter={(e) => {
                 const span = e.currentTarget.querySelector('.topic-span');
@@ -316,7 +495,7 @@ const CategoryPage = () => {
                 }
               }}
             >
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex items-center gap-3 min-w-0 flex-1 pr-2">
                 <div className="shrink-0 w-6 h-6 transition-transform group-hover:scale-110 duration-300">
                   <img 
                     src="https://img.icons8.com/3d-fluency/94/folder-invoices.png" 
@@ -324,20 +503,34 @@ const CategoryPage = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span 
-                  className="topic-span text-[14px] font-medium tracking-tight whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 group-hover:translate-x-1 keep-color"
-                  style={{ ...bodyFont }}
-                >
-                  {topic}
-                </span>
+                <div className="flex items-center gap-1.5 transition-all duration-300 group-hover:translate-x-1 min-w-0">
+                  <span 
+                    className="topic-span text-[14px] font-medium tracking-tight truncate keep-color"
+                    style={{ ...bodyFont }}
+                  >
+                    {topic}
+                  </span>
+                </div>
               </div>
-              <ChevronRight 
-                size={14} 
-                className="shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                style={{ color: data.color }}
-              />
+              <div className="flex items-center gap-2 shrink-0">
+                {heartIcon && (
+                  <div className="flex items-center justify-center relative w-5 h-5">
+                    <img 
+                      src={heartIcon} 
+                      alt="Progress" 
+                      className="w-full h-full object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                )}
+                <ChevronRight 
+                  size={14} 
+                  className="shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                  style={{ color: data.color }}
+                />
+              </div>
             </Link>
-          ))}
+          );
+          })}
         </div>
 
         {/* Section Navigation */}
@@ -348,7 +541,7 @@ const CategoryPage = () => {
             </div>
             <h2 
               className="text-xl md:text-3xl font-bold tracking-tight" 
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}
             >
               <span className="text-black dark:text-white keep-color">Back to </span>
               <span className="text-blue-600 dark:text-blue-400 keep-color">Aptitude Catalog</span>

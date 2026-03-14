@@ -9,7 +9,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -97,7 +97,15 @@ const HIGHLIGHT_MAP = {
     "firefly checklist": "highlight-green",
     "West Asia": "highlight-purple",
     "Responsible AI": "highlight-teal",
-    "endemic": "highlight-orange"
+    "endemic": "highlight-orange",
+    "Economic Stabilisation Fund": "highlight-blue",
+    "Nirmala Sitharaman": "highlight-yellow",
+    "KC-135": "highlight-blue",
+    "Nitish Kumar": "highlight-yellow",
+    "Samrat Choudhary": "highlight-yellow",
+    "Freedom of Religion Bill": "highlight-teal",
+    "Mamata Banerjee": "highlight-yellow",
+    "Marathi": "highlight-orange"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -177,6 +185,16 @@ const extractMCQs = (content) => {
             options = ["92 species", "50 species", "120 species", "75 species"];
         } else if (qLow.includes('petroleum') || qLow.includes('crude oil')) {
             options = ["Hardeep Singh Puri", "Amit Shah", "Nirmala Sitharaman", "S. Jaishankar"];
+        } else if (qLow.includes('stabilisation fund')) {
+            options = ["₹57,381 crore", "₹25,000 crore", "₹1,00,000 crore", "₹10,000 crore"];
+        } else if (qLow.includes('freedom of religion bill')) {
+            options = ["Up to 10 years and ₹7 lakh fine", "Up to 5 years and ₹2 lakh fine", "Up to 3 years and ₹1 lakh fine", "Life imprisonment"];
+        } else if (qLow.includes('development boards')) {
+            options = ["Munda, Kora, Dom, Kumbhakar, Sadgope", "Santhal, Bhil, Gond, Oraon, Munda", "Toto, Rabha, Mech, Lepcha, Garo", "Bhumij, Lodha, Mahali, Savar, Bediya"];
+        } else if (qLow.includes('successor')) {
+            options = ["Samrat Choudhary", "Tejashwi Yadav", "Vijay Kumar Sinha", "Sushil Kumar Modi"];
+        } else if (qLow.includes('aircraft crashed')) {
+            options = ["U.S. KC-135", "Boeing 737", "F-16 Fighter", "Airbus A320"];
         } else {
             options = [answerText.substring(0, 30), "Policy changes", "Economic growth", "Institutional reforms"];
         }
@@ -216,7 +234,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-13');
+    const [selectedDate, setSelectedDate] = useState('2026-03-14');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -305,7 +323,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);

@@ -211,14 +211,16 @@ const QuestionPage = () => {
   };
 
   const confirmResetTopic = async () => {
-    if (!session?.user?.backendId || !topic) return;
+    if (!topic) return;
     
     setIsResetting(true);
     try {
-      await axios.delete(`${API_BASE}/api/progress/${session.user.backendId}/${topic}`);
+      if (session?.user?.backendId) {
+        await axios.delete(`${API_BASE}/api/progress/${session.user.backendId}/${topic}`);
+      }
       
       setAttempts({});
-      if (topic) localStorage.removeItem(`progress_${topic}`);
+      localStorage.removeItem(`progress_${topic}`);
       
       setShowResetModal(false);
     } catch (error) {
@@ -518,7 +520,7 @@ const QuestionPage = () => {
             }
             if (!part.trim()) return null;
             return (
-              <p key={i} className="text-[14px] leading-relaxed font-bold text-gray-800 dark:text-gray-200 whitespace-pre-line">
+              <p key={i} className="text-[16px] leading-relaxed font-medium text-gray-800 dark:text-gray-200 whitespace-pre-line">
                 {formatText(part)}
               </p>
             );
@@ -528,7 +530,7 @@ const QuestionPage = () => {
     }
 
     return (
-      <p className="text-[14px] leading-relaxed font-bold text-gray-800 dark:text-gray-200 whitespace-pre-line">
+      <p className="text-[16px] leading-relaxed font-medium text-gray-800 dark:text-gray-200 whitespace-pre-line">
         {formatText(content)}
       </p>
     );
@@ -699,15 +701,23 @@ const QuestionPage = () => {
             </div>
 
             <div className="relative z-10 flex items-center gap-5 w-full sm:w-auto">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 flex-shrink-0">
-                <img src="https://img.icons8.com/isometric/100/checked-checkbox.png" className="w-8 h-8" alt="Sync" />
+              <div className="flex-shrink-0">
+                <img src="https://img.icons8.com/isometric/100/checked-checkbox.png" className="w-10 h-10 drop-shadow-sm" alt="Sync" />
               </div>
               <div>
                 <p className="text-[10.5px] font-extrabold uppercase tracking-[0.15em] mb-1 keep-color text-emerald-800 dark:text-emerald-400">
                   Cloud Backup Enabled
                 </p>
-                <p className="text-[16px] font-bold text-rose-600 dark:text-rose-400 tracking-tight keep-color" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                  Continuity active for <span className="underline decoration-rose-500/30 decoration-2 underline-offset-4">{session.user.name}</span>
+                <p 
+                  className="text-[16px] font-extrabold tracking-tight drop-shadow-sm" 
+                  style={{ fontFamily: "'Manrope', sans-serif" }}
+                >
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-500">
+                    Continuity active for
+                  </span>{' '}
+                  <span className="text-gray-900 dark:text-white underline decoration-rose-500/40 decoration-[3px] underline-offset-4">
+                    {session.user.name}
+                  </span>
                 </p>
               </div>
             </div>
@@ -932,7 +942,7 @@ const QuestionPage = () => {
                                   </div>
                                </div>
 
-                               <div className="text-[16px] font-bold text-black dark:text-gray-100 leading-relaxed pl-8 border-l-4 border-blue-500/20">
+                               <div className="text-[16px] font-medium text-gray-800 dark:text-gray-200 leading-relaxed pl-8 border-l-4 border-blue-500/20">
                                   <MarkdownContent content={currentSub.text} />
                                </div>
 
@@ -953,12 +963,12 @@ const QuestionPage = () => {
                                        onClick={() => handleOptionClick(currentSub.id, opt.id, currentSub.answer)}
                                        className={`flex items-center gap-3 py-1.5 group transition-all text-left ${isSubSolved && !hasAttempted ? "opacity-30 cursor-default" : "cursor-pointer"}`}
                                      >
-                                       <div className={`w-7 h-7 shrink-0 rounded-full border-2 flex items-center justify-center text-[12.5px] font-black transition-colors ${dotColor}`}>
+                                       <div className={`w-8 h-8 shrink-0 rounded-full border-2 flex items-center justify-center text-[13.5px] font-black transition-colors ${dotColor}`}>
                                           {opt.id}
                                        </div>
                                        <span 
-                                         className="text-[15px] font-black leading-snug transition-all underline-offset-4 group-hover:underline"
-                                         style={{ color: hasAttempted ? (isCorrect ? '#059669' : '#dc2626') : (isDark ? '#94a3b8' : '#64748b') }}
+                                         className="text-[16px] font-medium leading-snug transition-all underline-offset-4 group-hover:underline"
+                                         style={{ color: hasAttempted ? (isCorrect ? '#059669' : '#dc2626') : (isDark ? '#94a3b8' : '#000000') }}
                                        >
                                          {opt.text}
                                        </span>
@@ -971,7 +981,7 @@ const QuestionPage = () => {
                                   <div className="flex items-center gap-4">
                                      <button 
                                        onClick={() => toggleExplanation(currentSub.id)}
-                                       className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all ${openExplanations[currentSub.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"}`}
+                                       className={`px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider font-sans flex items-center gap-2 transition-all ${openExplanations[currentSub.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700"}`}
                                      >
                                         <Lightbulb size={12} /> {openExplanations[currentSub.id] ? "Hide Solution" : "View Solution"}
                                      </button>
@@ -979,7 +989,7 @@ const QuestionPage = () => {
                                      {isSubSolved && !isLastSub && (
                                        <button 
                                          onClick={() => setSubIndices(prev => ({ ...prev, [q.id]: subIdx + 1 }))}
-                                         className="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest bg-blue-600 text-white flex items-center gap-2 animate-bounce"
+                                         className="px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider font-sans bg-blue-600 text-white flex items-center gap-2 animate-bounce"
                                        >
                                          Next Sub-Question <ChevronRight size={12} />
                                        </button>
@@ -1004,7 +1014,7 @@ const QuestionPage = () => {
                                    >
                                      <div className="p-5 bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 rounded-xl">
                                         <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">Explanation</h4>
-                                        <p className="text-[14px] font-bold text-gray-700 dark:text-gray-300">{currentSub.explanation}</p>
+                                        <p className="text-[16px] font-medium text-gray-700 dark:text-gray-300 leading-relaxed">{currentSub.explanation}</p>
                                      </div>
                                    </motion.div>
                                  )}
@@ -1016,8 +1026,8 @@ const QuestionPage = () => {
                     ) : (
                       <>
                         <div className="mb-4">
-                          <div className="text-[16px] font-bold text-black dark:text-gray-100 leading-relaxed flex items-start">
-                            <span className="mr-3 text-black/30 font-black">{qNum}.</span>
+                          <div className="text-[16px] font-medium text-gray-800 dark:text-gray-200 leading-relaxed flex items-start">
+                            <span className="mr-3">{qNum}.</span>
                             <div className="flex flex-col gap-4 w-full">
                               <MarkdownContent content={q.text} />
                               {q.image && (
@@ -1068,17 +1078,17 @@ const QuestionPage = () => {
                                   initial={false}
                                   animate={hasAttempted ? { scale: [0.8, 1.1, 1], rotate: isCorrect ? [0, -10, 0] : [0, 10, 0] } : { scale: 1 }}
                                   transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-                                  className={`w-7 h-7 shrink-0 rounded-full border-2 flex items-center justify-center text-[12.5px] font-bold transition-colors ${dotColor}`}
+                                  className={`w-8 h-8 shrink-0 rounded-full border-2 flex items-center justify-center text-[13.5px] font-bold transition-colors ${dotColor}`}
                                 >
                                   {opt.id}
                                 </motion.div>
                                 <div className="flex flex-col gap-2 flex-1">
                                   <span 
-                                    className="text-[15px] font-semibold leading-snug transition-all decoration-1 underline-offset-4 group-hover:underline"
+                                    className="text-[16px] font-medium leading-snug transition-all decoration-1 underline-offset-4 group-hover:underline"
                                     style={{ 
                                       color: hasAttempted 
                                         ? (isCorrect ? '#059669' : '#dc2626') 
-                                        : (isDark ? '#94a3b8' : '#64748b') 
+                                        : (isDark ? '#94a3b8' : '#000000') 
                                     }}
                                   >
                                     {opt.text}
@@ -1098,10 +1108,10 @@ const QuestionPage = () => {
                         <div className="flex items-center justify-between pl-8">
                           <div className="flex items-center gap-4">
                             <motion.button 
-                              whileHover={{ scale: 1.02, backgroundColor: '#000', color: '#fff' }}
+                              whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                               onClick={() => toggleExplanation(q.id)}
-                              className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-[0.15em] flex items-center gap-2 transition-all border border-transparent ${openExplanations[q.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm"}`}
+                              className={`px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider font-sans flex items-center gap-2 transition-all border border-transparent ${openExplanations[q.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700 shadow-sm"}`}
                             >
                               <Lightbulb size={12} className={openExplanations[q.id] ? "text-yellow-400" : ""} /> {openExplanations[q.id] ? "Hide Solution" : "View Solution"}
                             </motion.button>
@@ -1148,7 +1158,7 @@ const QuestionPage = () => {
                                 <h4 className="flex items-center gap-2 text-[10px] font-black text-[#0284c7] dark:text-[#7dd3fc] uppercase tracking-[0.2em] mb-3 border-b border-[#bae6fd] dark:border-white/10 pb-2">
                                    Explanation
                                 </h4>
-                                <div className="text-[15px] leading-relaxed font-bold text-black dark:text-gray-200 whitespace-pre-line mb-4">
+                                <div className="text-[16px] leading-relaxed font-medium text-black dark:text-gray-200 whitespace-pre-line mb-4">
                                   {formatText(q.explanation)}
                                 </div>
                                 {q.explanationImage && (
@@ -1291,10 +1301,10 @@ const QuestionPage = () => {
                 </form>
 
                 {/* Page Counter (Ultra Clear & Fully Responsive) */}
-                <div className="force-white keep-color !text-white px-6 sm:px-10 h-11 flex items-center bg-[#1a1a1a] rounded-full border border-white/20 shadow-lg w-full sm:w-auto justify-center" style={{ color: '#ffffff', fontFamily: 'Outfit, sans-serif' }}>
-                  <span className="force-white keep-color !text-white text-[18px] sm:text-[22px] font-black tracking-tighter" style={{ color: '#ffffff' }}>{currentPage}</span>
-                  <span className="mx-4 sm:mx-6 force-white keep-color !text-white font-bold text-[12px] sm:text-[14px] uppercase tracking-[0.1em]" style={{ color: '#ffffff' }}>OF</span>
-                  <span className="force-white keep-color !text-white text-[18px] sm:text-[22px] font-black tracking-tighter" style={{ color: '#ffffff' }}>{totalPages}</span>
+                <div className="force-white keep-color !text-white px-6 sm:px-10 h-11 flex items-center bg-[#1a1a1a] rounded-full border border-white/20 shadow-lg w-full sm:w-auto justify-center" style={{ color: '#ffffff' }}>
+                  <span className="force-white keep-color !text-white text-[18px] sm:text-[20px] font-bold font-sans" style={{ color: '#ffffff' }}>{currentPage}</span>
+                  <span className="mx-4 sm:mx-6 force-white keep-color !text-white font-semibold font-sans text-[12px] sm:text-[13px] uppercase tracking-wider" style={{ color: '#ffffff' }}>OF</span>
+                  <span className="force-white keep-color !text-white text-[18px] sm:text-[20px] font-bold font-sans" style={{ color: '#ffffff' }}>{totalPages}</span>
                 </div>
               </div>
             </div>

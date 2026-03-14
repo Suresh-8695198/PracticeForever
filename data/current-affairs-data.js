@@ -1,3 +1,172 @@
+export const MARCH_14_ARTICLE = {
+    id: 14032026,
+    title: "Daily Current Affairs – 14 March 2026",
+    publish_date: "2026-03-14",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Centre Creates ₹57,381 Crore Economic Stabilisation Fund</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Union Government announced the creation of an Economic Stabilisation Fund worth ₹57,381 crore to address global economic shocks.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Finance Minister Nirmala Sitharaman announced the fund in the Lok Sabha.</li>
+                <li>The allocation is part of the Second Supplementary Demand for Grants, with Lok Sabha approving ₹2.01 lakh crore additional cash spending.</li>
+                <li>The government aims to maintain the fiscal deficit target for 2025-26 despite additional spending.</li>
+                <li>The fund will provide fiscal space to respond to global economic crises, supply chain disruptions, and sector-specific economic shocks.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>The fund helps India maintain economic stability during global uncertainties such as oil price shocks and geopolitical conflicts.</p>
+            </div>
+        </div>
+        <img src="/images/economic_stabilisation_fund_mar14.png" alt="Economic Stabilisation Fund" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. U.S. Refuelling Aircraft Crash in Iraq Kills Six Crew Members</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A U.S. KC-135 refuelling aircraft crashed in Iraq, killing all six crew members.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The aircraft crash occurred during operations linked to the ongoing Iran-related conflict.</li>
+                <li>The U.S. military stated the crash was not caused by hostile fire, despite earlier claims from Iran-aligned groups suggesting a missile attack.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Global Impact</strong>
+                <p>The incident highlights the growing military tensions in West Asia and their potential impact on global security.</p>
+            </div>
+        </div>
+        <img src="/images/us_aircraft_crash_iraq_mar14.png" alt="US Aircraft Crash Iraq" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Nitish Kumar Signals Samrat Choudhary as Possible Successor</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Bihar Chief Minister Nitish Kumar hinted that Deputy CM Samrat Choudhary may succeed him as Chief Minister.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The statement was made during a public event in Saharsa, Bihar.</li>
+                <li>Nitish Kumar publicly asked people to support Samrat Choudhary.</li>
+                <li>The move has sparked widespread speculation about an imminent leadership transition in Bihar politics.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>The statement could significantly influence future political alignments in Bihar and impact the strategy for upcoming elections.</p>
+            </div>
+        </div>
+        <img src="/images/nitish_kumar_successor_mar14.png" alt="Nitish Kumar Successor" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Maharashtra Introduces Freedom of Religion Bill 2026</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Maharashtra government introduced the Freedom of Religion Bill, 2026 in the State Assembly.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The Bill prohibits religious conversion through coercion, fraud, inducement, or marriage.</li>
+                <li>Punishment for violations may include up to 10 years imprisonment and a ₹7 lakh fine.</li>
+                <li>Any marriage performed solely for unlawful conversion may be declared null and void.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>The Bill adds to a growing number of strict anti-conversion laws passed by several Indian states in recent years.</p>
+            </div>
+        </div>
+        <img src="/images/maharashtra_religion_bill_mar14.png" alt="Maharashtra Freedom of Religion Bill" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Mamata Banerjee Announces Development Boards for Marginalised Communities</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>West Bengal Chief Minister Mamata Banerjee announced the creation of development boards for five marginalised communities.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The included communities are Munda (ST), Kora (ST), Dom (SC), Kumbhakar (OBC), and Sadgope (OBC).</li>
+                <li>The objective is to improve education, healthcare, employment opportunities, and protection of cultural traditions for these groups.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Political Significance</strong>
+                <p>The move is seen as politically significant ahead of the upcoming West Bengal Assembly elections to consolidate support among marginalised groups.</p>
+            </div>
+        </div>
+        <img src="/images/mamata_banerjee_boards_mar14.png" alt="Mamata Banerjee Development Boards" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Maharashtra Warns Schools to Teach Marathi</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Maharashtra government warned that failure to teach Marathi from Classes 1–10 could lead to cancellation of school recognition.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The rule applies strictly to all schools, including those following international boards.</li>
+                <li>The government will conduct inspections based on complaints.</li>
+                <li>Schools will first be given a chance to comply before strict action is taken.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>The stringent policy aims to preserve and promote the regional language and culture within the state's education system.</p>
+            </div>
+        </div>
+        <img src="/images/maharashtra_marathi_schools_mar14.png" alt="Maharashtra Schools Marathi" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">7. India’s First Firefly Species Checklist Highlights Biodiversity</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Researchers released India’s first comprehensive checklist of fireflies, highlighting significant biodiversity.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The study documented 92 species across 27 genera.</li>
+                <li>More than 60% of these species are endemic to India.</li>
+                <li>The study analysed scientific records spanning from 1881 to 2025.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Scientific Impact</strong>
+                <p>The research strengthens biodiversity conservation efforts and provides a foundation for future ecological studies in India.</p>
+            </div>
+        </div>
+        <img src="/images/firefly_biodiversity_mar14.png" alt="Firefly Biodiversity" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Centre creates ₹57,381 crore Economic Stabilisation Fund to handle global shocks.</li>
+        <li>U.S. KC-135 refuelling aircraft crashes in Iraq, killing six crew members.</li>
+        <li>Bihar CM Nitish Kumar hints at Deputy CM Samrat Choudhary as his successor.</li>
+        <li>Maharashtra introduces Freedom of Religion Bill 2026 to curb forced conversions.</li>
+        <li>West Bengal announces development boards for five marginalised ST/SC/OBC communities.</li>
+        <li>Maharashtra warns schools of derecognition if Marathi is not taught up to Class 10.</li>
+        <li>India’s first firefly biodiversity checklist is published, documenting 92 species.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What is the Economic Stabilisation Fund announced by India?</h4>
+    <p>The Economic Stabilisation Fund is a ₹57,381-crore reserve created by the Indian government to manage global economic shocks, supply disruptions, and financial instability.</p>
+
+    <h4>2. What is the Maharashtra Freedom of Religion Bill 2026?</h4>
+    <p>The Bill aims to prevent forced or fraudulent religious conversions, with penalties including up to 10 years imprisonment and fines up to ₹7 lakh.</p>
+
+    <h4>3. Which marginal communities were included in Mamata Banerjee's new development boards?</h4>
+    <p>The boards include the Munda (ST), Kora (ST), Dom (SC), Kumbhakar (OBC), and Sadgope (OBC) communities.</p>
+
+    <h4>4. Who did Bihar CM Nitish Kumar hint as his possible successor?</h4>
+    <p>He signaled that Deputy Chief Minister Samrat Choudhary may succeed him as Chief Minister.</p>
+
+    <h4>5. What aircraft crashed in Iraq according to the latest reports?</h4>
+    <p>A U.S. KC-135 refuelling aircraft crashed in Iraq, resulting in the deaths of six crew members.</p>
+</div>
+`
+};
+
 export const MARCH_13_ARTICLE = {
     id: 0,
     title: "Daily Current Affairs – 13 March 2026",
