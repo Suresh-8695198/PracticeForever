@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#fef2f2"/>
+  
+  <!-- Top Box (Positive Concept) -->
+  <rect x="70" y="30" width="60" height="60" rx="10" fill="white" stroke="#ef4444" stroke-width="3"/>
+  <text x="100" y="65" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#dc2626">+</text>
+  
+  <!-- Opposing Arrows -->
+  <path d="M100 100 V120 M90 110 L100 120 L110 110" stroke="#ef4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 100 V80 M90 90 L100 80 L110 90" stroke="#ef4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Bottom Box (Negative Concept) -->
+  <rect x="70" y="110" width="60" height="60" rx="10" fill="white" stroke="#ef4444" stroke-width="3"/>
+  <text x="100" y="145" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#dc2626">-</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="40" cy="160" r="5" fill="#fca5a5"/>
+  <circle cx="160" cy="40" r="5" fill="#fca5a5"/>
+</svg>

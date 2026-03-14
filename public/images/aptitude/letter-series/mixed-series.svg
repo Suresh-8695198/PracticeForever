@@ -1,0 +1,28 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pencil { font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: 800; font-size: 40px; }
+    .letter { fill: #1e40af; }
+    .number { fill: #b45309; }
+    .scratch { stroke: #d1d5db; stroke-width: 1.5; }
+  </style>
+  
+  <!-- Scribble background -->
+  <path d="M20 30 L380 40 M10 210 L390 220" stroke="#f3f4f6" stroke-width="10" />
+  
+  <g transform="translate(60, 100)">
+    <path d="M-20 -30 Q20 -40 50 0 Q40 40 -10 30 Q-40 20 -20 -30" fill="none" stroke="#9ca3af" stroke-width="2" />
+    <text x="-5" y="10" class="pencil"><tspan class="letter">A</tspan><tspan class="number">1</tspan></text>
+  </g>
+  
+  <g transform="translate(180, 110)">
+    <path d="M-20 -30 Q20 -40 50 0 Q40 40 -10 30 Q-40 20 -20 -30" fill="none" stroke="#9ca3af" stroke-width="2" />
+    <text x="-5" y="10" class="pencil"><tspan class="letter">B</tspan><tspan class="number">2</tspan></text>
+  </g>
+  
+  <g transform="translate(300, 100)">
+    <path d="M-20 -30 Q20 -40 50 0 Q40 40 -10 30 Q-40 20 -20 -30" fill="none" stroke="#9ca3af" stroke-width="2" />
+    <text x="-5" y="10" class="pencil"><tspan class="letter">C</tspan><tspan class="number">3</tspan></text>
+  </g>
+  
+  <path d="M100 110 L150 115 M220 115 L270 110" stroke="#4b5563" stroke-width="2" stroke-linecap="round" />
+</svg>

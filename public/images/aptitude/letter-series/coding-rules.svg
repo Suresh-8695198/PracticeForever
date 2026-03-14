@@ -1,0 +1,27 @@
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="200" rx="10" fill="#f0f9ff" />
+  <text x="30" y="35" font-family="Arial" font-size="18" font-weight="bold" fill="#0369a1">Conditional Coding Rules</text>
+  
+  <rect x="30" y="55" width="540" height="120" rx="5" fill="#ffffff" stroke="#bae6fd" />
+  
+  <g font-family="Arial" font-size="13" fill="#334155">
+    <text x="50" y="80">(i) Consonant - Vowel → Interchange first &amp; last codes</text>
+    <text x="50" y="105">(ii) Consonant - Consonant → Both = Code of last letter</text>
+    <text x="50" y="130">(iii) Vowel - Consonant → Reverse the entire word code</text>
+    <text x="50" y="155">(iv) Vowel - Vowel → Both = Code of first letter</text>
+  </g>
+  
+  <g transform="translate(450, 70)">
+    <circle cx="20" cy="20" r="15" fill="#3b82f6" fill-opacity="0.1" stroke="#3b82f6" stroke-dasharray="4" />
+    <text x="20" y="25" text-anchor="middle" font-weight="bold" fill="#3b82f6">C</text>
+    <path d="M 40 20 L 60 20" stroke="#3b82f6" stroke-width="2" marker-end="url(#blue-arrow)" />
+    <circle cx="80" cy="20" r="15" fill="#ef4444" fill-opacity="0.1" stroke="#ef4444" stroke-dasharray="4" />
+    <text x="80" y="25" text-anchor="middle" font-weight="bold" fill="#ef4444">V</text>
+  </g>
+  
+  <defs>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#f0f9ff"/>
+  
+  <!-- Sentence Line -->
+  <line x1="40" y1="80" x2="160" y2="80" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Gap/Selection area -->
+  <rect x="75" y="70" width="50" height="20" rx="4" fill="white" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 4"/>
+  
+  <!-- Cursor/Finger point -->
+  <path d="M100 130 L100 100 M90 110 L100 100 L110 110" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Floating Options -->
+  <rect x="40" y="140" width="40" height="20" rx="4" fill="#bae6fd"/>
+  <rect x="90" y="140" width="40" height="20" rx="4" fill="#0ea5e9"/>
+  <rect x="140" y="140" width="40" height="20" rx="4" fill="#bae6fd"/>
+  
+  <!-- Checkmark for chosen word -->
+  <path d="M105 145 L110 150 L120 140" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

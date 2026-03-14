@@ -1,0 +1,26 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#eff6ff"/>
+  
+  <!-- Structure Blocks -->
+  <rect x="30" y="60" width="30" height="30" rx="4" fill="#3b82f6"/>
+  <text x="45" y="82" text-anchor="middle" font-family="Arial" font-weight="900" font-size="18" fill="white">S</text>
+  
+  <rect x="70" y="60" width="30" height="30" rx="4" fill="#60a5fa"/>
+  <text x="85" y="82" text-anchor="middle" font-family="Arial" font-weight="900" font-size="18" fill="white">V</text>
+  
+  <rect x="110" y="60" width="30" height="30" rx="4" fill="#93c5fd"/>
+  <text x="125" y="82" text-anchor="middle" font-family="Arial" font-weight="900" font-size="18" fill="white">O</text>
+  
+  <rect x="150" y="60" width="20" height="30" rx="4" fill="#bfdbfe"/>
+  <text x="160" y="82" text-anchor="middle" font-family="Arial" font-weight="900" font-size="18" fill="white">A</text>
+  
+  <!-- Connecting line -->
+  <path d="M30 110 H170" stroke="#374151" stroke-width="2" stroke-dasharray="4 4"/>
+  
+  <!-- Transformation Arrow -->
+  <path d="M40 140 H160" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M150 130 L160 140 L150 150" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Floating labels -->
+  <text x="100" y="170" text-anchor="middle" font-family="Arial" font-size="14" fill="#3b82f6" font-weight="600">Affirmative → Negative</text>
+</svg>

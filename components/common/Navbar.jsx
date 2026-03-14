@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
+import { useSession, signIn, signOut as nextSignOut } from 'next-auth/react';
 import {
     Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight,
     User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper,
@@ -422,8 +423,42 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
 //  NAVBAR
 // ─────────────────────────────────────────────
 const Navbar = () => {
-    const { user, logout, isAuthenticated } = useAuth();
+    const { user: authUser, logout: authLogout, isAuthenticated: authIsAuthenticated } = useAuth();
+    const { data: session } = useSession();
     const { isDark, toggleTheme } = useTheme();
+    
+    // Normalize user data
+    const user = session?.user || authUser;
+    const isAuthenticated = !!session || authIsAuthenticated;
+    const logout = () => {
+        if (session) nextSignOut();
+        authLogout();
+    };
+
+    const handleResetAll = async () => {
+        if (!isAuthenticated || !user) return;
+        if (!confirm('WARNING: This will permanently delete ALL your solved questions progress across every topic. Are you sure?')) return;
+
+        try {
+            if (session?.user?.backendId) {
+                await axios.delete(`http://localhost:5000/api/progress/${session.user.backendId}`);
+            }
+            
+            // Clear all progress storage
+            const keys = Object.keys(localStorage);
+            keys.forEach(key => {
+                if (key.startsWith('progress_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+
+            alert('All progress has been fully reset.');
+            window.location.reload(); // Refresh to reflect changes
+        } catch (error) {
+            console.error("Failed to reset all progress:", error);
+            alert('Store clear failed. Please check connection.');
+        }
+    };
     const router = useRouter();
     const location = { pathname: router.pathname };
 
@@ -619,39 +654,66 @@ const Navbar = () => {
                             <div className='relative ml-1'>
                                 <button
                                     onClick={() => setProfileOpen(p => !p)}
-                                    className={`flex items-center gap-2 h-9 px-2 rounded-lg border transition-colors ${isDark ? 'border-[#2a2a2a] hover:border-[#444] text-gray-200' : 'border-gray-200 hover:border-gray-300 text-gray-700'
+                                    className={`flex items-center gap-2 h-10 px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
                                         }`}
                                 >
-                                    <div className='w-6 h-6 rounded-full bg-[#FFC107] text-black font-bold text-xs flex items-center justify-center'>
-                                        {user?.name?.charAt(0)?.toUpperCase() || 'U'}
-                                    </div>
-                                    <span className='hidden md:block text-[13px] font-medium'>{user?.name?.split(' ')[0]}</span>
-                                    <ChevronDown size={13} className={`transition-transform ${profileOpen ? 'rotate-180' : ''}`} />
+                                    {user?.image ? (
+                                        <img src={user.image} alt={user.name} className="w-7 h-7 rounded-full border border-white/20" />
+                                    ) : (
+                                        <div className='w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-black text-[11px] flex items-center justify-center'>
+                                            {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                                        </div>
+                                    )}
+                                    <span className='hidden lg:block text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
+                                    <ChevronDown size={14} className={`transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 <AnimatePresence>
                                     {profileOpen && (
                                         <motion.div
-                                            initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: 4, scale: 0.97 }}
-                                            transition={{ duration: 0.12 }}
-                                            className={`absolute right-0 top-full mt-2 w-52 rounded-xl border shadow-xl overflow-hidden z-[400] ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-200'
+                                            initial={{ opacity: 0, y: 12, scale: 0.95, filter: 'blur(10px)' }}
+                                            animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                                            exit={{ opacity: 0, y: 8, scale: 0.95, filter: 'blur(10px)' }}
+                                            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                            className={`absolute right-0 top-full mt-3 w-64 rounded-2xl border overflow-hidden z-[400] backdrop-blur-xl ${isDark ? 'bg-[#141414]/90 border-white/10' : 'bg-white border-gray-200'
                                                 }`}
                                         >
-                                            <div className={`px-4 py-3 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                                <p className={`text-[13px] font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
-                                                <p className='text-[11px] text-gray-500 truncate'>{user?.email}</p>
+                                            <div className={`px-5 py-4 border-b flex items-center gap-4 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
+                                                {user?.image ? (
+                                                    <img src={user.image} alt={user.name} className="w-10 h-10 rounded-full border-2 border-white/20" />
+                                                ) : (
+                                                    <div className='w-10 h-10 rounded-full bg-amber-500 text-black font-black flex items-center justify-center text-lg'>
+                                                        {user?.name?.charAt(0)}
+                                                    </div>
+                                                )}
+                                                <div className="flex flex-col min-w-0">
+                                                    <p className={`text-[15px] font-black tracking-tight truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
+                                                    <p className='text-[11px] text-gray-500 font-medium truncate opacity-70'>{user?.email}</p>
+                                                </div>
                                             </div>
-                                            <div className='p-1.5 flex flex-col gap-0.5'>
-                                                <Link href='/dashboard' className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-700 hover:bg-gray-50'}`}>
-                                                    <LayoutDashboard size={15} /> Dashboard
-                                                </Link>
-                                                <Link href='/profile' className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-700 hover:bg-gray-50'}`}>
-                                                    <User size={15} /> My Profile
-                                                </Link>
-                                                <div className={`my-1 h-px ${isDark ? 'bg-[#222]' : 'bg-gray-100'}`} />
-                                                <button onClick={logout} className={`flex items-center gap-2.5 px-3 py-2 text-[13px] rounded-lg text-red-500 ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}>
-                                                    <LogOut size={15} /> Sign Out
+                                            <div className='p-2 flex flex-col gap-1'>
+                                                { [
+                                                    { label: 'My Dashboard', href: '/dashboard', Icon: LayoutDashboard },
+                                                    { label: 'Personal Profile', href: '/profile', Icon: User },
+                                                    { label: 'Weekly Stats', href: '/dashboard', Icon: Trophy },
+                                                ].map((item) => (
+                                                    <Link key={item.label} href={item.href} className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl transition-all ${isDark ? 'text-gray-300 hover:bg-white/10 hover:text-white' : 'text-gray-700 hover:bg-gray-100'}`}>
+                                                        <item.Icon size={17} className="opacity-70" /> {item.label}
+                                                    </Link>
+                                                ))}
+                                                
+                                                <button 
+                                                    onClick={handleResetAll} 
+                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-orange-600 dark:text-orange-400 transition-all ${isDark ? 'hover:bg-orange-500/10' : 'hover:bg-orange-50'}`}
+                                                >
+                                                    <RotateCcw size={17} className="opacity-70" /> Reset All Progress
+                                                </button>
+
+                                                <div className={`my-2 h-px ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
+                                                <button 
+                                                    onClick={logout} 
+                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-black rounded-xl text-red-500 transition-all ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}
+                                                >
+                                                    <LogOut size={17} /> Sign Out
                                                 </button>
                                             </div>
                                         </motion.div>
@@ -660,11 +722,16 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className='flex items-center gap-2 ml-1'>
-                                <Link href='/login' className={`hidden sm:flex h-9 px-4 items-center text-[13px] font-semibold rounded-lg border whitespace-nowrap transition-all duration-150 ${isDark
-                                    ? 'border-[#333] text-gray-300 hover:border-[#FFC107]/50 hover:text-[#FFC107] hover:bg-[#FFC107]/5'
-                                    : 'border-gray-300 text-gray-600 hover:border-[#FFC107] hover:text-[#c49000] hover:bg-amber-50'
-                                    }`}>Log In</Link>
-                                <Link href='/register' className='h-9 px-4 flex items-center text-[13px] font-semibold rounded-lg text-black transition-all duration-150 hover:scale-[1.03] hover:shadow-md' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
+                                <button 
+                                    onClick={() => signIn('google')}
+                                    className={`hidden lg:flex h-10 px-4 items-center gap-3 text-[13px] font-black rounded-xl border transition-all duration-300 ${isDark
+                                    ? 'border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 hover:border-white/20'
+                                    : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
+                                    }`}>
+                                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-4 h-4" alt="Google" />
+                                    Google Log In
+                                </button>
+                                <Link href='/register' className='h-10 px-5 flex items-center text-[13px] font-black rounded-xl text-black transition-all duration-300 hover:scale-[1.02] active:scale-95' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
                                     Register
                                 </Link>
                             </div>

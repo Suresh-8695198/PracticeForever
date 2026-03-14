@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import AdminLayout from '../../../components/admin/AdminLayout';
-import api from '../../../utils/api';
+import api, { API_BASE_URL } from '../../../utils/api';
 import { useTheme } from '../../../context/ThemeContext';
 import {
     Save, ArrowLeft, Image as ImageIcon, Calendar,
@@ -71,7 +71,7 @@ export default function CreateCurrentAffairs() {
             });
 
             if (res.data.success) {
-                const imageUrl = `http://localhost:5000${res.data.data.url}`;
+                const imageUrl = `${API_BASE_URL}${res.data.data.url}`;
                 setFormData(prev => ({ ...prev, featured_image: imageUrl }));
                 showToast('Image uploaded successfully!');
             }

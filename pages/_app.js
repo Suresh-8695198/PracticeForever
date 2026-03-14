@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../components/common/ElectricBorder.css';
 import { AuthProvider } from '../context/AuthContext';
 import { ProgressProvider } from '../context/ProgressContext';
 import { StreakProvider } from '../context/StreakContext';
@@ -15,7 +16,9 @@ const DynamicWrapper = dynamic(() => Promise.resolve(NonSSRWrapper), {
   ssr: false,
 });
 
-function MyApp({ Component, pageProps, router }) {
+import { SessionProvider } from "next-auth/react";
+
+function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
   const isAdminPath = router.pathname.startsWith('/admin');
 
   return (
@@ -25,22 +28,24 @@ function MyApp({ Component, pageProps, router }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <DynamicWrapper>
-        <ThemeProvider>
-          <AuthProvider>
-            <ProgressProvider>
-              <StreakProvider>
-                <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isAdminPath ? 'bg-black' : ''}`}>
-                  {!isAdminPath && <Navbar />}
-                  <main className="flex-1">
-                    <Component {...pageProps} />
-                  </main>
-                  {!isAdminPath && <Footer />}
-                  {!isAdminPath && <ScrollToTop />}
-                </div>
-              </StreakProvider>
-            </ProgressProvider>
-          </AuthProvider>
-        </ThemeProvider>
+        <SessionProvider session={session}>
+          <ThemeProvider>
+            <AuthProvider>
+              <ProgressProvider>
+                <StreakProvider>
+                  <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isAdminPath ? 'bg-black' : ''}`}>
+                    {!isAdminPath && <Navbar />}
+                    <main className="flex-1">
+                      <Component {...pageProps} />
+                    </main>
+                    {!isAdminPath && <Footer />}
+                    {!isAdminPath && <ScrollToTop />}
+                  </div>
+                </StreakProvider>
+              </ProgressProvider>
+            </AuthProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </DynamicWrapper>
     </>
   );

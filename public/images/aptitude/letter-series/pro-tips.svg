@@ -1,0 +1,20 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .note-text { font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 38px; font-weight: 900; fill: #111827; }
+    .highlight { stroke: #fde047; stroke-width: 15; stroke-linecap: round; opacity: 0.5; }
+    .underline { stroke: #ef4444; stroke-width: 3; stroke-linecap: round; }
+    .star { fill: #f59e0b; }
+  </style>
+  
+  <rect x="30" y="30" width="340" height="190" fill="#fffdf2" stroke="#e5e7eb" stroke-width="2" />
+  
+  <line x1="60" y1="130" x2="330" y2="135" class="highlight" />
+  <text x="70" y="125" class="note-text">E J O T Y</text>
+  <line x1="70" y1="140" x2="280" y2="145" class="underline" />
+  
+  <text x="90" y="180" font-family="cursive" font-size="16" fill="#4b5563">5 - 10 - 15 - 20 - 25</text>
+  
+  <!-- Little star doodles -->
+  <path d="M340 50 L345 60 L355 60 L347 67 L350 77 L340 72 L330 77 L333 67 L325 60 L335 60 Z" class="star" />
+  <path d="M50 50 L55 60 L65 60 L57 67 L60 77 L50 72 L40 77 L43 67 L35 60 L45 60 Z" class="star" opacity="0.5" />
+</svg>

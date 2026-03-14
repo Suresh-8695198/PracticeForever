@@ -1,3 +1,175 @@
+export const MARCH_13_ARTICLE = {
+    id: 0,
+    title: "Daily Current Affairs – 13 March 2026",
+    publish_date: "2026-03-13",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. India’s Crude Oil Supply Secure Amid West Asia Crisis</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Union Government assured Parliament that India’s crude oil supply remains secure despite the ongoing conflict in West Asia.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Petroleum Minister Hardeep Singh Puri addressed the Lok Sabha regarding rumours of fuel shortages.</li>
+                <li>The government prioritised cooking gas supply for over 33 crore households.</li>
+                <li>Oil Marketing Companies will allocate 20% of monthly commercial LPG requirements to prevent hoarding and black marketing.</li>
+                <li>The government warned against rumours and misinformation regarding fuel shortages.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>The conflict in West Asia has disrupted global energy markets, making India’s energy security and fuel supply management crucial.</p>
+            </div>
+        </div>
+        <img src="/images/india_oil_security_mar13.png" alt="India Oil Security" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Iran’s Supreme Leader Warns of Closing the Strait of Hormuz</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Iran’s new Supreme Leader Ayatollah Mojtaba Khamenei warned that Iran could block the Strait of Hormuz amid escalating tensions in West Asia.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Iran demanded reparations for war damage and called for closure of U.S. bases in neighbouring Arab countries.</li>
+                <li>Iran warned that blocking the Strait of Hormuz could be used as leverage.</li>
+                <li>The Strait of Hormuz is one of the most important global oil shipping routes.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Strategic Importance</strong>
+                <p>Any disruption in the Strait of Hormuz can cause global oil price spikes and economic instability, as a large share of global petroleum trade passes through it.</p>
+            </div>
+        </div>
+        <img src="/images/strait_of_hormuz_warning_mar13.png" alt="Strait of Hormuz Warning" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. President’s Office Rejects TMC Request for Meeting</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The President’s Secretariat declined a request from the Trinamool Congress (TMC) to meet President Droupadi Murmu due to time constraints.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>TMC leaders sought a meeting to discuss tribal welfare programmes in West Bengal.</li>
+                <li>The issue follows controversy during the President’s visit to West Bengal, where she reportedly expressed dissatisfaction over protocol arrangements.</li>
+                <li>The episode highlights political tensions between the Centre and the West Bengal government.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Background</strong>
+                <p>During the International Santal Conference in Siliguri, the President had expressed concerns about protocol arrangements during her visit.</p>
+            </div>
+        </div>
+        <img src="/images/president_meeting_rejection_mar13.png" alt="President Meeting Rejection" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Supreme Court Says Income Alone Cannot Determine OBC Creamy Layer</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Supreme Court ruled that parental income alone cannot determine the creamy layer status of OBC candidates; other social and service-related criteria must be considered.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The creamy layer concept excludes economically and socially advanced OBC individuals from reservation benefits.</li>
+                <li>The ruling affects reservation policies and OBC eligibility criteria in India.</li>
+                <li>The Court clarified that the assessment should be holistic, not just based on finance.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Important Concept</strong>
+                <p>The creamy layer exclusion ensures that reservation benefits reach those who are truly socially and economically disadvantaged.</p>
+            </div>
+        </div>
+        <img src="/images/obc_creamy_layer_ruling_mar13.png" alt="OBC Creamy Layer Ruling" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Supreme Court Grants Bail to Separatist Leader Shabir Ahmad Shah</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Supreme Court granted bail to Jammu & Kashmir separatist leader Shabir Ahmad Shah in a terror funding case, citing prolonged incarceration.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Shah was arrested in 2017 by the National Investigation Agency (NIA).</li>
+                <li>The Court cited irregularities in trial proceedings and the long duration of detention as reasons for bail.</li>
+                <li>He is the leader of the Democratic Freedom Party, which was banned in 2023.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>The case is significant for terror funding investigations and the judicial review of prolonged detention under UAPA and other laws.</p>
+            </div>
+        </div>
+        <img src="/images/shabir_shah_bail_mar13.png" alt="Shabir Ahmad Shah Bail" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Karnataka Forms Committee on Responsible Artificial Intelligence</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Karnataka government formed a Responsible AI Committee chaired by Kris Gopalakrishnan to develop a framework for ethical AI adoption.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The committee will develop policies for safe, transparent, and ethical AI usage across government services.</li>
+                <li>It aim to protect privacy, fairness, transparency, and accountability in AI Innovation.</li>
+                <li>Karnataka aims to be a leading hub for responsible AI governance and deep-tech innovation in India.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Objective</strong>
+                <p>To ensure innovation in AI while protecting privacy, fairness, transparency, and accountability for all citizens.</p>
+            </div>
+        </div>
+        <img src="/images/karnataka_ai_committee_mar13.png" alt="Karnataka AI Committee" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">7. Researchers Publish First Comprehensive Checklist of Fireflies in India</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Researchers published the first comprehensive checklist of firefly species in India, documenting 92 species across 27 genera.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Over 60% of these documented firefly species are endemic to India.</li>
+                <li>The research compiled records from over 260 years (1881–2025).</li>
+                <li>The study significantly improves our understanding of biodiversity and insect conservation.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Scientific Value</strong>
+                <p>This checklist provides a foundational resource for future conservation efforts and entomological research in the Indian subcontinent.</p>
+            </div>
+        </div>
+        <img src="/images/firefly_checklist_india_mar13.png" alt="Firefly Checklist India" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>India assures secure crude oil supply despite West Asia crisis.</li>
+        <li>Iran warns of potential closure of the Strait of Hormuz.</li>
+        <li>President’s Secretariat declines TMC request for a meeting citing schedule.</li>
+        <li>SC rules parental income alone isn't enough to decide OBC creamy layer status.</li>
+        <li>Separatist leader Shabir Ahmad Shah gets bail from Supreme Court.</li>
+        <li>Karnataka sets up Responsible AI Committee under Kris Gopalakrishnan.</li>
+        <li>India's first comprehensive firefly species checklist published.</li>
+    </ul>
+
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why is the Strait of Hormuz context significant for India?</h4>
+    <p>The Strait of Hormuz is a critical global oil shipping route; any blockade can disrupt India's energy imports and spiked fuel prices.</p>
+
+    <h4>2. What did the Supreme Court rule regarding the OBC creamy layer?</h4>
+    <p>The Court ruled that parental income alone cannot determine creamy layer status, and social/service-related factors must be considered.</p>
+
+    <h4>3. Who leads Karnataka's Responsible AI Committee?</h4>
+    <p>The committee is chaired by Infosys co-founder Kris Gopalakrishnan.</p>
+
+    <h4>4. How many firefly species are endemic to India as per the new checklist?</h4>
+    <p>Over 60% of the 92 documented species (approximately 55-56 species) are endemic to India.</p>
+
+    <h4>5. On what grounds was Shabir Ahmad Shah granted bail?</h4>
+    <p>The Supreme Court cited prolonged incarceration (since 2017) and irregularities in the trial proceedings.</p>
+</div>
+`,
+};
+
 export const MARCH_11_ARTICLE = {
     id: 2,
     title: "Daily Current Affairs Analysis – 11 March 2026",

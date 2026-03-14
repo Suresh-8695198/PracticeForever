@@ -40,8 +40,7 @@ const aptitudeData = [
       "Number Series", "Letter and Symbol Series", "Verbal Classification", "Essential Part",
       "Analogies", "Artificial Language", "Matching Definitions", "Making Judgments",
       "Verbal Reasoning", "Logical Problems", "Logical Games", "Analyzing Arguments",
-      "Statement and Assumption", "Course of Action", "Statement and Conclusion",
-      "Theme Detection", "Cause and Effect", "Statement and Argument", "Logical Deduction"
+      "Statement and Assumption", "Course of Action", "Statement and Conclusion"
     ]
   },
   {
@@ -54,8 +53,8 @@ const aptitudeData = [
     topics: [
       "Spotting Errors", "Synonyms", "Antonyms", "Selecting Words", "Spellings",
       "Sentence Formation", "Ordering of Words", "Sentence Correction", "Sentence Improvement",
-      "Completing Statements", "Ordering of Sentences", "Paragraph Formation", "Closet Test",
-      "Comprehension", "One Word Substitutes", "Idioms and Phrases", "Change of Voice",
+      "Sentence Completion", "Ordering of Statements", "Paragraph Formation", "Cloze Test",
+      "Comprehension", "One Word Substitution", "Idioms and Phrases", "Change of Voice",
       "Change of Speech", "Verbal Analogies"
     ]
   },

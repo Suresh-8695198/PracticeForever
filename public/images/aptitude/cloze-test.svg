@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#eef2ff"/>
+  
+  <!-- Text with blanks -->
+  <rect x="30" y="40" width="140" height="120" rx="8" fill="white" stroke="#e0e7ff" stroke-width="2"/>
+  <rect x="40" y="60" width="30" height="6" rx="3" fill="#cbd5e1"/>
+  <rect x="75" y="60" width="50" height="6" rx="3" fill="#818cf8"/> <!-- Blank 1 -->
+  <rect x="130" y="60" width="30" height="6" rx="3" fill="#cbd5e1"/>
+  
+  <rect x="40" y="80" width="80" height="6" rx="3" fill="#cbd5e1"/>
+  <rect x="125" y="80" width="35" height="6" rx="3" fill="#818cf8"/> <!-- Blank 2 -->
+  
+  <rect x="40" y="100" width="40" height="6" rx="3" fill="#818cf8"/> <!-- Blank 3 -->
+  <rect x="85" y="100" width="75" height="6" rx="3" fill="#cbd5e1"/>
+  
+  <rect x="40" y="120" width="120" height="6" rx="3" fill="#cbd5e1"/>
+  
+  <!-- Magnifying glass -->
+  <circle cx="140" cy="140" r="25" fill="white" stroke="#6366f1" stroke-width="4"/>
+  <path d="M158 158 L175 175" stroke="#6366f1" stroke-width="8" stroke-linecap="round"/>
+</svg>

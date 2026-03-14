@@ -44,7 +44,6 @@ export const questions = [
   {
     "id": 2,
     "text": "Find the odd man out: 8, 27, 64, 100, 125, 216, 343",
-    "image": "/images/aptitude/series/powers.png",
     "options": [
       { "id": "A", "text": "27" },
       { "id": "B", "text": "100" },
@@ -52,7 +51,8 @@ export const questions = [
       { "id": "D", "text": "343" }
     ],
     "answer": "B",
-    "explanation": "The pattern is 2³, 3³, 4³, 5³, 6³, 7³. However, 100 is not a perfect cube (it's 10²)."
+    "explanation": "The pattern is 2³, 3³, 4³, 5³, 6³, 7³. However, 100 is not a perfect cube (it's 10²).",
+    "explanationImage": "/images/aptitude/series/powers.png"
   },
   {
     "id": 3,
@@ -189,7 +189,6 @@ export const questions = [
   {
     "id": 14,
     "text": "Find the odd man out: 3, 5, 7, 12, 17, 19",
-    "image": "/images/aptitude/series/primes.png",
     "options": [
       { "id": "A", "text": "19" },
       { "id": "B", "text": "17" },
@@ -197,7 +196,8 @@ export const questions = [
       { "id": "D", "text": "12" }
     ],
     "answer": "D",
-    "explanation": "Each of the numbers is a prime number except 12."
+    "explanation": "Each of the numbers is a prime number except 12.",
+    "explanationImage": "/images/aptitude/series/primes.png"
   },
   {
     "id": 15,
@@ -286,7 +286,6 @@ export const questions = [
   {
     "id": 22,
     "text": "Find the wrong number in the series: 9, 12, 17, 20, 25, 28, 34, 36, 41",
-    "image": "/images/aptitude/series/difference.png",
     "options": [
       { "id": "A", "text": "25" },
       { "id": "B", "text": "28" },
@@ -294,7 +293,46 @@ export const questions = [
       { "id": "D", "text": "41" }
     ],
     "answer": "C",
-    "explanation": "The differences alternate between +3 and +5: 9(+3)=12, 12(+5)=17, 17(+3)=20, 20(+5)=25, 25(+3)=28. Next should be 28(+5)=33, not 34."
+    "explanation": "The differences alternate between +3 and +5: 9(+3)=12, 12(+5)=17, 17(+3)=20, 20(+5)=25, 25(+3)=28. Next should be 28(+5)=33, not 34.",
+    "explanationImage": `
+<svg width="500" height="150" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="150" fill="white" rx="10"/>
+  <g font-family="Outfit, sans-serif" font-size="24" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="50" y="70">9</text>
+    <text x="110" y="70">12</text>
+    <text x="170" y="70">17</text>
+    <text x="230" y="70">20</text>
+    <text x="290" y="70">25</text>
+    <text x="350" y="70">28</text>
+    <text x="410" y="70" fill="#ef4444">34</text>
+    <text x="410" y="105" font-size="12" fill="#ef4444">Wrong</text>
+  </g>
+  
+  <g fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round">
+    <path d="M 60 85 Q 80 110 100 85" marker-end="url(#arrow)"/>
+    <path d="M 120 85 Q 140 110 160 85" marker-end="url(#arrow)"/>
+    <path d="M 180 85 Q 200 110 220 85" marker-end="url(#arrow)"/>
+    <path d="M 240 85 Q 260 110 280 85" marker-end="url(#arrow)"/>
+    <path d="M 300 85 Q 320 110 340 85" marker-end="url(#arrow)"/>
+    <path d="M 360 85 Q 385 120 410 85" marker-end="url(#arrow)" stroke="#ef4444"/>
+  </g>
+
+  <g font-family="Outfit" font-size="14" font-weight="800" fill="#64748b" text-anchor="middle">
+    <text x="80" y="125">+3</text>
+    <text x="140" y="125">+5</text>
+    <text x="200" y="125">+3</text>
+    <text x="260" y="125">+5</text>
+    <text x="320" y="125">+3</text>
+    <text x="385" y="130" fill="#ef4444">+5 (Should be 33)</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+</svg>
+    `
   },
   {
     "id": 23,

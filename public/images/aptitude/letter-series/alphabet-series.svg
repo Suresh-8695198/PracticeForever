@@ -1,0 +1,19 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sketch-line { fill: none; stroke: #4b5563; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pencil-text { font-family: 'Comic Sans MS', cursive, sans-serif; font-weight: bold; font-size: 45px; fill: #1f2937; }
+    .shading { fill: #9ca3af; opacity: 0.2; }
+  </style>
+  
+  <!-- Hand-drawn boxes -->
+  <path d="M40 70 Q45 65 100 68 Q105 70 102 140 Q100 145 42 142 Q35 140 40 70 Z" class="sketch-line" />
+  <path d="M130 72 Q135 68 190 70 Q195 72 192 142 Q190 148 132 145 Q125 142 130 72 Z" class="sketch-line" />
+  <path d="M220 68 Q225 65 280 68 Q285 70 282 140 Q280 145 222 142 Q215 140 220 68 Z" class="sketch-line" />
+  <path d="M310 70 Q315 65 370 68 Q375 70 372 140 Q370 145 312 142 Q305 140 310 70 Z" class="sketch-line" />
+
+  <!-- Letters -->
+  <text x="55" y="125" class="pencil-text">A</text>
+  <text x="145" y="125" class="pencil-text">B</text>
+  <text x="235" y="125" class="pencil-text">C</text>
+  <text x="325" y="125" class="pencil-text">D</text>
+</svg>

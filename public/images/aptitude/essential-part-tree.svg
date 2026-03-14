@@ -1,0 +1,22 @@
+<svg width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="15" fill="#f0fdff" />
+  <text x="200" y="30" font-family="Arial" font-size="18" font-weight="bold" fill="#0891b2" text-anchor="middle">Essential Part Example: TREE</text>
+  
+  <!-- Tree Visualization -->
+  <g transform="translate(140, 50)">
+    <!-- Branches/Leaves -->
+    <path d="M 60 50 Q 0 0 40 -40 Q 60 -60 80 -40 Q 120 0 60 50" fill="#22c55e" />
+    <text x="10" y="10" font-family="Arial" font-size="10" fill="#15803d">Branches</text>
+    
+    <!-- Trunk -->
+    <rect x="50" y="50" width="20" height="60" fill="#92400e" />
+    <text x="80" y="85" font-family="Arial" font-size="10" fill="#92400e">Trunk</text>
+    
+    <!-- Roots (Highlight) -->
+    <path d="M 50 110 Q 30 140 10 150 M 60 110 Q 60 150 60 160 M 70 110 Q 90 140 110 150" stroke="#b91c1c" stroke-width="3" fill="none" />
+    <rect x="40" y="120" width="40" height="50" fill="#fee2e2" fill-opacity="0.3" stroke="#ef4444" stroke-dasharray="2" rx="5" />
+    <text x="60" y="185" font-family="Arial" font-size="14" font-weight="bold" fill="#b91c1c" text-anchor="middle">ROOTS (Essential)</text>
+  </g>
+  
+  <text x="200" y="210" font-family="Arial" font-size="10" fill="#4b5563" text-anchor="middle">A tree can lose leaves or branches, but it cannot survive without roots.</text>
+</svg>

@@ -11,23 +11,27 @@ const Progress = sequelize.define('Progress', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    taskId: {
+    questionId: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    difficulty: {
-        type: DataTypes.STRING
+    topic: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    isCompleted: {
+    attempts: {
+        type: DataTypes.TEXT, // JSON array of selected options
+        get() {
+            const val = this.getDataValue('attempts');
+            return val ? JSON.parse(val) : [];
+        },
+        set(val) {
+            this.setDataValue('attempts', JSON.stringify(val));
+        }
+    },
+    isSolved: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    },
-    isRevision: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    },
-    note: {
-        type: DataTypes.TEXT
     }
 });
 

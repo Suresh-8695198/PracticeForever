@@ -8,7 +8,8 @@ const currentAffairsRoutes = require('./routes/currentAffairsRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const aptitudeRoutes = require('./routes/aptitudeRoutes');
 const mockTestRoutes = require('./routes/mockTestRoutes');
-const managementRoutes = require('./routes/managementRoutes');
+const userRoutes = require('./routes/userRoutes');
+const progressRoutes = require('./routes/progressRoutes');
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/admin', authRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/progress', progressRoutes);
 app.use('/api/current-affairs', currentAffairsRoutes);
 app.use('/api/blog', blogRoutes);
 app.use('/api/questions', aptitudeRoutes);

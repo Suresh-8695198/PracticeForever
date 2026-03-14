@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import AdminLayout from '../../../components/admin/AdminLayout';
-import api from '../../../utils/api';
+import api, { API_BASE_URL } from '../../../utils/api';
 import { useTheme } from '../../../context/ThemeContext';
 import { Upload, Image as ImageIcon, Link as LinkIcon, FileCheck, CloudUpload, Copy, Check } from 'lucide-react';
 
@@ -101,7 +101,7 @@ export default function MediaLibrary() {
                 {lastUploaded && (
                     <div className={`${cardClass} border rounded-2xl p-6 flex flex-col md:flex-row items-center gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500`}>
                         <div className={`w-32 h-24 rounded-xl overflow-hidden shrink-0 border ${isDark ? 'border-zinc-800' : 'border-gray-100 shadow-sm'}`}>
-                            <img src={`http://localhost:5000${lastUploaded.path}`} className="w-full h-full object-cover" alt="Uploaded asset preview"/>
+                            <img src={`${API_BASE_URL}${lastUploaded.path}`} className="w-full h-full object-cover" alt="Uploaded asset preview"/>
                         </div>
                         <div className="flex-1 min-w-0 w-full">
                             <div className="flex items-center gap-2 mb-1">
@@ -113,10 +113,10 @@ export default function MediaLibrary() {
                             <div className={`flex items-center gap-3 p-2.5 rounded-xl border ${isDark ? 'bg-black/40 border-zinc-800' : 'bg-gray-50 border-gray-100'}`}>
                                 <LinkIcon size={14} className="text-zinc-500 shrink-0"/>
                                 <span className={`text-[11px] font-mono truncate transition-all ${isDark ? 'text-zinc-400' : 'text-gray-500'}`}>
-                                    {`http://localhost:5000${lastUploaded.path}`}
+                                    {`${API_BASE_URL}${lastUploaded.path}`}
                                 </span>
                                 <button 
-                                    onClick={() => copyToClipboard(`http://localhost:5000${lastUploaded.path}`)}
+                                    onClick={() => copyToClipboard(`${API_BASE_URL}${lastUploaded.path}`)}
                                     className={`ml-auto p-1.5 rounded-lg transition-all ${isDark ? 'hover:bg-zinc-800 text-zinc-500 hover:text-white' : 'hover:bg-white text-gray-400 hover:text-gray-900 hover:shadow-sm'}`}
                                     title="Copy URL"
                                 >

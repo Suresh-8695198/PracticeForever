@@ -1,6 +1,7 @@
 const pool = require('../config/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
@@ -41,6 +42,43 @@ exports.login = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ success: false, message: 'Server error' });
+    }
+};
+
+exports.googleSync = async (req, res) => {
+    const { name, email, image, googleId } = req.body;
+
+    try {
+        let user = await User.findOne({ where: { email } });
+
+        if (user) {
+            // Update existing user
+            user.googleId = googleId;
+            user.image = image;
+            await user.save();
+        } else {
+            // Create new user
+            user = await User.create({
+                name,
+                email,
+                image,
+                googleId,
+                title: 'Student'
+            });
+        }
+
+        res.json({
+            success: true,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                image: user.image
+            }
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error during sync' });
     }
 };
 

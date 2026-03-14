@@ -1,0 +1,37 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" rx="20" fill="#F5F3FF"/>
+  
+  <circle cx="50" cy="100" r="22" fill="#7C3AED" fill-opacity="0.1" stroke="#7C3AED" stroke-width="2"/>
+  <text x="50" y="105" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="bold" font-size="14">12</text>
+  
+  <path d="M72 100H108" stroke="#7C3AED" stroke-width="2" stroke-dasharray="2 2"/>
+  <rect x="75" y="65" width="30" height="20" rx="4" fill="#7C3AED"/>
+  <text x="90" y="79" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="bold" font-size="10">+2</text>
+
+  <circle cx="130" cy="100" r="22" fill="#7C3AED" fill-opacity="0.1" stroke="#7C3AED" stroke-width="2"/>
+  <text x="130" y="105" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="bold" font-size="14">14</text>
+  
+  <path d="M152 100H188" stroke="#7C3AED" stroke-width="2" stroke-dasharray="2 2"/>
+  <rect x="155" y="115" width="30" height="20" rx="4" fill="#EC4899"/>
+  <text x="170" y="129" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="bold" font-size="10">-3</text>
+
+  <circle cx="210" cy="100" r="22" fill="#7C3AED" fill-opacity="0.1" stroke="#7C3AED" stroke-width="2"/>
+  <text x="210" y="105" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="bold" font-size="14">11</text>
+  
+  <path d="M232 100H268" stroke="#7C3AED" stroke-width="2" stroke-dasharray="2 2"/>
+  <rect x="235" y="65" width="30" height="20" rx="4" fill="#7C3AED"/>
+  <text x="250" y="79" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="bold" font-size="10">+2</text>
+
+  <circle cx="290" cy="100" r="22" fill="#7C3AED" fill-opacity="0.1" stroke="#7C3AED" stroke-width="2"/>
+  <text x="290" y="105" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="bold" font-size="14">13</text>
+  
+  <path d="M312 100H348" stroke="#7C3AED" stroke-width="2" stroke-dasharray="2 2"/>
+  <rect x="315" y="115" width="30" height="20" rx="4" fill="#EC4899"/>
+  <text x="330" y="129" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="bold" font-size="10">-3</text>
+
+  <circle cx="370" cy="100" r="22" fill="#7C3AED" fill-opacity="0.1" stroke="#7C3AED" stroke-width="2"/>
+  <text x="370" y="105" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="bold" font-size="14">10</text>
+
+  <text x="200" y="40" text-anchor="middle" fill="#4C1D95" font-family="Plus Jakarta Sans" font-weight="black" font-size="18" text-transform="uppercase">Alternating Series</text>
+  <text x="200" y="185" text-anchor="middle" fill="#64748B" font-family="Plus Jakarta Sans" font-size="12">Two or more different operations alternate in a sequence.</text>
+</svg>

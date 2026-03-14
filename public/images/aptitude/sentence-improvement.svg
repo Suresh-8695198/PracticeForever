@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#f5f3ff"/>
+  
+  <!-- Refining Pen/Pencil -->
+  <path d="M140 40 L160 60 L70 150 L40 160 L50 130 L140 40Z" fill="#7c3aed" stroke="#5b21b6" stroke-width="2"/>
+  <path d="M130 50 L150 70" stroke="#5b21b6" stroke-width="2"/>
+  
+  <!-- Sentance line with a refined part -->
+  <path d="M30 140 H170" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M70 140 H130" stroke="#7c3aed" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Stars/Sparkles for improvement -->
+  <path d="M160 90 L165 105 L180 110 L165 115 L160 130 L155 115 L140 110 L155 105 L160 90Z" fill="#fbbf24"/>
+  <circle cx="100" cy="60" r="4" fill="#fbbf24"/>
+  <circle cx="180" cy="50" r="3" fill="#fbbf24"/>
+</svg>

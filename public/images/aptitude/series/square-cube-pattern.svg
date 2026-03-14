@@ -1,0 +1,22 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" rx="20" fill="#FFF7ED"/>
+  
+  <rect x="30" y="80" width="60" height="60" rx="12" fill="#F97316"/>
+  <text x="60" y="115" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="black" font-size="18">1</text>
+  <text x="60" y="155" text-anchor="middle" fill="#9A3412" font-family="Plus Jakarta Sans" font-weight="bold" font-size="12">1²</text>
+  
+  <rect x="120" y="80" width="60" height="60" rx="12" fill="#F97316"/>
+  <text x="150" y="115" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="black" font-size="18">4</text>
+  <text x="150" y="155" text-anchor="middle" fill="#9A3412" font-family="Plus Jakarta Sans" font-weight="bold" font-size="12">2²</text>
+  
+  <rect x="210" y="80" width="60" height="60" rx="12" fill="#F97316"/>
+  <text x="240" y="115" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="black" font-size="18">9</text>
+  <text x="240" y="155" text-anchor="middle" fill="#9A3412" font-family="Plus Jakarta Sans" font-weight="bold" font-size="12">3²</text>
+  
+  <rect x="300" y="80" width="60" height="60" rx="12" fill="#F97316"/>
+  <text x="330" y="115" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-weight="black" font-size="18">16</text>
+  <text x="330" y="155" text-anchor="middle" fill="#9A3412" font-family="Plus Jakarta Sans" font-weight="bold" font-size="12">4²</text>
+
+  <text x="200" y="40" text-anchor="middle" fill="#7C2D12" font-family="Plus Jakarta Sans" font-weight="black" font-size="18" text-transform="uppercase">Square &amp; Cube Series</text>
+  <text x="200" y="185" text-anchor="middle" fill="#64748B" font-family="Plus Jakarta Sans" font-size="12">Terms are squares or cubes of consecutive or prime numbers.</text>
+</svg>

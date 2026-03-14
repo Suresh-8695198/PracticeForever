@@ -1,0 +1,18 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#f0f9ff"/>
+  
+  <!-- Red Cross for Error -->
+  <path d="M50 70 L80 100 M80 70 L50 100" stroke="#ef4444" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Arrow indicating correction -->
+  <path d="M95 85 H135" stroke="#3b82f6" stroke-width="4" stroke-dasharray="4 4"/>
+  <path d="M125 75 L135 85 L125 95" stroke="#3b82f6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Green Check for Correct Version -->
+  <path d="M150 75 L165 90 L185 60" stroke="#22c55e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Document Lines -->
+  <rect x="40" y="130" width="120" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="40" y="150" width="100" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="40" y="170" width="80" height="8" rx="4" fill="#3b82f6" fill-opacity="0.5"/>
+</svg>

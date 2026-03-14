@@ -9,7 +9,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -86,7 +86,18 @@ const HIGHLIGHT_MAP = {
     "Jagdambika Pal": "highlight-yellow",
     "Amit Shah": "highlight-yellow",
     "Rahul Gandhi": "highlight-yellow",
-    "GHADC elections": "highlight-teal"
+    "GHADC elections": "highlight-teal",
+    "Hardeep Singh Puri": "highlight-yellow",
+    "Ayatollah Mojtaba Khamenei": "highlight-yellow",
+    "Droupadi Murmu": "highlight-yellow",
+    "Trinamool Congress": "highlight-teal",
+    "OBC Creamy Layer": "highlight-blue",
+    "Shabir Ahmad Shah": "highlight-yellow",
+    "Kris Gopalakrishnan": "highlight-yellow",
+    "firefly checklist": "highlight-green",
+    "West Asia": "highlight-purple",
+    "Responsible AI": "highlight-teal",
+    "endemic": "highlight-orange"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -135,16 +146,8 @@ const extractRevisionPoints = (content) => {
 const extractMCQs = (content) => {
     if (!content) return [];
     
-    // Fallback for demo when content is missing or in wrong format
-    if (content.includes('Daily Current Affairs') && !content.toLowerCase().includes('frequently asked questions')) {
-        return [
-            { id: 'q-d1', question: "Who topped the UPSC Civil Services Examination 2026?", options: ["Anuj Agnihotri", "Sanjay Kumar", "Priya Singh", "Rohit Verma"].sort(() => Math.random()-0.5), correctAnswer: "Anuj Agnihotri", explanation: "Anuj Agnihotri secured Rank 1 with 1071 marks." },
-            { id: 'q-d2', question: "What is the literacy rate achieved by Chandigarh?", options: ["99.93%", "81.20%", "95.00%", "99.00%"].sort(() => Math.random()-0.5), correctAnswer: "99.93%", explanation: "Chandigarh achieved 99.93% literacy rate under the ULLAS programme." }
-        ];
-    }
-    
-    // Match FAQ section
-    const faqsMatch = content.match(/(?:Frequently Asked Questions|FAQs?|FAQ)[\s\S]*?(?:<\/h4>|:)([\s\S]*?)(?=<hr|$)/i);
+    // Match Practice Quiz or FAQ section
+    const faqsMatch = content.match(/(?:Practice Quiz|Frequently Asked Questions|FAQs?|FAQ)[\s\S]*?(?:<\/h4>|:)([\s\S]*?)(?=<hr|$)/i);
     if (!faqsMatch) return [];
     
     const questionBlocks = faqsMatch[1].split(/<h4[^>]*>|<strong>\d+\.|<b>\d+\./gi).filter(b => b.trim().length > 15);
@@ -164,6 +167,16 @@ const extractMCQs = (content) => {
             options = ["Sustainable development sector", "Heavy industry sector", "Tourism sector", "Defense sector"];
         } else if (qLow.includes('natural gas')) {
             options = ["High demand and import delays", "Low production only", "Pipeline leakage", "Export surge"];
+        } else if (qLow.includes('strait of hormuz')) {
+            options = ["Strait of Hormuz", "Palk Strait", "Malacca Strait", "Bab el-Mandeb"];
+        } else if (qLow.includes('ai committee') || qLow.includes('responsible ai')) {
+            options = ["Kris Gopalakrishnan", "Narayana Murthy", "Nandan Nilekani", "Azim Premji"];
+        } else if (qLow.includes('creamy layer') || qLow.includes('obc')) {
+            options = ["Parental income", "Educational status", "Social status", "Service category"];
+        } else if (qLow.includes('firefly')) {
+            options = ["92 species", "50 species", "120 species", "75 species"];
+        } else if (qLow.includes('petroleum') || qLow.includes('crude oil')) {
+            options = ["Hardeep Singh Puri", "Amit Shah", "Nirmala Sitharaman", "S. Jaishankar"];
         } else {
             options = [answerText.substring(0, 30), "Policy changes", "Economic growth", "Institutional reforms"];
         }
@@ -203,7 +216,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-12');
+    const [selectedDate, setSelectedDate] = useState('2026-03-13');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -292,7 +305,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);

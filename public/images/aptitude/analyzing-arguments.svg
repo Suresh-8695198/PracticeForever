@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hand-drawn style Magnifying Glass for Analyzing Arguments -->
+  <path d="M80 80 Q110 50 140 80 Q170 110 140 140 Q110 170 80 140 Q50 110 80 80" fill="none" stroke="#6366f1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <animate attributeName="stroke-dasharray" from="0, 1000" to="1000, 0" dur="2s" fill="freeze" />
+  </path>
+  <path d="M130 130 L180 180" fill="none" stroke="#6366f1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <animate attributeName="stroke-dasharray" from="0, 1000" to="1000, 0" dur="1s" begin="1.5s" fill="freeze" />
+  </path>
+  <!-- Document details -->
+  <path d="M40 40 L70 40 M40 60 L60 60 M40 80 L55 80" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" />
+  <!-- Circle highlight -->
+  <circle cx="110" cy="110" r="45" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="5,5" opacity="0.5" />
+</svg>

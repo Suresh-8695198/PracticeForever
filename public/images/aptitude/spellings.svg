@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#faf5ff"/>
+  
+  <!-- Alphabet Blocks -->
+  <rect x="50" y="50" width="40" height="40" rx="4" fill="white" stroke="#a855f7" stroke-width="3"/>
+  <text x="70" y="80" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#9333ea">A</text>
+  
+  <rect x="100" y="50" width="40" height="40" rx="4" fill="white" stroke="#a855f7" stroke-width="3"/>
+  <text x="120" y="80" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#9333ea">B</text>
+  
+  <!-- Lower row with error correction -->
+  <rect x="75" y="100" width="40" height="40" rx="4" fill="white" stroke="#a855f7" stroke-width="3"/>
+  <text x="95" y="130" text-anchor="middle" font-family="Arial" font-weight="900" font-size="24" fill="#9333ea">C</text>
+  
+  <!-- Checkmark for 'Correct Spelling' -->
+  <circle cx="140" cy="130" r="15" fill="#22c55e"/>
+  <path d="M132 130 L138 136 L148 124" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Pencil icon -->
+  <path d="M40 160 L60 140 L70 150 L50 170 Z" fill="#9333ea"/>
+  <line x1="60" y1="140" x2="80" y2="120" stroke="#9333ea" stroke-width="4" stroke-linecap="round"/>
+</svg>

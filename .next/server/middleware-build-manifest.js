@@ -19,15 +19,15 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/aptitude/[category]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/aptitude/[category].js"
-    ],
     "/aptitude/[category]/[topic]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/aptitude/[category]/[topic].js"
+    ],
+    "/register": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/register.js"
     ]
   },
   "ampFirstPages": []

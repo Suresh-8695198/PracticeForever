@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#faf5ff"/>
+  
+  <!-- "1" representing one word -->
+  <circle cx="100" cy="100" r="50" fill="#a855f7" fill-opacity="0.1"/>
+  <text x="100" y="125" text-anchor="middle" font-family="Arial" font-size="80" font-weight="bold" fill="#7e22ce">1</text>
+  
+  <!-- Substitution lines -->
+  <path d="M40 160 H80" stroke="#a855f7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 160 H160" stroke="#a855f7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M90 160 L100 170 L110 160" stroke="#a855f7" stroke-width="2" fill="none"/>
+</svg>

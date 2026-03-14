@@ -1,0 +1,32 @@
+<svg width="400" height="180" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="180" rx="15" fill="#f0fdf4" />
+  <text x="200" y="30" font-family="Arial" font-size="20" font-weight="bold" fill="#166534" text-anchor="middle">Decoding Process</text>
+  
+  <!-- Word 1 -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="140" height="35" rx="5" fill="#dcfce7" stroke="#166534" />
+    <text x="70" y="23" font-family="monospace" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">CREEK|TULO</text>
+    <path d="M 70 35 L 70 55" stroke="#166534" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="70" y="75" font-family="Arial" font-size="12" fill="#15803d" text-anchor="middle">TREE | PLANTATION</text>
+  </g>
+  
+  <!-- Comparison -->
+  <g transform="translate(220, 60)">
+    <rect x="0" y="0" width="140" height="35" rx="5" fill="#dcfce7" stroke="#166534" />
+    <text x="70" y="23" font-family="monospace" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">CREEK|FUOS</text>
+    <path d="M 70 35 L 70 55" stroke="#166534" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="70" y="75" font-family="Arial" font-size="12" fill="#15803d" text-anchor="middle">TREE | MUTATION</text>
+  </g>
+  
+  <!-- Common Link -->
+  <circle cx="200" cy="90" r="25" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="4" />
+  <text x="200" y="94" font-family="Arial" font-size="10" fill="#166534" text-anchor="middle">LINK</text>
+  
+  <text x="200" y="160" font-family="Arial" font-size="11" font-style="italic" fill="#15803d" text-anchor="middle">Find common segments to deduce meanings.</text>
+  
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#166534" />
+    </marker>
+  </defs>
+</svg>

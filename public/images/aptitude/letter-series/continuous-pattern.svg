@@ -1,0 +1,16 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sketch-line { fill: none; stroke: #374151; stroke-width: 2.2; stroke-linecap: round; }
+    .pencil-text { font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 32px; fill: #1f2937; }
+    .circle-sketch { fill: none; stroke: #2563eb; stroke-width: 1.8; opacity: 0.6; }
+  </style>
+  
+  <text x="50" y="100" class="pencil-text">a b _ a b _ a b _</text>
+  
+  <!-- Hand-drawn circling of the pattern -->
+  <path d="M45 80 Q100 70 120 110 Q100 130 50 125 Q30 110 45 80" class="circle-sketch" />
+  <path d="M145 80 Q200 70 220 110 Q200 130 150 125 Q130 110 145 80" class="circle-sketch" />
+  
+  <path d="M50 150 Q100 145 350 155" class="sketch-line" stroke-dasharray="5 5" />
+  <text x="60" y="190" font-family="cursive" font-size="18" fill="#4b5563">Repeating pattern identified...</text>
+</svg>

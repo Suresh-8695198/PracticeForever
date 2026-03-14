@@ -8,31 +8,131 @@ import {
   Bookmark, ChevronLeft, ChevronRight,
   Printer, Check, X, Lightbulb, BookOpen,
   Save, Info, Award, Star, Heart, Flame, Lock,
-  Plus, Minus, Maximize2, Search
+  Plus, Minus, Maximize2, Search, RotateCcw
 } from 'lucide-react';
 import { useTheme } from '../../../context/ThemeContext';
 import { topicData } from '../../../data/aptitude';
+import { useSession, signIn } from 'next-auth/react';
+import ElectricBorder from '../../../components/common/ElectricBorder';
+import axios from 'axios';
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
+const shuffleArray = (array, seed = 0) => {
+  const shuffled = [...array];
+  // Simple deterministic shuffle using a seed (question ID)
+  // Converting string seed to a number
+  let seedNum = typeof seed === 'string' ? 
+    seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) : 
+    seed;
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(((seedNum * (i + 1)) % 100) / 100 * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    seedNum = (seedNum * 9301 + 49297) % 233280; // Simple LCG for variety
+  }
+  return shuffled;
+};
+
+const processQuestion = (q) => {
+  if (q.type === 'passage-group') {
+    return {
+      ...q,
+      subQuestions: q.subQuestions.map(subQ => {
+        if (!subQ.options) return subQ;
+        const correctOpt = subQ.options.find(o => o.id === subQ.answer);
+        const shuffled = shuffleArray(subQ.options, subQ.id || subQ.text);
+        let newAnswer = subQ.answer;
+        const finalOptions = shuffled.map((opt, idx) => {
+          const newId = String.fromCharCode(65 + idx);
+          if (opt === correctOpt) newAnswer = newId;
+          return { ...opt, id: newId };
+        });
+        return { ...subQ, options: finalOptions, answer: newAnswer };
+      })
+    };
+  } else {
+    if (!q.options) return q;
+    const correctOpt = q.options.find(o => o.id === q.answer);
+    const shuffled = shuffleArray(q.options, q.id || q.text);
+    let newAnswer = q.answer;
+    const finalOptions = shuffled.map((opt, idx) => {
+      const newId = String.fromCharCode(65 + idx);
+      if (opt === correctOpt) newAnswer = newId;
+      return { ...opt, id: newId };
+    });
+    return { ...q, options: finalOptions, answer: newAnswer };
+  }
+};
 
 const QuestionPage = () => {
   const router = useRouter();
   const { category, topic } = router.query;
   const { isDark } = useTheme();
+  const { data: session } = useSession();
   
   const [currentPage, setCurrentPage] = useState(1);
   const [jumpPage, setJumpPage] = useState('');
   const [attempts, setAttempts] = useState({}); 
+  const [loading, setLoading] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
+  const [hideSync, setHideSync] = useState(false);
   const [openExplanations, setOpenExplanations] = useState({}); 
+  const [subIndices, setSubIndices] = useState({}); 
   const questionsPerPage = 5;
   
   const [modalImage, setModalImage] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(1);
+
+  // Load local progress on mount
+  React.useEffect(() => {
+    if (topic) {
+      const localData = localStorage.getItem(`progress_${topic}`);
+      if (localData) {
+        setAttempts(JSON.parse(localData));
+      }
+    }
+  }, [topic]);
+
+  // Fetch progress from backend on mount/session change
+  React.useEffect(() => {
+    const fetchProgress = async () => {
+      if (session?.user?.backendId && topic) {
+        setLoading(true);
+        try {
+          const res = await axios.get(`${API_BASE}/api/progress/${session.user.backendId}/${topic}`);
+          const backendAttempts = {};
+          res.data.forEach(p => {
+            backendAttempts[p.questionId] = p.attempts;
+          });
+          setAttempts(prev => {
+            const merged = { ...prev, ...backendAttempts };
+            // Also update localStorage with merged data
+            localStorage.setItem(`progress_${topic}`, JSON.stringify(merged));
+            return merged;
+          });
+        } catch (error) {
+          console.error("Failed to fetch progress:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+    fetchProgress();
+  }, [session, topic]);
 
   const topicModule = useMemo(() => {
     if (!topic) return { questions: [], theory: [] };
     const key = topic.toLowerCase();
     const spacedKey = topic.replace(/-/g, ' ').toLowerCase();
     const data = topicData[key] || topicData[spacedKey] || [];
-    return Array.isArray(data) ? { questions: data, theory: [] } : data;
+    const baseData = Array.isArray(data) ? { questions: data, theory: [] } : data;
+    
+    return {
+      ...baseData,
+      questions: baseData.questions.map(q => processQuestion(q))
+    };
   }, [topic]);
 
   const allQuestions = topicModule.questions;
@@ -50,22 +150,83 @@ const QuestionPage = () => {
   const bg = isDark ? 'bg-[#0a0b0d] text-[#e4e4e7]' : 'bg-[#ffffff] text-zinc-900';
   const editorialFont = { fontFamily: '"Plus Jakarta Sans", sans-serif' };
 
+  const flatQuestions = useMemo(() => {
+    return allQuestions.reduce((acc, q) => {
+      if (q.type === 'passage-group') {
+        return [...acc, ...q.subQuestions];
+      }
+      return [...acc, q];
+    }, []);
+  }, [allQuestions]);
+
+  const currentFlatQuestions = useMemo(() => {
+    return currentQuestions.reduce((acc, q) => {
+      if (q.type === 'passage-group') {
+        return [...acc, ...q.subQuestions];
+      }
+      return [...acc, q];
+    }, []);
+  }, [currentQuestions]);
+
   if (!router.isReady) return null;
 
-  const handleOptionClick = (qId, optId, correctAnswer) => {
+  const handleOptionClick = async (qId, optId, correctAnswer) => {
     const currentAttempts = attempts[qId] || [];
     if (currentAttempts.includes(correctAnswer)) return; 
 
     const newAttempts = [...currentAttempts, optId];
-    setAttempts(prev => ({ ...prev, [qId]: newAttempts }));
+    setAttempts(prev => {
+      const updated = { ...prev, [qId]: newAttempts };
+      if (topic) localStorage.setItem(`progress_${topic}`, JSON.stringify(updated));
+      return updated;
+    });
 
     if (optId === correctAnswer) {
       setOpenExplanations(prev => ({ ...prev, [qId]: true }));
+    }
+
+    // Save to backend if logged in
+    if (session?.user?.backendId && topic) {
+      try {
+        await axios.post(`${API_BASE}/api/progress`, {
+          userId: session.user.backendId,
+          questionId: qId,
+          topic: topic,
+          attempts: newAttempts,
+          isSolved: newAttempts.includes(correctAnswer)
+        });
+      } catch (error) {
+        console.error("Failed to save progress:", error);
+      }
     }
   };
 
   const toggleExplanation = (qId) => {
     setOpenExplanations(prev => ({ ...prev, [qId]: !prev[qId] }));
+  };
+
+  const handleResetTopic = () => {
+    console.log("Reset button clicked");
+    setShowResetModal(true);
+  };
+
+  const confirmResetTopic = async () => {
+    if (!session?.user?.backendId || !topic) return;
+    
+    setIsResetting(true);
+    try {
+      await axios.delete(`${API_BASE}/api/progress/${session.user.backendId}/${topic}`);
+      
+      setAttempts({});
+      if (topic) localStorage.removeItem(`progress_${topic}`);
+      
+      setShowResetModal(false);
+    } catch (error) {
+      console.error("Failed to reset progress:", error);
+      alert('Error resetting progress. Please try again.');
+    } finally {
+      setIsResetting(false);
+    }
   };
 
   const handleJumpPage = (e) => {
@@ -149,15 +310,14 @@ const QuestionPage = () => {
                 }}
                 className="w-full h-full flex items-center justify-center p-8 will-change-transform"
               >
-                <img
-                  src={modalImage}
-                  alt="Large view"
-                  className="max-w-full max-h-full object-contain drop-shadow-[0_0_80px_rgba(0,0,0,0.6)] select-none pointer-events-auto"
-                  style={{ 
-                    backfaceVisibility: 'hidden',
-                    transform: 'translateZ(0)'
-                  }}
-                />
+                  <RenderMedia
+                    src={modalImage}
+                    className="max-w-full max-h-full object-contain drop-shadow-[0_0_80px_rgba(0,0,0,0.6)] select-none pointer-events-auto"
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
+                  />
               </motion.div>
             </div>
           </motion.div>
@@ -191,25 +351,251 @@ const QuestionPage = () => {
     { name: 'Logical Reasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: '/aptitude/logical', active: category === 'logical' }
   ];
 
-  const solvedCount = Object.keys(attempts).filter(k => {
-    const q = allQuestions.find(qq => String(qq.id) === String(k));
-    return q && (attempts[k] || []).includes(q.answer);
-  }).length;
-  const masteryPercentage = allQuestions.length > 0 ? Math.round((solvedCount / allQuestions.length) * 100) : 0;
-  const pageSolvedCount = currentQuestions.filter(q => {
+
+  const solvedCount = flatQuestions.filter(q => {
     const qAttempts = attempts[q.id] || [];
     return qAttempts.includes(q.answer);
   }).length;
-  const isPageMastered = pageSolvedCount === currentQuestions.length && currentQuestions.length > 0;
+
+  const masteryPercentage = flatQuestions.length > 0 ? Math.round((solvedCount / flatQuestions.length) * 100) : 0;
+
+
+  const pageSolvedCount = currentFlatQuestions.filter(q => {
+    const qAttempts = attempts[q.id] || [];
+    return qAttempts.includes(q.answer);
+  }).length;
+
+  const isPageMastered = pageSolvedCount === currentFlatQuestions.length && currentFlatQuestions.length > 0;
+
+  const RenderMedia = ({ src, className = "" }) => {
+    if (!src) return null;
+    const s = typeof src === 'string' ? src.trim() : "";
+    
+    if (s.startsWith('<svg')) {
+      return (
+        <div 
+          className={className} 
+          dangerouslySetInnerHTML={{ __html: src }} 
+        />
+      );
+    }
+    
+    if (s.startsWith('/') || s.startsWith('http')) {
+      return <img src={src} className={className} alt="" />;
+    }
+    
+    return (
+      <div className={`flex items-center justify-center p-6 text-sm italic text-gray-400 dark:text-gray-500 bg-gray-50/50 dark:bg-white/5 border border-dashed border-gray-200 dark:border-white/10 rounded-xl ${className}`}>
+        {src}
+      </div>
+    );
+  };
+
+  const formatText = (text) => {
+    if (!text) return null;
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="font-extrabold text-[#7c3aed] dark:text-[#a78bfa] bg-[#7c3aed]/5 dark:bg-[#a78bfa]/10 px-1 rounded">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
+  };
+
+  const MarkdownTable = ({ content }) => {
+    const rows = content.trim().split('\n');
+    
+    const parseRow = (row) => {
+      let cells = row.trim().split('|');
+      if (cells[0] === '') cells.shift();
+      if (cells[cells.length - 1] === '') cells.pop();
+      return cells.map(c => c.trim().replace(/\*\*/g, ''));
+    };
+
+    const headerRow = parseRow(rows[0]);
+    const dataRows = rows.slice(2).map(row => parseRow(row));
+    
+    // SVG Dimensions & Styling Constants
+    const cellWidth = 140;
+    const headerHeight = 50;
+    const rowHeight = 45;
+    const padding = 20;
+    const totalWidth = headerRow.length * cellWidth + (padding * 2);
+    const totalHeight = (dataRows.length + 1) * rowHeight + headerHeight + (padding * 2);
+
+    return (
+      <div className="my-8 group relative overflow-hidden border border-gray-100 dark:border-white/5 bg-white dark:bg-[#0f1115] transition-all cursor-zoom-in">
+        <div className="overflow-x-auto scrollbar-hide">
+          <svg 
+            width={totalWidth} 
+            height={totalHeight} 
+            viewBox={`0 0 ${totalWidth} ${totalHeight}`}
+            className="w-full h-auto min-w-full"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Background */}
+            <rect width={totalWidth} height={totalHeight} fill="none" />
+            
+            {/* Table Container */}
+            <g transform={`translate(${padding}, ${padding})`}>
+              {/* Header Mask/Background - Solid Green Color */}
+              <rect 
+                width={totalWidth - (padding * 2)} 
+                height={headerHeight} 
+                fill={isDark ? "#065f46" : "#059669"} 
+              />
+              
+              {/* Header Text */}
+              {headerRow.map((cell, i) => (
+                <text 
+                  key={i}
+                  x={i * cellWidth + cellWidth / 2} 
+                  y={headerHeight / 2} 
+                  textAnchor="middle" 
+                  dominantBaseline="middle"
+                  fill="white"
+                  style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}
+                >
+                  {cell}
+                </text>
+              ))}
+
+              {/* Data Rows */}
+              {dataRows.map((row, rowIndex) => (
+                <g key={rowIndex} transform={`translate(0, ${headerHeight + rowIndex * rowHeight})`}>
+                  {/* Row background with alternating color - Sharp Corners */}
+                  <rect 
+                    width={totalWidth - (padding * 2)} 
+                    height={rowHeight} 
+                    fill={isDark ? (rowIndex % 2 === 0 ? 'rgba(255,255,255,0.03)' : 'transparent') : (rowIndex % 2 === 0 ? '#f8fafc' : 'white')} 
+                    stroke={isDark ? "rgba(255,255,255,0.05)" : "#f1f5f9"}
+                    strokeWidth="0.5"
+                  />
+                  
+                  {row.map((cell, cellIndex) => (
+                    <text 
+                      key={cellIndex}
+                      x={cellIndex * cellWidth + cellWidth / 2} 
+                      y={rowHeight / 2} 
+                      textAnchor="middle" 
+                      dominantBaseline="middle"
+                      fill={isDark ? (cellIndex === 0 ? '#34d399' : '#e2e8f0') : (cellIndex === 0 ? '#059669' : '#334155')}
+                      style={{ 
+                        fontFamily: 'Outfit, sans-serif', 
+                        fontWeight: cellIndex === 0 ? 800 : 700, 
+                        fontSize: '13px'
+                      }}
+                    >
+                      {cell}
+                    </text>
+                  ))}
+                </g>
+              ))}
+            </g>
+          </svg>
+        </div>
+      </div>
+    );
+  };
+
+  const MarkdownContent = ({ content }) => {
+    if (!content) return null;
+    
+    // Check if content contains a table block
+    if (content.includes('|---') || content.includes('| :---')) {
+      // Improved regex to capture a whole table block (Header + Separator + Rows)
+      const parts = content.split(/(\n?\|(?:(?!\n\|).)*\|\n\|(?:\s*[:-]+\s*\|)+\n(?:\|(?:(?!\n\|).)*\|(?:\n|$))+)/g);
+      
+      return (
+        <div className="space-y-4">
+          {parts.map((part, i) => {
+            if (part.trim().startsWith('|') && (part.includes('|---') || part.includes('| :---'))) {
+              return <MarkdownTable key={i} content={part} />;
+            }
+            if (!part.trim()) return null;
+            return (
+              <p key={i} className="text-[14px] leading-relaxed font-bold text-gray-800 dark:text-gray-200 whitespace-pre-line">
+                {formatText(part)}
+              </p>
+            );
+          })}
+        </div>
+      );
+    }
+
+    return (
+      <p className="text-[14px] leading-relaxed font-bold text-gray-800 dark:text-gray-200 whitespace-pre-line">
+        {formatText(content)}
+      </p>
+    );
+  };
 
   return (
     <div className={`min-h-screen pt-28 pb-8 ${bg}`} style={editorialFont}>
+      {/* Professional Reset Confirmation Modal */}
+      <AnimatePresence>
+        {showResetModal && (
+          <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowResetModal(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-[400px] bg-white dark:bg-[#121212] rounded-[32px] overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              <div className="p-8 flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-3xl bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center mb-6">
+                  <RotateCcw size={32} className="text-rose-500" strokeWidth={2.5} />
+                </div>
+                
+                <h3 className="text-[24px] font-black text-gray-900 dark:text-white mb-3 tracking-tight">Reset Progress?</h3>
+                <p className="text-[14px] text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8">
+                  This will permanently clear your solved status for all questions in <span className="text-rose-500 font-bold uppercase tracking-wider text-[12px]">{topicName}</span>. This action cannot be undone.
+                </p>
+                
+                <div className="flex flex-col w-full gap-3">
+                  <button 
+                    onClick={confirmResetTopic}
+                    disabled={isResetting}
+                    className="h-14 w-full bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-2xl font-black text-[15px] transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+                  >
+                    {isResetting ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    ) : (
+                      "Confirm Reset"
+                    )}
+                  </button>
+                  
+                  <button 
+                    onClick={() => setShowResetModal(false)}
+                    className="h-14 w-full bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 rounded-2xl font-bold text-[14px] transition-all active:scale-[0.98]"
+                  >
+                    Keep My Progress
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
       <Head>
         <title>{topicName} | Career Platform</title>
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
 
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
+      <div className={`max-w-6xl mx-auto px-4 md:px-8`} style={{ fontFamily: '"Outfit", sans-serif' }}>
         
         {/* Editorial Navigation Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-5 border-b border-gray-100 dark:border-gray-800">
@@ -224,6 +610,144 @@ const QuestionPage = () => {
             </h1>
           </div>
         </div>
+
+        {/* Clean Professional Google Sync Prompt */}
+        {!session && !hideSync && (
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="fixed bottom-4 left-4 right-4 md:left-auto md:bottom-10 md:right-10 z-[100]"
+          >
+            <ElectricBorder
+              color="#FFC107"
+              speed={1}
+              chaos={0.08}
+              borderRadius={24}
+            >
+              <div className="w-full md:w-[340px] bg-white dark:bg-[#121212] rounded-2xl overflow-hidden shadow-2xl md:shadow-none">
+                <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-white/5">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">Cloud Synchronization</span>
+                  <button 
+                    onClick={() => setHideSync(true)}
+                    className="w-6 h-6 rounded flex items-center justify-center text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                    aria-label="Close"
+                  >
+                    <X size={14} strokeWidth={3} />
+                  </button>
+                </div>
+
+                <div className="p-8 flex flex-col items-center text-center">
+                  <div className="mb-6">
+                    <img 
+                      src="https://img.icons8.com/isometric/100/cloud-sync.png" 
+                      className="w-20 h-20" 
+                      alt="Sync" 
+                    />
+                  </div>
+                  
+                  <h3 className="text-[22px] font-black text-gray-900 dark:text-white leading-tight mb-2">Save your progress</h3>
+                  <p className="text-[13px] text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8">
+                    Sign in with Google to automatically back up your solved questions across all your devices.
+                  </p>
+                  
+                  <button 
+                    onClick={() => signIn('google')}
+                    className="w-full h-12 bg-[#4285f4] hover:bg-[#3367d6] text-white rounded-lg font-bold text-[14px] transition-all flex items-center justify-center gap-3 active:scale-95"
+                  >
+                    <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
+                      <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-4 h-4" alt="Google" />
+                    </div>
+                    Continue with Google
+                  </button>
+                </div>
+              </div>
+            </ElectricBorder>
+          </motion.div>
+        )}
+
+        {session && (
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="relative overflow-hidden mb-10 p-5 rounded-3xl border flex flex-col sm:flex-row items-center sm:justify-between gap-6 transition-colors duration-500"
+            style={{ 
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              background: isDark 
+                ? 'linear-gradient(145deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.02) 100%)' 
+                : 'linear-gradient(145deg, #f0fdf4 0%, #ffffff 100%)',
+              borderColor: isDark ? 'rgba(16, 185, 129, 0.2)' : '#d1fae5'
+            }}
+          >
+            {/* Moving Grid Background Layer */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.4] dark:opacity-[0.15]">
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes grid-move {
+                  0% { transform: translate(0, 0); }
+                  100% { transform: translate(30px, 30px); }
+                }
+                .grid-pattern {
+                  background-image: 
+                    linear-gradient(to right, rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+                  background-size: 30px 30px;
+                  width: calc(100% + 30px);
+                  height: calc(100% + 30px);
+                  animation: grid-move 3s linear infinite;
+                }
+              ` }} />
+              <div className="grid-pattern" />
+            </div>
+
+            <div className="relative z-10 flex items-center gap-5 w-full sm:w-auto">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 flex-shrink-0">
+                <img src="https://img.icons8.com/isometric/100/checked-checkbox.png" className="w-8 h-8" alt="Sync" />
+              </div>
+              <div>
+                <p className="text-[10.5px] font-extrabold uppercase tracking-[0.15em] mb-1 keep-color text-emerald-800 dark:text-emerald-400">
+                  Cloud Backup Enabled
+                </p>
+                <p className="text-[16px] font-bold text-rose-600 dark:text-rose-400 tracking-tight keep-color" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                  Continuity active for <span className="underline decoration-rose-500/30 decoration-2 underline-offset-4">{session.user.name}</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 select-none">
+                  <img src="https://img.icons8.com/color/48/verified-account--v1.png" className="w-4 h-4" alt="Verified" />
+                  <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono">
+                    Real-time Sync
+                  </span>
+                </div>
+              </div>
+
+              <motion.button 
+                onClick={handleResetTopic}
+                animate={{ 
+                  y: [0, -3, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative h-10 pl-5 pr-1 rounded-full flex items-center gap-2.5 border-none group shadow-lg shadow-amber-500/20"
+                style={{ 
+                  backgroundColor: '#FFC107',
+                }}
+              >
+                <span className="text-[11px] font-black text-black tracking-[0.12em] uppercase">Reset Your Progress</span>
+                
+                <div className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center transition-transform group-hover:rotate-180 duration-500">
+                  <RotateCcw size={15} strokeWidth={3} color="#000000" />
+                </div>
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
 
         {/* Theory Section - Essential Formulas */}
         {theoryData && theoryData.length > 0 && currentPage === 1 && (
@@ -244,7 +768,7 @@ const QuestionPage = () => {
                 <h2 
                   className="text-xl md:text-2xl font-[900] tracking-tight leading-none mb-1.5 keep-color"
                   style={{ 
-                    backgroundImage: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                    backgroundImage: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
                     WebkitBackgroundClip: 'text',
                     backgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -254,57 +778,75 @@ const QuestionPage = () => {
                 >
                   Essential Formulas
                 </h2>
-                <p className="text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest opacity-70">
+                <p className="text-[10px] font-black text-purple-600 dark:text-purple-400 uppercase tracking-widest opacity-70">
                   Quick Theory Reference
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
               {theoryData.map((item, idx) => (
                 <motion.div 
                   key={idx}
-                  whileHover={{ y: -5 }}
-                  className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-white/5 rounded-[24px] p-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="relative group"
                 >
+                  {/* Decorative Number Overlay */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <span 
+                      className="text-[11px] font-black transition-all duration-500 w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-purple-600 shadow-lg shadow-purple-500/20 keep-color"
+                      style={{ color: '#ffffff' }}
+                    >
+                      0{idx + 1}
+                    </span>
+                    <div className="h-px flex-1 bg-zinc-100 dark:bg-white/5" />
+                  </div>
+
                   {item.image && (
                     <div 
-                      className="group/img relative aspect-square w-full rounded-2xl bg-zinc-50 dark:bg-white/5 mb-6 overflow-hidden flex items-center justify-center p-4 cursor-zoom-in"
+                      className="group/img relative aspect-[16/10] w-full rounded-2xl bg-zinc-50 dark:bg-white/5 mb-8 overflow-hidden flex items-center justify-center p-8 cursor-zoom-in border border-zinc-100 dark:border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
                       onClick={() => {
                         setModalImage(item.image);
                         setZoomLevel(1);
                       }}
                     >
-                      <img 
+                      <RenderMedia 
                         src={item.image} 
-                        alt={item.title} 
-                        className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover/img:scale-105" 
+                        className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-700 group-hover/img:scale-105" 
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
-                        <Maximize2 size={24} className="text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-purple-600/0 group-hover/img:bg-purple-600/[0.02] flex items-center justify-center transition-all">
+                        <Maximize2 size={24} className="text-purple-600 opacity-0 group-hover/img:opacity-100 transition-all scale-75 group-hover/img:scale-100" />
                       </div>
                     </div>
                   )}
-                  <h3 className="text-[18px] font-black text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">{item.title}</h3>
-                  {item.formulas ? (
-                    <div className="space-y-3">
-                      {item.formulas.map((f, fIdx) => (
-                        <div key={fIdx} className="flex flex-col gap-0.5">
-                          <span className="text-[9px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">{f.label}</span>
-                          <span 
-                            className="text-[14px] font-[800] tabular-nums keep-color"
-                            style={{ color: '#2563eb' }}
-                          >
-                            {f.value}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : item.description && (
-                    <p className="text-[14px] font-bold text-zinc-600 dark:text-zinc-400 leading-relaxed italic">
-                      {item.description}
-                    </p>
-                  )}
+
+                  <div className="space-y-4">
+                    <h3 className="text-[18px] font-[900] text-zinc-900 dark:text-white uppercase tracking-tighter leading-none">
+                      {item.title}
+                    </h3>
+                    
+                    {item.formulas ? (
+                      <div className="grid grid-cols-1 gap-4 pt-2">
+                        {item.formulas.map((f, fIdx) => (
+                          <div key={fIdx} className="flex flex-col border-l-2 border-zinc-100 dark:border-white/10 pl-4 py-1">
+                            <span className="text-[9px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-1">{f.label}</span>
+                            <span 
+                              className="text-[15px] font-[800] tabular-nums keep-color"
+                              style={{ color: '#8b5cf6' }}
+                            >
+                              {f.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : item.description && (
+                      <p className="text-[14px] font-semibold text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        {formatText(item.description)}
+                      </p>
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -341,139 +883,297 @@ const QuestionPage = () => {
                     }}
                     className="pb-6 mb-6 border-b border-gray-100 dark:border-gray-800 last:border-0 last:mb-0"
                   >
-                    <div className="mb-4">
-                      <h3 className="text-[16px] font-bold text-black dark:text-gray-100 leading-relaxed flex items-start">
-                        <span className="mr-3 text-black/30 font-black">{qNum}.</span>
-                        <div className="flex flex-col gap-4 w-full">
-                          <span>{q.text}</span>
-                          {q.image && (
-                            <div 
-                              className="group/img relative w-full max-w-[280px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-6 md:p-8 self-start md:self-center transition-all cursor-zoom-in"
-                              onClick={() => {
-                                setModalImage(q.image);
-                                setZoomLevel(1);
-                              }}
-                            >
-                              <img src={q.image} alt="Question diagram" className="w-full h-auto object-contain dark:invert-[0.1] transition-transform duration-500 group-hover/img:scale-105" />
-                              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
-                                <Maximize2 size={24} className="text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </h3>
-                    </div>
-
-                    {/* Compact Options Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1.5 mb-5 pl-8">
-                      {q.options.map((opt) => {
-                        const hasAttempted = qAttempts.includes(opt.id);
-                        const isCorrect = opt.id === q.answer;
-                        
-                        let dotColor = "border-gray-200 dark:border-gray-700 text-black/60 dark:text-white/60 bg-white dark:bg-transparent";
-                        let textColor = "text-gray-600 dark:text-gray-400";
-                        
-                        if (hasAttempted) {
-                          if (isCorrect) {
-                            dotColor = "border-emerald-500 bg-emerald-500 text-white";
-                            textColor = "text-emerald-500 font-black";
-                          } else {
-                            dotColor = "border-rose-500 bg-rose-500 text-white";
-                            textColor = "text-rose-500 font-black";
-                          }
-                        }
-
-                        return (
-                          <button
-                            key={opt.id}
-                            disabled={isSolved && !hasAttempted}
-                            onClick={() => handleOptionClick(q.id, opt.id, q.answer)}
-                            className={`flex items-center gap-3 py-1.5 group transition-all text-left ${isSolved && !hasAttempted ? "opacity-30 cursor-default" : "cursor-pointer"}`}
-                          >
-                            <motion.div 
-                              initial={false}
-                              animate={hasAttempted ? { scale: [0.8, 1.1, 1], rotate: isCorrect ? [0, -10, 0] : [0, 10, 0] } : { scale: 1 }}
-                              transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-                              className={`w-7 h-7 shrink-0 rounded-full border-2 flex items-center justify-center text-[12.5px] font-black transition-colors ${dotColor}`}
-                            >
-                              {opt.id}
-                            </motion.div>
-                            <span 
-                              className="text-[15px] font-black leading-snug transition-all decoration-1 underline-offset-4 group-hover:underline"
-                              style={{ 
-                                color: hasAttempted 
-                                  ? (isCorrect ? '#059669' : '#dc2626') 
-                                  : (isDark ? '#94a3b8' : '#64748b') 
-                              }}
-                            >
-                              {opt.text}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Compact Footer Actions */}
-                    <div className="flex items-center justify-between pl-8">
-                      <div className="flex items-center gap-4">
-                        <motion.button 
-                          whileHover={{ scale: 1.02, backgroundColor: '#000', color: '#fff' }}
-                          whileTap={{ scale: 0.98 }}
-                          onClick={() => toggleExplanation(q.id)}
-                          className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-[0.15em] flex items-center gap-2 transition-all border border-transparent ${openExplanations[q.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm"}`}
-                        >
-                          <Lightbulb size={12} className={openExplanations[q.id] ? "text-yellow-400" : ""} /> {openExplanations[q.id] ? "Hide Solution" : "View Solution"}
-                        </motion.button>
-                        
-                        <div className="flex items-center gap-1">
-                           <motion.button 
-                             whileHover={{ y: -2, color: isDark ? '#fff' : '#000' }}
-                             className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 dark:text-zinc-600 transition-all">
-                              <MessageSquare size={16} />
-                           </motion.button>
-                           <motion.button 
-                             whileHover={{ y: -2, color: isDark ? '#fff' : '#000' }}
-                             className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 dark:text-zinc-600 transition-all">
-                              <Bookmark size={16} />
-                           </motion.button>
-                        </div>
-                      </div>
-
-                      <AnimatePresence>
-                        {isSolved && (
-                          <motion.div 
-                            initial={{ x: 20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#fef9c3] dark:bg-yellow-500/20 border-2 border-yellow-300 dark:border-yellow-500/30 rounded-lg"
-                          >
-                             <div className="w-4 h-4 rounded bg-yellow-400 flex items-center justify-center">
-                               <Check size={10} className="text-black stroke-[4]" />
+                    {q.type === 'passage-group' ? (
+                      <div className="space-y-6">
+                        {/* Common Passage / Stimulus */}
+                        <div className="bg-zinc-50 dark:bg-white/5 border border-zinc-100 dark:border-white/10 rounded-2xl p-6 mb-8">
+                           <div className="flex items-center gap-2 text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">
+                              <Info size={12} /> Common Information
+                           </div>
+                           <MarkdownContent content={q.passage} />
+                           {q.image && (
+                             <div 
+                               className="group/img relative w-full rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-white dark:bg-white/5 p-6 mt-6 transition-all cursor-zoom-in flex justify-center shadow-sm hover:shadow-md"
+                               onClick={() => {
+                                 setModalImage(q.image);
+                                 setZoomLevel(1);
+                               }}
+                             >
+                               <RenderMedia src={q.image} className="w-full max-w-[600px] h-auto object-contain transition-transform duration-500 group-hover/img:scale-105" />
+                               <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
+                                 <Maximize2 size={24} className="text-gray-400 opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                               </div>
                              </div>
-                             <span className="text-[10px] font-black text-yellow-800 dark:text-yellow-400 uppercase tracking-widest">Solved</span>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                           )}
+                        </div>
 
-                    <AnimatePresence>
-                      {openExplanations[q.id] && (
-                        <motion.div 
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-4 pl-8 overflow-hidden"
-                        >
-                          <div className="relative p-5 bg-[#f0f9ff] dark:bg-[#0c4a6e]/10 border border-[#bae6fd] dark:border-[#0c4a6e]/20 rounded-xl">
-                            <h4 className="flex items-center gap-2 text-[10px] font-black text-[#0284c7] dark:text-[#7dd3fc] uppercase tracking-[0.2em] mb-3 border-b border-[#bae6fd] dark:border-white/10 pb-2">
-                               Explanation
-                            </h4>
-                            <div className="text-[15px] leading-relaxed font-bold text-black dark:text-gray-200 whitespace-pre-line">
-                              {q.explanation}
+                        {/* Sub-question Carousel UI */}
+                        {(() => {
+                           const subIdx = subIndices[q.id] || 0;
+                           const currentSub = q.subQuestions[subIdx];
+                           const subAttempts = attempts[currentSub.id] || [];
+                           const isSubSolved = subAttempts.includes(currentSub.answer);
+                           const isLastSub = subIdx === q.subQuestions.length - 1;
+
+                           return (
+                             <div className="space-y-6">
+                               <div className="flex items-center justify-between mb-4">
+                                  <h4 className="text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400">
+                                     Sub-Question {subIdx + 1} of {q.subQuestions.length}
+                                  </h4>
+                                  <div className="flex gap-2">
+                                     {q.subQuestions.map((_, i) => (
+                                       <button 
+                                         key={i}
+                                         onClick={() => setSubIndices(prev => ({ ...prev, [q.id]: i }))}
+                                         className={`w-2 h-2 rounded-full transition-all ${subIdx === i ? 'w-6 bg-blue-600' : 'bg-gray-200 dark:bg-white/20'}`}
+                                       />
+                                     ))}
+                                  </div>
+                               </div>
+
+                               <div className="text-[16px] font-bold text-black dark:text-gray-100 leading-relaxed pl-8 border-l-4 border-blue-500/20">
+                                  <MarkdownContent content={currentSub.text} />
+                               </div>
+
+                               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1.5 mb-5 pl-8">
+                                 {currentSub.options.map((opt) => {
+                                   const hasAttempted = subAttempts.includes(opt.id);
+                                   const isCorrect = opt.id === currentSub.answer;
+                                   
+                                   let dotColor = "border-gray-200 dark:border-gray-700 text-black/60 dark:text-white/60 bg-white dark:bg-transparent";
+                                   if (hasAttempted) {
+                                     dotColor = isCorrect ? "border-emerald-500 bg-emerald-500 text-white" : "border-rose-500 bg-rose-500 text-white";
+                                   }
+
+                                   return (
+                                     <button
+                                       key={opt.id}
+                                       disabled={isSubSolved && !hasAttempted}
+                                       onClick={() => handleOptionClick(currentSub.id, opt.id, currentSub.answer)}
+                                       className={`flex items-center gap-3 py-1.5 group transition-all text-left ${isSubSolved && !hasAttempted ? "opacity-30 cursor-default" : "cursor-pointer"}`}
+                                     >
+                                       <div className={`w-7 h-7 shrink-0 rounded-full border-2 flex items-center justify-center text-[12.5px] font-black transition-colors ${dotColor}`}>
+                                          {opt.id}
+                                       </div>
+                                       <span 
+                                         className="text-[15px] font-black leading-snug transition-all underline-offset-4 group-hover:underline"
+                                         style={{ color: hasAttempted ? (isCorrect ? '#059669' : '#dc2626') : (isDark ? '#94a3b8' : '#64748b') }}
+                                       >
+                                         {opt.text}
+                                       </span>
+                                     </button>
+                                   );
+                                 })}
+                               </div>
+
+                               <div className="flex items-center justify-between pl-8">
+                                  <div className="flex items-center gap-4">
+                                     <button 
+                                       onClick={() => toggleExplanation(currentSub.id)}
+                                       className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all ${openExplanations[currentSub.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"}`}
+                                     >
+                                        <Lightbulb size={12} /> {openExplanations[currentSub.id] ? "Hide Solution" : "View Solution"}
+                                     </button>
+                                     
+                                     {isSubSolved && !isLastSub && (
+                                       <button 
+                                         onClick={() => setSubIndices(prev => ({ ...prev, [q.id]: subIdx + 1 }))}
+                                         className="px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest bg-blue-600 text-white flex items-center gap-2 animate-bounce"
+                                       >
+                                         Next Sub-Question <ChevronRight size={12} />
+                                       </button>
+                                     )}
+                                  </div>
+                                  
+                                  {isSubSolved && (
+                                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#fef9c3] dark:bg-yellow-500/20 border-2 border-yellow-300 rounded-lg">
+                                       <Check size={10} className="text-black stroke-[4]" />
+                                       <span className="text-[10px] font-black uppercase tracking-widest">Solved</span>
+                                    </div>
+                                  )}
+                               </div>
+
+                               <AnimatePresence>
+                                 {openExplanations[currentSub.id] && (
+                                   <motion.div 
+                                     initial={{ opacity: 0, height: 0 }}
+                                     animate={{ opacity: 1, height: 'auto' }}
+                                     exit={{ opacity: 0, height: 0 }}
+                                     className="mt-4 pl-8 overflow-hidden"
+                                   >
+                                     <div className="p-5 bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 rounded-xl">
+                                        <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">Explanation</h4>
+                                        <p className="text-[14px] font-bold text-gray-700 dark:text-gray-300">{currentSub.explanation}</p>
+                                     </div>
+                                   </motion.div>
+                                 )}
+                               </AnimatePresence>
+                             </div>
+                           );
+                        })()}
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mb-4">
+                          <div className="text-[16px] font-bold text-black dark:text-gray-100 leading-relaxed flex items-start">
+                            <span className="mr-3 text-black/30 font-black">{qNum}.</span>
+                            <div className="flex flex-col gap-4 w-full">
+                              <MarkdownContent content={q.text} />
+                              {q.image && (
+                                <div 
+                                  className="group/img relative w-full max-w-[280px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-6 md:p-8 self-start md:self-center transition-all cursor-zoom-in"
+                                  onClick={() => {
+                                    setModalImage(q.image);
+                                    setZoomLevel(1);
+                                  }}
+                                >
+                                  <RenderMedia src={q.image} className="w-full h-auto object-contain dark:invert-[0.1] transition-transform duration-500 group-hover/img:scale-105" />
+                                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
+                                    <Maximize2 size={24} className="text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </div>
+
+                        {/* Compact Options Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-1.5 mb-5 pl-8">
+                          {q.options.map((opt) => {
+                            const hasAttempted = qAttempts.includes(opt.id);
+                            const isCorrect = opt.id === q.answer;
+                            
+                            let dotColor = "border-gray-200 dark:border-gray-700 text-black/60 dark:text-white/60 bg-white dark:bg-transparent";
+                            let textColor = "text-gray-600 dark:text-gray-400";
+                            
+                            if (hasAttempted) {
+                              if (isCorrect) {
+                                dotColor = "border-emerald-500 bg-emerald-500 text-white";
+                                textColor = "text-emerald-500 font-semibold";
+                              } else {
+                                dotColor = "border-rose-500 bg-rose-500 text-white";
+                                textColor = "text-rose-500 font-semibold";
+                              }
+                            }
+
+                            return (
+                              <button
+                                key={opt.id}
+                                disabled={isSolved && !hasAttempted}
+                                onClick={() => handleOptionClick(q.id, opt.id, q.answer)}
+                                className={`flex items-center gap-3 py-1.5 group transition-all text-left ${isSolved && !hasAttempted ? "opacity-30 cursor-default" : "cursor-pointer"}`}
+                              >
+                                <motion.div 
+                                  initial={false}
+                                  animate={hasAttempted ? { scale: [0.8, 1.1, 1], rotate: isCorrect ? [0, -10, 0] : [0, 10, 0] } : { scale: 1 }}
+                                  transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+                                  className={`w-7 h-7 shrink-0 rounded-full border-2 flex items-center justify-center text-[12.5px] font-bold transition-colors ${dotColor}`}
+                                >
+                                  {opt.id}
+                                </motion.div>
+                                <div className="flex flex-col gap-2 flex-1">
+                                  <span 
+                                    className="text-[15px] font-semibold leading-snug transition-all decoration-1 underline-offset-4 group-hover:underline"
+                                    style={{ 
+                                      color: hasAttempted 
+                                        ? (isCorrect ? '#059669' : '#dc2626') 
+                                        : (isDark ? '#94a3b8' : '#64748b') 
+                                    }}
+                                  >
+                                    {opt.text}
+                                  </span>
+                                  {opt.image && (
+                                    <div className="w-full max-w-[120px] rounded-lg overflow-hidden bg-gray-50 dark:bg-white/10 p-2 border border-black/5">
+                                      <RenderMedia src={opt.image} className="w-full h-auto object-contain" />
+                                    </div>
+                                  )}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {/* Compact Footer Actions */}
+                        <div className="flex items-center justify-between pl-8">
+                          <div className="flex items-center gap-4">
+                            <motion.button 
+                              whileHover={{ scale: 1.02, backgroundColor: '#000', color: '#fff' }}
+                              whileTap={{ scale: 0.98 }}
+                              onClick={() => toggleExplanation(q.id)}
+                              className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-[0.15em] flex items-center gap-2 transition-all border border-transparent ${openExplanations[q.id] ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm"}`}
+                            >
+                              <Lightbulb size={12} className={openExplanations[q.id] ? "text-yellow-400" : ""} /> {openExplanations[q.id] ? "Hide Solution" : "View Solution"}
+                            </motion.button>
+                            
+                            <div className="flex items-center gap-1">
+                               <motion.button 
+                                 whileHover={{ y: -2, color: isDark ? '#fff' : '#000' }}
+                                 className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 dark:text-zinc-600 transition-all">
+                                  <MessageSquare size={16} />
+                               </motion.button>
+                               <motion.button 
+                                 whileHover={{ y: -2, color: isDark ? '#fff' : '#000' }}
+                                 className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400 dark:text-zinc-600 transition-all">
+                                  <Bookmark size={16} />
+                                </motion.button>
+                            </div>
+                          </div>
+
+                          <AnimatePresence>
+                            {isSolved && (
+                              <motion.div 
+                                initial={{ x: 20, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-[#fef9c3] dark:bg-yellow-500/20 border-2 border-yellow-300 dark:border-yellow-500/30 rounded-lg"
+                              >
+                                 <div className="w-4 h-4 rounded bg-yellow-400 flex items-center justify-center">
+                                   <Check size={10} className="text-black stroke-[4]" />
+                                 </div>
+                                 <span className="text-[10px] font-black text-yellow-800 dark:text-yellow-400 uppercase tracking-widest">Solved</span>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
+                        <AnimatePresence>
+                          {openExplanations[q.id] && (
+                            <motion.div 
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="mt-4 pl-8 overflow-hidden"
+                            >
+                              <div className="relative p-5 bg-[#f0f9ff] dark:bg-[#0c4a6e]/10 border border-[#bae6fd] dark:border-[#0c4a6e]/20 rounded-xl">
+                                <h4 className="flex items-center gap-2 text-[10px] font-black text-[#0284c7] dark:text-[#7dd3fc] uppercase tracking-[0.2em] mb-3 border-b border-[#bae6fd] dark:border-white/10 pb-2">
+                                   Explanation
+                                </h4>
+                                <div className="text-[15px] leading-relaxed font-bold text-black dark:text-gray-200 whitespace-pre-line mb-4">
+                                  {formatText(q.explanation)}
+                                </div>
+                                {q.explanationImage && (
+                                  <div 
+                                    className="group/img relative w-full max-w-[400px] rounded-xl overflow-hidden border border-gray-100 dark:border-white/5 bg-white dark:bg-white/5 p-4 transition-all cursor-zoom-in"
+                                    onClick={() => {
+                                      setModalImage(q.explanationImage);
+                                      setZoomLevel(1);
+                                    }}
+                                  >
+                                    <RenderMedia 
+                                      src={q.explanationImage} 
+                                      className="w-full h-auto object-contain transition-transform duration-500 group-hover/img:scale-105" 
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
+                                      <Maximize2 size={24} className="text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    )}
                   </motion.div>
                   {index === 2 && <AdPlaceholder type="feed" />}
                 </React.Fragment>
@@ -713,8 +1413,14 @@ const QuestionPage = () => {
                         const pageStartIndex = idx * questionsPerPage;
                         const pageEndIndex = pageStartIndex + questionsPerPage;
                         const pageQuestions = allQuestions.slice(pageStartIndex, pageEndIndex);
-                        const isThisPageMastered = pageQuestions.length > 0 && 
-                                                 pageQuestions.every(q => attempts[q.id]?.includes(q.answer));
+                        const pageFlatQuestions = pageQuestions.reduce((acc, q) => {
+                          if (q.type === 'passage-group') {
+                            return [...acc, ...q.subQuestions];
+                          }
+                          return [...acc, q];
+                        }, []);
+                        const isThisPageMastered = pageFlatQuestions.length > 0 && 
+                                                 pageFlatQuestions.every(q => (attempts[q.id] || []).includes(q.answer));
                         
                         return (
                           <div key={idx} className="relative group">
@@ -814,9 +1520,9 @@ const QuestionPage = () => {
                     <div className="flex items-center justify-between mb-6">
                        <div className="space-y-1.5 text-left">
                           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 opacity-60">Current Progress</p>
-                          <h5 className="text-[20px] font-black text-zinc-900 dark:text-white leading-none tracking-tight">
-                             {pageSolvedCount} / {currentQuestions.length} <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Correct</span>
-                          </h5>
+                           <h5 className="text-[20px] font-black text-zinc-900 dark:text-white leading-none tracking-tight">
+                             {pageSolvedCount} / {currentFlatQuestions.length} <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest ml-1">Correct</span>
+                           </h5>
                        </div>
                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-700 ${isPageMastered ? 'bg-orange-500/10 shadow-xl shadow-orange-500/10' : 'bg-emerald-500/5'}`}>
                           <motion.img 
@@ -837,7 +1543,7 @@ const QuestionPage = () => {
                        <div className="relative h-2.5 w-full bg-zinc-100 dark:bg-zinc-800/50 rounded-full overflow-hidden border border-black/5 dark:border-white/5">
                           <motion.div 
                             initial={{ width: 0 }}
-                            animate={{ width: `${(pageSolvedCount / currentQuestions.length) * 100}%` }}
+                             animate={{ width: `${(pageSolvedCount / currentFlatQuestions.length) * 100}%` }}
                             className={`h-full relative transition-all duration-1000 ${isPageMastered ? 'bg-gradient-to-r from-orange-400 to-amber-600 shadow-[0_0_20px_rgba(249,115,22,0.4)]' : 'bg-gradient-to-r from-emerald-400 to-emerald-600'}`} 
                           >
                              {/* Gloss Shine Effect */}
@@ -855,7 +1561,7 @@ const QuestionPage = () => {
                           </div>
                           <div className="flex items-center gap-1.5">
                              <span className={`text-[16px] font-black tabular-nums ${isPageMastered ? 'text-orange-500' : (pageSolvedCount > 0 ? 'text-emerald-500' : 'text-zinc-400')}`}>
-                                {Math.round((pageSolvedCount / currentQuestions.length) * 100)}%
+                                 {Math.round((pageSolvedCount / currentFlatQuestions.length) * 100)}%
                              </span>
                           </div>
                        </div>

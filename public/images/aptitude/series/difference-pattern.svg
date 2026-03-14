@@ -1,0 +1,27 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" rx="20" fill="#F0FDF4"/>
+  
+  <rect x="20" y="70" width="50" height="50" rx="10" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="45" y="100" text-anchor="middle" fill="#064E3B" font-family="Plus Jakarta Sans" font-weight="bold" font-size="20">10</text>
+  
+  <rect x="110" y="70" width="50" height="50" rx="10" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="135" y="100" text-anchor="middle" fill="#064E3B" font-family="Plus Jakarta Sans" font-weight="bold" font-size="20">15</text>
+  
+  <rect x="200" y="70" width="50" height="50" rx="10" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="225" y="100" text-anchor="middle" fill="#064E3B" font-family="Plus Jakarta Sans" font-weight="bold" font-size="20">21</text>
+  
+  <rect x="290" y="70" width="50" height="50" rx="10" fill="white" stroke="#10B981" stroke-width="2"/>
+  <text x="315" y="100" text-anchor="middle" fill="#064E3B" font-family="Plus Jakarta Sans" font-weight="bold" font-size="20">28</text>
+
+  <path d="M45 125Q90 155 135 125" stroke="#10B981" stroke-width="2" fill="none"/>
+  <text x="90" y="160" text-anchor="middle" fill="#059669" font-family="Plus Jakarta Sans" font-weight="black" font-size="14">+5</text>
+  
+  <path d="M135 125Q180 155 225 125" stroke="#10B981" stroke-width="2" fill="none"/>
+  <text x="180" y="160" text-anchor="middle" fill="#059669" font-family="Plus Jakarta Sans" font-weight="black" font-size="14">+6</text>
+  
+  <path d="M225 125Q270 155 315 125" stroke="#10B981" stroke-width="2" fill="none"/>
+  <text x="270" y="160" text-anchor="middle" fill="#059669" font-family="Plus Jakarta Sans" font-weight="black" font-size="14">+7</text>
+
+  <text x="200" y="35" text-anchor="middle" fill="#064E3B" font-family="Plus Jakarta Sans" font-weight="black" font-size="18" text-transform="uppercase">Difference Series</text>
+  <text x="200" y="185" text-anchor="middle" fill="#64748B" font-family="Plus Jakarta Sans" font-size="12">The differences between consecutive terms form a series.</text>
+</svg>

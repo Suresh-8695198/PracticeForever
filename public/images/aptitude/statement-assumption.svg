@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hand-drawn style Bridge for Statement and Assumption -->
+  <!-- Left Side (Premise/Statement) -->
+  <path d="M30 150 Q50 120 70 150 T110 150" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" />
+  <rect x="35" y="110" width="40" height="30" rx="5" fill="none" stroke="#8b5cf6" stroke-width="3" />
+  <text x="40" y="130" font-family="sans-serif" font-size="12" fill="#8b5cf6" font-weight="bold">S</text>
+  
+  <!-- Right Side (Conclusion) -->
+  <path d="M130 150 Q150 120 170 150 T210 150" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" />
+  <rect x="135" y="110" width="40" height="30" rx="5" fill="none" stroke="#8b5cf6" stroke-width="3" />
+  <text x="140" y="130" font-family="sans-serif" font-size="12" fill="#8b5cf6" font-weight="bold">C</text>
+
+  <!-- The Bridge (Assumption) -->
+  <path d="M75 125 Q105 90 135 125" fill="none" stroke="#ec4899" stroke-width="4" stroke-dasharray="6,4" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="3s" repeatCount="indefinite" />
+  </path>
+  <text x="85" y="85" font-family="sans-serif" font-size="10" fill="#ec4899" font-style="italic">Assumption</text>
+
+  <!-- Ground -->
+  <path d="M20 160 L180 160" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-dasharray="2,4" />
+</svg>

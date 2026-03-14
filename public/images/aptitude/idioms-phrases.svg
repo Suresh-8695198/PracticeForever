@@ -1,0 +1,7 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="20" fill="#fef2f2"/>
+  <path d="M60 100 Q100 60 140 100" stroke="#ef4444" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="60" cy="100" r="8" fill="#ef4444"/>
+  <circle cx="140" cy="100" r="8" fill="#ef4444"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#b91c1c">"Piece of cake"</text>
+</svg>
