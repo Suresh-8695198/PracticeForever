@@ -7,8 +7,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useSession, signIn, signOut as nextSignOut } from 'next-auth/react';
 import {
-    Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight,
-    User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper, RotateCcw,
+    Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight, Share,
+    User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper, RotateCcw, Smartphone,
     // Category icons
     Landmark, Brain, Terminal, Mic, Rss, Timer, Library, Feather, Handshake, Package,
     // Government Exam subs
@@ -470,6 +470,46 @@ const Navbar = () => {
     const navRef = useRef(null);
     const closeTimer = useRef(null);
     const enterTimer = useRef(null);
+    const [deferredPrompt, setDeferredPrompt] = useState(null);
+    const [isIOS, setIsIOS] = useState(false);
+    const [showInstallBanner, setShowInstallBanner] = useState(false);
+
+    useEffect(() => {
+        // Detect iOS
+        const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        setIsIOS(isIOSDevice);
+
+        // Check if already in standalone mode
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+        if (!isStandalone) {
+            // Show banner after a short delay on mobile
+            const timer = setTimeout(() => {
+                setShowInstallBanner(true);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleBeforeInstall = (e) => {
+            e.preventDefault();
+            setDeferredPrompt(e);
+        };
+        window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+        return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+    }, []);
+
+    const handleInstallClick = () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                setDeferredPrompt(null);
+            }
+        });
+    };
+
     const [logoTrigger, setLogoTrigger] = useState(false);
 
     useEffect(() => {
@@ -645,6 +685,19 @@ const Navbar = () => {
                              <Bell size={16} />
                              <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
                          </button>
+
+                        {/* Mobile Install Button - Only if supported by browser */}
+                        {deferredPrompt && (
+                            <button 
+                                onClick={handleInstallClick}
+                                className={`flex items-center gap-1.5 px-3 h-9 rounded-lg text-[12px] font-bold transition-all duration-150 animate-pulse ${isDark 
+                                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                                    : 'bg-emerald-50 text-emerald-600 border border-emerald-200'}`}
+                            >
+                                <Smartphone size={14} />
+                                <span className="hidden xs:inline">Install App</span>
+                            </button>
+                        )}
 
                         {/* Theme Toggle */}
                         <button 
@@ -873,6 +926,46 @@ const Navbar = () => {
                                 </div>
                             </div>
 
+                            {/* Mobile App Install Recommendation - Prominent in Sidebar */}
+                            {(deferredPrompt || isIOS) && (
+                                <div className="px-4 pt-4">
+                                    <div className={`p-4 rounded-xl flex flex-col gap-3 ${isDark ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-emerald-50 border border-emerald-100'}`}>
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center text-white shadow-lg">
+                                                <Smartphone size={20} />
+                                            </div>
+                                            <div>
+                                                <h4 className={`text-[13.5px] font-bold ${isDark ? 'text-white' : 'text-emerald-900'}`}>Get our Mobile App</h4>
+                                                <p className={`text-[11px] font-medium ${isDark ? 'text-emerald-400/80' : 'text-emerald-600'}`}>
+                                                    {isIOS ? 'Install for easy access' : 'Better experience & faster access'}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {deferredPrompt ? (
+                                            <button 
+                                                onClick={() => {
+                                                    handleInstallClick();
+                                                    setMobileOpen(false);
+                                                }}
+                                                className="w-full h-10 bg-emerald-500 text-white font-bold rounded-lg text-[13px] hover:bg-emerald-600 transition-colors shadow-md"
+                                            >
+                                                Install Now
+                                            </button>
+                                        ) : isIOS ? (
+                                            <div className="flex flex-col gap-1">
+                                                <p className={`text-[10px] font-bold opacity-70 ${isDark ? 'text-white' : 'text-emerald-900'}`}>To install:</p>
+                                                <p className={`text-[10px] font-medium flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-emerald-800'}`}>
+                                                    1. Tap <Share size={12} className="inline" /> (Share) 
+                                                </p>
+                                                <p className={`text-[10px] font-medium flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-emerald-800'}`}>
+                                                    2. Scroll to 'Add to Home Screen'
+                                                </p>
+                                            </div>
+                                        ) : null}
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Search - Enhanced for visibility */}
                             <div className='p-4 pt-2'>
                                 <div className={`flex items-center gap-3 rounded-xl border px-4 h-11 transition-all ${
@@ -1000,6 +1093,56 @@ const Navbar = () => {
                             )}
                             </div>
                         </motion.aside>
+                )}
+            </AnimatePresence>
+
+            {/* ══ MOBILE BOTTOM INSTALL BANNER (The recommendation) ══ */}
+            <AnimatePresence>
+                {showInstallBanner && !mobileOpen && (deferredPrompt || isIOS) && (
+                    <motion.div
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 100, opacity: 0 }}
+                        className="fixed bottom-4 left-4 right-4 z-[9997] md:hidden"
+                    >
+                        <div className={`p-4 rounded-2xl shadow-2xl border flex items-center gap-4 ${
+                            isDark ? 'bg-[#1a1a1a]/95 border-white/10 backdrop-blur-xl' : 'bg-white/95 border-gray-100 backdrop-blur-xl shadow-gray-200/50'
+                        }`}>
+                            <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-black shrink-0 shadow-lg shadow-amber-500/20">
+                                <img src="/logo.png" alt="App" className="w-8 h-8 object-contain" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <h4 className={`text-[14px] font-extrabold truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>PracticeForever App</h4>
+                                <p className={`text-[11px] font-bold ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Install for better preparation</p>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() => setShowInstallBanner(false)}
+                                    className={`p-2 rounded-lg transition-colors ${isDark ? 'bg-white/5 text-gray-400' : 'bg-gray-100 text-gray-500'}`}
+                                >
+                                    <X size={16} />
+                                </button>
+                                {deferredPrompt ? (
+                                    <button
+                                        onClick={handleInstallClick}
+                                        className="h-10 px-5 bg-amber-500 text-black font-extrabold rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+                                    >
+                                        Install
+                                    </button>
+                                ) : isIOS ? (
+                                    <button
+                                        onClick={() => {
+                                            setShowInstallBanner(false);
+                                            setMobileOpen(true);
+                                        }}
+                                        className="h-10 px-5 bg-amber-500 text-black font-extrabold rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+                                    >
+                                        Install
+                                    </button>
+                                ) : null}
+                            </div>
+                        </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </header>
