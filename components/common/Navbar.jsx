@@ -843,25 +843,25 @@ const Navbar = () => {
                         >
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-5 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-nowrap overflow-visible'>
-                                    <div className="flex items-center gap-1.5 flex-nowrap">
-                                        <img src='/logo.png' alt='Logo' className='h-10 w-auto object-contain shrink-0' />
-                                        <div className='overflow-visible shrink-0'>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
+                                    <div className="flex items-center gap-1.5 min-w-0">
+                                        <img src='/logo.png' alt='Logo' className='h-9 w-auto object-contain shrink-0' />
+                                        <div className='overflow-hidden truncate hidden min-[360px]:block'>
                                             <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
                                         </div>
                                     </div>
                                 </Link>
-                                <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-1 shrink-0'>
                                     {/* Notifications in Sidebar */}
-                                    <button className={`relative w-9 h-9 rounded-lg flex items-center justify-center ${isDark
-                                        ? 'bg-amber-500/10 text-amber-400'
-                                        : 'bg-amber-50 text-amber-500'
+                                    <button className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark
+                                        ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
+                                        : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
                                         }`}>
-                                        <Bell size={18} />
+                                        <Bell size={16} />
                                         <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
                                     </button>
-                                    <button onClick={() => setMobileOpen(false)} className={`w-9 h-9 rounded-lg flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
-                                        <X size={20} />
+                                    <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
+                                        <X size={18} />
                                     </button>
                                 </div>
                             </div>
