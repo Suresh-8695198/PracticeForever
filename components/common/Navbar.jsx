@@ -822,26 +822,28 @@ const Navbar = () => {
             {/* ══ MOBILE DRAWER ══ */}
             <AnimatePresence>
                 {mobileOpen && (
-                    <>
-                        <motion.div
-                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                            transition={{ duration: 0.18 }}
-                            className='fixed inset-0 bg-black/50 z-[60] md:hidden'
-                            onClick={() => setMobileOpen(false)}
-                        />
-                        <motion.aside
+                    <motion.div
+                        initial={{ opacity: 0 }} 
+                        animate={{ opacity: 1 }} 
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className='fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998] md:hidden'
+                        onClick={() => setMobileOpen(false)}
+                    />
+                )}
+                {mobileOpen && (
+                    <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className={`fixed inset-y-0 left-0 w-[280px] sm:w-[320px] z-[70] flex flex-col shadow-2xl ${
-                                isDark ? 'bg-[#111111]' : 'bg-white'
-                            }`}
+                            className="fixed inset-y-0 left-0 w-[280px] sm:w-[320px] z-[9999] flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                            style={{ backgroundColor: isDark ? '#0f0f0f' : '#ffffff', height: '100dvh' }}
                         >
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-4 h-14 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center group/mobile-logo min-w-0'>
-                                    <div className="flex items-center gap-0">
-                                        <img src='/logo.png' alt='Logo' className='h-10 w-auto object-contain shrink-0' />
-                                        <div className='ml-[-8px] scale-90 origin-left'>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 overflow-visible'>
+                                    <div className="flex items-center gap-0 whitespace-nowrap">
+                                        <img src='/logo.png' alt='Logo' className='h-9 w-auto object-contain shrink-0' />
+                                        <div className='ml-[-6px]'>
                                             <AnimatedLogo size="sm" loopInterval={30000} />
                                         </div>
                                     </div>
@@ -859,9 +861,9 @@ const Navbar = () => {
                                 </div>
                             </div>
 
-                            {/* Nav items */}
-                            <nav className='flex-1 overflow-y-auto px-2 pb-4'>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-11 px-3 text-[14px] font-medium rounded-lg mb-0.5 ${isDark ? 'text-gray-200 hover:bg-[#1a1a1a]' : 'text-gray-800 hover:bg-gray-50'}`}>
+                            {/* Nav items - Forced visibility and height */}
+                            <nav className='flex-1 overflow-y-auto px-2 py-4 custom-scrollbar' style={{ minHeight: '0' }}>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-11 px-3 text-[14px] font-bold rounded-xl mb-1 ${isDark ? 'text-gray-100 hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}>
                                     Home
                                 </Link>
 
@@ -942,19 +944,18 @@ const Navbar = () => {
                                     </Link>
                                 </div>
                             ) : (
-                                <div className={`p-4 border-t flex items-center gap-3 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
-                                    <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-black font-bold">
-                                        {user?.name?.charAt(0) || 'U'}
+                                <div className={`p-4 border-t flex items-center gap-3 mt-auto ${isDark ? 'border-white/10 bg-white/5' : 'border-gray-200 bg-gray-50'}`}>
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-amber-600 flex items-center justify-center text-black font-bold shadow-md">
+                                        {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <p className={`text-sm font-bold truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
-                                        <button onClick={logout} className="text-[11px] font-bold text-red-500 uppercase tracking-wider">Sign Out</button>
+                                        <button onClick={logout} className="text-[11px] font-black text-red-500 uppercase tracking-widest mt-0.5">Sign Out</button>
                                     </div>
                                 </div>
                             )}
                             </div>
                         </motion.aside>
-                    </>
                 )}
             </AnimatePresence>
         </header>
