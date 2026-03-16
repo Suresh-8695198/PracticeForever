@@ -213,6 +213,9 @@ const Home = () => {
             100% { opacity: 1; }
           }
         `}</style>
+        <style>{`
+          .hover-pause:hover { animation-play-state: paused !important; }
+        `}</style>
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center gap-1.5 sm:gap-3 h-8 sm:h-10">
           <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 24 }}>
             <span style={{
@@ -281,14 +284,16 @@ const Home = () => {
 
               const all = notices;
               return (
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center',
-                  gap: 32,
-                  animation: notices.length > 0 ? 'notice-ticker 30s linear infinite' : 'none',
-                  whiteSpace: 'nowrap',
-                  width: 'max-content'
-                }}>
+                <div 
+                  className="hover-pause"
+                  style={{ 
+                    display: 'flex', 
+                    alignItems: 'center',
+                    gap: 32,
+                    animation: notices.length > 0 ? 'notice-ticker 90s linear infinite' : 'none',
+                    whiteSpace: 'nowrap',
+                    width: 'max-content'
+                  }}>
                   {all.map((msg, i) => (
                     <em key={i} style={{ fontStyle: 'normal', display: 'inline-flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
