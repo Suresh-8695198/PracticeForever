@@ -214,21 +214,21 @@ const Home = () => {
           }
         `}</style>
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center gap-1.5 sm:gap-3 h-8 sm:h-10">
-          <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 24, sm: { height: 28 } }}>
+          <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 24 }}>
             <span style={{
               position: 'relative',
               display: 'inline-flex',
               alignItems: 'center',
-              height: '100%',
+              height: 24,
               padding: '0 4px 0 10px',
               background: '#ff0000',
-              borderRadius: '14px 0 0 14px',
+              borderRadius: '12px 0 0 12px',
               color: '#ffffff'
             }}>
               <strong style={{
                 color: '#ffffff',
                 fontWeight: 900,
-                fontSize: 11,
+                fontSize: 10,
                 letterSpacing: '0.04em',
                 position: 'relative',
                 zIndex: 2,
@@ -237,7 +237,7 @@ const Home = () => {
               }}>
                 LATEST
               </strong>
-              {/* Right triangle tip — perfectly matched height */}
+              {/* Right triangle tip */}
               <span style={{
                 position: 'absolute',
                 left: '100%',
@@ -279,11 +279,25 @@ const Home = () => {
                 fetchNews();
               }, []);
 
-              const all = [...notices, ...notices];
+              const all = notices;
               return (
-                <div style={{ display: 'flex', flexDirection: 'column', animation: 'notice-slide 20s cubic-bezier(0.45,0,0.15,1) infinite', willChange: 'transform' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  gap: 32,
+                  animation: notices.length > 0 ? 'notice-ticker 30s linear infinite' : 'none',
+                  whiteSpace: 'nowrap',
+                  width: 'max-content'
+                }}>
                   {all.map((msg, i) => (
-                    <em key={i} style={{ fontStyle: 'normal', display: 'flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
+                    <em key={i} style={{ fontStyle: 'normal', display: 'inline-flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
+                      <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
+                      {msg}
+                    </em>
+                  ))}
+                  {/* Clone for loop */}
+                  {all.map((msg, i) => (
+                    <em key={`clone-${i}`} style={{ fontStyle: 'normal', display: 'inline-flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
                       {msg}
                     </em>
@@ -299,6 +313,7 @@ const Home = () => {
       <div style={{ position: 'relative', overflow: 'hidden', height: 46, borderBottom: `1px solid ${isDark ? '#1c1c1c' : '#e8e8e8'}`, background: isDark ? '#0b0b0b' : '#ffffff' }}>
         <style>{`
           @keyframes mq-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
+          @keyframes notice-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-100%) } }
           .mq-ticker { display:flex; width:max-content; align-items:center; height:46px; animation:mq-ticker 64s linear infinite; }
           .mq-ticker:hover { animation-play-state:paused; }
           .mq-item:hover .mq-title { color: #FFC107 !important; }
@@ -306,24 +321,20 @@ const Home = () => {
 
         {/* Left anchor — LIVE label */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, zIndex: 10, display: 'flex', alignItems: 'center', pointerEvents: 'none', background: isDark ? 'linear-gradient(to right,#0b0b0b 76%,transparent)' : 'linear-gradient(to right,#ffffff 76%,transparent)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 0, paddingLeft: 14, paddingRight: 52 }}>
-            {/* LIVE arrow badge — rounded-left, triangle-right */}
-            <span style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, height: 28 }}>
-              {/* Badge body: rounded on left only */}
-              <span style={{ display: 'inline-flex', alignItems: 'center', height: 28, borderRadius: '14px 0 0 14px', background: '#16a34a', overflow: 'hidden' }}>
-                {/* Darker play icon zone */}
-                <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, background: '#15803d', flexShrink: 0 }}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 0, paddingLeft: 10, paddingRight: 40 }}>
+            {/* LIVE arrow badge — reduced size */}
+            <span style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, height: 22 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', height: 22, borderRadius: '11px 0 0 11px', background: '#16a34a', overflow: 'hidden' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, background: '#15803d', flexShrink: 0 }}>
+                  <svg width="8" height="8" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2 1.5L8.5 5L2 8.5V1.5Z" fill="white" />
                   </svg>
                 </span>
-                {/* LIVE text */}
-                <em style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 900, letterSpacing: '0.12em', color: '#fff', padding: '0 7px 0 7px', whiteSpace: 'nowrap', animation: 'live-pulse 1.5s infinite ease-in-out' }}>
+                <em style={{ fontStyle: 'normal', fontSize: 10, fontWeight: 900, letterSpacing: '0.12em', color: '#fff', padding: '0 6px 0 5px', whiteSpace: 'nowrap', animation: 'live-pulse 1.5s infinite ease-in-out' }}>
                   LIVE
                 </em>
               </span>
-              {/* Right pointing triangle tip */}
-              <svg width="13" height="28" viewBox="0 0 13 28" style={{ display: 'block', flexShrink: 0 }}>
+              <svg width="10" height="22" viewBox="0 0 13 28" style={{ display: 'block', flexShrink: 0 }}>
                 <polygon points="0,0 13,14 0,28" fill="#16a34a" />
               </svg>
             </span>
