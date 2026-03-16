@@ -1,0 +1,16 @@
+<svg width="240" height="80" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle -->
+  <circle cx="40" cy="40" r="30" fill="none" stroke="#2563eb" stroke-width="2" />
+  
+  <!-- Arrow to next -->
+  <line x1="75" y1="40" x2="85" y2="40" stroke="#9ca3af" stroke-width="1" />
+  
+  <!-- Semicircle -->
+  <path d="M 100 40 A 30 30 0 0 1 160 40 L 100 40 Z" fill="none" stroke="#2563eb" stroke-width="2" />
+  
+  <!-- Arrow to next -->
+  <line x1="165" y1="40" x2="175" y2="40" stroke="#9ca3af" stroke-width="1" />
+  
+  <!-- Quarter circle -->
+  <path d="M 190 40 A 30 30 0 0 1 220 10 L 190 40 Z" fill="none" stroke="#2563eb" stroke-width="2" />
+</svg>

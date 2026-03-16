@@ -1,3 +1,177 @@
+export const MARCH_15_ARTICLE = {
+    id: 15032026,
+    title: "Daily Current Affairs – 15 March 2026",
+    publish_date: "2026-03-15",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Ladakhi Activist Sonam Wangchuk Released After 170 Days</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Union Government revoked the National Security Act (NSA) detention order against Ladakhi activist Sonam Wangchuk, leading to his release from Jodhpur Central Jail after 170 days.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Wangchuk had been detained since September 26, 2025 under the National Security Act (NSA), 1980.</li>
+                <li>The Union Home Ministry used Section 14 of the NSA to revoke the detention order.</li>
+                <li>The release comes before a Supreme Court hearing on the legality of the detention.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>About the National Security Act (NSA)</strong>
+                <p>Enacted in 1980, it allows preventive detention without trial for up to 12 months to maintain national security and public order.</p>
+            </div>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>The case highlights debates over preventive detention laws, civil liberties, and constitutional safeguards in India.</p>
+            </div>
+        </div>
+        <img src="/images/sonam_wangchuk_mar15.png" alt="Sonam Wangchuk Released" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. U.S. Bombs Iran’s Kharg Island Amid Rising West Asia Conflict</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The United States carried out strikes on Iran’s Kharg Island, a key oil export hub, escalating tensions in the West Asia region.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>U.S. President Donald Trump said military targets on the island were “obliterated”.</li>
+                <li>Kharg Island is the main terminal for Iran’s oil exports, often called the “Pearl of the Persian Gulf”.</li>
+                <li>Iran warned it would retaliate by targeting U.S.-linked oil and energy facilities.</li>
+                <li>Additional 2,500 U.S. Marines were deployed to West Asia.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Strategic Importance</strong>
+                <p>Any disruption in the region could impact global oil prices and international geopolitical stability.</p>
+            </div>
+        </div>
+        <img src="/images/kharg_island_strike_mar15.png" alt="Kharg Island Strike" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Parliamentary Panel Warns of Fertilizer Shortage in India</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A Parliamentary Standing Committee on Fertilizers warned about a potential shortage of key fertilizers before the upcoming kharif crop season.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The committee is chaired by TMC MP Azad Kirti Jha.</li>
+                <li>Rising geopolitical tensions in West Asia have disrupted critical shipping routes.</li>
+                <li>The panel recommended a forward-looking strategy to secure fertilizer supply chains.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Fertilizers are essential for agricultural productivity; shortages could impact food security and farmer income in India.</p>
+            </div>
+        </div>
+        <img src="/images/fertilizer_shortage_mar15.png" alt="Fertilizer Shortage Warning" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Delhi Government Introduces LPG Rationing Policy</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Delhi government introduced a regulated LPG distribution policy due to supply disruptions linked to the West Asia conflict.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Supply capped at 20% of average daily consumption.</li>
+                <li>Essential sectors such as hospitals, schools, airports, and railways receive priority allocation.</li>
+                <li>Enforcement teams will monitor hoarding and black-marketing.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Goal</strong>
+                <p>The policy aims to ensure equitable distribution of fuel during significant supply disruptions.</p>
+            </div>
+        </div>
+        <img src="/images/delhi_lpg_rationing_mar15.png" alt="LPG Rationing Delhi" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. SIT Formed to Probe Assassination Attempt on Farooq Abdullah</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Jammu and Kashmir Police formed a Special Investigation Team (SIT) to investigate an assassination attempt on former Chief Minister Farooq Abdullah.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The attempt occurred during a marriage ceremony in Jammu.</li>
+                <li>Police personnel prevented the attack and recovered a firearm from the accused.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Security Concern</strong>
+                <p>The incident raises serious concerns regarding political security and public safety for prominent leaders in the region.</p>
+            </div>
+        </div>
+        <img src="/images/farooq_abdullah_mar15.png" alt="Assassination Attempt Farooq Abdullah" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Kerala Government Softens Stand on Women Entry in Sabarimala</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Kerala government moderated its earlier stance supporting women’s entry into the Sabarimala temple.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The government asked the SC to carefully examine if the restriction is an "essential religious practice".</li>
+                <li>The issue concerns women of menstrual age; SC review petitions start from April 7, 2026.</li>
+                <li>Backstory: 2018 SC judgment allowed entry of women of all ages, triggering protests.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Significance</strong>
+                <p>The case is critical for religious freedom, gender equality, and constitutional interpretation in India.</p>
+            </div>
+        </div>
+        <img src="/images/sabarimala_issue_mar15.png" alt="Sabarimala Issue Kerala" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">7. Tamil Writer Vairamuthu Selected for Jnanpith Award</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Renowned Tamil poet and lyricist Vairamuthu has been selected for the Jnanpith Award, India’s highest literary honour.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>He is the third Tamil writer to receive this prestigious award.</li>
+                <li>The recognition comes after a gap of 24 years for Tamil literature.</li>
+                <li>The Jnanpith Award honours outstanding contributions to Indian literature.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Literary Heritage</strong>
+                <p>The award high-lights the rich literary legacy of the Tamil language and its significant contribution to Indian culture.</p>
+            </div>
+        </div>
+        <img src="/images/vairamuthu_jnanpith_mar15.png" alt="Jnanpith Award Vairamuthu" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Sonam Wangchuk released from Jodhpur Jail after 170 days as NSA detention revoked.</li>
+        <li>U.S. bombs Iran's Kharg Island, a major oil export terminal, escalating regional conflict.</li>
+        <li>Parliamentary panel warns of fertilizer shortage ahead of kharif season due to West Asia unrest.</li>
+        <li>Delhi introduces LPG rationing policy to manage supply disruptions.</li>
+        <li>SIT formed to investigate assassination attempt on Farooq Abdullah in Jammu.</li>
+        <li>Kerala government moderates its stance on Sabarimala women entry issue.</li>
+        <li>Tamil poet Vairamuthu selected for the 2026 Jnanpith Award.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What is the National Security Act (NSA), 1980?</h4>
+    <p>The NSA allows preventive detention of individuals without trial for up to 12 months for national security or public order reasons.</p>
+
+    <h4>2. Why is Kharg Island strategically important?</h4>
+    <p>Kharg Island acts as Iran's primary oil export terminal; strikes here impact global energy markets significantly.</p>
+
+    <h4>3. Why was Sonam Wangchuk in detention?</h4>
+    <p>He was detained since September 2025 under the NSA; the order was recently revoked by the Home Ministry.</p>
+
+    <h4>4. What is the significance of the Jnanpith Award?</h4>
+    <p>It is India's highest literary honour, recognizing outstanding lifetime contributions to Indian literature.</p>
+
+    <h4>5. Why did Delhi implement LPG rationing?</h4>
+    <p>The move aims to ensure fair fuel distribution amidst supply chain shocks caused by West Asia disruptions.</p>
+</div>
+`
+};
+
 export const MARCH_14_ARTICLE = {
     id: 14032026,
     title: "Daily Current Affairs – 14 March 2026",

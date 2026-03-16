@@ -51,11 +51,7 @@ export default function AdminDashboard() {
             <h1 className={`text-2xl font-bold ${textValue}`}>Welcome back, {admin.name.split(' ')[0]}</h1>
             <p className={`text-sm ${textTitle} mt-1`}>Here is what's happening with your platform today.</p>
           </div>
-          <div className="flex items-center gap-3">
-            <span className={`text-xs font-medium px-3 py-1 rounded-full ${isDark ? 'bg-zinc-800 text-zinc-400' : 'bg-gray-100 text-gray-600'}`}>
-              System Status: <span className="text-emerald-500">Online</span>
-            </span>
-          </div>
+
         </div>
 
         {/* Stats Grid */}

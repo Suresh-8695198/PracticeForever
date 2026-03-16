@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTheme } from '../context/ThemeContext';
+import Head from 'next/head';
 import {
   Search, ChevronRight, ArrowRight,
 } from 'lucide-react';
@@ -12,7 +13,7 @@ const Home = () => {
 
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f4f5f7] text-gray-900';
   const card = isDark ? 'bg-[#141414] border-[#242424]' : 'bg-white border-gray-200';
-  const muted = isDark ? 'text-gray-400' : 'text-gray-500';
+  const muted = isDark ? 'text-gray-200' : 'text-black font-semibold';
   const divider = isDark ? 'border-[#242424]' : 'border-gray-200';
   const altBg = isDark ? 'bg-[#111111]' : 'bg-white';
   const headFont = { fontFamily: 'Manrope, sans-serif' };
@@ -152,7 +153,7 @@ const Home = () => {
             {title}
           </h2>
         </div>
-        {sub && <p className={`text-[14px] leading-relaxed max-w-2xl font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{sub}</p>}
+        {sub && <p className={`text-[14px] leading-relaxed max-w-2xl font-bold ${isDark ? 'text-gray-100' : 'text-black'}`}>{sub}</p>}
       </div>
       {to && (
         <Link href={to} className="flex items-center gap-1.5 text-[13px] font-bold whitespace-nowrap group pb-1">
@@ -164,9 +165,14 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen pt-[104px] ${bg}`} style={bodyFont}>
+    <div className={`min-h-screen pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
+      <Head>
+        <title>PracticeForever | Master Govt Exams, Aptitude & Coding Interviews</title>
+        <meta name="description" content="Prepare for TNPSC, SSC, Banking, and IT interviews with PracticeForever. 8,000+ practice questions, daily current affairs, and subject-wise mock tests." />
+        <meta name="keywords" content="TNPSC preparation, aptitude test practice, coding interviews, daily current affairs 2026, mock tests, SSC CGL prep, placement exams" />
+      </Head>
 
-      {/* ══ NOTICE BAR — vertical scroll ══ */}
+      {/* ══ 1. TOP ANNOUNCEMENT BAR ══ */}
       <div className={`border-b overflow-hidden ${isDark ? 'border-[#1e1e1e] bg-[#111]' : 'border-amber-200 bg-amber-50'}`}>
         <style>{`
           @keyframes notice-slide {
@@ -184,25 +190,27 @@ const Home = () => {
             96%  { transform:translateY(-83.3333%); opacity:1; }
             100% { transform:translateY(-100%); }
           }
-          @keyframes badge-glare {
-            0%   { left:-100%; }
-            20%  { left:120%; }
-            100% { left:120%; }
-          }
           @keyframes draw-underline {
-            0%, 7% { stroke-dashoffset: 212; opacity: 0; }
-            7% { opacity: 1; }
-            95% { stroke-dashoffset: 0; opacity: 1; }
+            0%, 20% { stroke-dashoffset: 220; opacity: 0; }
+            20% { opacity: 1; }
+            98% { stroke-dashoffset: 0; opacity: 1; }
             100% { stroke-dashoffset: 0; opacity: 0; }
           }
           @keyframes marker-move {
-            0% { transform: translate(0, 0) rotate(-10deg); opacity: 0; }
-            5% { transform: translate(0, 0) rotate(-10deg); opacity: 1; }
-            27.5% { transform: translate(53px, -3px) rotate(5deg); }
-            50% { transform: translate(106px, 2px) rotate(-5deg); }
-            72.5% { transform: translate(159px, -4px) rotate(5deg); }
-            95% { transform: translate(212px, -2px) rotate(10deg); opacity: 1; }
-            100% { transform: translate(212px, -2px) rotate(10deg); opacity: 0; }
+            0%, 5% { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
+            5% { opacity: 1; }
+            80% { transform: translate(212px, 0) rotate(5deg); opacity: 1; }
+            100% { transform: translate(212px, 0) rotate(5deg); opacity: 0; }
+          }
+          @keyframes badge-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+          }
+          @keyframes live-pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
           }
         `}</style>
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 flex items-center gap-2 sm:gap-3 h-9 sm:h-10">
@@ -224,7 +232,8 @@ const Home = () => {
                 letterSpacing: '0.04em',
                 position: 'relative',
                 zIndex: 2,
-                fontStyle: 'normal'
+                fontStyle: 'normal',
+                animation: 'live-pulse 2s infinite'
               }}>
                 LATEST
               </strong>
@@ -291,7 +300,7 @@ const Home = () => {
                   </svg>
                 </span>
                 {/* LIVE text */}
-                <em style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 900, letterSpacing: '0.12em', color: '#fff', padding: '0 7px 0 7px', whiteSpace: 'nowrap' }}>
+                <em style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 900, letterSpacing: '0.12em', color: '#fff', padding: '0 7px 0 7px', whiteSpace: 'nowrap', animation: 'live-pulse 1.5s infinite ease-in-out' }}>
                   LIVE
                 </em>
               </span>
@@ -317,21 +326,21 @@ const Home = () => {
         {/* Scrolling items */}
         <div className="mq-ticker" style={{ paddingLeft: 148 }}>
           {[
-            { label: 'Government Exam Prep', cat: 'Govt Exams', stat: '50K+ learners', color: '#3b7dd8', icon: '▣' },
+            { label: 'Government Exam Prep', cat: 'Govt Exams', stat: 'Top Resources', color: '#3b7dd8', icon: '▣' },
             { label: 'Aptitude & Reasoning', cat: 'Aptitude', stat: '200+ topics', color: '#9457f5', icon: '◈' },
             { label: 'Programming & DSA', cat: 'Coding', stat: '30+ languages', color: '#10a37f', icon: '◉' },
-            { label: 'Full Mock Tests', cat: 'Mock Tests', stat: '500+ tests', color: '#e04b4b', icon: '◎' },
+            { label: 'Full Mock Tests', cat: 'Mock Tests', stat: 'Subject Wise', color: '#e04b4b', icon: '◎' },
             { label: 'Daily Current Affairs', cat: 'News & GK', stat: 'Updated daily', color: '#e08c0a', icon: '◆' },
-            { label: 'Interview Prep', cat: 'Careers', stat: '1000+ Q&A', color: '#d946a8', icon: '◐' },
-            { label: 'Free Study PDFs', cat: 'Resources', stat: 'Free access', color: '#0891b2', icon: '◑' },
+            { label: 'Interview Prep', cat: 'Careers', stat: 'Detailed Q&A', color: '#d946a8', icon: '◐' },
+            { label: 'Free Study PDFs', cat: 'Resources', stat: 'Full Access', color: '#0891b2', icon: '◑' },
             // duplicate for seamless loop
-            { label: 'Government Exam Prep', cat: 'Govt Exams', stat: '50K+ learners', color: '#3b7dd8', icon: '▣' },
+            { label: 'Government Exam Prep', cat: 'Govt Exams', stat: 'Top Resources', color: '#3b7dd8', icon: '▣' },
             { label: 'Aptitude & Reasoning', cat: 'Aptitude', stat: '200+ topics', color: '#9457f5', icon: '◈' },
             { label: 'Programming & DSA', cat: 'Coding', stat: '30+ languages', color: '#10a37f', icon: '◉' },
-            { label: 'Full Mock Tests', cat: 'Mock Tests', stat: '500+ tests', color: '#e04b4b', icon: '◎' },
+            { label: 'Full Mock Tests', cat: 'Mock Tests', stat: 'Subject Wise', color: '#e04b4b', icon: '◎' },
             { label: 'Daily Current Affairs', cat: 'News & GK', stat: 'Updated daily', color: '#e08c0a', icon: '◆' },
-            { label: 'Interview Prep', cat: 'Careers', stat: '1000+ Q&A', color: '#d946a8', icon: '◐' },
-            { label: 'Free Study PDFs', cat: 'Resources', stat: 'Free access', color: '#0891b2', icon: '◑' },
+            { label: 'Interview Prep', cat: 'Careers', stat: 'Detailed Q&A', color: '#d946a8', icon: '◐' },
+            { label: 'Free Study PDFs', cat: 'Resources', stat: 'Full Access', color: '#0891b2', icon: '◑' },
           ].map((item, i) => (
             <span key={i} className="mq-item" style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, cursor: 'default' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '0 20px', whiteSpace: 'nowrap' }}>
@@ -348,7 +357,7 @@ const Home = () => {
                   {item.label}
                 </em>
                 {/* Stat — noticeably visible */}
-                <em style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 500, color: isDark ? '#666' : '#555', whiteSpace: 'nowrap' }}>
+                <em style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 700, color: isDark ? '#d4d4d4' : '#000000', whiteSpace: 'nowrap' }}>
                   {item.stat}
                 </em>
               </span>
@@ -417,8 +426,8 @@ const Home = () => {
                       strokeLinejoin="round"
                       style={{
                         opacity: 0.45,
-                        strokeDasharray: 212,
-                        strokeDashoffset: 212,
+                        strokeDasharray: 220,
+                        strokeDashoffset: 220,
                         animation: 'draw-underline 3s linear infinite'
                       }}
                     />
@@ -475,10 +484,10 @@ const Home = () => {
         const [statsVisible, setStatsVisible] = useState(false);
         const [counts, setCounts] = useState([0, 0, 0, 0]);
         const statsData = [
-          { target: 1, suffix: 'M+', lbl: 'Active Students', icon: '👨‍🎓' },
-          { target: 8100, suffix: '+', lbl: 'Practice Questions', icon: '📝' },
-          { target: 5, suffix: 'M+', lbl: 'Mock Tests Taken', icon: '🎯' },
-          { target: 40, suffix: '%', lbl: 'Avg Score Improvement', icon: '📈' },
+          { target: 100, suffix: '%', lbl: 'Trust Factor', icon: '👨‍🎓' },
+          { target: 8100, suffix: '+', lbl: 'Curated Questions', icon: '📝' },
+          { target: 10, suffix: '+', lbl: 'Exam Categories', icon: '🎯' },
+          { target: 40, suffix: '%', lbl: 'Avg. Accuracy Boost', icon: '📈' },
         ];
 
         useEffect(() => {
@@ -633,7 +642,7 @@ const Home = () => {
                     <p className={`text-[13px] font-semibold leading-snug group-hover:text-[#FFC107] transition-colors truncate`}>{t.title}</p>
                     <div className="mt-1.5"><Tag label={t.tag} /></div>
                   </div>
-                  <ChevronRight size={14} className={`shrink-0 ${muted} group-hover:text-[#FFC107] transition-colors`} />
+                  <ChevronRight size={14} className={`shrink-0 ${muted} group-hover:text-[#FFC107] group-hover:translate-x-1 transition-all`} />
                 </Link>
               </motion.div>
             ))}
@@ -654,11 +663,11 @@ const Home = () => {
               return (
                 <motion.div key={lp.title} variants={fadeUp}>
                   <Link href={lp.path}
-                    className="flex flex-col h-full rounded-xl overflow-hidden group"
+                    className="flex flex-col h-full rounded-xl overflow-hidden group shadow-md hover:shadow-2xl hover:brightness-[1.02]"
                     style={{
                       textDecoration: 'none',
                       background: `linear-gradient(145deg, ${g1} 0%, ${g2} 55%, ${g3} 100%)`,
-                      transition: 'transform 0.22s ease',
+                      transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.transform = 'translateY(-3px)';
@@ -772,9 +781,9 @@ const Home = () => {
               <div className="space-y-6">
                 {[
                   { k: 'Total Questions', v: '8,100', r: '+', color: '#1d4ed8' },
-                  { k: 'Active Students', v: '1', r: 'M+', color: '#059669' },
-                  { k: 'Mock Tests Taken', v: '5', r: 'M+', color: '#7c3aed' },
-                  { k: 'Score Improvement', v: '40', r: '% avg', color: '#d97706' },
+                  { k: 'Trust Score', v: '100', r: '%', color: '#059669' },
+                  { k: 'Exam Modules', v: '12', r: '+', color: '#7c3aed' },
+                  { k: 'Skill Improvement', v: '40', r: '%', color: '#d97706' },
                 ].map((item) => (
                   <div key={item.k} className={`flex justify-between items-center pb-6 border-b text-[13.5px] last:border-0 last:pb-0 ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'}`}>
                     <span className={`font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{item.k}</span>
@@ -1003,10 +1012,10 @@ const Home = () => {
               <style>{`@keyframes glare { 0%, 100% { transform: translateX(-100%) translateY(-30%); } 50% { transform: translateX(350%) translateY(30%); } }`}</style>
               <div className="relative z-10">
                 <img src="https://img.icons8.com/color/48/crowd.png" alt="" className="w-10 h-10 mb-6" />
-                <p className="text-[52px] md:text-[64px] font-[900] tracking-tighter leading-none" style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }}>1M<span style={{ color: '#FFC107', WebkitTextFillColor: '#FFC107' }}>+</span></p>
-                <p className="text-[13px] font-bold uppercase tracking-widest mt-3" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Active Students</p>
+                <p className="text-[52px] md:text-[64px] font-[900] tracking-tighter leading-none" style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }}>2026<span style={{ color: '#FFC107', WebkitTextFillColor: '#FFC107' }}>+</span></p>
+                <p className="text-[13px] font-bold uppercase tracking-widest mt-3" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Updated Content</p>
               </div>
-              <p className="relative z-10 text-[13px] leading-relaxed mt-8 font-medium" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Trusted by learners preparing for government exams, placements, and coding interviews.</p>
+              <p className="relative z-10 text-[13px] leading-relaxed mt-8 font-medium" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Engineered for learners preparing for government exams, competitive placements, and coding interviews.</p>
             </div>
 
             {/* Right — Stats + Features */}
@@ -1015,8 +1024,8 @@ const Home = () => {
               <div className="grid grid-cols-3 gap-5">
                 {[
                   { num: '8,100+', label: 'Questions', color: '#059669', icon: 'https://img.icons8.com/color/48/multiple-choice.png' },
-                  { num: '5M+', label: 'Tests Taken', color: '#7c3aed', icon: 'https://img.icons8.com/color/48/timer.png' },
-                  { num: '99%', label: 'Satisfaction', color: '#D97706', icon: 'https://img.icons8.com/color/48/good-quality.png' },
+                  { num: 'Live', label: 'Daily Analysis', color: '#7c3aed', icon: 'https://img.icons8.com/color/48/timer.png' },
+                  { num: 'Verified', label: 'Quality Hub', color: '#D97706', icon: 'https://img.icons8.com/color/48/good-quality.png' },
                 ].map((s) => (
                   <div key={s.label} className={`rounded-xl p-5 border ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100'}`}>
                     <img src={s.icon} alt="" className="w-6 h-6 mb-3" />
@@ -1061,7 +1070,7 @@ const Home = () => {
             <p className={`text-xs font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>Get Started Today — It's Free</p>
             <h2 className="text-2xl md:text-3xl font-extrabold mb-4 tracking-tight">Begin Your Preparation Journey</h2>
             <p className={`text-sm mb-8 max-w-lg mx-auto leading-relaxed ${muted}`}>
-              Join over a million students preparing for government exams, technical interviews and placements using PracticeForever.
+              Access high-quality resources for government exams, technical interviews and placements on PracticeForever.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link href="/register" className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#FFC107] text-black text-sm font-bold rounded-md hover:bg-amber-400 transition-colors">

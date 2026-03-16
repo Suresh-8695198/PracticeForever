@@ -1,0 +1,29 @@
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Square A (Top-Left) -->
+  <g transform="translate(10, 10)">
+    <rect width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="15" cy="15" r="6" fill="#3b82f6" />
+    <text x="40" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">A</text>
+  </g>
+
+  <!-- Square B (Top-Right) -->
+  <g transform="translate(110, 10)">
+    <rect width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="65" cy="15" r="6" fill="#3b82f6" />
+    <text x="40" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">B</text>
+  </g>
+
+  <!-- Square C (Bottom-Right) -->
+  <g transform="translate(210, 10)">
+    <rect width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="65" cy="65" r="6" fill="#3b82f6" />
+    <text x="40" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">C</text>
+  </g>
+
+  <!-- Square D (Center - Odd One Out) -->
+  <g transform="translate(310, 10)">
+    <rect width="80" height="80" fill="none" stroke="#3b82f6" stroke-width="2" />
+    <circle cx="40" cy="40" r="6" fill="#ef4444" />
+    <text x="40" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#3b82f6">D</text>
+  </g>
+</svg>

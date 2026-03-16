@@ -549,7 +549,7 @@ const Navbar = () => {
         <header
             ref={navRef}
             onMouseLeave={handleHeaderLeave}
-            className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-200 ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${isDark ? 'bg-[#0f0f0f]/85' : 'bg-white/85'
                 } ${scrolled ? (isDark ? 'shadow-[0_1px_0_#222]' : 'shadow-sm') : ''}`}
         >
             {/* ══ LOGO ANIMATION VARIANTS ══ */}
@@ -658,12 +658,22 @@ const Navbar = () => {
                                         }`}
                                 >
                                     {user?.image ? (
-                                        <img src={user.image} alt={user.name} className="w-7 h-7 rounded-full border border-white/20" />
-                                    ) : (
-                                        <div className='w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-black text-[11px] flex items-center justify-center'>
-                                            {user?.name?.charAt(0)?.toUpperCase() || 'U'}
-                                        </div>
-                                    )}
+                                        <img 
+                                            src={user.image} 
+                                            alt={user.name} 
+                                            referrerPolicy="no-referrer"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.style.display = 'none';
+                                                const fallback = e.target.parentElement.querySelector('.user-initial-fallback');
+                                                if (fallback) fallback.style.display = 'flex';
+                                            }}
+                                            className="w-7 h-7 rounded-full border border-white/20 object-cover" 
+                                        />
+                                    ) : null}
+                                    <div className={`user-initial-fallback w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
+                                        {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                                    </div>
                                     <span className='hidden lg:block text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
                                     <ChevronDown size={14} className={`transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
                                 </button>
@@ -679,14 +689,24 @@ const Navbar = () => {
                                         >
                                             <div className={`px-5 py-4 border-b flex items-center gap-4 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
                                                 {user?.image ? (
-                                                    <img src={user.image} alt={user.name} className="w-10 h-10 rounded-full border-2 border-white/20" />
-                                                ) : (
-                                                    <div className='w-10 h-10 rounded-full bg-amber-500 text-black font-black flex items-center justify-center text-lg'>
-                                                        {user?.name?.charAt(0)}
-                                                    </div>
-                                                )}
+                                                    <img 
+                                                        src={user.image} 
+                                                        alt={user.name} 
+                                                        referrerPolicy="no-referrer"
+                                                        onError={(e) => {
+                                                            e.target.onerror = null;
+                                                            e.target.style.display = 'none';
+                                                            const fallback = e.target.parentElement.querySelector('.dropdown-initial-fallback');
+                                                            if (fallback) fallback.style.display = 'flex';
+                                                        }}
+                                                        className="w-10 h-10 rounded-full border-2 border-white/20 object-cover" 
+                                                    />
+                                                ) : null}
+                                                <div className={`dropdown-initial-fallback w-10 h-10 rounded-full bg-amber-500 text-black font-bold items-center justify-center text-lg ${user?.image ? 'hidden' : 'flex'}`}>
+                                                    {user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                                                </div>
                                                 <div className="flex flex-col min-w-0">
-                                                    <p className={`text-[15px] font-black tracking-tight truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
+                                                    <p className={`text-[15px] font-bold tracking-tight truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
                                                     <p className='text-[11px] text-gray-500 font-medium truncate opacity-70'>{user?.email}</p>
                                                 </div>
                                             </div>
@@ -711,7 +731,7 @@ const Navbar = () => {
                                                 <div className={`my-2 h-px ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
                                                 <button 
                                                     onClick={logout} 
-                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-black rounded-xl text-red-500 transition-all ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}
+                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-red-500 transition-all ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}
                                                 >
                                                     <LogOut size={17} /> Sign Out
                                                 </button>
@@ -724,14 +744,14 @@ const Navbar = () => {
                             <div className='flex items-center gap-2 ml-1'>
                                 <button 
                                     onClick={() => signIn('google')}
-                                    className={`hidden lg:flex h-10 px-4 items-center gap-3 text-[13px] font-black rounded-xl border transition-all duration-300 ${isDark
+                                    className={`hidden lg:flex h-10 px-4 items-center gap-3 text-[13px] font-bold rounded-xl border transition-all duration-300 ${isDark
                                     ? 'border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 hover:border-white/20'
                                     : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
                                     }`}>
                                     <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-4 h-4" alt="Google" />
                                     Google Log In
                                 </button>
-                                <Link href='/register' className='h-10 px-5 flex items-center text-[13px] font-black rounded-xl text-black transition-all duration-300 hover:scale-[1.02] active:scale-95' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
+                                <Link href='/register' className='h-10 px-5 flex items-center text-[13px] font-bold rounded-xl text-black transition-all duration-300 hover:scale-[1.02] active:scale-95' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
                                     Register
                                 </Link>
                             </div>
@@ -749,7 +769,7 @@ const Navbar = () => {
             </div>
 
             {/* ══ NAV STRIP (Desktop) ══ */}
-            <div className={`hidden md:block border-b ${isDark ? 'bg-[#0f0f0f] border-[#1a1a1a]' : 'bg-white border-gray-100'}`}>
+            <div className={`hidden md:block border-b backdrop-blur-md ${isDark ? 'bg-[#0f0f0f]/80 border-[#1a1a1a]' : 'bg-white/80 border-gray-100'}`}>
                 {/* outer relative container — mega panel is positioned relative to this */}
                 <div className='relative w-full max-w-[1440px] mx-auto px-2 lg:px-6'>
                     <div className='flex items-center gap-x-0 overflow-x-auto no-scrollbar'>

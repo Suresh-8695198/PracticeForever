@@ -1,0 +1,21 @@
+<svg width="200" height="320" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hemisphere Base -->
+  <path d="M 40 220 A 60 60 0 0 0 160 220 Z" fill="#FDE68A" stroke="#B45309" stroke-width="2" />
+  
+  <!-- Cone Body -->
+  <path d="M 40 220 L 100 40 L 160 220" fill="#FDE68A" stroke="#B45309" stroke-width="2" />
+  
+  <!-- Center line and labels -->
+  <line x1="100" y1="220" x2="160" y2="220" stroke="#1E293B" stroke-dasharray="4 2" />
+  <text x="105" y="215" font-family="Arial" font-size="14" fill="#1E293B">r = 3.5</text>
+  
+  <!-- Height arrows -->
+  <line x1="190" y1="40" x2="190" y2="280" stroke="#475569" stroke-width="1.5" />
+  <path d="M 185 45 L 190 40 L 195 45" fill="none" stroke="#475569" stroke-width="1.5" />
+  <path d="M 185 275 L 190 280 L 195 275" fill="none" stroke="#475569" stroke-width="1.5" />
+  
+  <text x="210" y="160" font-family="Arial" font-size="16" font-weight="bold" fill="#1E293B" transform="rotate(90 210,160)">Total: 15.5 cm</text>
+  
+  <!-- Slant Height label -->
+  <text x="140" y="130" font-family="Arial" font-size="14" fill="#B45309">slant l</text>
+</svg>

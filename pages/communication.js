@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { communicationData } from '../data/communicationData';
@@ -14,6 +15,7 @@ import {
     BookOpen,
     Newspaper
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CommunicationPage = () => {
     const { isDark } = useTheme();
@@ -40,13 +42,26 @@ const CommunicationPage = () => {
     const completedCount = Object.values(completedDays).filter(Boolean).length;
     const progressPercentage = Math.round((completedCount / totalDays) * 100);
 
+    const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
+    const stagger = { show: { transition: { staggerChildren: 0.1 } } };
+
     return (
         <div className={`min-h-screen pt-24 pb-12 transition-colors duration-300 ${isDark ? 'bg-dark-950' : 'bg-gray-50'
             }`}>
+            <Head>
+                <title>Master English Communication | PracticeForever</title>
+                <meta name="description" content="Improve your English communication skills with our structured curriculum and daily newspaper analysis. Perfect for interviews and public speaking." />
+            </Head>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Hero Section */}
-                <div className="mb-12 text-center relative">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    className="mb-12 text-center relative"
+                >
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-primary-yellow/5 blur-[100px] rounded-full pointer-events-none" />
                     <div className={`inline-flex items-center justify-center p-3 rounded-2xl mb-6 ring-1 ring-primary-yellow/20 ${isDark ? 'bg-primary-yellow/10' : 'bg-primary-yellow/10'
                         }`}>
@@ -60,7 +75,7 @@ const CommunicationPage = () => {
                         }`}>
                         A structured journey from basics to fluency with gamified learning.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Tab Navigation */}
                 <div className={`flex gap-4 mb-8 p-2 rounded-2xl ${isDark ? 'bg-dark-card border border-dark-border' : 'bg-white border border-gray-200 shadow-md'
@@ -101,7 +116,12 @@ const CommunicationPage = () => {
                 ) : (
                     <>
                         {/* Progress Card */}
-                        <div className={`card mb-12 border-primary-yellow/10 relative overflow-hidden group hover:border-primary-yellow/30 transition-all ${isDark
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={fadeUp}
+                            className={`card mb-12 border-primary-yellow/10 relative overflow-hidden group hover:border-primary-yellow/30 transition-all ${isDark
                                 ? 'bg-gradient-to-br from-dark-card to-dark-card/50'
                                 : 'bg-white shadow-lg border-gray-200'
                             }`}>
@@ -167,18 +187,25 @@ const CommunicationPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Curriculum weeks */}
-                        <div className="space-y-6">
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={stagger}
+                            className="space-y-6"
+                        >
                             {communicationData.weeks.map((week) => {
                                 const isExpanded = expandedWeeks[week.id];
                                 const weekCompletedCount = week.days.filter(d => completedDays[d.id]).length;
                                 const isWeekComplete = weekCompletedCount === week.days.length;
 
                                 return (
-                                    <div
+                                    <motion.div
                                         key={week.id}
+                                        variants={fadeUp}
                                         className={`card border transition-all duration-300 ${isExpanded
                                                 ? isDark ? 'border-primary-yellow/30 bg-dark-card' : 'border-primary-yellow/30 bg-white ring-1 ring-primary-yellow/30'
                                                 : isDark ? 'border-dark-border bg-dark-card/50' : 'border-gray-200 bg-white/60 hover:bg-white'
@@ -328,10 +355,10 @@ const CommunicationPage = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 );
                             })}
-                        </div>
+                        </motion.div>
                     </>
                 )}
             </div>

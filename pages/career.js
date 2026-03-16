@@ -1,9 +1,11 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import { useProgress } from '../context/ProgressContext';
 import { careerPaths } from '../data/careerData';
 import TaskList from '../components/tasks/TaskList';
 import ProgressRing from '../components/common/ProgressRing';
 import { Target, ChevronDown, ChevronRight, ChevronLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CareerPage = () => {
     const { progress, selectCareer, getCareerProgress } = useProgress();
@@ -11,6 +13,9 @@ const CareerPage = () => {
 
     const selectedCareer = careerPaths.find(c => c.id === progress.selectedCareer);
     const careerProgress = getCareerProgress();
+
+    const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
+    const stagger = { show: { transition: { staggerChildren: 0.1 } } };
 
     const toggleSection = (sectionId) => {
         setExpandedSections(prev => ({
@@ -33,10 +38,17 @@ const CareerPage = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true }}
+                        variants={stagger}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
                         {careerPaths.map((career) => (
-                            <button
+                            <motion.button
                                 key={career.id}
+                                variants={fadeUp}
                                 onClick={() => selectCareer(career.id)}
                                 className="card-interactive text-left group"
                             >
@@ -53,9 +65,9 @@ const CareerPage = () => {
                                     Start Learning
                                     <ChevronRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
                                 </div>
-                            </button>
+                            </motion.button>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         );
@@ -63,6 +75,10 @@ const CareerPage = () => {
 
     return (
         <div className="min-h-screen bg-dark-950 pt-28 pb-8">
+            <Head>
+                <title>Career Paths & Roadmaps | PracticeForever</title>
+                <meta name="description" content="Explore curated career paths and roadmap for software engineering, government services, and more. Track your progress and master new skills." />
+            </Head>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="mb-8">
@@ -85,7 +101,13 @@ const CareerPage = () => {
 
                     {/* Progress Overview */}
                     {careerProgress && (
-                        <div className="card mb-8">
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={fadeUp}
+                            className="card mb-8"
+                        >
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <div className="flex items-center justify-center">
                                     <ProgressRing
@@ -134,14 +156,24 @@ const CareerPage = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
 
                 {/* Sections and Topics */}
-                <div className="space-y-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={stagger}
+                    className="space-y-8"
+                >
                     {selectedCareer.sections.map((section) => (
-                        <div key={section.id} className="border-l-2 border-dark-border pl-4 sm:pl-6 ml-2 sm:ml-4">
+                        <motion.div 
+                            key={section.id} 
+                            variants={fadeUp}
+                            className="border-l-2 border-dark-border pl-4 sm:pl-6 ml-2 sm:ml-4"
+                        >
                             {/* Section Header - Cleaner Look */}
                             <button
                                 onClick={() => toggleSection(section.id)}
@@ -172,9 +204,9 @@ const CareerPage = () => {
                                     ))}
                                 </div>
                             )}
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Empty State */}
                 {selectedCareer.sections.length === 0 && (

@@ -94,6 +94,9 @@ const AptitudePage = () => {
   const headFont = { fontFamily: 'Outfit, sans-serif' };
   const bodyFont = { fontFamily: 'Outfit, sans-serif' };
 
+  const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
+  const stagger = { show: { transition: { staggerChildren: 0.05 } } };
+
   const filteredData = aptitudeData.map(section => ({
     ...section,
     topics: section.topics.filter(topic => 
@@ -115,7 +118,13 @@ const AptitudePage = () => {
         {/* Categories Grid */}
         <div className="space-y-32">
           {filteredData.map((section, sIdx) => (
-            <section key={section.category}>
+            <motion.section 
+              key={section.category}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-4 border-b border-gray-100 dark:border-gray-800">
                 <div className="flex items-center gap-5">
                   <div 
@@ -162,59 +171,64 @@ const AptitudePage = () => {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-2">
+              <motion.div 
+                variants={stagger}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-2"
+              >
                 {section.topics.map((topic, tIdx) => (
-                  <Link 
-                    key={topic} 
-                    href={`${section.path}/${topic.toLowerCase().replace(/\s+/g, '-')}`} 
-                    className="group flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800 transition-all duration-300"
-                    onMouseEnter={(e) => {
-                      const span = e.currentTarget.querySelector('.topic-span');
-                      if (span) {
-                        span.style.backgroundImage = section.bgGradient;
-                        span.style.WebkitBackgroundClip = 'text';
-                        span.style.backgroundClip = 'text';
-                        span.style.WebkitTextFillColor = 'transparent';
-                        span.style.color = 'transparent';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      const span = e.currentTarget.querySelector('.topic-span');
-                      if (span) {
-                        span.style.backgroundImage = '';
-                        span.style.WebkitBackgroundClip = '';
-                        span.style.backgroundClip = '';
-                        span.style.WebkitTextFillColor = '';
-                        span.style.color = '';
-                      }
-                    }}
-                  >
-                    <div className="flex items-center gap-3 min-w-0 flex-1 pr-2">
-                      <div className="shrink-0 w-6 h-6 transition-transform group-hover:scale-110">
-                        <img 
-                          src="https://img.icons8.com/3d-fluency/94/folder-invoices.png" 
-                          alt="" 
-                          className="w-full h-full object-contain"
-                        />
+                  <motion.div key={topic} variants={fadeUp}>
+                    <Link 
+                      href={`${section.path}/${topic.toLowerCase().replace(/\s+/g, '-')}`} 
+                      className="group flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800 transition-all duration-300"
+                      onMouseEnter={(e) => {
+                        const span = e.currentTarget.querySelector('.topic-span');
+                        if (span) {
+                          span.style.backgroundImage = section.bgGradient;
+                          span.style.WebkitBackgroundClip = 'text';
+                          span.style.backgroundClip = 'text';
+                          span.style.WebkitTextFillColor = 'transparent';
+                          span.style.color = 'transparent';
+                          span.style.display = 'inline-block';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        const span = e.currentTarget.querySelector('.topic-span');
+                        if (span) {
+                          span.style.backgroundImage = '';
+                          span.style.WebkitBackgroundClip = '';
+                          span.style.backgroundClip = '';
+                          span.style.WebkitTextFillColor = '';
+                          span.style.color = '';
+                        }
+                      }}
+                    >
+                      <div className="flex items-center gap-3 min-w-0 flex-1 pr-2">
+                        <div className="shrink-0 w-6 h-6 transition-transform group-hover:scale-110">
+                          <img 
+                            src="https://img.icons8.com/3d-fluency/94/folder-invoices.png" 
+                            alt="" 
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                        <div className="flex items-center gap-1.5 transition-all duration-300 group-hover:translate-x-1 min-w-0">
+                          <span 
+                            className="topic-span text-[14px] font-medium tracking-tight truncate keep-color"
+                            style={{ ...bodyFont }}
+                          >
+                            {topic}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1.5 transition-all duration-300 group-hover:translate-x-1 min-w-0">
-                        <span 
-                          className="topic-span text-[14px] font-medium tracking-tight truncate keep-color"
-                          style={{ ...bodyFont }}
-                        >
-                          {topic}
-                        </span>
-                      </div>
-                    </div>
-                    <ChevronRight 
-                      size={14} 
-                      className="shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                      style={{ color: section.color }}
-                    />
-                  </Link>
+                      <ChevronRight 
+                        size={14} 
+                        className="shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                        style={{ color: section.color }}
+                      />
+                    </Link>
+                  </motion.div>
                 ))}
-              </div>
-            </section>
+              </motion.div>
+            </motion.section>
           ))}
         </div>
         

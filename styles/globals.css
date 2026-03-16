@@ -41,23 +41,30 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
     @apply bg-light-bg text-light-text;
   }
 
-  /* Force black text in light mode, but gracefully skip elements with explicit Tailwind text classes */
-  body.light h1:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light h2:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light h3:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light h4:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light h5:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light h6:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light p:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not([class*="text-"]),
-  body.light span:not(#admin-right-panel *):not(#nav-mega-sidebar *):not([class*="highlight-"]):not(.force-white):not(.keep-color):not([class*="text-"]) {
+  /* Force black text in light mode, but EXPLICITLY skip elements with .force-white or .keep-color classes/descendants */
+  body.light h1:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light h2:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light h3:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light h4:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light h5:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light h6:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light p:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light span:not(#admin-right-panel *):not(#nav-mega-sidebar *):not([class*="highlight-"]):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]),
+  body.light div:not(#admin-right-panel *):not(#nav-mega-sidebar *):not(.force-white):not(.keep-color):not(.force-white *):not(.keep-color *):not([class*="text-"]) {
+    color: inherit; /* Allow parent container to control color when explicitly requested */
+  }
+
+  /* Utility for forcing white text that survives light mode overrides */
+  .force-white,
+  .force-white * {
+    color: #ffffff !important;
+  }
+
+  body.light .text-dark-text:not(#admin-right-panel *):not(.force-white *):not(.keep-color *):not([class*="text-"]) {
     color: #000000 !important;
   }
 
-  body.light .text-dark-text:not(#admin-right-panel *):not([class*="text-"]) {
-    color: #000000 !important;
-  }
-
-  body.light .text-dark-text-secondary:not(#admin-right-panel *):not([class*="text-"]) {
+  body.light .text-dark-text-secondary:not(#admin-right-panel *):not(.force-white *):not(.keep-color *):not([class*="text-"]) {
     color: #495057 !important;
   }
 
@@ -69,11 +76,11 @@ body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
 @layer components {
   /* Card Styles - Dark Mode */
   .card {
-    @apply bg-dark-card border border-dark-border rounded-xl p-6 transition-all duration-200;
+    @apply bg-dark-card border border-dark-border rounded-lg p-6 transition-all duration-200;
   }
 
   .card:hover {
-    @apply border-primary-yellow/50;
+    @apply border-primary-yellow/30;
   }
 
   /* Card Styles - Light Mode */

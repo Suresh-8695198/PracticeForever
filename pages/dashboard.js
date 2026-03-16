@@ -13,6 +13,7 @@ import {
     ArrowRight,
     Sparkles
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -26,11 +27,20 @@ const Dashboard = () => {
     // Get last 7 days for mini calendar
     const last7Days = activities.slice(-7);
 
+    const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
+    const stagger = { show: { transition: { staggerChildren: 0.1 } } };
+
     return (
         <div className="min-h-screen bg-dark-950 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Welcome Header */}
-                <div className="mb-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    className="mb-8"
+                >
                     <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
                         Welcome back, {user?.name}! 👋
                     </h1>
@@ -39,12 +49,18 @@ const Dashboard = () => {
                             ? `You're on a ${currentStreak} day streak! Keep it up! 🔥`
                             : "Start your learning journey today!"}
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Main Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={stagger}
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8"
+                >
                     {/* Overall Progress */}
-                    <div className="lg:col-span-2 card">
+                    <motion.div variants={fadeUp} className="lg:col-span-2 card">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-xl font-bold text-white">Overall Progress</h2>
                             {careerProgress && (
@@ -119,16 +135,22 @@ const Dashboard = () => {
                                 </Link>
                             </div>
                         )}
-                    </div>
+                    </motion.div>
 
                     {/* Streak Card */}
-                    <div>
+                    <motion.div variants={fadeUp}>
                         <StreakCard />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Activity Calendar */}
-                <div className="card mb-8">
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    className="card mb-8"
+                >
                     <div className="flex items-center justify-between mb-4">
                         <h2 className="text-xl font-bold text-white flex items-center gap-2">
                             <Calendar size={24} />
@@ -157,34 +179,48 @@ const Dashboard = () => {
                             );
                         })}
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Quick Actions */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <Link href="/career" className="card-interactive group">
-                        <Target className="text-accent-orange mb-3 group-hover:scale-110 transition-transform" size={32} />
-                        <h3 className="font-semibold text-white mb-1">Career Path</h3>
-                        <p className="text-sm text-gray-400">Continue learning</p>
-                    </Link>
+                <motion.div 
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={stagger}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+                >
+                    <motion.div variants={fadeUp}>
+                        <Link href="/career" className="card-interactive group block h-full">
+                            <Target className="text-accent-orange mb-3 group-hover:scale-110 transition-transform" size={32} />
+                            <h3 className="font-semibold text-white mb-1">Career Path</h3>
+                            <p className="text-sm text-gray-400">Continue learning</p>
+                        </Link>
+                    </motion.div>
 
-                    <Link href="/progress" className="card-interactive group">
-                        <TrendingUp className="text-accent-green mb-3 group-hover:scale-110 transition-transform" size={32} />
-                        <h3 className="font-semibold text-white mb-1">Track Progress</h3>
-                        <p className="text-sm text-gray-400">View analytics</p>
-                    </Link>
+                    <motion.div variants={fadeUp}>
+                        <Link href="/progress" className="card-interactive group block h-full">
+                            <TrendingUp className="text-accent-green mb-3 group-hover:scale-110 transition-transform" size={32} />
+                            <h3 className="font-semibold text-white mb-1">Track Progress</h3>
+                            <p className="text-sm text-gray-400">View analytics</p>
+                        </Link>
+                    </motion.div>
 
-                    <Link href="/companies" className="card-interactive group">
-                        <Award className="text-accent-blue mb-3 group-hover:scale-110 transition-transform" size={32} />
-                        <h3 className="font-semibold text-white mb-1">Companies</h3>
-                        <p className="text-sm text-gray-400">Prepare for interviews</p>
-                    </Link>
+                    <motion.div variants={fadeUp}>
+                        <Link href="/interviews/company" className="card-interactive group block h-full">
+                            <Award className="text-accent-blue mb-3 group-hover:scale-110 transition-transform" size={32} />
+                            <h3 className="font-semibold text-white mb-1">Companies</h3>
+                            <p className="text-sm text-gray-400">Prepare for interviews</p>
+                        </Link>
+                    </motion.div>
 
-                    <Link href="/communication" className="card-interactive group">
-                        <Sparkles className="text-accent-purple mb-3 group-hover:scale-110 transition-transform" size={32} />
-                        <h3 className="font-semibold text-white mb-1">Communication</h3>
-                        <p className="text-sm text-gray-400">Practice speaking</p>
-                    </Link>
-                </div>
+                    <motion.div variants={fadeUp}>
+                        <Link href="/communication" className="card-interactive group block h-full">
+                            <Sparkles className="text-accent-purple mb-3 group-hover:scale-110 transition-transform" size={32} />
+                            <h3 className="font-semibold text-white mb-1">Communication</h3>
+                            <p className="text-sm text-gray-400">Practice speaking</p>
+                        </Link>
+                    </motion.div>
+                </motion.div>
             </div>
         </div>
     );

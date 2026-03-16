@@ -60,11 +60,11 @@ export default function Footer() {
   const { isDark } = useTheme();
 
   const bg      = isDark ? 'bg-[#0a0a0a]'   : 'bg-[#f0f2f5]';
+  const text    = isDark ? 'text-white'      : 'text-black font-medium';
   const border  = isDark ? 'border-[#1e1e1e]': 'border-gray-200';
-  const text    = isDark ? 'text-gray-300'   : 'text-gray-600';
-  const heading = isDark ? 'text-white'      : 'text-gray-900';
-  const muted   = isDark ? 'text-gray-600'   : 'text-gray-400';
-  const linkBaseColor = isDark ? '#9ca3af' : '#6b7280';
+  const heading = isDark ? 'text-white'      : 'text-black font-black';
+  const muted   = isDark ? 'text-gray-100'   : 'text-black font-bold';
+  const linkBaseColor = isDark ? '#f3f4f6' : '#111827';
 
   /* Animated yellow-underline link */
   const FooterLink = ({ to, label, small }) => (
@@ -144,8 +144,8 @@ export default function Footer() {
           {footerLinks.map((col) => (
             <div key={col.heading}>
               <p
-                className={`text-[11px] font-bold uppercase tracking-widest mb-4 ${
-                  isDark ? 'text-gray-500' : 'text-gray-400'
+                className={`text-[11px] font-black uppercase tracking-widest mb-4 ${
+                  isDark ? 'text-gray-100' : 'text-black'
                 }`}
               >
                 {col.heading}
@@ -167,10 +167,10 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {[
-              { num: '1M+',    lbl: 'Active Students' },
+              { num: 'Verified', lbl: 'Trust Score' },
               { num: '8,100+', lbl: 'Practice Questions' },
-              { num: '5M+',    lbl: 'Tests Taken' },
-              { num: '10+',    lbl: 'Exam Categories' },
+              { num: 'Rising',  lbl: 'Daily Learners' },
+              { num: '30+',     lbl: 'Exam Modules' },
             ].map(({ num, lbl }, i) => (
               <div key={lbl} className={`px-6 py-5 text-center ${i !== 0 ? `border-l ${border}` : ''}`}>
                 <p
@@ -193,7 +193,7 @@ export default function Footer() {
       <div className={`relative ${isDark ? 'bg-[#080808]' : 'bg-[#e8eaed]'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
 
-          <p className={`text-[11.5px] ${muted}`}>
+          <p className={`text-[11.5px] font-bold ${muted}`}>
             &copy; {new Date().getFullYear()} PracticeForever. All rights reserved.
           </p>
 
