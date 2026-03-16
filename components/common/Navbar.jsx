@@ -633,14 +633,14 @@ const Navbar = () => {
 
                     {/* Right controls */}
                     <div className='flex items-center gap-1'>
-                        {/* Notification Bell */}
-                        <button className={`relative w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
-                            ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
-                            : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
-                            }`}>
-                            <Bell size={16} />
-                            <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
-                        </button>
+                         {/* Notification Bell - Desktop only */}
+                         <button className={`hidden md:flex relative w-9 h-9 rounded-lg items-center justify-center transition-all duration-150 ${isDark
+                             ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
+                             : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
+                             }`}>
+                             <Bell size={16} />
+                             <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
+                         </button>
 
                         {/* Theme Toggle */}
                         <button onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
@@ -756,12 +756,16 @@ const Navbar = () => {
                             </div>
                         )}
 
+                        {/* Burger Button - Enhanced visibility */}
                         <button
-                            className={`md:hidden ml-1 w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${isDark ? 'text-gray-300 hover:bg-[#1e1e1e]' : 'text-gray-600 hover:bg-gray-100'
-                                }`}
+                            className={`md:hidden ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all shadow-sm ${
+                                isDark 
+                                ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5' 
+                                : 'bg-gray-50 text-gray-800 hover:bg-gray-100 border border-gray-200'
+                            }`}
                             onClick={() => setMobileOpen(true)}
                         >
-                            <Menu size={20} />
+                            <Menu size={22} strokeWidth={2.5} />
                         </button>
                     </div>
                 </div>
@@ -847,9 +851,19 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </Link>
-                                <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-md flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
-                                    <X size={18} />
-                                </button>
+                                <div className='flex items-center gap-2'>
+                                    {/* Notifications in Sidebar */}
+                                    <button className={`relative w-9 h-9 rounded-lg flex items-center justify-center ${isDark
+                                        ? 'bg-amber-500/10 text-amber-400'
+                                        : 'bg-amber-50 text-amber-500'
+                                        }`}>
+                                        <Bell size={18} />
+                                        <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
+                                    </button>
+                                    <button onClick={() => setMobileOpen(false)} className={`w-9 h-9 rounded-lg flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
+                                        <X size={20} />
+                                    </button>
+                                </div>
                             </div>
 
                             {/* Search - Enhanced for visibility */}
