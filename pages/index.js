@@ -212,7 +212,7 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen pt-[72px] md:pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
+    <div className={`min-h-screen pt-[60px] md:pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
       <Head>
         <title>PracticeForever | Master Govt Exams, Aptitude & Coding Interviews</title>
         <meta name="description" content="Prepare for TNPSC, SSC, Banking, and IT interviews with PracticeForever. 8,000+ practice questions, daily current affairs, and subject-wise mock tests." />
@@ -431,10 +431,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-8">
           <div className="flex items-center gap-8 lg:gap-12">
             <div className="flex-1 min-w-0">
-              <p className={`text-[11.5px] font-black uppercase tracking-[0.15em] mb-4 ${isDark ? 'text-amber-400' : 'text-amber-700'}`} style={bodyFont}>
+              <p className={`text-[13px] font-black uppercase tracking-[0.15em] mb-4 ${isDark ? 'text-amber-400' : 'text-amber-700'}`} style={bodyFont}>
                 India's Career Preparation Platform
               </p>
-              <h1 className="text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-[2.2rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
+              <h1 className="text-[1.8rem] min-[400px]:text-[2.1rem] sm:text-[2.6rem] md:text-[3.5rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
                 Prepare Better. Achieve Your{' '}
                 <em style={{ position: 'relative', display: 'inline-block', fontStyle: 'normal', background: 'linear-gradient(to right, #FFC107, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Goals Faster.
