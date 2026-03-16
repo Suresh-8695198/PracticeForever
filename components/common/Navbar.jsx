@@ -835,16 +835,16 @@ const Navbar = () => {
                     <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 left-0 w-[280px] sm:w-[320px] z-[9999] flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]"
-                            style={{ backgroundColor: isDark ? '#0f0f0f' : '#ffffff', height: '100dvh' }}
+                            className="fixed inset-y-0 left-0 w-[320px] sm:w-[380px] z-[9999] flex flex-col shadow-[0_0_80px_rgba(0,0,0,0.7)]"
+                            style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
                         >
                             {/* Drawer header */}
-                            <div className={`flex items-center justify-between px-4 h-14 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 overflow-visible'>
-                                    <div className="flex items-center gap-0 whitespace-nowrap">
-                                        <img src='/logo.png' alt='Logo' className='h-9 w-auto object-contain shrink-0' />
-                                        <div className='ml-[-6px]'>
-                                            <AnimatedLogo size="sm" loopInterval={30000} />
+                            <div className={`flex items-center justify-between px-5 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-nowrap overflow-visible'>
+                                    <div className="flex items-center gap-1.5 flex-nowrap">
+                                        <img src='/logo.png' alt='Logo' className='h-10 w-auto object-contain shrink-0' />
+                                        <div className='overflow-visible shrink-0'>
+                                            <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
                                         </div>
                                     </div>
                                 </Link>
@@ -853,21 +853,35 @@ const Navbar = () => {
                                 </button>
                             </div>
 
-                            {/* Search */}
-                            <div className='p-3'>
-                                <div className={`flex items-center gap-2 rounded-lg border px-3 h-9 ${isDark ? 'bg-[#1a1a1a] border-[#333]' : 'bg-gray-50 border-gray-200'}`}>
-                                    <Search size={14} className='text-gray-400' />
-                                    <input type='text' placeholder='Search...' className='flex-1 bg-transparent text-sm outline-none' />
+                            {/* Search - Enhanced for visibility */}
+                            <div className='p-4 pt-2'>
+                                <div className={`flex items-center gap-3 rounded-xl border px-4 h-11 transition-all ${
+                                    isDark 
+                                    ? 'bg-white/5 border-white/10 focus-within:border-amber-500/50 focus-within:bg-white/10' 
+                                    : 'bg-gray-50 border-gray-200 focus-within:border-amber-500/50 focus-within:bg-white focus-within:shadow-sm'
+                                }`}>
+                                    <Search size={16} className={isDark ? 'text-gray-500' : 'text-gray-400'} />
+                                    <input 
+                                        type='text' 
+                                        placeholder='Search for exams or topics...' 
+                                        className='flex-1 bg-transparent text-sm outline-none font-medium placeholder:font-normal' 
+                                    />
                                 </div>
                             </div>
 
                             {/* Nav items - Forced visibility and height */}
-                            <nav className='flex-1 overflow-y-auto px-2 py-4 custom-scrollbar' style={{ minHeight: '0' }}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-11 px-3 text-[14px] font-bold rounded-xl mb-1 ${isDark ? 'text-gray-100 hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}>
-                                    Home
-                                </Link>
+                            <nav className='flex-1 overflow-y-auto px-1 py-1 custom-scrollbar' style={{ minHeight: '0' }}>
+                                <div className="px-2 mb-4">
+                                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Main</h4>
+                                    <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-12 px-4 text-[14px] font-bold rounded-2xl mb-1.5 transition-all ${isDark ? 'text-gray-100 hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}>
+                                        Home
+                                    </Link>
+                                </div>
 
-                                {mainCategories.map((cat) => {
+                                <div className="px-2">
+                                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Explore Categories</h4>
+                                    <div className="flex flex-col gap-1.5">
+                                        {mainCategories.map((cat) => {
                                     const CatIcon = cat.Icon;
                                     const isExpanded = mobileExpanded === cat.title;
                                     return (
@@ -875,23 +889,23 @@ const Navbar = () => {
                                             {cat.subcategories ? (
                                                 <button
                                                     onClick={() => setMobileExpanded(isExpanded ? null : cat.title)}
-                                                    className={`w-full flex items-center justify-between h-11 px-3 text-[14px] font-medium rounded-lg ${isExpanded
-                                                        ? isDark ? 'bg-[#1a1a1a] text-[#FFC107]' : 'bg-yellow-50 text-[#b8860b]'
-                                                        : isDark ? 'text-gray-200 hover:bg-[#1a1a1a]' : 'text-gray-800 hover:bg-gray-50'
+                                                    className={`w-full flex items-center justify-between h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isExpanded
+                                                        ? isDark ? 'bg-white/10 text-amber-500 shadow-lg' : 'bg-amber-50 text-amber-900 shadow-sm'
+                                                        : isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'
                                                         }`}
                                                 >
-                                                    <div className='flex items-center gap-2.5'>
-                                                        <div className={`w-6 h-6 rounded-md flex items-center justify-center ${cat.bgCls} ${cat.colorCls}`}>
-                                                            <CatIcon size={13} />
+                                                    <div className='flex items-center gap-3'>
+                                                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-sm ${cat.bgCls} ${cat.colorCls}`}>
+                                                            <CatIcon size={16} strokeWidth={2.5} />
                                                         </div>
                                                         {cat.title}
                                                     </div>
-                                                    <ChevronDown size={15} className={`transition-transform ${isExpanded ? 'rotate-180 text-[#FFC107]' : 'text-gray-400'}`} />
+                                                    <ChevronDown size={16} strokeWidth={3} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180 text-amber-500' : 'text-gray-400'}`} />
                                                 </button>
                                             ) : (
-                                                <Link href={cat.path} onClick={() => setMobileOpen(false)} className={`flex items-center gap-2.5 h-11 px-3 text-[14px] font-medium rounded-lg ${isDark ? 'text-gray-200 hover:bg-[#1a1a1a]' : 'text-gray-800 hover:bg-gray-50'}`}>
-                                                    <div className={`w-6 h-6 rounded-md flex items-center justify-center ${cat.bgCls} ${cat.colorCls}`}>
-                                                        <CatIcon size={13} />
+                                                <Link href={cat.path} onClick={() => setMobileOpen(false)} className={`flex items-center gap-3 h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'}`}>
+                                                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-sm ${cat.bgCls} ${cat.colorCls}`}>
+                                                        <CatIcon size={16} strokeWidth={2.5} />
                                                     </div>
                                                     {cat.title}
                                                 </Link>
@@ -906,7 +920,7 @@ const Navbar = () => {
                                                         transition={{ duration: 0.2 }}
                                                         className='overflow-hidden'
                                                     >
-                                                        <div className={`ml-3 mt-1 mb-1 rounded-xl border overflow-hidden ${isDark ? 'bg-[#0a0a0a] border-[#222]' : 'bg-gray-50 border-gray-100'}`}>
+                                                        <div className={`ml-4 mt-2 mb-2 rounded-[20px] border overflow-hidden ${isDark ? 'bg-black/40 border-white/5' : 'bg-white shadow-inner border-gray-100'}`}>
                                                             {cat.subcategories.map((sub) => {
                                                                 const SubIcon = sub.Icon;
                                                                 return (
@@ -914,12 +928,12 @@ const Navbar = () => {
                                                                         key={sub.name}
                                                                         href={sub.path}
                                                                         onClick={() => setMobileOpen(false)}
-                                                                        className={`flex items-center gap-3 px-4 py-2.5 text-[13px] border-b last:border-0 ${isDark
-                                                                            ? 'text-gray-400 border-[#1a1a1a] hover:text-white hover:bg-[#141414]'
-                                                                            : 'text-gray-600 border-gray-100 hover:text-gray-900 hover:bg-white'
+                                                                        className={`flex items-center gap-3.5 px-5 py-3.5 text-[13px] font-bold border-b last:border-0 transition-colors ${isDark
+                                                                            ? 'text-gray-400 border-white/5 hover:text-white hover:bg-white/5'
+                                                                            : 'text-gray-600 border-gray-50 hover:text-amber-600 hover:bg-amber-50/30'
                                                                             }`}
                                                                     >
-                                                                        <SubIcon size={14} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+                                                                        <SubIcon size={15} strokeWidth={2.5} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
                                                                         {sub.name}
                                                                     </Link>
                                                                 );
@@ -931,6 +945,8 @@ const Navbar = () => {
                                         </div>
                                     );
                                 })}
+                                    </div>
+                                </div>
                             </nav>
 
                             <div className="mt-auto">
