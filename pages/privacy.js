@@ -136,8 +136,8 @@ const PrivacyPolicy = () => {
                             <img src="https://img.icons8.com/3d-fluency/94/help.png" alt="Help" className="w-full h-full object-contain" />
                         </div>
                         <p className={`text-[11px] font-semibold uppercase tracking-[0.4em] mb-4 ${textColor}`}>PracticeForever Team</p>
-                        <a href="mailto:admin@practiceforever.app" className={`text-2xl font-bold ${textColor} border-b-2 border-blue-600 pb-1 hover:border-black transition-all`}>
-                            admin@practiceforever.app
+                        <a href="mailto:contact@practiceforever.app" className={`text-2xl font-bold ${textColor} border-b-2 border-blue-600 pb-1 hover:border-black transition-all`}>
+                            contact@practiceforever.app
                         </a>
                     </motion.footer>
 
