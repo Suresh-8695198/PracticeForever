@@ -11,10 +11,15 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState(() => {
+    const [theme, setTheme] = useState('light'); // Initial default for SSR
+
+    useEffect(() => {
+        // Run only on client side
         const stored = localStorage.getItem('theme');
-        return stored || 'light';
-    });
+        if (stored) {
+            setTheme(stored);
+        }
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('theme', theme);

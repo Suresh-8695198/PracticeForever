@@ -11,15 +11,23 @@ export const useStreak = () => {
 };
 
 export const StreakProvider = ({ children }) => {
-    const [streakData, setStreakData] = useState(() => {
-        const stored = localStorage.getItem('streakData');
-        return stored ? JSON.parse(stored) : {
-            currentStreak: 0,
-            bestStreak: 0,
-            lastActivityDate: null,
-            activityCalendar: {} // { 'YYYY-MM-DD': true }
-        };
+    const [streakData, setStreakData] = useState({
+        currentStreak: 0,
+        bestStreak: 0,
+        lastActivityDate: null,
+        activityCalendar: {}
     });
+
+    useEffect(() => {
+        const stored = localStorage.getItem('streakData');
+        if (stored) {
+            try {
+                setStreakData(JSON.parse(stored));
+            } catch (e) {
+                console.error("Failed to parse streak data", e);
+            }
+        }
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('streakData', JSON.stringify(streakData));
