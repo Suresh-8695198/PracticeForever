@@ -742,18 +742,17 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <div className='flex items-center gap-2 ml-1'>
-                                <button 
+                                <button
                                     onClick={() => signIn('google')}
-                                    className={`hidden lg:flex h-10 px-4 items-center gap-3 text-[13px] font-bold rounded-xl border transition-all duration-300 ${isDark
-                                    ? 'border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 hover:border-white/20'
-                                    : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'
-                                    }`}>
-                                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-4 h-4" alt="Google" />
-                                    Google Log In
+                                    className={`hidden md:flex h-11 px-6 items-center gap-3 text-[14px] font-extrabold rounded-2xl border shadow-sm transition-all duration-300 hover:scale-[1.03] active:scale-95 ${
+                                        isDark
+                                        ? 'border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20'
+                                        : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300 hover:shadow-md'
+                                    }`}
+                                >
+                                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
+                                    Sign in with Google
                                 </button>
-                                <Link href='/register' className='h-10 px-5 flex items-center text-[13px] font-bold rounded-xl text-black transition-all duration-300 hover:scale-[1.02] active:scale-95' style={{ background: 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)' }}>
-                                    Register
-                                </Link>
                             </div>
                         )}
 
@@ -951,13 +950,17 @@ const Navbar = () => {
 
                             <div className="mt-auto">
                             {!isAuthenticated ? (
-                                <div className={`p-4 border-t flex flex-col gap-2.5 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
-                                    <Link href='/register' onClick={() => setMobileOpen(false)} className='flex items-center justify-center h-11 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold text-[14px] shadow-lg shadow-amber-500/20'>
-                                        Register Free
-                                    </Link>
-                                    <Link href='/login' onClick={() => setMobileOpen(false)} className={`flex items-center justify-center h-11 rounded-xl border font-bold text-[14px] transition-all ${isDark ? 'border-white/10 text-gray-200 hover:bg-white/5' : 'border-gray-200 text-gray-700 hover:bg-white'}`}>
-                                        Log In
-                                    </Link>
+                                <div className={`p-5 border-t ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
+                                    <button
+                                        onClick={() => signIn('google')}
+                                        className="w-full h-12 flex items-center justify-center gap-3 rounded-2xl bg-white text-black font-bold text-[14px] shadow-xl border border-gray-100 active:scale-95 transition-transform"
+                                    >
+                                        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
+                                        Continue with Google
+                                    </button>
+                                    <p className={`text-[10px] text-center mt-3 font-medium opacity-50 ${isDark ? 'text-white' : 'text-black'}`}>
+                                        Fast & Secure Access
+                                    </p>
                                 </div>
                             ) : (
                                 <div className={`p-4 border-t flex items-center gap-3 mt-auto ${isDark ? 'border-white/10 bg-white/5' : 'border-gray-200 bg-gray-50'}`}>
