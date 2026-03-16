@@ -843,9 +843,9 @@ const Navbar = () => {
                         >
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-5 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
-                                    <div className="flex items-center gap-1.5 min-w-0">
-                                        <img src='/logo.png' alt='Logo' className='h-9 w-auto object-contain shrink-0' />
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-4'>
+                                    <div className="flex items-center gap-1 min-w-0">
+                                        <img src='/logo.png' alt='Logo' className='h-8 w-auto object-contain shrink-0' />
                                         <div className='overflow-hidden truncate hidden min-[360px]:block'>
                                             <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
                                         </div>
