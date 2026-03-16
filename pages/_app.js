@@ -45,6 +45,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
         <meta property="twitter:image" content="https://practiceforever.app/practiceforever.png" />
 
         <link rel="canonical" href="https://practiceforever.app/" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <meta name="theme-color" content="#FFC107" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Delius+Swash+Caps&display=swap" rel="stylesheet" />
       </Head>
       <DynamicWrapper>

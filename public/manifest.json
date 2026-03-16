@@ -1,0 +1,22 @@
+{
+  "name": "PracticeForever",
+  "short_name": "PracticeForever",
+  "description": "India's #1 Career Preparation Platform for Exams & Interviews",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFC107",
+  "icons": [
+    {
+      "src": "/practiceforever.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/practiceforever.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
