@@ -606,7 +606,7 @@ const Navbar = () => {
                             priority={true}
                             className='h-10 sm:h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
-                        <div className='hidden min-[400px]:block ml-[-8px] sm:ml-[-12px] scale-[0.75] min-[400px]:scale-[0.85] sm:scale-100 origin-left'>
+                        <div className='hidden min-[480px]:block ml-[-8px] sm:ml-[-12px] scale-[0.7] min-[480px]:scale-[0.85] sm:scale-100 origin-left'>
                             <AnimatedLogo size="sm" loopInterval={30000} />
                         </div>
                     </Link>
@@ -683,7 +683,7 @@ const Navbar = () => {
                             <div className='relative ml-1'>
                                 <button
                                     onClick={() => setProfileOpen(p => !p)}
-                                    className={`flex items-center gap-1.5 sm:gap-2 h-9 sm:h-10 px-1.5 sm:px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
+                                    className={`flex items-center gap-1 sm:gap-2 h-9 sm:h-10 px-1 sm:px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
                                         }`}
                                 >
                                     {user?.image && (
@@ -692,14 +692,14 @@ const Navbar = () => {
                                             alt={user.name || 'User'} 
                                             width={24}
                                             height={24}
-                                            className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover" 
+                                            className="w-5 h-5 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover" 
                                         />
                                     )}
-                                    <div className={`user-initial-fallback w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[10px] sm:text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
+                                    <div className={`user-initial-fallback w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[9px] sm:text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
                                         {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
-                                    <span className='hidden sm:block text-[12px] sm:text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
-                                    <ChevronDown size={12} className={`transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
+                                    <span className='hidden min-[450px]:block text-[12px] sm:text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
+                                    <ChevronDown size={10} className={`sm:w-3 transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 <AnimatePresence>
                                     {profileOpen && (
@@ -858,7 +858,7 @@ const Navbar = () => {
                     <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 left-0 w-[320px] sm:w-[380px] z-[9999] flex flex-col border-r border-white/5"
+                            className="fixed inset-y-0 left-0 w-[280px] min-[360px]:w-[320px] sm:w-[380px] z-[9999] flex flex-col border-r border-white/5"
                             style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
                         >
                             {/* Drawer header */}

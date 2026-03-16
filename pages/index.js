@@ -246,8 +246,8 @@ const Home = () => {
           @keyframes marker-move {
             0%, 5% { transform: translate(0, 0) rotate(-5deg); opacity: 0; }
             5% { opacity: 1; }
-            80% { transform: translate(212px, 0) rotate(5deg); opacity: 1; }
-            100% { transform: translate(212px, 0) rotate(5deg); opacity: 0; }
+            80% { transform: translate(160px, 0) rotate(5deg); opacity: 1; }
+            100% { transform: translate(160px, 0) rotate(5deg); opacity: 0; }
           }
           @keyframes badge-pulse {
             0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
@@ -443,10 +443,10 @@ const Home = () => {
                     alt=""
                     style={{
                       position: 'absolute',
-                      left: -24,
-                      bottom: -12,
-                      width: 32,
-                      height: 32,
+                      left: -12,
+                      bottom: -8,
+                      width: 28,
+                      height: 28,
                       zIndex: 20,
                       pointerEvents: 'none',
                       animation: 'marker-move 3s linear infinite',
@@ -1100,7 +1100,7 @@ const Home = () => {
               <div className={`flex-1 rounded-xl border ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100'}`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2">
                   {whyUs.map((w, i) => (
-                    <div key={w.text} className={`flex items-center gap-4 px-6 py-[18px] ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'} ${i >= 2 ? 'border-t' : ''} ${i % 2 !== 0 ? 'sm:border-l' : ''} ${i === 1 ? 'border-t sm:border-t-0' : ''}`}>
+                    <div key={w.text} className={`flex items-center gap-4 px-4 sm:px-6 py-[18px] ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'} ${i >= 1 ? 'border-t' : ''} ${i % 2 !== 0 ? 'sm:border-l' : ''} ${i === 1 ? 'border-t sm:border-t-0' : 'sm:border-t-0'}`}>
                       <span className={`text-[11px] font-[900] tabular-nums shrink-0 w-5 text-center ${isDark ? 'text-gray-600' : 'text-gray-300'}`}>{String(i + 1).padStart(2, '0')}</span>
                       <img src={w.icon} alt="" className="w-7 h-7 object-contain shrink-0" />
                       <p className={`text-[13px] font-semibold leading-snug ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{w.text}</p>

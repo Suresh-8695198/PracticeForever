@@ -26,8 +26,11 @@ body.dark #navbar-brand .brand-practice { color: #ffffff !important; }
 body.light #navbar-brand .brand-forever { color: #FFC107 !important; }
 
 @layer base {
-  body {
+  html, body {
     @apply font-sans antialiased transition-colors duration-200;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   /* Dark Mode (Default) */
