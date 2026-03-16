@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useSession, signIn, signOut as nextSignOut } from 'next-auth/react';
 import {
-    Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight, Share,
+    Sun, Moon, Search, Menu, X, ChevronDown, ArrowRight,
     User, LogOut, LayoutDashboard, Target, Bell, Flame, Trophy, Newspaper, RotateCcw, Smartphone,
     // Category icons
     Landmark, Brain, Terminal, Mic, Rss, Timer, Library, Feather, Handshake, Package,
@@ -472,25 +472,6 @@ const Navbar = () => {
     const closeTimer = useRef(null);
     const enterTimer = useRef(null);
     const [deferredPrompt, setDeferredPrompt] = useState(null);
-    const [isIOS, setIsIOS] = useState(false);
-    const [showInstallBanner, setShowInstallBanner] = useState(false);
-
-    useEffect(() => {
-        // Detect iOS
-        const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        setIsIOS(isIOSDevice);
-
-        // Check if already in standalone mode
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-
-        if (!isStandalone) {
-            // Show banner after a short delay on mobile
-            const timer = setTimeout(() => {
-                setShowInstallBanner(true);
-            }, 3000);
-            return () => clearTimeout(timer);
-        }
-    }, []);
 
     useEffect(() => {
         const handleBeforeInstall = (e) => {
@@ -587,7 +568,6 @@ const Navbar = () => {
     const activeCat = mainCategories.find(c => c.title === activeMenu) ?? null;
 
     return (
-        <>
         <header
             ref={navRef}
             onMouseLeave={handleHeaderLeave}
@@ -1044,60 +1024,6 @@ const Navbar = () => {
             </AnimatePresence>
 
         </header>
-
-        {/* ══ MOBILE BOTTOM INSTALL BANNER (The recommendation) ══ */}
-        <AnimatePresence>
-            {showInstallBanner && !mobileOpen && (deferredPrompt || isIOS) && (
-                <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                    className="fixed bottom-6 left-4 right-4 z-[9999] md:hidden"
-                >
-                    <div className={`p-4 rounded-2xl shadow-2xl border flex items-center gap-4 ${
-                        isDark ? 'bg-[#1a1a1a]/98 border-white/10 backdrop-blur-xl' : 'bg-white/98 border-gray-100 backdrop-blur-xl shadow-lg shadow-gray-200/50'
-                    }`}>
-                        <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-black shrink-0 shadow-lg shadow-amber-500/20">
-                            <img src="/logo.png" alt="App" className="w-8 h-8 object-contain" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <h4 className={`text-[14px] font-[900] truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>PracticeForever App</h4>
-                            <p className={`text-[11px] font-bold ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Install for better preparation</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <button
-                                onClick={() => setShowInstallBanner(false)}
-                                className={`p-2 rounded-lg transition-colors ${isDark ? 'bg-white/5 text-gray-400' : 'bg-gray-100 text-gray-500'}`}
-                                aria-label="Close"
-                            >
-                                <X size={16} />
-                            </button>
-                            {deferredPrompt ? (
-                                <button
-                                    onClick={handleInstallClick}
-                                    className="h-10 px-5 bg-amber-500 text-black font-[900] rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
-                                >
-                                    Install
-                                </button>
-                            ) : isIOS ? (
-                                <button
-                                    onClick={() => {
-                                        setShowInstallBanner(false);
-                                        setMobileOpen(true);
-                                    }}
-                                    className="h-10 px-5 bg-amber-500 text-black font-[900] rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
-                                >
-                                    Install
-                                </button>
-                            ) : null}
-                        </div>
-                    </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
-    </>
-
     );
 };
 

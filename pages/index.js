@@ -11,6 +11,52 @@ import {
 
 const Home = () => {
   const { isDark } = useTheme();
+  const [notices, setNotices] = useState([
+    'TNPSC Group 2 Notification 2026 Released — Apply before 30 Mar',
+    'Python Roadmap 2026 Updated — New DSA section added',
+    'TCS NQT Registration Open — Last date 15 Apr 2026',
+    'Daily Current Affairs – March 2026 — Read now',
+    'SSC CGL 2026 Exam Date Announced — Prepare with mock tests',
+    'Free Aptitude PDFs Released — Download today',
+  ]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const [techRes, genRes] = await Promise.all([
+          fetch('https://saurav.tech/NewsAPI/top-headlines/category/technology/in.json'),
+          fetch('https://saurav.tech/NewsAPI/top-headlines/category/general/in.json')
+        ]);
+        
+        const techData = await techRes.json();
+        const genData = await genRes.json();
+        
+        let combined = [];
+        const customUpdates = [
+          'TNPSC Group 4 Notification: New Vacancies Announced for 2026',
+          'IT Interview Alert: TCS & Infosys hiring for Batch 2024-25',
+          'Exam Update: SSC CGL Tier 1 Registration starting next week',
+          'Career Guide: Top 10 DSA Questions for Amazon & Google Interviews'
+        ];
+
+        if (techData.articles) {
+          const itNews = techData.articles.slice(0, 5).map(a => `IT Update: ${a.title}`);
+          combined = [...combined, ...itNews];
+        }
+        if (genData.articles) {
+          const examNews = genData.articles.slice(0, 5).map(a => `Exam News: ${a.title}`);
+          combined = [...combined, ...examNews];
+        }
+
+        const finalFeed = [...customUpdates, ...combined];
+        setNotices(finalFeed);
+      } catch (err) {
+        console.log("Using default notices as fallback");
+      }
+    };
+    fetchNews();
+  }, []);
+
 
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f4f5f7] text-gray-900';
   const card = isDark ? 'bg-[#141414] border-[#242424]' : 'bg-white border-gray-200';
@@ -264,60 +310,7 @@ const Home = () => {
             </span>
           </span>
           <div className="ticker-content" style={{ flex: 1, overflow: 'hidden', height: 22, position: 'relative' }}>
-            {(() => {
-              const [notices, setNotices] = useState([
-                'TNPSC Group 2 Notification 2026 Released — Apply before 30 Mar',
-                'Python Roadmap 2026 Updated — New DSA section added',
-                'TCS NQT Registration Open — Last date 15 Apr 2026',
-                'Daily Current Affairs – March 2026 — Read now',
-                'SSC CGL 2026 Exam Date Announced — Prepare with mock tests',
-                'Free Aptitude PDFs Released — Download today',
-              ]);
-
-              useEffect(() => {
-                const fetchNews = async () => {
-                  try {
-                    // Fetching from multiple categories to get IT (Tech) and Exam/Govt (General) news
-                    const [techRes, genRes] = await Promise.all([
-                      fetch('https://saurav.tech/NewsAPI/top-headlines/category/technology/in.json'),
-                      fetch('https://saurav.tech/NewsAPI/top-headlines/category/general/in.json')
-                    ]);
-                    
-                    const techData = await techRes.json();
-                    const genData = await genRes.json();
-                    
-                    let combined = [];
-                    
-                    // Specific Job/Exam updates to ensure accuracy for the user's focus
-                    const customUpdates = [
-                      'TNPSC Group 4 Notification: New Vacancies Announced for 2026',
-                      'IT Interview Alert: TCS & Infosys hiring for Batch 2024-25',
-                      'Exam Update: SSC CGL Tier 1 Registration starting next week',
-                      'Career Guide: Top 10 DSA Questions for Amazon & Google Interviews'
-                    ];
-
-                    if (techData.articles) {
-                      const itNews = techData.articles.slice(0, 5).map(a => `IT Update: ${a.title}`);
-                      combined = [...combined, ...itNews];
-                    }
-                    if (genData.articles) {
-                      const examNews = genData.articles.slice(0, 5).map(a => `Exam News: ${a.title}`);
-                      combined = [...combined, ...examNews];
-                    }
-
-                    // Interleave custom focus items with live news
-                    const finalFeed = [...customUpdates, ...combined];
-                    setNotices(finalFeed);
-                  } catch (err) {
-                    console.log("Using default notices as fallback");
-                  }
-                };
-                fetchNews();
-              }, []);
-
-              const all = notices;
-              return (
-                <div 
+            <div 
                   className="hover-pause"
                   style={{ 
                     display: 'flex', 
@@ -327,22 +320,20 @@ const Home = () => {
                     whiteSpace: 'nowrap',
                     width: 'max-content'
                   }}>
-                  {all.map((msg, i) => (
+                  {notices.map((msg, i) => (
                     <em key={i} style={{ fontStyle: 'normal', display: 'inline-flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
                       {msg}
                     </em>
                   ))}
                   {/* Clone for loop */}
-                  {all.map((msg, i) => (
+                  {notices.map((msg, i) => (
                     <em key={`clone-${i}`} style={{ fontStyle: 'normal', display: 'inline-flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
                       {msg}
                     </em>
                   ))}
                 </div>
-              );
-            })()}
           </div>
         </div>
       </div>
@@ -440,7 +431,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-8">
           <div className="flex items-center gap-8 lg:gap-12">
             <div className="flex-1 min-w-0">
-              <p className={`text-[11px] font-bold uppercase tracking-[0.12em] mb-3 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} style={bodyFont}>
+              <p className={`text-[11.5px] font-black uppercase tracking-[0.15em] mb-4 ${isDark ? 'text-amber-400' : 'text-amber-700'}`} style={bodyFont}>
                 India's Career Preparation Platform
               </p>
               <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>

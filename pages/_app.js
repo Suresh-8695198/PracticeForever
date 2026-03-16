@@ -12,13 +12,6 @@ import Footer from '../components/common/Footer';
 import ScrollToTop from '../components/common/ScrollToTop';
 import Head from 'next/head';
 
-import dynamic from 'next/dynamic';
-
-const NonSSRWrapper = ({ children }) => <>{children}</>;
-const DynamicWrapper = dynamic(() => Promise.resolve(NonSSRWrapper), {
-  ssr: false,
-});
-
 import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
@@ -68,28 +61,25 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="theme-color" content="#FFC107" />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=Delius+Swash+Caps&display=swap" rel="stylesheet" />
       </Head>
-      <DynamicWrapper>
-        <SessionProvider session={session}>
-          <ThemeProvider>
-            <AuthProvider>
-              <ProgressProvider>
-                <StreakProvider>
-                  <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isAdminPath ? 'bg-black' : ''}`}>
-                    {!isAdminPath && <Navbar />}
-                    <main className="flex-1">
-                      <Component {...pageProps} />
-                    </main>
-                    {!isAdminPath && <Footer />}
-                    {!isAdminPath && <ScrollToTop />}
-                  </div>
-                </StreakProvider>
-              </ProgressProvider>
-            </AuthProvider>
-          </ThemeProvider>
-        </SessionProvider>
-      </DynamicWrapper>
+      <SessionProvider session={session}>
+        <ThemeProvider>
+          <AuthProvider>
+            <ProgressProvider>
+              <StreakProvider>
+                <div className={`min-h-screen flex flex-col transition-colors duration-300 ${isAdminPath ? 'bg-black' : ''}`}>
+                  {!isAdminPath && <Navbar />}
+                  <main className="flex-1">
+                    <Component {...pageProps} />
+                  </main>
+                  {!isAdminPath && <Footer />}
+                  {!isAdminPath && <ScrollToTop />}
+                </div>
+              </StreakProvider>
+            </ProgressProvider>
+          </AuthProvider>
+        </ThemeProvider>
+      </SessionProvider>
     </>
   );
 }

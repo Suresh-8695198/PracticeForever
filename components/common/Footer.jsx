@@ -129,10 +129,10 @@ export default function Footer() {
               {['TNPSC', 'UPSC', 'SSC', 'Banking', 'TCS', 'Infosys'].map((tag) => (
                 <span
                   key={tag}
-                  className={`text-[11px] font-semibold px-2 py-0.5 rounded border ${
+                  className={`text-[11px] font-bold px-2.5 py-1 rounded border transition-colors ${
                     isDark
-                      ? 'border-[#2a2a2a] text-gray-500'
-                      : 'border-gray-300 text-gray-500'
+                      ? 'border-[#2a2a2a] text-gray-400 hover:border-amber-400/20'
+                      : 'border-gray-300 text-gray-700 hover:border-blue-500/20'
                   }`}
                 >
                   {tag}
