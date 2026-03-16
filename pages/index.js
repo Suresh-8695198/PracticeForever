@@ -189,7 +189,7 @@ const Home = () => {
             {iconUrl && (
             <Image src={iconUrl} alt="" width={30} height={30} className="w-[30px] h-[30px] object-contain shrink-0" loading="lazy" />
           )}
-          <h2 className="text-[22px] sm:text-[24px] font-[900] tracking-tight antialiased"
+          <h2 className="text-[18px] min-[400px]:text-[20px] sm:text-[24px] font-[900] tracking-tight antialiased"
             style={{
               background: isDark ? 'linear-gradient(to right, #fbbf24, #f59e0b, #ffffff)' : 'linear-gradient(to right, #1e3a8a, #1d4ed8, #2563eb)',
               WebkitBackgroundClip: 'text',
@@ -434,7 +434,7 @@ const Home = () => {
               <p className={`text-[11.5px] font-black uppercase tracking-[0.15em] mb-4 ${isDark ? 'text-amber-400' : 'text-amber-700'}`} style={bodyFont}>
                 India's Career Preparation Platform
               </p>
-              <h1 className="text-[1.8rem] sm:text-[2.2rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
+              <h1 className="text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-[2.2rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
                 Prepare Better. Achieve Your{' '}
                 <em style={{ position: 'relative', display: 'inline-block', fontStyle: 'normal', background: 'linear-gradient(to right, #FFC107, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Goals Faster.
@@ -501,11 +501,11 @@ const Home = () => {
                   <Search size={15} className={`ml-3 shrink-0 ${muted}`} />
                   <input
                     type="text"
-                    placeholder="Search exams, questions, tutorials or study materials…"
-                    className="flex-1 px-3 py-2.5 text-[13.5px] bg-transparent outline-none placeholder-gray-400"
+                    placeholder="Search topics, exams..."
+                    className="flex-1 px-3 py-3 sm:py-2.5 text-[14px] bg-transparent outline-none placeholder-gray-400"
                     style={bodyFont}
                   />
-                    <button className="m-1 px-4 py-2 sm:py-1.5 bg-[#FFC107] text-black text-[12.5px] font-bold rounded hover:bg-amber-400 transition-colors whitespace-nowrap" style={bodyFont}>
+                    <button className="m-1 px-4 py-2 bg-[#FFC107] text-black text-[12.5px] font-bold rounded hover:bg-amber-400 transition-colors whitespace-nowrap" style={bodyFont}>
                       Search
                     </button>
                 </div>
@@ -1065,33 +1065,33 @@ const Home = () => {
 
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Left — Hero Stat */}
-            <div className={`lg:w-[320px] shrink-0 rounded-2xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden ${isDark ? 'bg-[#141414]' : 'bg-[#6d28d9]'}`}>
+            <div className={`w-full lg:w-[320px] shrink-0 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden ${isDark ? 'bg-[#141414]' : 'bg-[#6d28d9]'}`}>
               <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div style={{ position: 'absolute', top: '-100%', left: '-100%', width: '60%', height: '300%', background: 'linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%)', animation: 'glare 4s ease-in-out infinite' }} />
               </div>
               <style>{`@keyframes glare { 0%, 100% { transform: translateX(-100%) translateY(-30%); } 50% { transform: translateX(350%) translateY(30%); } }`}</style>
               <div className="relative z-10">
-                <img src="https://img.icons8.com/color/48/crowd.png" alt="" className="w-10 h-10 mb-6" />
-                <p className="text-[52px] md:text-[64px] font-[900] tracking-tighter leading-none" style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }}>2026<span style={{ color: '#FFC107', WebkitTextFillColor: '#FFC107' }}>+</span></p>
-                <p className="text-[13px] font-bold uppercase tracking-widest mt-3" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Updated Content</p>
+                <img src="https://img.icons8.com/color/48/crowd.png" alt="" className="w-8 h-8 sm:w-10 sm:h-10 mb-6" />
+                <p className="text-[42px] sm:text-[52px] md:text-[64px] font-[900] tracking-tighter leading-none" style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }}>2026<span style={{ color: '#FFC107', WebkitTextFillColor: '#FFC107' }}>+</span></p>
+                <p className="text-[12px] sm:text-[13px] font-bold uppercase tracking-widest mt-3" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Updated Content</p>
               </div>
-              <p className="relative z-10 text-[13px] leading-relaxed mt-8 font-medium" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Engineered for learners preparing for government exams, competitive placements, and coding interviews.</p>
+              <p className="relative z-10 text-[12px] sm:text-[13px] leading-relaxed mt-6 sm:mt-8 font-medium" style={{ color: 'rgba(255,255,255,0.7)', WebkitTextFillColor: 'rgba(255,255,255,0.7)' }}>Engineered for learners preparing for government exams, competitive placements, and coding interviews.</p>
             </div>
 
             {/* Right — Stats + Features */}
             <div className="flex-1 flex flex-col gap-5">
               {/* Secondary Stats */}
-              <div className="grid grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                 {[
                   { num: '8,100+', label: 'Questions', color: '#059669', icon: 'https://img.icons8.com/color/48/multiple-choice.png' },
                   { num: 'Live', label: 'Daily Analysis', color: '#7c3aed', icon: 'https://img.icons8.com/color/48/timer.png' },
                   { num: 'Verified', label: 'Quality Hub', color: '#D97706', icon: 'https://img.icons8.com/color/48/good-quality.png' },
                 ].map((s) => (
-                  <div key={s.label} className={`rounded-xl p-5 border ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100'}`}>
-                    <img src={s.icon} alt="" className="w-6 h-6 mb-3" />
-                    <p className="text-[24px] md:text-[28px] font-[900] tracking-tight leading-none" style={{ color: s.color }}>{s.num}</p>
-                    <p className={`text-[11px] font-bold uppercase tracking-wider mt-1.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>{s.label}</p>
+                  <div key={s.label} className={`rounded-xl p-4 sm:p-5 border ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100 shadow-sm'}`}>
+                    <img src={s.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6 mb-3" />
+                    <p className="text-[20px] sm:text-[24px] md:text-[28px] font-[900] tracking-tight leading-none" style={{ color: s.color }}>{s.num}</p>
+                    <p className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider mt-1.5 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>{s.label}</p>
                   </div>
                 ))}
               </div>

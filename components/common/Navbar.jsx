@@ -606,7 +606,7 @@ const Navbar = () => {
                             priority={true}
                             className='h-10 sm:h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
-                        <div className='block ml-[-8px] sm:ml-[-12px] scale-[0.85] sm:scale-100 origin-left'>
+                        <div className='hidden min-[400px]:block ml-[-8px] sm:ml-[-12px] scale-[0.75] min-[400px]:scale-[0.85] sm:scale-100 origin-left'>
                             <AnimatedLogo size="sm" loopInterval={30000} />
                         </div>
                     </Link>
