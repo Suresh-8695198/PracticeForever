@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import HRTopicPage from './hr-topic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -92,6 +93,12 @@ import * as dbmsSqlQ from '../../../../data/company/tcs/topics/dbms-sql';
 import * as csFundamentalsMcqsQ from '../../../../data/company/tcs/topics/cs-fundamentals-mcqs';
 import * as cybersecurityBasicsQ from '../../../../data/company/tcs/topics/cybersecurity-basics';
 
+// Programming Theory Imports
+import * as cCppBasicsQ from '../../../../data/company/tcs/topics/c-c-basics';
+import * as javaOopsConceptsQ from '../../../../data/company/tcs/topics/java-oops-concepts';
+import * as pythonFundamentalsQ from '../../../../data/company/tcs/topics/python-fundamentals';
+import * as dataStructuresTheoryQ from '../../../../data/company/tcs/topics/data-structures-theory';
+
 const companyTopicData = {
   tcs: {
     // Numerical Ability
@@ -160,8 +167,24 @@ const companyTopicData = {
     'dbms-sql': dbmsSqlQ,
     'cs-fundamentals-mcqs': csFundamentalsMcqsQ,
     'cybersecurity-basics': cybersecurityBasicsQ,
+    // Programming Theory
+    'c-c-basics': cCppBasicsQ,
+    'java-oops-concepts': javaOopsConceptsQ,
+    'python-fundamentals': pythonFundamentalsQ,
+    'data-structures-theory': dataStructuresTheoryQ,
   }
 };
+
+// HR topic slugs — these render the discussion-based HR page instead of MCQ
+const HR_TOPIC_SLUGS = new Set([
+  'tell-me-about-yourself',
+  'strengths-weaknesses',
+  'why-tcs',
+  'situation-based-scenarios',
+  'resume-deep-dive',
+  'project-discussions',
+  'role-awareness',
+]);
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
@@ -212,7 +235,7 @@ const processQuestion = (q) => {
   }
 };
 
-const CompanyTopicPage = () => {
+const CompanyTopicPageInner = () => {
   const router = useRouter();
   const { company, topic } = router.query;
   const { isDark } = useTheme();
@@ -505,11 +528,14 @@ const CompanyTopicPage = () => {
     </div>
   );
 
+  const activeTabQuery = router.query.tab !== undefined ? `&tab=${router.query.tab}` : '';
+  const companyBackUrl = `/interviews/company/${company}${router.query.tab !== undefined ? `?tab=${router.query.tab}` : ''}`;
+
   const navItems = [
-    { name: 'Quantitative\nProficiency', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: `/interviews/company/${company}?section=numerical`, color: 'bg-[#2563eb]' },
-    { name: 'Data\nInterpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: `/interviews/company/${company}?section=numerical`, color: 'bg-[#10b981]' },
-    { name: 'Verbal\nAbility', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: `/interviews/company/${company}?section=verbal`, color: 'bg-[#7c3aed]' },
-    { name: 'Logical\nReasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: `/interviews/company/${company}?section=reasoning`, color: 'bg-[#f59e0b]' }
+    { name: 'Quantitative\nProficiency', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: `/interviews/company/${company}?section=numerical${activeTabQuery}`, color: 'bg-[#2563eb]' },
+    { name: 'Data\nInterpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: `/interviews/company/${company}?section=numerical${activeTabQuery}`, color: 'bg-[#10b981]' },
+    { name: 'Verbal\nAbility', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: `/interviews/company/${company}?section=verbal${activeTabQuery}`, color: 'bg-[#7c3aed]' },
+    { name: 'Logical\nReasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: `/interviews/company/${company}?section=reasoning${activeTabQuery}`, color: 'bg-[#f59e0b]' }
   ];
 
 
@@ -823,7 +849,7 @@ const CompanyTopicPage = () => {
             <nav className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-black dark:text-white/40 mb-1">
               <Link href="/interviews/company" className="hover:text-blue-600 transition-colors">COMPANIES</Link>
               <span className="opacity-30">/</span>
-              <Link href={`/interviews/company/${company}`} className="hover:text-blue-600 transition-colors">{companyName}</Link>
+              <Link href={companyBackUrl} className="hover:text-blue-600 transition-colors">{companyName}</Link>
               <span className="opacity-30">/</span>
               <span>{topicName}</span>
             </nav>
@@ -1965,6 +1991,19 @@ const CompanyTopicPage = () => {
       `}</style>
     </div>
   );
+};
+
+// Wrapper that decides which page to render
+const CompanyTopicPage = () => {
+  const router = useRouter();
+  const { topic } = router.query;
+
+  // If this is an HR topic, render the IndiaBix-style discussion page
+  if (topic && HR_TOPIC_SLUGS.has(topic.toLowerCase())) {
+    return <HRTopicPage />;
+  }
+
+  return <CompanyTopicPageInner />;
 };
 
 export default CompanyTopicPage;

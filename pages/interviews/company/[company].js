@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -197,13 +197,8 @@ const CompanyDetail = () => {
   const [showResetModal, setShowResetModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
-  const headFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
-  const bodyFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
-
-  const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f8fafc] text-gray-900';
-
-  if (!company && !router.isReady) return null;
-
+  // Define content data early as it's needed by effects
+  const currentContent = companyContent[company?.toLowerCase()] || companyContent.default;
   const currentCompany = companyData[company?.toLowerCase()] || { 
     name: company ? company.toString().toUpperCase() : 'Company', 
     domain: "example.com", color: "#3b82f6", 
@@ -211,7 +206,33 @@ const CompanyDetail = () => {
     examType: "General Assessment"
   };
 
-  const currentContent = companyContent[company?.toLowerCase()] || companyContent.default;
+  // Sync activeRoundTab with URL query parameter
+  useEffect(() => {
+    if (router.isReady && router.query.tab !== undefined) {
+      const tabIdx = parseInt(router.query.tab);
+      if (!isNaN(tabIdx) && tabIdx >= 0 && tabIdx < currentContent.rounds.length) {
+        setActiveRoundTab(tabIdx);
+      }
+    }
+  }, [router.isReady, router.query.tab, currentContent.rounds.length]);
+
+  const handleTabChange = (idx) => {
+    setActiveRoundTab(idx);
+    setSearchQuery('');
+    // Update URL shallowly so it's preserved on back navigation
+    router.push({
+      pathname: router.pathname,
+      query: { ...router.query, tab: idx }
+    }, undefined, { shallow: true });
+  };
+
+  const headFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
+  const bodyFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
+
+  const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f8fafc] text-gray-900';
+
+  if (!company && !router.isReady) return null;
+
   const activeRound = currentContent.rounds[activeRoundTab] || currentContent.rounds[0];
 
   const filteredSections = activeRound.sections.map(section => ({
@@ -403,7 +424,7 @@ const CompanyDetail = () => {
               return (
                 <button
                   key={round.id}
-                  onClick={() => { setActiveRoundTab(idx); setSearchQuery(''); }}
+                  onClick={() => handleTabChange(idx)}
                   className={`
                     flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-[12px] font-bold transition-all border keep-color
                     ${activeRoundTab === idx 
@@ -485,7 +506,7 @@ const CompanyDetail = () => {
                   return (
                     <Link 
                       key={topic} 
-                      href={`/interviews/company/${company}/${pathTopic}`}
+                      href={`/interviews/company/${company}/${pathTopic}?tab=${activeRoundTab}`}
                       className="group flex items-center justify-between py-4 border-b border-gray-100 dark:border-gray-800 transition-all duration-300"
                       onMouseEnter={(e) => {
                         const span = e.currentTarget.querySelector('.topic-span');
