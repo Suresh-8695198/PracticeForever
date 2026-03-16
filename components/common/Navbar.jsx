@@ -606,7 +606,7 @@ const Navbar = () => {
                             priority={true}
                             className='h-10 sm:h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
-                        <div className='hidden min-[480px]:block ml-[-8px] sm:ml-[-12px] scale-[0.7] min-[480px]:scale-[0.85] sm:scale-100 origin-left'>
+                        <div className='hidden min-[540px]:block ml-[-8px] sm:ml-[-12px] scale-[0.7] min-[540px]:scale-[0.85] sm:scale-100 origin-left'>
                             <AnimatedLogo size="sm" loopInterval={30000} />
                         </div>
                     </Link>
@@ -672,7 +672,7 @@ const Navbar = () => {
                         {/* Theme Toggle */}
                         <button 
                             aria-label="Toggle Theme"
-                            onClick={toggleTheme} className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
+                            onClick={toggleTheme} className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-150 shrink-0 ${isDark
                             ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
                             : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
                             }`}>
@@ -683,23 +683,23 @@ const Navbar = () => {
                             <div className='relative ml-1'>
                                 <button
                                     onClick={() => setProfileOpen(p => !p)}
-                                    className={`flex items-center gap-1 sm:gap-2 h-9 sm:h-10 px-1 sm:px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
+                                    className={`flex items-center gap-1 sm:gap-2 h-8 sm:h-10 px-1 sm:px-2.5 rounded-lg sm:rounded-xl border transition-all duration-200 shrink-0 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
                                         }`}
                                 >
                                     {user?.image && (
                                         <Image 
                                             src={user.image} 
                                             alt={user.name || 'User'} 
-                                            width={24}
-                                            height={24}
+                                            width={20}
+                                            height={20}
                                             className="w-5 h-5 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover" 
                                         />
                                     )}
                                     <div className={`user-initial-fallback w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[9px] sm:text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
                                         {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
-                                    <span className='hidden min-[450px]:block text-[12px] sm:text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
-                                    <ChevronDown size={10} className={`sm:w-3 transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
+                                    <span className='hidden min-[600px]:block text-[12px] sm:text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
+                                    <ChevronDown size={10} className={`hidden sm:block sm:w-3 transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 <AnimatePresence>
                                     {profileOpen && (
@@ -778,14 +778,14 @@ const Navbar = () => {
                         {/* Burger Button - Enhanced visibility */}
                         <button
                             aria-label="Open Menu"
-                            className={`md:hidden ml-1 sm:ml-2 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all shadow-sm ${
+                            className={`md:hidden shrink-0 ml-1 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all shadow-sm ${
                                 isDark 
                                 ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5' 
                                 : 'bg-gray-50 text-gray-800 hover:bg-gray-100 border border-gray-200'
                             }`}
                             onClick={() => setMobileOpen(true)}
                         >
-                            <Menu size={20} strokeWidth={2.5} className="sm:w-[22px]" />
+                            <Menu size={18} strokeWidth={2.5} className="sm:w-[22px]" />
                         </button>
                     </div>
                 </div>
