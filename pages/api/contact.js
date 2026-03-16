@@ -23,8 +23,9 @@ export default async function handler(req, res) {
   });
 
   try {
+    console.log('Attempting to send email via:', process.env.SMTP_HOST);
     // Send email to the user specified email (suresh169073@gmail.com)
-    await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"PracticeForever Admin" <${process.env.SMTP_USER}>`,
       to: 'suresh169073@gmail.com', // The target email
       subject: `New Contact Form Submission from ${name}`,
@@ -43,9 +44,13 @@ export default async function handler(req, res) {
       replyTo: email,
     });
 
+    console.log('Email sent successfully:', info.messageId);
     return res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Email error:', error);
-    return res.status(500).json({ error: 'Failed to send email' });
+    console.error('CRITICAL EMAIL ERROR:', error.message);
+    if (error.code === 'EAUTH') {
+      return res.status(500).json({ error: 'Authentication failed. Check your SMTP_PASS in .env.local' });
+    }
+    return res.status(500).json({ error: `Failed to send email: ${error.message}` });
   }
 }
