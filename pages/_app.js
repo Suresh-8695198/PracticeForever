@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import '../styles/globals.css';
 import '../components/common/ElectricBorder.css';
 import '../components/ui/PixelCard.css';
@@ -19,7 +21,24 @@ const DynamicWrapper = dynamic(() => Promise.resolve(NonSSRWrapper), {
 
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(
+          function(registration) {
+            console.log('Service Worker registration successful with scope: ', registration.scope);
+          },
+          function(err) {
+            console.log('Service Worker registration failed: ', err);
+          }
+        );
+      });
+    }
+  }, []);
+
   const isAdminPath = router.pathname.startsWith('/admin');
 
   return (
