@@ -22,6 +22,16 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/interviews": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/interviews.js"
+    ],
+    "/interviews/company": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/interviews/company.js"
+    ],
     "/interviews/company/[company]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
