@@ -165,7 +165,7 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
+    <div className={`min-h-screen pt-[60px] md:pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
       <Head>
         <title>PracticeForever | Master Govt Exams, Aptitude & Coding Interviews</title>
         <meta name="description" content="Prepare for TNPSC, SSC, Banking, and IT interviews with PracticeForever. 8,000+ practice questions, daily current affairs, and subject-wise mock tests." />
@@ -213,14 +213,14 @@ const Home = () => {
             100% { opacity: 1; }
           }
         `}</style>
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 flex items-center gap-2 sm:gap-3 h-9 sm:h-10">
-          <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 28, marginRight: 16 }}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center gap-1.5 sm:gap-3 h-8 sm:h-10">
+          <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 24, sm: { height: 28 } }}>
             <span style={{
               position: 'relative',
               display: 'inline-flex',
               alignItems: 'center',
-              height: 28,
-              padding: '0 4px 0 14px',
+              height: '100%',
+              padding: '0 4px 0 10px',
               background: '#ff0000',
               borderRadius: '14px 0 0 14px',
               color: '#ffffff'
@@ -228,7 +228,7 @@ const Home = () => {
               <strong style={{
                 color: '#ffffff',
                 fontWeight: 900,
-                fontSize: 13,
+                fontSize: 11,
                 letterSpacing: '0.04em',
                 position: 'relative',
                 zIndex: 2,
@@ -244,28 +244,46 @@ const Home = () => {
                 top: 0,
                 width: 0,
                 height: 0,
-                borderTop: '14px solid transparent',
-                borderBottom: '14px solid transparent',
-                borderLeft: '12px solid #ff0000',
+                borderTop: '12px solid transparent',
+                borderBottom: '12px solid transparent',
+                borderLeft: '10px solid #ff0000',
                 zIndex: 1
               }} />
             </span>
           </span>
           <div style={{ flex: 1, overflow: 'hidden', height: 22, position: 'relative' }}>
             {(() => {
-              const notices = [
+              const [notices, setNotices] = useState([
                 'TNPSC Group 2 Notification 2026 Released — Apply before 30 Mar',
                 'Python Roadmap 2026 Updated — New DSA section added',
                 'TCS NQT Registration Open — Last date 15 Apr 2026',
                 'Daily Current Affairs – March 2026 — Read now',
                 'SSC CGL 2026 Exam Date Announced — Prepare with mock tests',
                 'Free Aptitude PDFs Released — Download today',
-              ];
+              ]);
+
+              useEffect(() => {
+                const fetchNews = async () => {
+                  try {
+                    // Fetching real-time updates from a public Indian News API endpoint
+                    const res = await fetch('https://saurav.tech/NewsAPI/top-headlines/category/business/in.json');
+                    const data = await res.json();
+                    if (data.articles && data.articles.length > 0) {
+                      const news = data.articles.slice(0, 8).map(a => a.title);
+                      setNotices(news);
+                    }
+                  } catch (err) {
+                    console.log("Using default notices as fallback");
+                  }
+                };
+                fetchNews();
+              }, []);
+
               const all = [...notices, ...notices];
               return (
-                <div style={{ display: 'flex', flexDirection: 'column', animation: 'notice-slide 18s cubic-bezier(0.45,0,0.15,1) infinite', willChange: 'transform' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', animation: 'notice-slide 20s cubic-bezier(0.45,0,0.15,1) infinite', willChange: 'transform' }}>
                   {all.map((msg, i) => (
-                    <em key={i} style={{ fontStyle: 'normal', display: 'flex', alignItems: 'center', height: 22, fontSize: 12, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
+                    <em key={i} style={{ fontStyle: 'normal', display: 'flex', alignItems: 'center', height: 22, fontSize: 11, sm: { fontSize: 12 }, fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', color: isDark ? '#d4d4d4' : '#92400e', letterSpacing: '0.01em' }}>
                       <span style={{ width: 4, height: 4, borderRadius: '50%', background: isDark ? '#fbbf24' : '#d97706', marginRight: 8, flexShrink: 0 }} />
                       {msg}
                     </em>
@@ -324,7 +342,7 @@ const Home = () => {
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, zIndex: 10, width: 52, background: isDark ? 'linear-gradient(to left,#0b0b0b,transparent)' : 'linear-gradient(to left,#ffffff,transparent)', pointerEvents: 'none' }} />
 
         {/* Scrolling items */}
-        <div className="mq-ticker" style={{ paddingLeft: 148 }}>
+        <div className="mq-ticker" style={{ paddingLeft: 'clamp(100px, 20vw, 148px)' }}>
           {[
             { label: 'Government Exam Prep', cat: 'Govt Exams', stat: 'Top Resources', color: '#3b7dd8', icon: '▣' },
             { label: 'Aptitude & Reasoning', cat: 'Aptitude', stat: '200+ topics', color: '#9457f5', icon: '◈' },
