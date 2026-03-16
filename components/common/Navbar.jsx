@@ -842,16 +842,16 @@ const Navbar = () => {
                             style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
                         >
                             {/* Drawer header */}
-                            <div className={`flex items-center justify-between px-5 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-6'>
+                            <div className={`flex items-center justify-between px-3 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
                                     <div className="flex items-center gap-1 min-w-0">
-                                        <img src='/logo.png' alt='Logo' className='h-8 w-auto object-contain shrink-0' />
-                                        <div className='overflow-hidden max-w-[140px] xs:max-w-[170px] hidden min-[340px]:block'>
+                                        <img src='/logo.png' alt='Logo' className='h-7 sm:h-8 w-auto object-contain shrink-0' />
+                                        <div className='overflow-hidden hidden min-[320px]:block scale-[0.9] origin-left'>
                                             <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
                                         </div>
                                     </div>
                                 </Link>
-                                <div className='flex items-center gap-1 shrink-0'>
+                                <div className='flex items-center gap-0.5 shrink-0'>
                                     {/* Notifications in Sidebar */}
                                     <button className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark
                                         ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
