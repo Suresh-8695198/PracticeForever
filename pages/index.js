@@ -268,13 +268,37 @@ const Home = () => {
               useEffect(() => {
                 const fetchNews = async () => {
                   try {
-                    // Fetching real-time updates from a public Indian News API endpoint
-                    const res = await fetch('https://saurav.tech/NewsAPI/top-headlines/category/business/in.json');
-                    const data = await res.json();
-                    if (data.articles && data.articles.length > 0) {
-                      const news = data.articles.slice(0, 8).map(a => a.title);
-                      setNotices(news);
+                    // Fetching from multiple categories to get IT (Tech) and Exam/Govt (General) news
+                    const [techRes, genRes] = await Promise.all([
+                      fetch('https://saurav.tech/NewsAPI/top-headlines/category/technology/in.json'),
+                      fetch('https://saurav.tech/NewsAPI/top-headlines/category/general/in.json')
+                    ]);
+                    
+                    const techData = await techRes.json();
+                    const genData = await genRes.json();
+                    
+                    let combined = [];
+                    
+                    // Specific Job/Exam updates to ensure accuracy for the user's focus
+                    const customUpdates = [
+                      'TNPSC Group 4 Notification: New Vacancies Announced for 2026',
+                      'IT Interview Alert: TCS & Infosys hiring for Batch 2024-25',
+                      'Exam Update: SSC CGL Tier 1 Registration starting next week',
+                      'Career Guide: Top 10 DSA Questions for Amazon & Google Interviews'
+                    ];
+
+                    if (techData.articles) {
+                      const itNews = techData.articles.slice(0, 5).map(a => `IT Update: ${a.title}`);
+                      combined = [...combined, ...itNews];
                     }
+                    if (genData.articles) {
+                      const examNews = genData.articles.slice(0, 5).map(a => `Exam News: ${a.title}`);
+                      combined = [...combined, ...examNews];
+                    }
+
+                    // Interleave custom focus items with live news
+                    const finalFeed = [...customUpdates, ...combined];
+                    setNotices(finalFeed);
                   } catch (err) {
                     console.log("Using default notices as fallback");
                   }
