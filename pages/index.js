@@ -215,9 +215,17 @@ const Home = () => {
         `}</style>
         <style>{`
           .hover-pause:hover { animation-play-state: paused !important; }
+          @media (max-width: 768px) {
+            .ticker-strip { flex-direction: column !important; height: auto !important; padding: 10px 0 !important; align-items: flex-start !important; }
+            .ticker-badge { margin-bottom: 8px !important; margin-left: 10px !important; }
+            .ticker-content { width: 100% !important; padding-left: 10px !important; }
+            .live-strip { height: auto !important; padding: 10px 0 !important; }
+            .live-badge-container { position: relative !important; padding-left: 10px !important; padding-bottom: 8px !important; background: transparent !important; }
+            .live-ticker { padding-left: 10px !important; }
+          }
         `}</style>
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center gap-1.5 sm:gap-3 h-8 sm:h-10">
-          <span className="shrink-0" style={{ display: 'inline-flex', alignItems: 'center', height: 24 }}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center ticker-strip h-8 sm:h-10">
+          <span className="shrink-0 ticker-badge" style={{ display: 'inline-flex', alignItems: 'center', height: 24 }}>
             <span style={{
               position: 'relative',
               display: 'inline-flex',
@@ -254,7 +262,7 @@ const Home = () => {
               }} />
             </span>
           </span>
-          <div style={{ flex: 1, overflow: 'hidden', height: 22, position: 'relative' }}>
+          <div className="ticker-content" style={{ flex: 1, overflow: 'hidden', height: 22, position: 'relative' }}>
             {(() => {
               const [notices, setNotices] = useState([
                 'TNPSC Group 2 Notification 2026 Released — Apply before 30 Mar',
@@ -339,7 +347,7 @@ const Home = () => {
       </div>
 
       {/* ══ MARQUEE STRIP ══ */}
-      <div style={{ position: 'relative', overflow: 'hidden', height: 46, borderBottom: `1px solid ${isDark ? '#1c1c1c' : '#e8e8e8'}`, background: isDark ? '#0b0b0b' : '#ffffff' }}>
+      <div className="live-strip" style={{ position: 'relative', overflow: 'hidden', height: 46, borderBottom: `1px solid ${isDark ? '#1c1c1c' : '#e8e8e8'}`, background: isDark ? '#0b0b0b' : '#ffffff' }}>
         <style>{`
           @keyframes mq-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
           @keyframes notice-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-100%) } }
@@ -349,7 +357,7 @@ const Home = () => {
         `}</style>
 
         {/* Left anchor — LIVE label */}
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, zIndex: 10, display: 'flex', alignItems: 'center', pointerEvents: 'none', background: isDark ? 'linear-gradient(to right,#0b0b0b 76%,transparent)' : 'linear-gradient(to right,#ffffff 76%,transparent)' }}>
+        <div className="live-badge-container" style={{ position: 'absolute', left: 0, top: 0, bottom: 0, zIndex: 10, display: 'flex', alignItems: 'center', pointerEvents: 'none', background: isDark ? 'linear-gradient(to right,#0b0b0b 76%,transparent)' : 'linear-gradient(to right,#ffffff 76%,transparent)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 0, paddingLeft: 10, paddingRight: 40 }}>
             {/* LIVE arrow badge — reduced size */}
             <span style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, height: 22 }}>
@@ -382,7 +390,7 @@ const Home = () => {
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, zIndex: 10, width: 52, background: isDark ? 'linear-gradient(to left,#0b0b0b,transparent)' : 'linear-gradient(to left,#ffffff,transparent)', pointerEvents: 'none' }} />
 
         {/* Scrolling items */}
-        <div className="mq-ticker" style={{ paddingLeft: 'clamp(100px, 20vw, 148px)' }}>
+        <div className="mq-ticker live-ticker" style={{ paddingLeft: 'clamp(100px, 20vw, 148px)' }}>
           {[
             { label: 'Government Exam Prep', cat: 'Govt Exams', stat: 'Top Resources', color: '#3b7dd8', icon: '▣' },
             { label: 'Aptitude & Reasoning', cat: 'Aptitude', stat: '200+ topics', color: '#9457f5', icon: '◈' },
