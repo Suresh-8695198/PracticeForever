@@ -26,9 +26,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps }, router }) {
     <>
       <Head>
         <title>PracticeForever | India's #1 Career Preparation Platform</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="PracticeForever is India's most trusted platform for government exams (TNPSC, SSC, UPSC), aptitude prep, coding interviews, and daily current affairs. Start your career journey today." />
-        <meta name="keywords" content="PracticeForever, Government Exams Prep, TNPSC, SSC, UPSC, Aptitude Questions, Coding Interview Prep, Daily Current Affairs 2024, Mock Tests India" />
+        <meta name="keywords" content="PracticeForever, Government Exams Prep, TNPSC, SSC, UPSC, Aptitude Questions, Coding Interview Prep, Daily Current Affairs 2026, Mock Tests India" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />

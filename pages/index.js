@@ -139,8 +139,8 @@ const Home = () => {
     <div className={`flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 mb-10 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-2.5">
-          {iconUrl && (
-            <img src={iconUrl} alt="" className="w-[30px] h-[30px] object-contain shrink-0" />
+            {iconUrl && (
+            <img src={iconUrl} alt="" width="30" height="30" className="w-[30px] h-[30px] object-contain shrink-0" loading="lazy" />
           )}
           <h2 className="text-[22px] sm:text-[24px] font-[900] tracking-tight antialiased"
             style={{
@@ -534,8 +534,11 @@ const Home = () => {
             {/* Right — hero image */}
             <div className="hidden lg:flex shrink-0 items-center justify-center" style={{ width: 480 }}>
               <img
-                src="/hero.png"
+                src="/hero-new.png"
                 alt="Career Preparation"
+                width="480"
+                height="420"
+                fetchpriority="high"
                 style={{ width: '100%', height: 'auto', objectFit: 'contain', maxHeight: 420 }}
               />
             </div>
@@ -761,7 +764,7 @@ const Home = () => {
                         {/* Icon + stat row */}
                         <div className="flex items-start justify-between mb-5">
                           {/* Icon — Icons8 3D Fluency */}
-                          <img src={lp.iconUrl} alt='' width={48} height={48} style={{ display: 'block', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))' }} />
+                          <img src={lp.iconUrl} alt='' width="48" height="48" loading="lazy" style={{ display: 'block', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))' }} />
                           {/* Stat — plain text, no bg */}
                           <em
                             style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 700, color: lp.textMuted, letterSpacing: '0.04em', textTransform: 'uppercase' }}

@@ -579,6 +579,8 @@ const Navbar = () => {
                         <img
                             src='/logo.png'
                             alt='Logo'
+                            width="56"
+                            height="56"
                             className='h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
                         <div className='block ml-[-10px] sm:ml-[-12px]'>
@@ -634,7 +636,9 @@ const Navbar = () => {
                     {/* Right controls */}
                     <div className='flex items-center gap-1'>
                          {/* Notification Bell - Desktop only */}
-                         <button className={`hidden md:flex relative w-9 h-9 rounded-lg items-center justify-center transition-all duration-150 ${isDark
+                         <button 
+                             aria-label="Notifications"
+                             className={`hidden md:flex relative w-9 h-9 rounded-lg items-center justify-center transition-all duration-150 ${isDark
                              ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
                              : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
                              }`}>
@@ -643,7 +647,9 @@ const Navbar = () => {
                          </button>
 
                         {/* Theme Toggle */}
-                        <button onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
+                        <button 
+                            aria-label="Toggle Theme"
+                            onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
                             ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
                             : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
                             }`}>
@@ -758,6 +764,7 @@ const Navbar = () => {
 
                         {/* Burger Button - Enhanced visibility */}
                         <button
+                            aria-label="Open Menu"
                             className={`md:hidden ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all shadow-sm ${
                                 isDark 
                                 ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5' 
