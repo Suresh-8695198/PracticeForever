@@ -159,7 +159,7 @@ const ContactPage = () => {
                                     <div>
                                         <p className="text-[10px] font-semibold uppercase tracking-widest text-blue-600 mb-1">The Developers</p>
                                         <p className={`text-base md:text-lg font-semibold ${textColor} opacity-100 leading-snug`}>
-                                            Developed with Practice<strong className="font-style  font-bold text-green-700">Forever</strong> by <br />
+                                            Developed with 🖤Practice<strong className="font-style  font-bold text-green-700">Forever</strong> by <br />
                                             Suresh G & Hari Gayathiri M
                                         </p>
                                     </div>
