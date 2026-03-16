@@ -216,12 +216,12 @@ const Home = () => {
         <style>{`
           .hover-pause:hover { animation-play-state: paused !important; }
           @media (max-width: 768px) {
-            .ticker-strip { flex-direction: column !important; height: auto !important; padding: 6px 0 !important; align-items: flex-start !important; }
-            .ticker-badge { margin-bottom: 4px !important; margin-left: 10px !important; scale: 0.9; transform-origin: left; }
-            .ticker-content { width: 100% !important; padding-left: 10px !important; height: 18px !important; }
-            .live-strip { height: auto !important; padding: 6px 0 !important; }
-            .live-badge-container { position: relative !important; padding-left: 10px !important; padding-bottom: 4px !important; background: transparent !important; scale: 0.9; transform-origin: left; }
-            .live-ticker { padding-left: 10px !important; height: 36px !important; }
+            .ticker-strip { flex-direction: column !important; height: auto !important; padding: 4px 0 !important; align-items: flex-start !important; }
+            .ticker-badge { margin-bottom: 2px !important; margin-left: 10px !important; scale: 0.85; transform-origin: left; }
+            .ticker-content { width: 100% !important; padding-left: 10px !important; height: 16px !important; }
+            .live-strip { height: auto !important; padding: 4px 0 !important; }
+            .live-badge-container { position: relative !important; padding-left: 10px !important; padding-bottom: 2px !important; background: transparent !important; scale: 0.85; transform-origin: left; }
+            .live-ticker { padding-left: 10px !important; height: 32px !important; }
           }
         `}</style>
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center ticker-strip h-8 sm:h-10">
@@ -322,7 +322,7 @@ const Home = () => {
                     display: 'flex', 
                     alignItems: 'center',
                     gap: 32,
-                    animation: notices.length > 0 ? 'notice-ticker 400s linear infinite' : 'none',
+                    animation: notices.length > 0 ? 'notice-ticker 120s linear infinite' : 'none',
                     whiteSpace: 'nowrap',
                     width: 'max-content'
                   }}>
