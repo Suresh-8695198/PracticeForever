@@ -434,7 +434,7 @@ const Home = () => {
               <p className={`text-[11.5px] font-black uppercase tracking-[0.15em] mb-4 ${isDark ? 'text-amber-400' : 'text-amber-700'}`} style={bodyFont}>
                 India's Career Preparation Platform
               </p>
-              <h1 className="text-[2.4rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
+              <h1 className="text-[1.8rem] sm:text-[2.2rem] md:text-[3.2rem] font-extrabold tracking-tight mb-5 leading-[1.15]" style={headFont}>
                 Prepare Better. Achieve Your{' '}
                 <em style={{ position: 'relative', display: 'inline-block', fontStyle: 'normal', background: 'linear-gradient(to right, #FFC107, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Goals Faster.
@@ -496,7 +496,7 @@ const Home = () => {
               <p className={`text-[15px] md:text-[16px] mb-8 max-w-2xl leading-relaxed ${muted}`} style={bodyFont}>
                 Practice aptitude questions, prepare for government exams, learn programming, and stay updated with daily current affairs - all in one platform built for students preparing for competitive exams and technical careers.
               </p>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-8">
                 <div className={`flex-1 max-w-lg flex items-center rounded border ${isDark ? 'bg-[#1a1a1a] border-[#333]' : 'bg-white border-gray-300'} focus-within:border-[#FFC107] focus-within:ring-2 focus-within:ring-[#FFC107]/20 transition-all`}>
                   <Search size={15} className={`ml-3 shrink-0 ${muted}`} />
                   <input
@@ -505,9 +505,9 @@ const Home = () => {
                     className="flex-1 px-3 py-2.5 text-[13.5px] bg-transparent outline-none placeholder-gray-400"
                     style={bodyFont}
                   />
-                  <button className="m-1 px-4 py-1.5 bg-[#FFC107] text-black text-[12.5px] font-bold rounded hover:bg-amber-400 transition-colors whitespace-nowrap" style={bodyFont}>
-                    Search
-                  </button>
+                    <button className="m-1 px-4 py-2 sm:py-1.5 bg-[#FFC107] text-black text-[12.5px] font-bold rounded hover:bg-amber-400 transition-colors whitespace-nowrap" style={bodyFont}>
+                      Search
+                    </button>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3">

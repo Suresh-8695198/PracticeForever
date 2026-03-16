@@ -107,34 +107,36 @@ const HeroSection = ({ isDark }) => {
       {/* Professional Search & Filters Area */}
       <div className="relative max-w-4xl mx-auto" ref={searchRef}>
         <div className={`
-          group flex items-center gap-4 p-1.5 rounded-lg border transition-all duration-300
+          group flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 p-1 sm:p-1.5 rounded-xl border transition-all duration-300
           ${isDark ? 'bg-[#141414] border-[#222] focus-within:border-[#FFC107]/50' 
                   : 'bg-white border-gray-200 focus-within:border-[#FFC107]/30'}
         `}>
-          <div className="pl-5">
-            <Search size={22} className="text-gray-400 group-focus-within:text-[#FFC107] transition-colors" />
-          </div>
-          <input
-            ref={inputRef}
-            type="text"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setShowSuggestions(true);
-            }}
-            onFocus={() => setShowSuggestions(true)}
-            placeholder="Search topics: Percentage, Time & Work, Number System..."
-            className="flex-1 py-2.5 bg-transparent outline-none text-[16px] font-medium placeholder:text-gray-400 dark:text-white"
-          />
-          
-          <div className="hidden sm:flex items-center gap-1.5 px-3 py-2 bg-gray-50 dark:bg-[#222] rounded-md border border-gray-200 dark:border-[#333]">
-            <Command size={12} className="text-gray-400" />
-            <span className="text-[11px] font-bold text-gray-500">K</span>
+          <div className="flex items-center flex-1 px-4 sm:px-0">
+            <div className="sm:pl-5 pr-3">
+              <Search size={22} className="text-gray-400 group-focus-within:text-[#FFC107] transition-colors" />
+            </div>
+            <input
+              ref={inputRef}
+              type="text"
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSuggestions(true);
+              }}
+              onFocus={() => setShowSuggestions(true)}
+              placeholder="Search topics: Percentage..."
+              className="flex-1 py-3.5 sm:py-2.5 bg-transparent outline-none text-[16px] font-medium placeholder:text-gray-400 dark:text-white"
+            />
+            
+            <div className="hidden sm:flex items-center gap-1.5 px-3 py-2 bg-gray-50 dark:bg-[#222] rounded-md border border-gray-200 dark:border-[#333]">
+              <Command size={12} className="text-gray-400" />
+              <span className="text-[11px] font-bold text-gray-500">K</span>
+            </div>
           </div>
 
           <button className={`
-            px-6 py-2.5 bg-[#FFC107] text-black font-extrabold text-[15px] rounded-lg
-            hover:bg-[#FFB300] transition-all ml-2 active:scale-95
+            px-6 py-3.5 sm:py-2.5 bg-[#FFC107] text-black font-extrabold text-[15px] rounded-lg
+            hover:bg-[#FFB300] transition-all sm:ml-2 active:scale-95
           `}>
              Search
           </button>

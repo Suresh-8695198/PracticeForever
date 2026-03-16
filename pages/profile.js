@@ -228,7 +228,7 @@ const ProfilePage = () => {
             <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
                     {/* Sidebar Profile Card */}
-                    <div className="bg-dark-card items-start h-[calc(100vh-140px)] sticky top-28 rounded-2xl border border-dark-border p-6 flex flex-col gap-6">
+                    <div className="bg-dark-card items-start h-auto lg:h-[calc(100vh-140px)] relative lg:sticky lg:top-28 rounded-2xl border border-dark-border p-6 flex flex-col gap-6">
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 bg-dark-800 rounded-xl flex items-center justify-center border border-dark-border text-gray-400">
                                 <User size={32} />

@@ -558,7 +558,7 @@ const CurrentAffairs = () => {
 
                                 {/* Title */}
                                 <h1 
-                                    className="text-[24px] sm:text-[28px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.2] sm:leading-[1.15] mb-6 drop-shadow-sm"
+                                    className="text-[20px] sm:text-[24px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.2] sm:leading-[1.15] mb-6 drop-shadow-sm"
                                     dangerouslySetInnerHTML={{ __html: applyWordHighlights(selectedArticle.title) }}
                                 />
 

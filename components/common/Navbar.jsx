@@ -601,12 +601,12 @@ const Navbar = () => {
                         <Image
                             src='/logo.png'
                             alt='Logo'
-                            width={56}
-                            height={56}
+                            width={48}
+                            height={48}
                             priority={true}
-                            className='h-14 w-auto object-contain logo-icon transition-transform duration-300'
+                            className='h-10 sm:h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
-                        <div className='block ml-[-10px] sm:ml-[-12px]'>
+                        <div className='block ml-[-8px] sm:ml-[-12px] scale-[0.85] sm:scale-100 origin-left'>
                             <AnimatedLogo size="sm" loopInterval={30000} />
                         </div>
                     </Link>
@@ -672,34 +672,34 @@ const Navbar = () => {
                         {/* Theme Toggle */}
                         <button 
                             aria-label="Toggle Theme"
-                            onClick={toggleTheme} className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
+                            onClick={toggleTheme} className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-150 ${isDark
                             ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
                             : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
                             }`}>
-                            {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                            {isDark ? <Sun size={14} className="sm:w-4" /> : <Moon size={14} className="sm:w-4" />}
                         </button>
 
                         {isAuthenticated && user ? (
                             <div className='relative ml-1'>
                                 <button
                                     onClick={() => setProfileOpen(p => !p)}
-                                    className={`flex items-center gap-2 h-10 px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
+                                    className={`flex items-center gap-1.5 sm:gap-2 h-9 sm:h-10 px-1.5 sm:px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
                                         }`}
                                 >
                                     {user?.image && (
                                         <Image 
                                             src={user.image} 
                                             alt={user.name || 'User'} 
-                                            width={28}
-                                            height={28}
-                                            className="w-7 h-7 rounded-full border border-white/20 object-cover" 
+                                            width={24}
+                                            height={24}
+                                            className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover" 
                                         />
                                     )}
-                                    <div className={`user-initial-fallback w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
+                                    <div className={`user-initial-fallback w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[10px] sm:text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
                                         {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
-                                    <span className='hidden lg:block text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
-                                    <ChevronDown size={14} className={`transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
+                                    <span className='hidden sm:block text-[12px] sm:text-[13.5px] font-bold tracking-tight'>{user?.name?.split(' ')[0]}</span>
+                                    <ChevronDown size={12} className={`transition-transform duration-300 opacity-60 ${profileOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 <AnimatePresence>
                                     {profileOpen && (
@@ -778,14 +778,14 @@ const Navbar = () => {
                         {/* Burger Button - Enhanced visibility */}
                         <button
                             aria-label="Open Menu"
-                            className={`md:hidden ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all shadow-sm ${
+                            className={`md:hidden ml-1 sm:ml-2 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all shadow-sm ${
                                 isDark 
                                 ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5' 
                                 : 'bg-gray-50 text-gray-800 hover:bg-gray-100 border border-gray-200'
                             }`}
                             onClick={() => setMobileOpen(true)}
                         >
-                            <Menu size={22} strokeWidth={2.5} />
+                            <Menu size={20} strokeWidth={2.5} className="sm:w-[22px]" />
                         </button>
                     </div>
                 </div>
