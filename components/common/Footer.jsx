@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from '../../context/ThemeContext';
 
 const footerLinks = [
@@ -112,7 +113,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-0 mb-4">
-              <img src="/logo.png" alt="PracticeForever Logo" width="36" height="36" className="h-9 w-auto object-contain" />
+              <Image src="/logo.png" alt="PracticeForever Logo" width={36} height={36} className="h-9 w-auto object-contain" />
               <span
                 className={`text-[15px] font-extrabold tracking-tight ${heading}`}
                 style={{ fontFamily: "'Delius Swash Caps', cursive", fontWeight: 800, marginLeft: '-6px' }}

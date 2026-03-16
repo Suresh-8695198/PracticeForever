@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import AnimatedLogo from './AnimatedLogo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -586,6 +587,7 @@ const Navbar = () => {
     const activeCat = mainCategories.find(c => c.title === activeMenu) ?? null;
 
     return (
+        <>
         <header
             ref={navRef}
             onMouseLeave={handleHeaderLeave}
@@ -616,11 +618,12 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <Link href='/' className='flex items-center gap-0 shrink-0 group/logo logo-container'>
-                        <img
+                        <Image
                             src='/logo.png'
                             alt='Logo'
-                            width="56"
-                            height="56"
+                            width={56}
+                            height={56}
+                            priority={true}
                             className='h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
                         <div className='block ml-[-10px] sm:ml-[-12px]'>
@@ -686,19 +689,6 @@ const Navbar = () => {
                              <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
                          </button>
 
-                        {/* Mobile Install Button - Only if supported by browser */}
-                        {deferredPrompt && (
-                            <button 
-                                onClick={handleInstallClick}
-                                className={`flex items-center gap-1.5 px-3 h-9 rounded-lg text-[12px] font-bold transition-all duration-150 animate-pulse ${isDark 
-                                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
-                                    : 'bg-emerald-50 text-emerald-600 border border-emerald-200'}`}
-                            >
-                                <Smartphone size={14} />
-                                <span className="hidden xs:inline">Install App</span>
-                            </button>
-                        )}
-
                         {/* Theme Toggle */}
                         <button 
                             aria-label="Toggle Theme"
@@ -716,20 +706,15 @@ const Navbar = () => {
                                     className={`flex items-center gap-2 h-10 px-2.5 rounded-xl border transition-all duration-200 ${isDark ? 'border-white/10 bg-white/5 hover:bg-white/10 text-gray-200' : 'border-gray-200 hover:border-gray-300 bg-gray-50/50 text-gray-700'
                                         }`}
                                 >
-                                    {user?.image ? (
-                                        <img 
+                                    {user?.image && (
+                                        <Image 
                                             src={user.image} 
-                                            alt={user.name} 
-                                            referrerPolicy="no-referrer"
-                                            onError={(e) => {
-                                                e.target.onerror = null;
-                                                e.target.style.display = 'none';
-                                                const fallback = e.target.parentElement.querySelector('.user-initial-fallback');
-                                                if (fallback) fallback.style.display = 'flex';
-                                            }}
+                                            alt={user.name || 'User'} 
+                                            width={28}
+                                            height={28}
                                             className="w-7 h-7 rounded-full border border-white/20 object-cover" 
                                         />
-                                    ) : null}
+                                    )}
                                     <div className={`user-initial-fallback w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
                                         {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                     </div>
@@ -747,20 +732,15 @@ const Navbar = () => {
                                                 }`}
                                         >
                                             <div className={`px-5 py-4 border-b flex items-center gap-4 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
-                                                {user?.image ? (
-                                                    <img 
+                                                {user?.image && (
+                                                    <Image 
                                                         src={user.image} 
                                                         alt={user.name} 
-                                                        referrerPolicy="no-referrer"
-                                                        onError={(e) => {
-                                                            e.target.onerror = null;
-                                                            e.target.style.display = 'none';
-                                                            const fallback = e.target.parentElement.querySelector('.dropdown-initial-fallback');
-                                                            if (fallback) fallback.style.display = 'flex';
-                                                        }}
+                                                        width={40}
+                                                        height={40}
                                                         className="w-10 h-10 rounded-full border-2 border-white/20 object-cover" 
                                                     />
-                                                ) : null}
+                                                )}
                                                 <div className={`dropdown-initial-fallback w-10 h-10 rounded-full bg-amber-500 text-black font-bold items-center justify-center text-lg ${user?.image ? 'hidden' : 'flex'}`}>
                                                     {user?.name?.charAt(0)?.toUpperCase() || 'U'}
                                                 </div>
@@ -905,7 +885,13 @@ const Navbar = () => {
                             <div className={`flex items-center justify-between px-3 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
                                 <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
                                     <div className="flex items-center gap-1 min-w-0">
-                                        <img src='/logo.png' alt='Logo' className='h-7 sm:h-8 w-auto object-contain shrink-0' />
+                                        <Image 
+                                            src='/logo.png' 
+                                            alt='Logo' 
+                                            width={32}
+                                            height={32}
+                                            className='h-7 sm:h-8 w-auto object-contain shrink-0' 
+                                        />
                                         <div className='overflow-hidden hidden min-[320px]:block scale-[0.9] origin-left'>
                                             <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
                                         </div>
@@ -926,45 +912,6 @@ const Navbar = () => {
                                 </div>
                             </div>
 
-                            {/* Mobile App Install Recommendation - Prominent in Sidebar */}
-                            {(deferredPrompt || isIOS) && (
-                                <div className="px-4 pt-4">
-                                    <div className={`p-4 rounded-xl flex flex-col gap-3 ${isDark ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-emerald-50 border border-emerald-100'}`}>
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center text-white shadow-lg">
-                                                <Smartphone size={20} />
-                                            </div>
-                                            <div>
-                                                <h4 className={`text-[13.5px] font-bold ${isDark ? 'text-white' : 'text-emerald-900'}`}>Get our Mobile App</h4>
-                                                <p className={`text-[11px] font-medium ${isDark ? 'text-emerald-400/80' : 'text-emerald-600'}`}>
-                                                    {isIOS ? 'Install for easy access' : 'Better experience & faster access'}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {deferredPrompt ? (
-                                            <button 
-                                                onClick={() => {
-                                                    handleInstallClick();
-                                                    setMobileOpen(false);
-                                                }}
-                                                className="w-full h-10 bg-emerald-500 text-white font-bold rounded-lg text-[13px] hover:bg-emerald-600 transition-colors shadow-md"
-                                            >
-                                                Install Now
-                                            </button>
-                                        ) : isIOS ? (
-                                            <div className="flex flex-col gap-1">
-                                                <p className={`text-[10px] font-bold opacity-70 ${isDark ? 'text-white' : 'text-emerald-900'}`}>To install:</p>
-                                                <p className={`text-[10px] font-medium flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-emerald-800'}`}>
-                                                    1. Tap <Share size={12} className="inline" /> (Share) 
-                                                </p>
-                                                <p className={`text-[10px] font-medium flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-emerald-800'}`}>
-                                                    2. Scroll to 'Add to Home Screen'
-                                                </p>
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                </div>
-                            )}
 
                             {/* Search - Enhanced for visibility */}
                             <div className='p-4 pt-2'>
@@ -1096,56 +1043,61 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
 
-            {/* ══ MOBILE BOTTOM INSTALL BANNER (The recommendation) ══ */}
-            <AnimatePresence>
-                {showInstallBanner && !mobileOpen && (deferredPrompt || isIOS) && (
-                    <motion.div
-                        initial={{ y: 100, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 100, opacity: 0 }}
-                        className="fixed bottom-4 left-4 right-4 z-[9997] md:hidden"
-                    >
-                        <div className={`p-4 rounded-2xl shadow-2xl border flex items-center gap-4 ${
-                            isDark ? 'bg-[#1a1a1a]/95 border-white/10 backdrop-blur-xl' : 'bg-white/95 border-gray-100 backdrop-blur-xl shadow-gray-200/50'
-                        }`}>
-                            <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-black shrink-0 shadow-lg shadow-amber-500/20">
-                                <img src="/logo.png" alt="App" className="w-8 h-8 object-contain" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <h4 className={`text-[14px] font-extrabold truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>PracticeForever App</h4>
-                                <p className={`text-[11px] font-bold ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Install for better preparation</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <button
-                                    onClick={() => setShowInstallBanner(false)}
-                                    className={`p-2 rounded-lg transition-colors ${isDark ? 'bg-white/5 text-gray-400' : 'bg-gray-100 text-gray-500'}`}
-                                >
-                                    <X size={16} />
-                                </button>
-                                {deferredPrompt ? (
-                                    <button
-                                        onClick={handleInstallClick}
-                                        className="h-10 px-5 bg-amber-500 text-black font-extrabold rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
-                                    >
-                                        Install
-                                    </button>
-                                ) : isIOS ? (
-                                    <button
-                                        onClick={() => {
-                                            setShowInstallBanner(false);
-                                            setMobileOpen(true);
-                                        }}
-                                        className="h-10 px-5 bg-amber-500 text-black font-extrabold rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
-                                    >
-                                        Install
-                                    </button>
-                                ) : null}
-                            </div>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </header>
+
+        {/* ══ MOBILE BOTTOM INSTALL BANNER (The recommendation) ══ */}
+        <AnimatePresence>
+            {showInstallBanner && !mobileOpen && (deferredPrompt || isIOS) && (
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 100, opacity: 0 }}
+                    transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                    className="fixed bottom-6 left-4 right-4 z-[9999] md:hidden"
+                >
+                    <div className={`p-4 rounded-2xl shadow-2xl border flex items-center gap-4 ${
+                        isDark ? 'bg-[#1a1a1a]/98 border-white/10 backdrop-blur-xl' : 'bg-white/98 border-gray-100 backdrop-blur-xl shadow-lg shadow-gray-200/50'
+                    }`}>
+                        <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-black shrink-0 shadow-lg shadow-amber-500/20">
+                            <img src="/logo.png" alt="App" className="w-8 h-8 object-contain" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <h4 className={`text-[14px] font-[900] truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>PracticeForever App</h4>
+                            <p className={`text-[11px] font-bold ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>Install for better preparation</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => setShowInstallBanner(false)}
+                                className={`p-2 rounded-lg transition-colors ${isDark ? 'bg-white/5 text-gray-400' : 'bg-gray-100 text-gray-500'}`}
+                                aria-label="Close"
+                            >
+                                <X size={16} />
+                            </button>
+                            {deferredPrompt ? (
+                                <button
+                                    onClick={handleInstallClick}
+                                    className="h-10 px-5 bg-amber-500 text-black font-[900] rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+                                >
+                                    Install
+                                </button>
+                            ) : isIOS ? (
+                                <button
+                                    onClick={() => {
+                                        setShowInstallBanner(false);
+                                        setMobileOpen(true);
+                                    }}
+                                    className="h-10 px-5 bg-amber-500 text-black font-[900] rounded-xl text-[13px] hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+                                >
+                                    Install
+                                </button>
+                            ) : null}
+                        </div>
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    </>
+
     );
 };
 

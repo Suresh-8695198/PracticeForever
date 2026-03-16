@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from '../context/ThemeContext';
 import Head from 'next/head';
 import {
@@ -140,7 +141,7 @@ const Home = () => {
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-2.5">
             {iconUrl && (
-            <img src={iconUrl} alt="" width="30" height="30" className="w-[30px] h-[30px] object-contain shrink-0" loading="lazy" />
+            <Image src={iconUrl} alt="" width={30} height={30} className="w-[30px] h-[30px] object-contain shrink-0" loading="lazy" />
           )}
           <h2 className="text-[22px] sm:text-[24px] font-[900] tracking-tight antialiased"
             style={{
@@ -165,7 +166,7 @@ const Home = () => {
   );
 
   return (
-    <div className={`min-h-screen pt-[60px] md:pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
+    <div className={`min-h-screen pt-[72px] md:pt-[104px] ${bg} selection:bg-blue-100 selection:text-blue-900`} style={bodyFont}>
       <Head>
         <title>PracticeForever | Master Govt Exams, Aptitude & Coding Interviews</title>
         <meta name="description" content="Prepare for TNPSC, SSC, Banking, and IT interviews with PracticeForever. 8,000+ practice questions, daily current affairs, and subject-wise mock tests." />
@@ -533,13 +534,13 @@ const Home = () => {
 
             {/* Right — hero image */}
             <div className="hidden lg:flex shrink-0 items-center justify-center" style={{ width: 480 }}>
-              <img
+              <Image
                 src="/hero-new.png"
                 alt="Career Preparation"
-                width="480"
-                height="420"
-                fetchpriority="high"
-                style={{ width: '100%', height: 'auto', objectFit: 'contain', maxHeight: 420 }}
+                width={480}
+                height={420}
+                priority={true}
+                className="w-full h-auto object-contain max-h-[420px]"
               />
             </div>
 
@@ -764,7 +765,7 @@ const Home = () => {
                         {/* Icon + stat row */}
                         <div className="flex items-start justify-between mb-5">
                           {/* Icon — Icons8 3D Fluency */}
-                          <img src={lp.iconUrl} alt='' width="48" height="48" loading="lazy" style={{ display: 'block', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))' }} />
+                          <Image src={lp.iconUrl} alt='' width={48} height={48} loading="lazy" style={{ display: 'block', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))' }} />
                           {/* Stat — plain text, no bg */}
                           <em
                             style={{ fontStyle: 'normal', fontSize: 11, fontWeight: 700, color: lp.textMuted, letterSpacing: '0.04em', textTransform: 'uppercase' }}
@@ -829,7 +830,7 @@ const Home = () => {
                     <Link key={p.label} href={p.path}
                       className={`flex items-center justify-between px-7 py-4 group transition-all duration-200 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] ${i !== 0 ? `border-t ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'}` : ''}`}>
                       <div className="flex items-center gap-3.5">
-                        <img src={p.icon} alt={p.label} className="w-6 h-6 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                        <Image src={p.icon} alt={p.label} width={24} height={24} className="w-6 h-6 object-contain shrink-0 transition-transform duration-300 group-hover:scale-110" />
                         <span className={`text-[13.5px] font-semibold transition-colors group-hover:text-[#FFC107] ${isDark ? 'text-gray-100' : 'text-gray-800'}`}>{p.label}</span>
                       </div>
                       <div className="flex items-center gap-4">
