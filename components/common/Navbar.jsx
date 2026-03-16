@@ -831,16 +831,19 @@ const Navbar = () => {
                         />
                         <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
-                            transition={{ type: 'tween', duration: 0.28 }}
-                            className={`fixed inset-y-0 left-0 w-[82%] max-w-[340px] z-[70] flex flex-col ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'
-                                }`}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className={`fixed inset-y-0 left-0 w-[280px] sm:w-[320px] z-[70] flex flex-col shadow-2xl ${
+                                isDark ? 'bg-[#111111]' : 'bg-white'
+                            }`}
                         >
                             {/* Drawer header */}
                             <div className={`flex items-center justify-between px-4 h-14 border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center gap-0 group/mobile-logo'>
-                                    <img src='/logo.png' alt='Logo' className='h-11 w-auto object-contain transition-transform group-hover/mobile-logo:scale-110' />
-                                    <div className='ml-[-10px]'>
-                                        <AnimatedLogo size="sm" loopInterval={30000} />
+                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center group/mobile-logo min-w-0'>
+                                    <div className="flex items-center gap-0">
+                                        <img src='/logo.png' alt='Logo' className='h-10 w-auto object-contain shrink-0' />
+                                        <div className='ml-[-8px] scale-90 origin-left'>
+                                            <AnimatedLogo size="sm" loopInterval={30000} />
+                                        </div>
                                     </div>
                                 </Link>
                                 <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-md flex items-center justify-center ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
@@ -928,16 +931,28 @@ const Navbar = () => {
                                 })}
                             </nav>
 
-                            {!isAuthenticated && (
-                                <div className={`p-3 border-t flex flex-col gap-2 ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                                    <Link href='/register' onClick={() => setMobileOpen(false)} className='flex items-center justify-center h-10 rounded-lg bg-[#FFC107] text-black font-semibold text-[14px]'>
+                            <div className="mt-auto">
+                            {!isAuthenticated ? (
+                                <div className={`p-4 border-t flex flex-col gap-2.5 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
+                                    <Link href='/register' onClick={() => setMobileOpen(false)} className='flex items-center justify-center h-11 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold text-[14px] shadow-lg shadow-amber-500/20'>
                                         Register Free
                                     </Link>
-                                    <Link href='/login' onClick={() => setMobileOpen(false)} className={`flex items-center justify-center h-10 rounded-lg border text-[14px] font-medium ${isDark ? 'border-[#333] text-gray-200' : 'border-gray-200 text-gray-700'}`}>
+                                    <Link href='/login' onClick={() => setMobileOpen(false)} className={`flex items-center justify-center h-11 rounded-xl border font-bold text-[14px] transition-all ${isDark ? 'border-white/10 text-gray-200 hover:bg-white/5' : 'border-gray-200 text-gray-700 hover:bg-white'}`}>
                                         Log In
                                     </Link>
                                 </div>
+                            ) : (
+                                <div className={`p-4 border-t flex items-center gap-3 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
+                                    <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-black font-bold">
+                                        {user?.name?.charAt(0) || 'U'}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <p className={`text-sm font-bold truncate ${isDark ? 'text-white' : 'text-gray-900'}`}>{user?.name}</p>
+                                        <button onClick={logout} className="text-[11px] font-bold text-red-500 uppercase tracking-wider">Sign Out</button>
+                                    </div>
+                                </div>
                             )}
+                            </div>
                         </motion.aside>
                     </>
                 )}
