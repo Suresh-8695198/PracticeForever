@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Search, Building2, ChevronRight, ArrowRight, ArrowLeft, Command } from 'lucide-react';
+import { Search, Building2, ChevronRight, ArrowRight, ArrowLeft, Command, RotateCcw, X, Info } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { useSession } from 'next-auth/react';
+import axios from 'axios';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 import { useTheme } from '../../../context/ThemeContext';
 import TiltedCard from '../../../components/ui/TiltedCard';
 import PixelCard from '../../../components/ui/PixelCard';
@@ -78,8 +82,11 @@ const companies = [
 
 const CompanyInterviews = () => {
   const { isDark } = useTheme();
+  const { data: session } = useSession();
   const [searchQuery, setSearchQuery] = useState('');
   const inputRef = useRef(null);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -104,6 +111,32 @@ const CompanyInterviews = () => {
     company.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
     company.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const confirmResetAll = async () => {
+    setIsResetting(true);
+    try {
+      if (session?.user?.backendId) {
+        try {
+           await axios.delete(`${API_BASE}/api/progress/${session.user.backendId}/all-interviews`);
+        } catch(e) { console.log("Backend reset not supported or failed") }
+      }
+      
+      // Clear all local progress keys for company interviews
+      Object.keys(localStorage).forEach(key => {
+        if (key.startsWith('progress_company_')) {
+          localStorage.removeItem(key);
+        }
+      });
+      
+      window.location.reload(); 
+    } catch (error) {
+      console.error("Reset failed:", error);
+      alert("Failed to reset progress.");
+    } finally {
+      setIsResetting(false);
+      setShowResetModal(false);
+    }
+  };
 
   return (
     <div className={`min-h-screen pt-24 pb-20 ${bg}`} style={bodyFont}>
@@ -211,6 +244,82 @@ const CompanyInterviews = () => {
             </div>
           </div>
         </div>
+
+        {/* Global Progress Actions */}
+        <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-6 mb-16 p-6 rounded-[2rem] bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 shadow-sm">
+           <div className="flex flex-wrap items-center gap-6 text-[11px] font-bold text-gray-500 dark:text-zinc-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2">
+                <img src="https://img.icons8.com/3d-fluency/94/like--v3.png" alt="Fully Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
+                <span>Fully Completed</span>
+              </div>
+              <div className="hidden sm:block w-px h-3.5 bg-gray-200 dark:bg-gray-800"></div>
+              <div className="flex items-center gap-2">
+                <img src="https://img.icons8.com/3d-fluency/94/like--v8.png" alt="Partially Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
+                <span>Partially Completed</span>
+              </div>
+           </div>
+
+           <button 
+             onClick={() => setShowResetModal(true)}
+             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-rose-50 dark:bg-rose-500/10 text-rose-500 text-[11px] font-black uppercase tracking-widest hover:bg-rose-100 dark:hover:bg-rose-500/20 transition-all active:scale-95"
+           >
+             <RotateCcw size={14} strokeWidth={3} />
+             Reset All Interview Progress
+           </button>
+        </div>
+
+        {/* Reset Confirmation Modal */}
+        <AnimatePresence>
+          {showResetModal && (
+            <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                onClick={() => setShowResetModal(false)}
+              />
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                className="relative w-full max-w-[400px] bg-white dark:bg-[#121212] rounded-[32px] overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5"
+              >
+                <div className="p-8 flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-3xl bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center mb-6">
+                    <RotateCcw size={32} className="text-rose-500" strokeWidth={2.5} />
+                  </div>
+                  
+                  <h3 className="text-[24px] font-black text-gray-900 dark:text-white mb-3 tracking-tight">Reset All?</h3>
+                  <p className="text-[14px] text-gray-500 dark:text-gray-400 font-medium leading-relaxed mb-8">
+                    This will permanently clear your progress across <span className="text-rose-500 font-bold">ALL Company Interview preparations</span>. This action cannot be undone.
+                  </p>
+                  
+                  <div className="flex flex-col w-full gap-3">
+                    <button 
+                      onClick={confirmResetAll}
+                      disabled={isResetting}
+                      className="h-14 w-full bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-2xl font-black text-[15px] transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+                    >
+                      {isResetting ? (
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        "Confirm Absolute Reset"
+                      )}
+                    </button>
+                    
+                    <button 
+                      onClick={() => setShowResetModal(false)}
+                      className="h-14 w-full bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 rounded-2xl font-bold text-[14px] transition-all active:scale-[0.98]"
+                    >
+                      Keep My Progress
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
 
         {/* Header for list */}
         <motion.div 

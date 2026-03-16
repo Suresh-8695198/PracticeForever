@@ -667,7 +667,7 @@ const QuestionPage = () => {
           </motion.div>
         )}
 
-        {session && (
+        {(session || Object.keys(attempts).length > 0) && (
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -702,21 +702,21 @@ const QuestionPage = () => {
 
             <div className="relative z-10 flex items-center gap-5 w-full sm:w-auto">
               <div className="flex-shrink-0">
-                <img src="https://img.icons8.com/isometric/100/checked-checkbox.png" className="w-10 h-10 drop-shadow-sm" alt="Sync" />
+                <img src={session ? "https://img.icons8.com/isometric/100/checked-checkbox.png" : "https://img.icons8.com/isometric/100/time-machine.png"} className="w-10 h-10 drop-shadow-sm" alt="Stats" />
               </div>
               <div>
                 <p className="text-[10.5px] font-extrabold uppercase tracking-[0.15em] mb-1 keep-color text-emerald-800 dark:text-emerald-400">
-                  Cloud Backup Enabled
+                  {session ? "Cloud Backup Enabled" : "Local Progress Tracking"}
                 </p>
                 <p 
                   className="text-[16px] font-extrabold tracking-tight drop-shadow-sm" 
                   style={{ fontFamily: "'Manrope', sans-serif" }}
                 >
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-500">
-                    Continuity active for
+                    {session ? "Continuity active for" : "Mastery progress for"}
                   </span>{' '}
                   <span className="text-gray-900 dark:text-white underline decoration-rose-500/40 decoration-[3px] underline-offset-4">
-                    {session.user.name}
+                    {session ? session.user.name : "This Browser"}
                   </span>
                 </p>
               </div>
@@ -725,9 +725,9 @@ const QuestionPage = () => {
             <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 select-none">
-                  <img src="https://img.icons8.com/color/48/verified-account--v1.png" className="w-4 h-4" alt="Verified" />
+                  <img src={session ? "https://img.icons8.com/color/48/verified-account--v1.png" : "https://img.icons8.com/color/48/clock--v1.png"} className="w-4 h-4" alt="Status" />
                   <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono">
-                    Real-time Sync
+                    {session ? "Real-time Sync" : "Saved Locally"}
                   </span>
                 </div>
               </div>

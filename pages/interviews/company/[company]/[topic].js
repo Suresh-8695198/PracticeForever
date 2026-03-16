@@ -85,6 +85,13 @@ import { questions as handsOnCodingQuestionsQ } from '../../../../data/company/t
 import { questions as complexityAnalysisQ } from '../../../../data/company/tcs/topics/complexity-analysis';
 import { questions as googleDsaPyqsQ } from '../../../../data/company/tcs/topics/google-dsa-pyqs';
 
+// CS Fundamentals Imports
+import * as operatingSystemsQ from '../../../../data/company/tcs/topics/operating-systems';
+import * as computerNetworksQ from '../../../../data/company/tcs/topics/computer-networks';
+import * as dbmsSqlQ from '../../../../data/company/tcs/topics/dbms-sql';
+import * as csFundamentalsMcqsQ from '../../../../data/company/tcs/topics/cs-fundamentals-mcqs';
+import * as cybersecurityBasicsQ from '../../../../data/company/tcs/topics/cybersecurity-basics';
+
 const companyTopicData = {
   tcs: {
     // Numerical Ability
@@ -147,6 +154,12 @@ const companyTopicData = {
     'hands-on-coding-questions': handsOnCodingQuestionsQ,
     'complexity-analysis': complexityAnalysisQ,
     'google-dsa-pyqs': googleDsaPyqsQ,
+    // CS Fundamentals
+    'operating-systems': operatingSystemsQ,
+    'computer-networks': computerNetworksQ,
+    'dbms-sql': dbmsSqlQ,
+    'cs-fundamentals-mcqs': csFundamentalsMcqsQ,
+    'cybersecurity-basics': cybersecurityBasicsQ,
   }
 };
 
@@ -456,11 +469,11 @@ const CompanyTopicPage = () => {
                   damping: 30,
                   restDelta: 0.001
                 }}
-                className="w-full h-full flex items-center justify-center p-8 will-change-transform"
+                className="w-full h-full flex items-center justify-center p-4 md:p-8 will-change-transform"
               >
                   <RenderMedia
                     src={modalImage}
-                    className="max-w-full max-h-full object-contain drop-shadow-[0_0_80px_rgba(0,0,0,0.6)] select-none pointer-events-auto"
+                    className="max-w-full max-h-full w-full object-contain drop-shadow-[0_0_80px_rgba(0,0,0,0.6)] select-none pointer-events-auto"
                     style={{ 
                       backfaceVisibility: 'hidden',
                       transform: 'translateZ(0)'
@@ -529,7 +542,7 @@ const CompanyTopicPage = () => {
     }
     
     if (s.startsWith('/') || s.startsWith('http')) {
-      return <img src={src} className={className} alt="" />;
+      return <img src={src} className={`${className} max-w-full h-auto block`} alt="" />;
     }
     
     return (
@@ -874,7 +887,7 @@ const CompanyTopicPage = () => {
           </motion.div>
         )}
 
-        {session && (
+        {(session || Object.keys(attempts).length > 0) && (
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -909,21 +922,21 @@ const CompanyTopicPage = () => {
 
             <div className="relative z-10 flex items-center gap-5 w-full sm:w-auto">
               <div className="flex-shrink-0">
-                <img src="https://img.icons8.com/isometric/100/checked-checkbox.png" className="w-10 h-10 drop-shadow-sm" alt="Sync" />
+                <img src={session ? "https://img.icons8.com/isometric/100/checked-checkbox.png" : "https://img.icons8.com/isometric/100/time-machine.png"} className="w-10 h-10 drop-shadow-sm" alt="Stats" />
               </div>
               <div>
                 <p className="text-[10.5px] font-extrabold uppercase tracking-[0.15em] mb-1 keep-color text-emerald-800 dark:text-emerald-400">
-                  Cloud Backup Enabled
+                  {session ? "Cloud Backup Enabled" : "Local Progress Tracking"}
                 </p>
                 <p 
                   className="text-[16px] font-extrabold tracking-tight drop-shadow-sm" 
                   style={{ fontFamily: "'Manrope', sans-serif" }}
                 >
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-500">
-                    Continuity active for
+                    {session ? "Continuity active for" : "Mastery progress for"}
                   </span>{' '}
                   <span className="text-gray-900 dark:text-white underline decoration-rose-500/40 decoration-[3px] underline-offset-4">
-                    {session.user.name}
+                    {session ? session.user.name : "This Browser"}
                   </span>
                 </p>
               </div>
@@ -932,9 +945,9 @@ const CompanyTopicPage = () => {
             <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 select-none">
-                  <img src="https://img.icons8.com/color/48/verified-account--v1.png" className="w-4 h-4" alt="Verified" />
+                  <img src={session ? "https://img.icons8.com/color/48/verified-account--v1.png" : "https://img.icons8.com/color/48/clock--v1.png"} className="w-4 h-4" alt="Status" />
                   <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono">
-                    Real-time Sync
+                    {session ? "Real-time Sync" : "Saved Locally"}
                   </span>
                 </div>
               </div>
@@ -993,7 +1006,7 @@ const CompanyTopicPage = () => {
                     display: 'inline-block'
                   }}
                 >
-                  Essential Formulas
+                  Theory & Concepts
                 </h2>
                 <p className="text-[10px] font-black text-purple-600 dark:text-purple-400 uppercase tracking-widest opacity-70">
                   Quick Theory Reference
@@ -1023,7 +1036,7 @@ const CompanyTopicPage = () => {
 
                   {item.image && (
                     <div 
-                      className="group/img relative aspect-[16/10] w-full rounded-2xl bg-zinc-50 dark:bg-white/5 mb-8 overflow-hidden flex items-center justify-center p-8 cursor-zoom-in border border-zinc-100 dark:border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
+                      className="group/img relative aspect-[16/10] w-full rounded-2xl bg-zinc-50 dark:bg-white/5 mb-8 overflow-hidden flex items-center justify-center p-4 sm:p-8 cursor-zoom-in border border-zinc-100 dark:border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
                       onClick={() => {
                         setModalImage(item.image);
                         setZoomLevel(1);
@@ -1031,7 +1044,7 @@ const CompanyTopicPage = () => {
                     >
                       <RenderMedia 
                         src={item.image} 
-                        className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-700 group-hover/img:scale-105" 
+                        className="w-full h-full max-h-[300px] object-contain drop-shadow-2xl transition-transform duration-700 group-hover/img:scale-105" 
                       />
                       <div className="absolute inset-0 bg-purple-600/0 group-hover/img:bg-purple-600/[0.02] flex items-center justify-center transition-all">
                         <Maximize2 size={24} className="text-purple-600 opacity-0 group-hover/img:opacity-100 transition-all scale-75 group-hover/img:scale-100" />
@@ -1058,10 +1071,10 @@ const CompanyTopicPage = () => {
                           </div>
                         ))}
                       </div>
-                    ) : item.description && (
-                      <p className="text-[14px] font-semibold text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        {formatText(item.description)}
-                      </p>
+                    ) : (item.description || item.content) && (
+                      <div className="text-[14.5px] font-medium leading-[1.6]">
+                        <MarkdownContent content={item.description || item.content} />
+                      </div>
                     )}
                   </div>
                 </motion.div>
@@ -1118,7 +1131,7 @@ const CompanyTopicPage = () => {
                                  setZoomLevel(1);
                                }}
                              >
-                               <RenderMedia src={q.image} className="w-full max-w-[600px] h-auto object-contain transition-transform duration-500 group-hover/img:scale-105" />
+                               <RenderMedia src={q.image} className="w-full max-w-full sm:max-w-[600px] h-auto object-contain transition-transform duration-500 group-hover/img:scale-105" />
                                <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 flex items-center justify-center transition-all">
                                  <Maximize2 size={24} className="text-gray-400 opacity-0 group-hover/img:opacity-100 transition-opacity" />
                                </div>
@@ -1243,7 +1256,7 @@ const CompanyTopicPage = () => {
                               
                               {q.image && (
                                 <div 
-                                  className="group/img relative w-full max-w-[400px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-4 transition-all cursor-zoom-in"
+                                  className="group/img relative w-full max-w-full sm:max-w-[400px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-4 transition-all cursor-zoom-in"
                                   onClick={() => {
                                     setModalImage(q.image);
                                     setZoomLevel(1);
@@ -1353,7 +1366,7 @@ const CompanyTopicPage = () => {
                               <MarkdownContent content={q.text} />
                               {q.image && (
                                 <div 
-                                  className="group/img relative w-full max-w-[280px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-6 md:p-8 self-start md:self-center transition-all cursor-zoom-in"
+                                  className="group/img relative w-full max-w-full sm:max-w-[280px] rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 bg-zinc-50 dark:bg-white/5 p-6 md:p-8 self-start md:self-center transition-all cursor-zoom-in"
                                   onClick={() => {
                                     setModalImage(q.image);
                                     setZoomLevel(1);
