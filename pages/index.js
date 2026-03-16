@@ -322,7 +322,7 @@ const Home = () => {
                     display: 'flex', 
                     alignItems: 'center',
                     gap: 32,
-                    animation: notices.length > 0 ? 'notice-ticker 120s linear infinite' : 'none',
+                    animation: notices.length > 0 ? 'notice-ticker 240s linear infinite' : 'none',
                     whiteSpace: 'nowrap',
                     width: 'max-content'
                   }}>
