@@ -603,7 +603,7 @@ const Navbar = () => {
                     </div>
 
                     {/* ── Quick Feature Pills ── */}
-                    <div className='hidden xl:flex items-center gap-1.5 flex-1 justify-center'>
+                    <div className='hidden 2xl:flex items-center gap-1.5 flex-1 justify-center max-w-[800px]'>
                         {[
                             { label: 'Free Mock Test', path: '/mock-tests', LIcon: Target, hot: true, bg: '#d97706', iconBg: '#92400e' },
                             { label: 'Daily GK', path: '/current-affairs/daily', LIcon: Globe2, bg: '#2563eb', iconBg: '#1e3a8a' },
@@ -614,7 +614,7 @@ const Navbar = () => {
                             <Link
                                 key={label}
                                 href={path}
-                                className='relative flex items-center h-[30px] rounded-[6px] whitespace-nowrap overflow-hidden transition-all duration-150 hover:-translate-y-px hover:shadow-lg hover:brightness-110'
+                                className='relative flex items-center h-[30px] rounded-[6px] whitespace-nowrap overflow-hidden transition-all duration-150 border border-white/10'
                                 style={{ background: bg }}
                             >
                                 {hot && <span className='absolute top-0.5 right-0.5 w-[6px] h-[6px] rounded-full bg-white' style={{ opacity: 0.9 }} />}
@@ -741,17 +741,17 @@ const Navbar = () => {
                                 </AnimatePresence>
                             </div>
                         ) : (
-                            <div className='flex items-center gap-2 ml-1'>
+                            <div className='flex items-center gap-1.5 ml-auto'>
                                 <button
                                     onClick={() => signIn('google')}
-                                    className={`hidden md:flex h-11 px-6 items-center gap-3 text-[14px] font-extrabold rounded-2xl border shadow-sm transition-all duration-300 hover:scale-[1.03] active:scale-95 ${
+                                    className={`hidden md:flex h-11 px-6 items-center gap-3 text-[14px] font-bold rounded-xl border transition-colors ${
                                         isDark
                                         ? 'border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20'
-                                        : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300 hover:shadow-md'
+                                        : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300'
                                     }`}
                                 >
                                     <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
-                                    Sign in with Google
+                                    <span className="whitespace-nowrap">Sign in with Google</span>
                                 </button>
                             </div>
                         )}
@@ -834,7 +834,7 @@ const Navbar = () => {
                     <motion.aside
                             initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
                             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 left-0 w-[320px] sm:w-[380px] z-[9999] flex flex-col shadow-[0_0_80px_rgba(0,0,0,0.7)]"
+                            className="fixed inset-y-0 left-0 w-[320px] sm:w-[380px] z-[9999] flex flex-col border-r border-white/5"
                             style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
                         >
                             {/* Drawer header */}
@@ -950,10 +950,14 @@ const Navbar = () => {
 
                             <div className="mt-auto">
                             {!isAuthenticated ? (
-                                <div className={`p-5 border-t ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
+                                <div className={`p-5 border-t ${isDark ? 'border-white/5 bg-white/2' : 'border-gray-100 bg-gray-50/50'}`}>
                                     <button
                                         onClick={() => signIn('google')}
-                                        className="w-full h-12 flex items-center justify-center gap-3 rounded-2xl bg-white text-black font-bold text-[14px] shadow-xl border border-gray-100 active:scale-95 transition-transform"
+                                        className={`w-full h-12 flex items-center justify-center gap-3 rounded-xl border font-bold text-[14px] transition-colors ${
+                                            isDark 
+                                            ? 'bg-white/5 border-white/10 text-white' 
+                                            : 'bg-white border-gray-200 text-black'
+                                        }`}
                                     >
                                         <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
                                         Continue with Google
