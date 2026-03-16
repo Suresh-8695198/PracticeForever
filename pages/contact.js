@@ -8,6 +8,11 @@ import { useTheme } from '../context/ThemeContext';
 const ContactPage = () => {
     const { isDark } = useTheme();
     const [status, setStatus] = useState('idle');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
     
     const bg = isDark ? 'bg-[#0a0b0d]' : 'bg-[#ffffff]';
     const textColor = isDark ? 'text-white' : 'text-black';
@@ -17,10 +22,35 @@ const ContactPage = () => {
     const headFont = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
     const bodyFont = { fontFamily: "'Inter', sans-serif" };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
-        setTimeout(() => setStatus('success'), 2000);
+        
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.error || 'Failed to send message'}`);
+                setStatus('error');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('Something went wrong. Please try again later.');
+            setStatus('error');
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     const fadeUp = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } } };
@@ -92,7 +122,10 @@ const ContactPage = () => {
                                     <label className="text-[10px] font-bold uppercase tracking-widest text-blue-600 mb-2 block">Name</label>
                                     <input 
                                         required
+                                        name="name"
                                         type="text" 
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         placeholder="Enter full name"
                                         className={`w-full bg-transparent outline-none text-xl md:text-3xl font-bold placeholder:text-black/60 ${textColor}`}
                                     />
@@ -102,7 +135,10 @@ const ContactPage = () => {
                                     <label className="text-[10px] font-bold uppercase tracking-widest text-blue-600 mb-2 block">Email</label>
                                     <input 
                                         required
+                                        name="email"
                                         type="email" 
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         placeholder="your@email.com"
                                         className={`w-full bg-transparent outline-none text-xl md:text-3xl font-bold placeholder:text-black/60 ${textColor}`}
                                     />
@@ -112,7 +148,10 @@ const ContactPage = () => {
                                     <label className="text-[10px] font-bold uppercase tracking-widest text-blue-600 mb-2 block">Message</label>
                                     <textarea 
                                         required
+                                        name="message"
                                         rows="2"
+                                        value={formData.message}
+                                        onChange={handleChange}
                                         placeholder="How can we help?"
                                         className={`w-full bg-transparent outline-none text-xl md:text-3xl font-bold placeholder:text-black/60 resize-none mt-2 ${textColor}`}
                                     ></textarea>
