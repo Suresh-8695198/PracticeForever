@@ -13,18 +13,20 @@ export const authOptions = {
     async signIn({ user, account, profile }) {
       if (account.provider === "google") {
         try {
-          // Sync with our backend
-          const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/auth/google-sync`, {
-            name: user.name,
-            email: user.email,
-            image: user.image,
-            googleId: user.id
-          });
-          user.backendId = response.data.user.id;
-          return true;
+          // Sync with our backend with a 3-second timeout
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+          
+          // Only attempt sync if we have a valid API URL (not localhost in production)
+          if (!apiUrl.includes('localhost')) {
+            await axios.post(`${apiUrl}/api/auth/google-sync`, {
+              name: user.name,
+              email: user.email,
+              image: user.image,
+              googleId: user.id
+            }, { timeout: 3000 });
+          }
         } catch (error) {
-          console.error("Error syncing Google user with backend:", error.message);
-          return true; // Still allow sign in even if backend sync fails (or change to false if mandatory)
+          console.warn("Backend sync skipped or failed, but continuing login...");
         }
       }
       return true;
