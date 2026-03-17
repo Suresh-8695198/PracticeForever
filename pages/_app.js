@@ -55,11 +55,47 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       </Script>
 
       <Head>
-        <title>PracticeForever | India's #1 Career Preparation Platform</title>
+        <title>PracticeForever | India's Most Trusted Career Preparation Platform</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="PracticeForever is India's most trusted platform for government exams (TNPSC, SSC, UPSC), aptitude prep, coding interviews, and daily current affairs. Start your career journey today." />
+        <meta name="description" content="India's most trusted platform for government exams, aptitude, and coding interviews. Join thousands of successful candidates mastering TNPSC, SSC, and IT career skills." />
         <meta name="keywords" content="PracticeForever, Government Exams Prep, TNPSC, SSC, UPSC, Aptitude Questions, Coding Interview Prep, Daily Current Affairs 2026, Mock Tests India" />
         
+        {/* Site Name and Logo - Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "PracticeForever",
+              "alternateName": "Practice Forever",
+              "url": "https://practiceforever.app/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://practiceforever.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "PracticeForever",
+              "url": "https://practiceforever.app/",
+              "logo": "https://practiceforever.app/practiceforever.png",
+              "sameAs": [
+                "https://www.facebook.com/practiceforever",
+                "https://twitter.com/practiceforever",
+                "https://www.instagram.com/practiceforever"
+              ]
+            })
+          }}
+        />
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://practiceforever.app/" />
@@ -76,8 +112,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
         <link rel="canonical" href="https://practiceforever.app/" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/logo.png" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/practiceforever.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/practiceforever.png" />
+        <link rel="apple-touch-icon" href="/practiceforever.png" />
+        <link rel="shortcut icon" href="/practiceforever.png" />
         <meta name="theme-color" content="#FFC107" />
       </Head>
       <SessionProvider session={session}>

@@ -50,6 +50,7 @@ const footerLinks = [
 ];
 
 const legalLinks = [
+  { label: 'About Us',             path: '/about' },
   { label: 'Privacy Policy',       path: '/privacy' },
   { label: 'Terms of Use',         path: '/terms' },
   { label: 'Disclaimer',           path: '/disclaimer' },
