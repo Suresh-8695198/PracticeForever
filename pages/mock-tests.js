@@ -1,82 +1,208 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Timer, ArrowLeft, Bell, Rocket, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowLeft, Bell, Clock, Timer, BookOpen, GraduationCap, FileText } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+
+// Professional mechanical spring for 'human' physical feel
+const physicalSpring = { type: 'spring', stiffness: 350, damping: 25, mass: 1 };
+
+const HandDrawnCircle = ({ children, className }) => (
+  <div className={`relative inline-flex items-center justify-center p-6 ${className}`}>
+    <svg className="absolute inset-0 w-full h-full text-white/40" viewBox="0 0 200 100" fill="none" preserveAspectRatio="none">
+      <path 
+        d="M10,50 C10,20 190,20 190,50 C190,80 10,80 10,50 Z" 
+        stroke="currentColor" 
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeDasharray="5,5"
+        className="animate-[spin_40s_linear_infinite]" // Slower, more deliberate rotation
+      />
+      <path 
+        d="M15,45 C20,15 180,15 185,45 C190,75 25,85 15,45" 
+        stroke="currentColor" 
+        strokeWidth="2.5" 
+        strokeLinecap="round"
+      />
+    </svg>
+    <span className="relative z-10 font-[1000] italic tracking-tight text-white text-sm md:text-base">{children}</span>
+  </div>
+);
+
+const TimeBlock = ({ value, label }) => (
+  <div className="flex flex-col items-center flex-1">
+    <div className="w-full aspect-square max-w-[110px] rounded-[1.5rem] md:rounded-[2.2rem] bg-white text-[#5E00B3] flex items-center justify-center shadow-[0_15px_40px_rgba(0,0,0,0.3)] border-2 md:border-4 border-yellow-400 relative overflow-hidden">
+      <motion.span 
+        key={value}
+        initial={{ y: 25, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={physicalSpring} // Mechanical snap
+        className="text-2xl md:text-5xl font-[1000] italic tracking-tighter"
+      >
+        {value}
+      </motion.span>
+    </div>
+    <span className="mt-3 text-[10px] md:text-[12px] font-[1000] uppercase tracking-[0.2em] text-yellow-300 drop-shadow-sm">{label}</span>
+  </div>
+);
 
 export default function MockTestsComingSoon() {
   const { isDark } = useTheme();
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-  const bg = isDark ? 'bg-[#0a0a0a] text-gray-100' : 'bg-gray-50 text-gray-900';
-  const card = isDark ? 'bg-[#141414] border-[#242424]' : 'bg-white border-gray-100 shadow-xl';
+  useEffect(() => {
+    const targetDate = new Date('2026-04-15T00:00:00').getTime();
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      if (difference <= 0) {
+        clearInterval(interval);
+        return;
+      }
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className={`min-h-screen pt-32 pb-20 px-4 ${bg}`}>
+    <div className="min-h-screen bg-[#5E00B3] selection:bg-yellow-400 selection:text-black overflow-x-hidden relative font-sans flex flex-col">
       <Head>
-        <title>Mock Tests Coming Soon | PracticeForever</title>
-        <meta name="description" content="Our full-featured Mock Test module is under development. Get ready for the most realistic preparation experience." />
+        <title>SOMETHING BIG! IS COMING | PracticeForever</title>
       </Head>
 
-      <div className="max-w-3xl mx-auto text-center">
+      {/* Background Doodles & Text - Zero Icons, 100% Human Feel */}
+      <div className="absolute inset-0 opacity-[0.1] pointer-events-none select-none overflow-hidden font-black italic uppercase">
+        <div className="absolute top-10 left-10 text-8xl -rotate-12 text-white">TEST</div>
+        <div className="absolute bottom-20 right-10 text-9xl rotate-12 text-white">PREP</div>
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 rotate-90 text-[10rem] text-white">MOCK</div>
+        <div className="absolute bottom-10 left-1/4 text-6xl text-white">TNPSC</div>
+        <div className="absolute top-1/4 right-10 text-6xl -rotate-12 text-white">SSC</div>
+        
+        {/* Hand-drawn scribble paths */}
+        <svg className="absolute inset-0 w-full h-full text-white/40" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <path d="M50,150 Q150,50 250,150 T450,150" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" />
+          <path d="M800,200 C850,300 950,300 900,200" fill="none" stroke="currentColor" strokeWidth="3" />
+          <path d="M100,800 Q200,900 300,800 T500,800" fill="none" stroke="currentColor" strokeWidth="2" />
+          <circle cx="850" cy="750" r="40" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="5 5" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 md:pt-40 pb-24 flex flex-col items-center w-full">
+        
+        {/* Top Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-xs font-black uppercase tracking-widest mb-8"
+          initial={{ y: -30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={physicalSpring}
         >
-          <Sparkles size={14} /> Under Development
+          <HandDrawnCircle className="mb-2 md:mb-6 scale-90 md:scale-100">No Dull oo!!</HandDrawnCircle>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight"
-        >
-          Something <span className="text-[#FFC107]">Powerful</span> <br />is Brewing.
-        </motion.h1>
+        {/* Main Heading Text - Highly Responsive */}
+        <div className="text-center mb-6 md:mb-10 relative w-full">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.1 }}
+            className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tightest leading-[0.8] uppercase opacity-70"
+            style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}
+          >
+            Something
+          </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-gray-500 dark:text-gray-400 text-lg mb-12 max-w-xl mx-auto leading-relaxed"
-        >
-          We are building a world-class Mock Test engine with real-time analytics, AI-driven feedback, and realistic exam patterns.
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-left">
-          {[
-            { icon: Timer, title: 'Timed Exams', desc: 'Experience the pressure of real exams with our smart timer.' },
-            { icon: ShieldCheck, title: 'Quality Questions', desc: 'Curated by toppers for TNPSC, SSC, and IT rounds.' },
-            { icon: Rocket, title: 'Live Performance', desc: 'Instant result analysis and state-wide rankings.' }
-          ].map((feature, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + (i * 0.1) }}
-              className={`p-6 rounded-2xl border ${card}`}
+          <div className="relative group flex items-center justify-center py-4 md:py-8">
+            <motion.h1 
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15 }} // Sharp impact
+              className="text-yellow-400 text-[28vw] md:text-[15rem] font-[1000] italic tracking-tighter leading-none uppercase drop-shadow-[0_15px_60px_rgba(255,193,7,0.3)]"
             >
-              <feature.icon className="text-[#FFC107] mb-4" size={28} />
-              <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm">{feature.desc}</p>
+              BIG!
+            </motion.h1>
+            
+            {/* Get Ready Badge Overlay - 'Slapped on' Offset Position */}
+            <motion.div 
+              initial={{ rotate: -8, scale: 0, x: 20, y: 10 }}
+              animate={{ rotate: -8, scale: 1, x: 10, y: 5 }}
+              transition={{ delay: 0.4, type: 'spring', stiffness: 500 }}
+              className="absolute bg-[#5E00B3] border-[3px] md:border-4 border-white px-5 md:px-12 py-2 md:py-5 rounded-xl md:rounded-2xl shadow-2xl z-20"
+              style={{ top: '55%', transform: 'translateY(-50%)' }}
+            >
+              <span className="text-white font-[1000] text-sm md:text-5xl italic tracking-widest whitespace-nowrap uppercase">GET READY!!!</span>
             </motion.div>
-          ))}
+          </div>
+
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tight leading-[0.8] uppercase"
+          >
+            is Coming
+          </motion.h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-white border border-gray-200 dark:border-gray-800 rounded-xl font-bold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all active:scale-95 shadow-lg">
-            <ArrowLeft size={18} /> Back to Home
-          </Link>
-          <button className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FFC107] text-black rounded-xl font-black hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-amber-500/20">
-            Notify Me When Launched <Bell size={18} />
-          </button>
-        </div>
+        {/* Timer Section - Responsive Grid */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, ...physicalSpring }}
+          className="flex w-full max-w-2xl gap-3 md:gap-8 mb-16 md:mb-24"
+        >
+          <TimeBlock value={timeLeft.days} label="Days" />
+          <TimeBlock value={timeLeft.hours} label="Hours" />
+          <TimeBlock value={timeLeft.minutes} label="Mins" />
+          <TimeBlock value={timeLeft.seconds} label="Secs" />
+        </motion.div>
 
-        <p className="mt-12 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
-          Expected Launch: April 2026
-        </p>
+        {/* Arrow Scribble - Pointing to the bottom badge */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0, rotate: -20 }}
+          animate={{ opacity: 1, scale: 1, rotate: -10 }}
+          transition={{ delay: 0.8 }}
+          className="absolute left-[15%] bottom-[15%] hidden lg:block text-yellow-400 opacity-60"
+        >
+          <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+            <path d="M10,10 C30,0 70,30 30,70" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+            <path d="M20,50 L30,70 L50,65" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+          </svg>
+        </motion.div>
+
+        {/* Bottom CTA & Badge */}
+        <div className="flex flex-col items-center gap-12 w-full">
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto px-6 sm:px-0">
+            <Link href="/" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-6 bg-white text-[#5E00B3] rounded-[1.5rem] md:rounded-[2.2rem] font-[1000] text-sm md:text-xl italic tracking-widest hover:bg-yellow-400 hover:text-black transition-all active:scale-[0.97] shadow-2xl flex items-center justify-center gap-3">
+              <ArrowLeft size={22} strokeWidth={4} /> BACK HOME
+            </Link>
+            <button className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-6 bg-yellow-400 text-black rounded-[1.5rem] md:rounded-[2.2rem] font-[1000] text-sm md:text-xl italic tracking-widest hover:bg-white transition-all active:scale-[0.97] shadow-2xl flex items-center justify-center gap-3">
+              NOTIFY ME <Bell size={22} strokeWidth={4} />
+            </button>
+          </div>
+
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8, ...physicalSpring }}
+            className="mb-10"
+          >
+            <HandDrawnCircle className="-rotate-3 scale-90 md:scale-110">My guy, Don't Snooze</HandDrawnCircle>
+          </motion.div>
+        </div>
       </div>
+
+
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+        .font-sans {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+      `}</style>
     </div>
   );
 }
