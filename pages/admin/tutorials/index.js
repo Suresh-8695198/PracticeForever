@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import AdminLayout from '../../../components/admin/AdminLayout';
 import api from '../../../utils/api';
-import { useTheme } from '../../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import { Terminal, Code2, Plus, Edit3, Trash2, Tag, Layers, ChevronRight, BookOpen } from 'lucide-react';
 
 export default function TutorialList() {

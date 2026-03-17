@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CalendarDays, Shield, Lock, Eye, Database } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 
 const PrivacyPolicy = () => {
     const { isDark } = useTheme();

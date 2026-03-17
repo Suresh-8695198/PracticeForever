@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import {
     Calendar, Clock, ChevronRight,
     LayoutGrid, BookOpen, Search,

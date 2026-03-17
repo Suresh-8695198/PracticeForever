@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import AnimatedLogo from '../components/common/AnimatedLogo';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
 
 export default function LogoDemo() {

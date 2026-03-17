@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import AdminLayout from '../../../components/admin/AdminLayout';
 import api, { API_BASE_URL } from '../../../utils/api';
-import { useTheme } from '../../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import { Upload, Image as ImageIcon, Link as LinkIcon, FileCheck, CloudUpload, Copy, Check } from 'lucide-react';
 
 export default function MediaLibrary() {

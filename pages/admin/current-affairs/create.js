@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import AdminLayout from '../../../components/admin/AdminLayout';
 import api, { API_BASE_URL } from '../../../utils/api';
-import { useTheme } from '../../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import {
     Save, ArrowLeft, Image as ImageIcon, Calendar,
     Upload, X, Eye, FileText, Tag, AlertCircle,

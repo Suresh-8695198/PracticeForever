@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import api from '../../utils/api';
 import AnimatedLogo from '../../components/common/AnimatedLogo';
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import { 
   ShieldCheck, 
   Moon, 

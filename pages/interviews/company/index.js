@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-import { useTheme } from '../../../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import TiltedCard from '../../../components/ui/TiltedCard';
 import PixelCard from '../../../components/ui/PixelCard';
 

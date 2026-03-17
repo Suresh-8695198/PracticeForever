@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 import { communicationData } from '../data/communicationData';
 import NewspaperSection from '../components/newspaper/NewspaperSection';
 import {
