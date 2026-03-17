@@ -1,3 +1,142 @@
+export const MARCH_16_ARTICLE = {
+    id: 16032026,
+    title: "Daily Current Affairs – 16 March 2026",
+    publish_date: "2026-03-16",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Assembly Elections Announced for Five Regions</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Election Commission of India (ECI) announced the schedule for Assembly elections in Assam, Kerala, Puducherry, Tamil Nadu, and West Bengal.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Polling in Assam, Kerala, and Puducherry will be held on April 9, 2026.</li>
+                <li>Tamil Nadu will vote on April 23, 2026.</li>
+                <li>West Bengal elections will be conducted in two phases – April 23 and April 29.</li>
+                <li>Counting of votes is scheduled for May 4, 2026.</li>
+                <li>Around 17.4 crore voters will participate across 824 constituencies.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Important Concept</strong>
+                <p>The Model Code of Conduct (MCC) came into effect immediately after the announcement of the election schedule.</p>
+            </div>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>These elections will shape regional political dynamics and national political strategies before upcoming general elections.</p>
+            </div>
+        </div>
+        <img src="/images/election_announcement_mar16.png" alt="Election Commission Announcement" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Government Assures No Fuel Shortage Despite Conflict</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Union Government clarified that India has adequate stocks of petrol, diesel, and LPG, even amid tensions in West Asia.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>LPG bookings dropped to 77 lakh from 88.8 lakh, indicating reduced panic buying.</li>
+                <li>Indian refineries are operating at high capacity.</li>
+                <li>India remains self-sufficient in petrol and diesel production.</li>
+                <li>Indian crude tanker Jag Laadki safely sailed from UAE despite regional attacks.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Energy security remains critical during global geopolitical tensions affecting oil supply chains.</p>
+            </div>
+        </div>
+        <img src="/images/fuel_assurance_mar16.png" alt="Fuel Security Assurance" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Debate Continues Over Chabahar Port Project</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Political leaders raised concerns over the absence of specific allocations for the Chabahar Port project in the latest Union Budget.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>India previously committed $120 million for port equipment.</li>
+                <li>Chabahar Port is located in Iran, west of Pakistan’s Gwadar Port.</li>
+                <li>Gwadar Port is developed by China under the CPEC.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Strategic Importance</strong>
+                <p>The Chabahar Port provides India with direct access to Afghanistan and Central Asia, bypassing Pakistan and countering regional influence.</p>
+            </div>
+        </div>
+        <img src="/images/chabahar_port_mar16.png" alt="Chabahar Port Strategy" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Assam Signs Peace Pact with Hmar and Kuki Groups</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Assam government signed a memorandum of settlement with Hmar and Kuki extremist groups to promote regional stability.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Agreement establishes Hmar and Kuki Welfare Development Councils.</li>
+                <li>Groups involved had previously laid down arms in 2012.</li>
+                <li>The government will also focus on the rehabilitation of former militants.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>The pact aims to strengthen peace, stability, and development in Assam’s ethnically diverse tribal regions.</p>
+            </div>
+        </div>
+        <img src="/images/peace_pact_mar16.png" alt="Assam Peace Pact" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Unique Polling Booth for Just Five Voters in Tamil Nadu</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Election Commission will set up a special polling booth in Vellimalai (Theni district) for only five registered voters.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Poll officials must travel three hours through difficult terrain to reach the location.</li>
+                <li>Tamil Nadu has 75,032 polling booths in total for the 2026 elections.</li>
+                <li>The step reflects the commitment to universal adult franchise.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>This initiative demonstrates the Election Commission’s commitment to ensuring voting access for every citizen, regardless of remote locations.</p>
+            </div>
+        </div>
+        <img src="/images/polling_booth_mar16.png" alt="Remote Polling Booth" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>ECI announced Assembly election schedules for Assam, Kerala, Puducherry, TN, and WB.</li>
+        <li>Model Code of Conduct (MCC) is now in effect across all poll-bound regions.</li>
+        <li>Centre confirms adequate fuel stocks (petrol, diesel, LPG) despite West Asia conflict.</li>
+        <li>Strategic importance of Chabahar Port in Iran emphasized amidst budget debates.</li>
+        <li>Assam signs a landmark peace pact with Hmar and Kuki tribal groups.</li>
+        <li>Vellimalai in Tamil Nadu to have a special polling booth for just 5 voters.</li>
+        <li>VIP beacon lights removed from Mumbai mayor’s vehicle to curb VIP culture.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. When will the results for the 2026 Assembly elections be announced?</h4>
+    <p>The counting of votes and announcement of results is scheduled for May 4, 2026.</p>
+
+    <h4>2. What is the Model Code of Conduct (MCC)?</h4>
+    <p>The MCC is a set of guidelines issued by the ECI to regulate the conduct of political parties and candidates during elections.</p>
+
+    <h4>3. Why is the Chabahar Port strategically important for India?</h4>
+    <p>It provides direct sea-land access to Afghanistan and Central Asian countries, bypassing Pakistan.</p>
+
+    <h4>4. In which district is the 5-voter polling booth located?</h4>
+    <p>The special polling booth is located in Vellimalai, which is in the Theni district of Tamil Nadu.</p>
+
+    <h4>5. Which group signed the peace pact with the Assam government?</h4>
+    <p>The pact involves Hmar and Kuki extremist groups including HPC(D) and KRA.</p>
+</div>
+`
+};
+
 export const MARCH_15_ARTICLE = {
     id: 15032026,
     title: "Daily Current Affairs – 15 March 2026",

@@ -122,7 +122,7 @@ export default function Footer() {
               India's trusted career preparation platform for government exams, aptitude tests, coding interviews and daily current affairs.
             </p>
             {/* Exam coverage pills */}
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1.5 mb-6">
               {['TNPSC', 'UPSC', 'SSC', 'Banking', 'TCS', 'Infosys'].map((tag) => (
                 <span
                   key={tag}
@@ -136,6 +136,22 @@ export default function Footer() {
                 </span>
               ))}
             </div>
+
+            {/* Launch Record Badge */}
+            <a 
+              href="https://websitelaunches.com/site/practiceforever.app" 
+              target="_blank" 
+              rel="noopener"
+              className="inline-block hover:opacity-90 transition-opacity"
+            >
+              <img
+                src={`https://websitelaunches.com/badge/practiceforever.app.svg?theme=${isDark ? 'dark' : 'light'}`}
+                alt="Established online - Public launch record"
+                width="200"
+                height="44"
+                className="h-auto w-[180px]"
+              />
+            </a>
           </div>
 
           {/* Link columns */}

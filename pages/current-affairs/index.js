@@ -9,7 +9,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -116,7 +116,25 @@ const HIGHLIGHT_MAP = {
     "Sabarimala": "highlight-purple",
     "Vairamuthu": "highlight-yellow",
     "Jnanpith Award": "highlight-teal",
-    "Fertilizer Shortage": "highlight-orange"
+    "Fertilizer Shortage": "highlight-orange",
+
+    // NEW March 16 Keywords
+    "Election Commission of India": "highlight-blue",
+    "Assembly elections": "highlight-blue",
+    "Model Code of Conduct": "highlight-teal",
+    "MCC": "highlight-teal",
+    "Adequate stocks": "highlight-green",
+    "Indian refineries": "highlight-blue",
+    "Jag Laadki": "highlight-orange",
+    "Chabahar Port": "highlight-purple",
+    "Gwadar Port": "highlight-purple",
+    "Hmar": "highlight-yellow",
+    "Kuki": "highlight-yellow",
+    "memorandum of settlement": "highlight-teal",
+    "Vellimalai": "highlight-yellow",
+    "Theni district": "highlight-yellow",
+    "Brihanmumbai Municipal Corporation": "highlight-blue",
+    "VIP culture": "highlight-rose"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -259,7 +277,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-15');
+    const [selectedDate, setSelectedDate] = useState('2026-03-16');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -348,7 +366,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);
