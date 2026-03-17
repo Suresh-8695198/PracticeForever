@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowLeft, Bell, Clock, Timer, BookOpen, GraduationCap, FileText } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
-
-// Professional mechanical spring for 'human' physical feel
-const physicalSpring = { type: 'spring', stiffness: 350, damping: 25, mass: 1 };
 
 const HandDrawnCircle = ({ children, className }) => (
   <div className={`relative inline-flex items-center justify-center p-6 ${className}`}>
@@ -17,7 +13,6 @@ const HandDrawnCircle = ({ children, className }) => (
         strokeWidth="2" 
         strokeLinecap="round" 
         strokeDasharray="5,5"
-        className="animate-[spin_40s_linear_infinite]" // Slower, more deliberate rotation
       />
       <path 
         d="M15,45 C20,15 180,15 185,45 C190,75 25,85 15,45" 
@@ -33,15 +28,9 @@ const HandDrawnCircle = ({ children, className }) => (
 const TimeBlock = ({ value, label }) => (
   <div className="flex flex-col items-center flex-1">
     <div className="w-full aspect-square max-w-[110px] rounded-[1.5rem] md:rounded-[2.2rem] bg-white text-[#5E00B3] flex items-center justify-center shadow-[0_15px_40px_rgba(0,0,0,0.3)] border-2 md:border-4 border-yellow-400 relative overflow-hidden">
-      <motion.span 
-        key={value}
-        initial={{ y: 25, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={physicalSpring} // Mechanical snap
-        className="text-2xl md:text-5xl font-[1000] italic tracking-tighter"
-      >
+      <span className="text-2xl md:text-5xl font-[1000] italic tracking-tighter">
         {value}
-      </motion.span>
+      </span>
     </div>
     <span className="mt-3 text-[10px] md:text-[12px] font-[1000] uppercase tracking-[0.2em] text-yellow-300 drop-shadow-sm">{label}</span>
   </div>
@@ -96,83 +85,51 @@ export default function MockTestsComingSoon() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 md:pt-40 pb-24 flex flex-col items-center w-full">
         
         {/* Top Badge */}
-        <motion.div
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={physicalSpring}
-        >
-          <HandDrawnCircle className="mb-2 md:mb-6 scale-90 md:scale-100">No Dull oo!!</HandDrawnCircle>
-        </motion.div>
+        <div className="opacity-100">
+          <HandDrawnCircle className="mb-2 md:mb-6 scale-90 md:scale-100">Success Awaits</HandDrawnCircle>
+        </div>
 
         {/* Main Heading Text - Highly Responsive */}
         <div className="text-center mb-6 md:mb-10 relative w-full">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.1 }}
-            className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tightest leading-[0.8] uppercase opacity-70"
+          <h2 className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tightest leading-[0.8] uppercase opacity-70"
             style={{ WebkitTextStroke: '1px rgba(255,255,255,0.15)' }}
           >
             Something
-          </motion.h2>
+          </h2>
 
           <div className="relative group flex items-center justify-center py-4 md:py-8">
-            <motion.h1 
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 15 }} // Sharp impact
-              className="text-yellow-400 text-[28vw] md:text-[15rem] font-[1000] italic tracking-tighter leading-none uppercase drop-shadow-[0_15px_60px_rgba(255,193,7,0.3)]"
-            >
+            <h1 className="text-yellow-400 text-[28vw] md:text-[15rem] font-[1000] italic tracking-tighter leading-none uppercase drop-shadow-[0_15px_60px_rgba(255,193,7,0.3)]">
               BIG!
-            </motion.h1>
+            </h1>
             
             {/* Get Ready Badge Overlay - 'Slapped on' Offset Position */}
-            <motion.div 
-              initial={{ rotate: -8, scale: 0, x: 20, y: 10 }}
-              animate={{ rotate: -8, scale: 1, x: 10, y: 5 }}
-              transition={{ delay: 0.4, type: 'spring', stiffness: 500 }}
-              className="absolute bg-[#5E00B3] border-[3px] md:border-4 border-white px-5 md:px-12 py-2 md:py-5 rounded-xl md:rounded-2xl shadow-2xl z-20"
-              style={{ top: '55%', transform: 'translateY(-50%)' }}
+            <div className="absolute bg-[#5E00B3] border-[3px] md:border-4 border-white px-5 md:px-12 py-2 md:py-5 rounded-xl md:rounded-2xl shadow-2xl z-20"
+              style={{ top: '55%', transform: 'translateY(-50%) rotate(-8deg) translateX(10px)' }}
             >
-              <span className="text-white font-[1000] text-sm md:text-5xl italic tracking-widest whitespace-nowrap uppercase">GET READY!!!</span>
-            </motion.div>
+              <span className="text-white font-[1000] text-sm md:text-5xl italic tracking-widest whitespace-nowrap uppercase">GET READY!</span>
+            </div>
           </div>
 
-          <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tight leading-[0.8] uppercase"
-          >
+          <h2 className="text-white text-[12vw] md:text-[5rem] font-[1000] italic tracking-tight leading-[0.8] uppercase">
             is Coming
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Timer Section - Responsive Grid */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, ...physicalSpring }}
-          className="flex w-full max-w-2xl gap-3 md:gap-8 mb-16 md:mb-24"
-        >
+        <div className="flex w-full max-w-2xl gap-3 md:gap-8 mb-16 md:mb-24">
           <TimeBlock value={timeLeft.days} label="Days" />
           <TimeBlock value={timeLeft.hours} label="Hours" />
           <TimeBlock value={timeLeft.minutes} label="Mins" />
           <TimeBlock value={timeLeft.seconds} label="Secs" />
-        </motion.div>
+        </div>
 
         {/* Arrow Scribble - Pointing to the bottom badge */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0, rotate: -20 }}
-          animate={{ opacity: 1, scale: 1, rotate: -10 }}
-          transition={{ delay: 0.8 }}
-          className="absolute left-[15%] bottom-[15%] hidden lg:block text-yellow-400 opacity-60"
-        >
+        <div className="absolute left-[15%] bottom-[15%] hidden lg:block text-yellow-400 opacity-60 -rotate-10">
           <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
             <path d="M10,10 C30,0 70,30 30,70" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
             <path d="M20,50 L30,70 L50,65" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
           </svg>
-        </motion.div>
+        </div>
 
         {/* Bottom CTA & Badge */}
         <div className="flex flex-col items-center gap-12 w-full">
@@ -185,14 +142,9 @@ export default function MockTestsComingSoon() {
             </button>
           </div>
 
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, ...physicalSpring }}
-            className="mb-10"
-          >
-            <HandDrawnCircle className="-rotate-3 scale-90 md:scale-110">My guy, Don't Snooze</HandDrawnCircle>
-          </motion.div>
+          <div className="mb-10 -rotate-3 scale-90 md:scale-110">
+            <HandDrawnCircle>Start Preparing Today</HandDrawnCircle>
+          </div>
         </div>
       </div>
 
