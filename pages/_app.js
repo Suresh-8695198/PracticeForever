@@ -6,7 +6,7 @@ import '../components/ui/PixelCard.css';
 import { AuthProvider } from '../context/AuthContext';
 import { ProgressProvider } from '../context/ProgressContext';
 import { StreakProvider } from '../context/StreakContext';
-import { ThemeProvider } from '../context/ThemeContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
 import ScrollToTop from '../components/common/ScrollToTop';
