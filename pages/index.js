@@ -217,6 +217,51 @@ const Home = () => {
         <title>PracticeForever | Master Govt Exams, Aptitude & Coding Interviews</title>
         <meta name="description" content="Prepare for TNPSC, SSC, Banking, and IT interviews with PracticeForever. 8,000+ practice questions, daily current affairs, and subject-wise mock tests." />
         <meta name="keywords" content="TNPSC preparation, aptitude test practice, coding interviews, daily current affairs 2026, mock tests, SSC CGL prep, placement exams" />
+        
+        {/* FAQ Structured Data for Professional Trust */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is PracticeForever?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PracticeForever is India's most trusted platform for career preparation, offering resources for government exams (TNPSC, SSC, UPSC), aptitude preparation, and coding interviews."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are there free mock tests on PracticeForever?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, PracticeForever provides timed, exam-pattern mock tests for government exams, placement tests, and technical interviews completely free for students."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does PracticeForever provide daily current affairs?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our daily current affairs section is updated every 24 hours with national and international news curated specifically for competitive exams like TNPSC and Banking."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How many practice questions are available?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The platform features over 8,100+ curated practice questions across quantitative aptitude, logical reasoning, and programming languages."
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </Head>
 
       {/* ══ 1. TOP ANNOUNCEMENT BAR ══ */}
