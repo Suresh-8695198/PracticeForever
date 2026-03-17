@@ -15,7 +15,7 @@ import {
   Users,
   Timer
 } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 import { tnpscNotifications, tnpscGroup4Mock } from '../../data/exams/tnpsc-data.js';
 
 const TNPSCPage = () => {
