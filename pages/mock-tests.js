@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Bell, Clock, Timer, BookOpen, GraduationCap, FileText } from 'lucide-react';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 
 // Professional mechanical spring for 'human' physical feel
 const physicalSpring = { type: 'spring', stiffness: 350, damping: 25, mass: 1 };
