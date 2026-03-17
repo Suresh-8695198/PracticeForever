@@ -13,7 +13,7 @@ import {
   Award,
   ArrowRight
 } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const ExamsLandingPage = () => {
     const { isDark } = useTheme();
