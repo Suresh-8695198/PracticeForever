@@ -7,22 +7,18 @@ const footerLinks = [
     heading: 'Government Exams',
     links: [
       { label: 'TNPSC Preparation',      path: '/exams/tnpsc' },
-      { label: 'UPSC Civil Services',    path: '/exams/upsc' },
-      { label: 'SSC CGL / CHSL',        path: '/exams/ssc' },
-      { label: 'Banking Exams',          path: '/exams/banking' },
-      { label: 'Railway RRB Exams',      path: '/exams/railway' },
-      { label: 'Exam Notifications',     path: '/exams/notifications' },
+      { label: 'UPSC Preparation',       path: '/exams/upsc' },
+      { label: 'Exam Hub & News',        path: '/exams' },
     ],
   },
   {
-    heading: 'Aptitude & Coding',
+    heading: 'Aptitude & Reasoning',
     links: [
       { label: 'Quantitative Aptitude',  path: '/aptitude/quantitative' },
       { label: 'Logical Reasoning',      path: '/aptitude/logical' },
       { label: 'Verbal Ability',         path: '/aptitude/verbal' },
-      { label: 'Data Structures',        path: '/programming/data-structures' },
-      { label: 'Python Programming',     path: '/programming/python' },
-      { label: 'Java Programming',       path: '/programming/java' },
+      { label: 'Data Interpretation',    path: '/aptitude/di' },
+      { label: 'Non-Verbal Reasoning',   path: '/aptitude/non-verbal' },
     ],
   },
   {

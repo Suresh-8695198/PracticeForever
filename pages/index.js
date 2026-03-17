@@ -87,9 +87,8 @@ const Home = () => {
     { label: 'Quantitative Aptitude Questions', path: '/aptitude/quantitative', count: '2,000+', icon: 'https://img.icons8.com/color/48/math.png' },
     { label: 'Logical Reasoning Questions', path: '/aptitude/logical', count: '1,500+', icon: 'https://img.icons8.com/color/48/idea.png' },
     { label: 'Verbal Ability Questions', path: '/aptitude/verbal', count: '1,200+', icon: 'https://img.icons8.com/color/48/rubiks-cube.png' },
-    { label: 'Programming MCQs', path: '/mock-tests/programming', count: '3,000+', icon: 'https://img.icons8.com/color/48/source-code.png' },
-    { label: 'Technical Interview Questions', path: '/interviews/technical', count: '800+', icon: 'https://img.icons8.com/color/48/interview.png' },
-    { label: 'Data Structures Practice', path: '/programming/data-structures', count: '600+', icon: 'https://img.icons8.com/color/48/mind-map.png' },
+    { label: 'Data Interpretation Practice', path: '/aptitude/di', count: '600+', icon: 'https://img.icons8.com/color/48/mind-map.png' },
+    { label: 'Non-Verbal Reasoning', path: '/aptitude/non-verbal', count: '800+', icon: 'https://img.icons8.com/color/48/interview.png' },
   ];
 
   const mockTests = [
@@ -1103,7 +1102,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ══ 10. WHY CHOOSE US ══ */}
+      {/* ══ 10. TRUSTED BY STUDENTS ══ */}
+      <section className={`py-12 border-t ${divider} ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-xl md:text-2xl font-black mb-10" style={headFont}>
+              Join <span className="text-[#FFC107]">8,000+</span> Students Preparing Professionally
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {[
+                { name: 'Karthik S.', role: 'TCS Placement', text: 'PracticeForever helped me master quantitative aptitude in just 15 days. The explanations are crystal clear.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' },
+                { name: 'Priya R.', role: 'TNPSC Aspirant', text: 'Daily Current Affairs analysis is top-notch. It saved me hours of newspaper reading every single day.', img: 'https://img.icons8.com/fluency/96/user-female-circle.png' },
+                { name: 'Anish K.', role: 'Software Engineer', text: 'The interview preparation guides are excellent. Cracked my Infosys technical round with ease!', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' }
+              ].map((t) => (
+                <div key={t.name} className={`p-6 rounded-2xl border ${isDark ? 'bg-[#141414] border-[#242424]' : 'bg-gray-50 border-gray-100'} transition-transform hover:-translate-y-1`}>
+                  <div className="flex justify-center mb-4">
+                    <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full" />
+                  </div>
+                  <p className={`text-[13px] italic mb-4 leading-relaxed ${muted}`}>"{t.text}"</p>
+                  <p className="text-[14px] font-black">{t.name}</p>
+                  <p className="text-[11px] font-bold text-amber-500 uppercase tracking-widest">{t.role}</p>
+                </div>
+              ))}
+            </div>
+            {/* Professional Logos Row */}
+            <div className="mt-16 pt-8 border-t border-dashed border-gray-200 dark:border-gray-800">
+               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">Guided Preparation for Top Companies & Exams</p>
+               <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all">
+                  <span className="font-black text-lg tracking-tighter">TCS</span>
+                  <span className="font-black text-lg tracking-tighter">INFOSYS</span>
+                  <span className="font-black text-lg tracking-tighter">WIPRO</span>
+                  <span className="font-black text-lg tracking-tighter">TNPSC</span>
+                  <span className="font-black text-lg tracking-tighter">SSC</span>
+                  <span className="font-black text-lg tracking-tighter">UPSC</span>
+               </div>
+            </div>
+        </div>
+      </section>
+
+      {/* ══ 11. WHY CHOOSE US ══ */}
       <section className={`py-16 border-t ${divider} ${isDark ? 'bg-[#0a0a0a]' : 'bg-[#f8fafc]'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead title="Why Students Choose PracticeForever" iconUrl="https://img.icons8.com/color/48/shield.png" />

@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <meta name="description" content="India's most trusted platform for government exams, aptitude, and coding interviews. Join thousands of successful candidates mastering TNPSC, SSC, and IT career skills." />
         <meta name="keywords" content="PracticeForever, Government Exams Prep, TNPSC, SSC, UPSC, Aptitude Questions, Coding Interview Prep, Daily Current Affairs 2026, Mock Tests India" />
         
-        {/* Site Name and Logo - Structured Data */}
+        {/* Professional Site Identity - Site Name Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -78,19 +78,27 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             })
           }}
         />
+
+        {/* Professional Organization Schema - Building Trust */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "EducationalOrganization",
               "name": "PracticeForever",
               "url": "https://practiceforever.app/",
               "logo": "https://practiceforever.app/practiceforever.png",
+              "description": "India's premier career preparation platform for competitive exams and technical interviews.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN"
+              },
               "sameAs": [
                 "https://www.facebook.com/practiceforever",
                 "https://twitter.com/practiceforever",
-                "https://www.instagram.com/practiceforever"
+                "https://instagram.com/practiceforever",
+                "https://www.linkedin.com/company/practiceforever"
               ]
             })
           }}
