@@ -122,7 +122,7 @@ export default function Footer() {
               India's trusted career preparation platform for government exams, aptitude tests, coding interviews and daily current affairs.
             </p>
             {/* Exam coverage pills */}
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1.5 mb-6">
               {['TNPSC', 'UPSC', 'SSC', 'Banking', 'TCS', 'Infosys'].map((tag) => (
                 <span
                   key={tag}
@@ -135,6 +135,22 @@ export default function Footer() {
                   {tag}
                 </span>
               ))}
+            </div>
+            
+            {/* Trust Badges */}
+            <div className={`flex items-center gap-4 pt-4 border-t ${border}`}>
+              <div className="flex flex-col items-center">
+                <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Verified" className="w-8 h-8 opacity-70" />
+                <span className={`text-[8px] font-black uppercase tracking-widest mt-1 ${muted}`}>Verified</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="https://img.icons8.com/color/48/shield.png" alt="Secure" className="w-8 h-8 opacity-70" />
+                <span className={`text-[8px] font-black uppercase tracking-widest mt-1 ${muted}`}>Secure</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="https://img.icons8.com/color/48/students.png" alt="Student Focused" className="w-8 h-8 opacity-70" />
+                <span className={`text-[8px] font-black uppercase tracking-widest mt-1 ${muted}`}>For Students</span>
+              </div>
             </div>
           </div>
 
@@ -165,10 +181,10 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {[
-              { num: 'Verified', lbl: 'Trust Score' },
+              { num: 'Verified', lbl: 'Expert Content' },
               { num: '8,100+', lbl: 'Practice Questions' },
-              { num: 'Rising',  lbl: 'Daily Learners' },
-              { num: '30+',     lbl: 'Exam Modules' },
+              { num: 'Daily',    lbl: 'Current Affairs' },
+              { num: '12+',     lbl: 'Exam Categories' },
             ].map(({ num, lbl }, i) => (
               <div key={lbl} className={`px-6 py-5 text-center ${i !== 0 ? `border-l ${border}` : ''}`}>
                 <p

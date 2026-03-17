@@ -61,6 +61,7 @@ const Home = () => {
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f4f5f7] text-gray-900';
   const card = isDark ? 'bg-[#141414] border-[#242424]' : 'bg-white border-gray-200';
   const muted = isDark ? 'text-gray-200' : 'text-black font-semibold';
+  const textColor = isDark ? 'text-white' : 'text-black';
   const divider = isDark ? 'border-[#242424]' : 'border-gray-200';
   const altBg = isDark ? 'bg-[#111111]' : 'bg-white';
   const headFont = { fontFamily: 'Manrope, sans-serif' };
@@ -589,10 +590,10 @@ const Home = () => {
         const [statsVisible, setStatsVisible] = useState(false);
         const [counts, setCounts] = useState([0, 0, 0, 0]);
         const statsData = [
-          { target: 100, suffix: '%', lbl: 'Trust Factor', icon: '👨‍🎓' },
           { target: 8100, suffix: '+', lbl: 'Curated Questions', icon: '📝' },
-          { target: 10, suffix: '+', lbl: 'Exam Categories', icon: '🎯' },
-          { target: 40, suffix: '%', lbl: 'Avg. Accuracy Boost', icon: '📈' },
+          { target: 12, suffix: '+', lbl: 'Exam Categories', icon: '🎯' },
+          { target: 24, suffix: '/7', lbl: 'Free Access', icon: '🔓' },
+          { target: 100, suffix: '%', lbl: 'Expert Verified', icon: '👨‍🎓' },
         ];
 
         useEffect(() => {
@@ -886,9 +887,9 @@ const Home = () => {
               <div className="space-y-6">
                 {[
                   { k: 'Total Questions', v: '8,100', r: '+', color: '#1d4ed8' },
-                  { k: 'Trust Score', v: '100', r: '%', color: '#059669' },
-                  { k: 'Exam Modules', v: '12', r: '+', color: '#7c3aed' },
-                  { k: 'Skill Improvement', v: '40', r: '%', color: '#d97706' },
+                  { k: 'Verified Content', v: '100', r: '%', color: '#059669' },
+                  { k: 'Exam Categories', v: '12', r: '+', color: '#7c3aed' },
+                  { k: 'Daily Updates', v: '24', r: '/7', color: '#d97706' },
                 ].map((item) => (
                   <div key={item.k} className={`flex justify-between items-center pb-6 border-b text-[13.5px] last:border-0 last:pb-0 ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'}`}>
                     <span className={`font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{item.k}</span>
@@ -1113,35 +1114,55 @@ const Home = () => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
-                { name: 'Arun K.', role: 'Beta User', text: 'The practice questions for TNPSC are incredibly well-structured. Perfect for someone starting their preparation journey.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' },
-                { name: 'Meera S.', role: 'Placement Student', text: 'Cleanest interface I have seen for aptitude tests. The daily current affairs update is super helpful for my morning routine.', img: 'https://img.icons8.com/fluency/96/user-female-circle.png' },
-                { name: 'Rahul V.', role: 'Early Access', text: 'A dedicated platform focusing on quality over quantity. The logical reasoning modules helped me understand patterns clearly.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' }
-              ].map((t) => (
-                <div key={t.name} className={`p-6 rounded-2xl border ${isDark ? 'bg-[#141414] border-[#242424]' : 'bg-gray-50 border-gray-100'} transition-transform hover:-translate-y-1`}>
-                  <div className="flex justify-center mb-4">
-                    <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full" />
+                { 
+                  title: 'Expert Curated', 
+                  desc: 'Every question in our 8,100+ database is reviewed by subject matter experts to ensure accuracy and relevance to 2026 exam patterns.', 
+                  icon: 'https://img.icons8.com/3d-fluency/94/approval.png' 
+                },
+                { 
+                  title: 'Success Driven', 
+                  desc: 'We focus on quality over quantity. Our modules are designed to help you understand core concepts rather than just memorizing answers.', 
+                  icon: 'https://img.icons8.com/3d-fluency/94/goal.png' 
+                },
+                { 
+                  title: 'Completely Free', 
+                  desc: 'Our mission is to keep high-quality preparation resources accessible to every student in India without any hidden costs.', 
+                  icon: 'https://img.icons8.com/3d-fluency/94/gift.png' 
+                }
+              ].map((item) => (
+                <div key={item.title} className={`p-8 rounded-2xl border ${isDark ? 'bg-[#141414] border-[#242424]' : 'bg-white border-gray-100 shadow-sm'} transition-all hover:shadow-lg hover:-translate-y-1 text-center`}>
+                  <div className="flex justify-center mb-6">
+                    <img src={item.icon} alt={item.title} className="w-16 h-16" />
                   </div>
-                  <p className={`text-[13px] italic mb-4 leading-relaxed ${muted}`}>"{t.text}"</p>
-                  <div className="flex flex-col items-center">
-                    <p className="text-[14px] font-black">{t.name}</p>
-                    <div className="mt-1 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">{t.role}</p>
-                    </div>
-                  </div>
+                  <h3 className={`text-lg font-black mb-3 ${textColor}`}>{item.title}</h3>
+                  <p className={`text-[13px] leading-relaxed font-medium opacity-70 ${textColor}`}>{item.desc}</p>
                 </div>
               ))}
             </div>
             {/* Professional Logos Row */}
             <div className="mt-16 pt-8 border-t border-dashed border-gray-200 dark:border-gray-800">
-               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">Guided Preparation for Top Companies & Exams</p>
-               <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all">
-                  <span className="font-black text-lg tracking-tighter">TCS</span>
-                  <span className="font-black text-lg tracking-tighter">INFOSYS</span>
-                  <span className="font-black text-lg tracking-tighter">WIPRO</span>
-                  <span className="font-black text-lg tracking-tighter">TNPSC</span>
-                  <span className="font-black text-lg tracking-tighter">SSC</span>
-                  <span className="font-black text-lg tracking-tighter">UPSC</span>
+               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">Comprehensive Preparation for Competitive Exams</p>
+               <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="font-black text-xl tracking-tighter">TCS</span>
+                    <span className="text-[8px] font-bold opacity-60">NQT / Ninja</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="font-black text-xl tracking-tighter">INFOSYS</span>
+                    <span className="text-[8px] font-bold opacity-60">Certification</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="font-black text-xl tracking-tighter">TNPSC</span>
+                    <span className="text-[8px] font-bold opacity-60">Group 1, 2, 4</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="font-black text-xl tracking-tighter">SSC</span>
+                    <span className="text-[8px] font-bold opacity-60">CGL / CHSL</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="font-black text-xl tracking-tighter">UPSC</span>
+                    <span className="text-[8px] font-bold opacity-60">Aspirants</span>
+                  </div>
                </div>
             </div>
         </div>
