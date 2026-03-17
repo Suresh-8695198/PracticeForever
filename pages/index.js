@@ -92,10 +92,10 @@ const Home = () => {
   ];
 
   const mockTests = [
-    { label: 'TNPSC Group Exams Mock Test', path: '/mock-tests/govt', tag: 'Govt Exam' },
-    { label: 'SSC CGL / CHSL Mock Test', path: '/mock-tests/govt', tag: 'Govt Exam' },
-    { label: 'Aptitude Placement Test', path: '/mock-tests/aptitude', tag: 'Placement' },
-    { label: 'Programming MCQ Test', path: '/mock-tests/programming', tag: 'Coding' },
+    { label: 'TNPSC Group Exams Mock Test', path: '/mock-tests', tag: 'Govt Exam', status: 'Coming Soon' },
+    { label: 'SSC CGL / CHSL Mock Test', path: '/mock-tests', tag: 'Govt Exam', status: 'Coming Soon' },
+    { label: 'Aptitude Placement Test', path: '/mock-tests', tag: 'Placement', status: 'Coming Soon' },
+    { label: 'Programming MCQ Test', path: '/mock-tests', tag: 'Coding', status: 'Coming Soon' },
   ];
 
   const mockFeatures = [
@@ -152,8 +152,8 @@ const Home = () => {
     { label: 'TCS Interview Questions', path: '/interviews/company' },
     { label: 'Data Structures Questions', path: '/programming/data-structures' },
     { label: 'UPSC Preparation', path: '/exams/upsc' },
-    { label: 'SSC CGL Mock Test', path: '/mock-tests/govt' },
-    { label: 'Logical Reasoning PDF', path: '/study-materials/pdfs' },
+    {label: 'SSC CGL Prep', path: '/exams' },
+    { label: 'Logical Reasoning PDF', path: '/study-materials' },
     { label: 'Java Interview Questions', path: '/programming/java' },
   ];
 
@@ -943,13 +943,16 @@ const Home = () => {
                   <Link key={m.label} href={m.path}
                     className={`flex items-center justify-between px-7 py-4 group transition-all duration-200 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] ${i !== 0 ? `border-t ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'}` : ''}`}>
                     <div className="flex flex-col gap-1.5 min-w-0">
-                      <p className={`text-[14px] font-semibold transition-colors truncate group-hover:text-[#FFC107] ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>{m.label}</p>
+                      <div className="flex items-center gap-2">
+                        <p className={`text-[14px] font-semibold transition-colors truncate group-hover:text-[#FFC107] ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>{m.label}</p>
+                        {m.status && <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-500 uppercase tracking-tighter">Soon</span>}
+                      </div>
                       <div>
                         <Tag label={m.tag} />
                       </div>
                     </div>
                     <span className={`text-[13px] font-bold flex shrink-0 items-center gap-1 transition-transform group-hover:translate-x-1 ${isDark ? 'text-gray-300' : 'text-gray-800'}`}>
-                      Start <ChevronRight size={14} />
+                      Explore <ChevronRight size={14} />
                     </span>
                   </Link>
                 ))}
@@ -1106,21 +1109,26 @@ const Home = () => {
       <section className={`py-12 border-t ${divider} ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-xl md:text-2xl font-black mb-10" style={headFont}>
-              Join <span className="text-[#FFC107]">8,000+</span> Students Preparing Professionally
+              Master Your Prep with Over <span className="text-[#FFC107]">8,100+</span> Curated Practice Questions
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
-                { name: 'Karthik S.', role: 'TCS Placement', text: 'PracticeForever helped me master quantitative aptitude in just 15 days. The explanations are crystal clear.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' },
-                { name: 'Priya R.', role: 'TNPSC Aspirant', text: 'Daily Current Affairs analysis is top-notch. It saved me hours of newspaper reading every single day.', img: 'https://img.icons8.com/fluency/96/user-female-circle.png' },
-                { name: 'Anish K.', role: 'Software Engineer', text: 'The interview preparation guides are excellent. Cracked my Infosys technical round with ease!', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' }
+                { name: 'Arun K.', role: 'Beta User', text: 'The practice questions for TNPSC are incredibly well-structured. Perfect for someone starting their preparation journey.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' },
+                { name: 'Meera S.', role: 'Placement Student', text: 'Cleanest interface I have seen for aptitude tests. The daily current affairs update is super helpful for my morning routine.', img: 'https://img.icons8.com/fluency/96/user-female-circle.png' },
+                { name: 'Rahul V.', role: 'Early Access', text: 'A dedicated platform focusing on quality over quantity. The logical reasoning modules helped me understand patterns clearly.', img: 'https://img.icons8.com/fluency/96/user-male-circle.png' }
               ].map((t) => (
                 <div key={t.name} className={`p-6 rounded-2xl border ${isDark ? 'bg-[#141414] border-[#242424]' : 'bg-gray-50 border-gray-100'} transition-transform hover:-translate-y-1`}>
                   <div className="flex justify-center mb-4">
                     <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full" />
                   </div>
                   <p className={`text-[13px] italic mb-4 leading-relaxed ${muted}`}>"{t.text}"</p>
-                  <p className="text-[14px] font-black">{t.name}</p>
-                  <p className="text-[11px] font-bold text-amber-500 uppercase tracking-widest">{t.role}</p>
+                  <div className="flex flex-col items-center">
+                    <p className="text-[14px] font-black">{t.name}</p>
+                    <div className="mt-1 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                      <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">{t.role}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

@@ -57,7 +57,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <Head>
         <title>PracticeForever | India's Most Trusted Career Preparation Platform</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="India's most trusted platform for government exams, aptitude, and coding interviews. Join thousands of successful candidates mastering TNPSC, SSC, and IT career skills." />
+        <meta name="description" content="India's most trusted platform for government exams, aptitude, and coding interviews. Master TNPSC, SSC, and IT career skills with curated practice questions and daily updates." />
         <meta name="keywords" content="PracticeForever, Government Exams Prep, TNPSC, SSC, UPSC, Aptitude Questions, Coding Interview Prep, Daily Current Affairs 2026, Mock Tests India" />
         
         {/* Professional Site Identity - Site Name Schema */}
