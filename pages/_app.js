@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
               "@type": "EducationalOrganization",
               "name": "PracticeForever",
               "url": "https://practiceforever.app/",
-              "logo": "https://practiceforever.app/practiceforever.png",
+              "logo": "https://practiceforever.app/logo.png",
               "description": "India's premier career preparation platform for competitive exams and technical interviews.",
               "address": {
                 "@type": "PostalAddress",
@@ -109,21 +109,21 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <meta property="og:url" content="https://practiceforever.app/" />
         <meta property="og:title" content="PracticeForever | India's #1 Career Preparation Platform" />
         <meta property="og:description" content="Master government exams, aptitude, and coding interviews with the most trusted preparation platform in India." />
-        <meta property="og:image" content="https://practiceforever.app/practiceforever.png" />
+        <meta property="og:image" content="https://practiceforever.app/logo.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://practiceforever.app/" />
         <meta property="twitter:title" content="PracticeForever | India's #1 Career Preparation Platform" />
         <meta property="twitter:description" content="Master government exams, aptitude, and coding interviews with the most trusted preparation platform in India." />
-        <meta property="twitter:image" content="https://practiceforever.app/practiceforever.png" />
+        <meta property="twitter:image" content="https://practiceforever.app/logo.png" />
 
         <link rel="canonical" href="https://practiceforever.app/" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/practiceforever.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/practiceforever.png" />
-        <link rel="apple-touch-icon" href="/practiceforever.png" />
-        <link rel="shortcut icon" href="/practiceforever.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="shortcut icon" href="/logo.png" />
         <meta name="theme-color" content="#FFC107" />
       </Head>
       <SessionProvider session={session}>

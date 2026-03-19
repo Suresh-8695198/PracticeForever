@@ -258,6 +258,15 @@ const SUB_FC_ICON_MAP = {
     'Placement Updates': FcLineChart,
 };
 
+// ── BRAND ICON MAP (Original Language Logos) ──
+const BRAND_ICON_MAP = {
+    'C Programming': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg',
+    'C++': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg',
+    'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
+    'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+};
+
 const accentMap = {
     'text-blue-500': ['#3b82f6', '#1d4ed8'],
     'text-purple-500': ['#a855f7', '#7c3aed'],
@@ -377,6 +386,7 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                     {/* No-box clean list — 3 columns */}
                     <div className='grid grid-cols-2 lg:grid-cols-3 gap-x-1 gap-y-0.5'>
                         {cat.subcategories.map((sub) => {
+                            const BrandIcon = BRAND_ICON_MAP[sub.name];
                             const FcIcon = SUB_FC_ICON_MAP[sub.name] || FcDocument;
                             return (
                                 <Link
@@ -400,7 +410,11 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                                 >
                                     {/* Icon — spring bounce */}
                                     <span data-icon style={{ display: 'inline-flex', flexShrink: 0, transition: 'transform 0.3s cubic-bezier(0.34,1.56,0.64,1)' }}>
-                                        <FcIcon size={22} />
+                                        {BrandIcon ? (
+                                            <img src={BrandIcon} alt={sub.name} style={{ width: 22, height: 22, objectFit: 'contain' }} />
+                                        ) : (
+                                            <FcIcon size={22} />
+                                        )}
                                     </span>
                                     {/* Label + underline wrapper */}
                                     <span style={{ position: 'relative', display: 'inline-block' }}>
@@ -962,6 +976,7 @@ const Navbar = () => {
                                                     >
                                                         <div className={`ml-4 mt-2 mb-2 rounded-[20px] border overflow-hidden ${isDark ? 'bg-black/40 border-white/5' : 'bg-white shadow-inner border-gray-100'}`}>
                                                             {cat.subcategories.map((sub) => {
+                                                                const BrandIcon = BRAND_ICON_MAP[sub.name];
                                                                 const SubIcon = sub.Icon;
                                                                 return (
                                                                     <Link
@@ -973,7 +988,11 @@ const Navbar = () => {
                                                                             : 'text-gray-600 border-gray-50 hover:text-amber-600 hover:bg-amber-50/30'
                                                                             }`}
                                                                     >
-                                                                        <SubIcon size={15} strokeWidth={2.5} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+                                                                        {BrandIcon ? (
+                                                                            <img src={BrandIcon} alt={sub.name} style={{ width: 17, height: 17, objectFit: 'contain' }} className="shrink-0" />
+                                                                        ) : (
+                                                                            <SubIcon size={15} strokeWidth={2.5} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+                                                                        )}
                                                                         {sub.name}
                                                                     </Link>
                                                                 );

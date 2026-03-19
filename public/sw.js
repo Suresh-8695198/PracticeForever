@@ -2,8 +2,7 @@ const CACHE_NAME = 'practice-forever-v2';
 const urlsToCache = [
   '/',
   '/manifest.json',
-  '/logo.png',
-  '/practiceforever.png'
+  '/logo.png'
 ];
 
 self.addEventListener('install', event => {
