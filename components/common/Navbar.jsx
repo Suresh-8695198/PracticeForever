@@ -297,7 +297,7 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
     if (!cat?.subcategories) return null;
     const CatIcon = cat.Icon;
     const CatFcIcon = CAT_FC_ICON_MAP[cat.title] || FcOrganization;
-    const [c1, c2] = accentMap[cat.colorCls] ?? ['#FFC107', '#e5ad06'];
+    const [c1, c2] = accentMap[cat.colorCls] ?? ['#065f46', '#064e3b'];
 
     return (
         <motion.div
@@ -325,26 +325,19 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                     <svg className='absolute inset-0 w-full h-full' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'>
                         <defs>
                             <pattern id={`grid-${cat.title.replace(/\s/g, '')}`} x='0' y='0' width='28' height='28' patternUnits='userSpaceOnUse'>
-                                <rect x='0' y='0' width='26' height='26' rx='4' fill='none' stroke='rgba(255,255,255,0.22)' strokeWidth='1' />
+                                <rect x='0' y='0' width='26' height='26' rx='4' fill='none' stroke='rgba(255,255,255,0.15)' strokeWidth='1' />
                             </pattern>
                         </defs>
                         <rect width='100%' height='100%' fill={`url(#grid-${cat.title.replace(/\s/g, '')})`} />
                     </svg>
 
-                    {/* Glow circles */}
-                    <div className='absolute -right-10 -top-10 w-40 h-40 rounded-full'
-                        style={{ background: 'rgba(255,255,255,0.12)', filter: 'blur(30px)' }} />
-                    <div className='absolute -left-6 bottom-0 w-28 h-28 rounded-full'
-                        style={{ background: 'rgba(255,255,255,0.08)', filter: 'blur(20px)' }} />
-
                     {/* Content */}
                     <div className='relative z-10 flex flex-col gap-3'>
-                        {/* Category icon — color Fc icon, no box */}
-                        <div className='sidebar-dark-pill flex items-center gap-3 px-3 py-2' style={{ background: 'rgba(255,255,255,0.95)' }}>
-                            <CatFcIcon size={24} />
-                            <div className='h-4 w-px' style={{ background: 'rgba(0,0,0,0.18)' }} />
-                            <span style={{ fontSize: 11, fontWeight: 600, color: 'rgba(0,0,0,0.5)', letterSpacing: '0.04em' }}>
-                                {cat.subcategories.length} topics
+                        {/* Category info pill */}
+                        <div className='flex items-center gap-2 px-2 py-1 rounded bg-white/10 border border-white/20 w-fit'>
+                            <CatFcIcon size={18} />
+                            <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.9)', letterSpacing: '0.04em' }}>
+                                {cat.subcategories.length} Topics
                             </span>
                         </div>
 
@@ -392,37 +385,20 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                                 <Link
                                     key={sub.name}
                                     href={sub.path}
-                                    style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, padding: '7px 10px', borderRadius: 8, transition: 'transform 0.22s cubic-bezier(0.34,1.56,0.64,1)', position: 'relative', overflow: 'hidden' }}
-                                    onMouseEnter={e => {
-                                        e.currentTarget.style.transform = 'translateX(4px)';
-                                        e.currentTarget.querySelector('[data-icon]').style.transform = 'scale(1.28) rotate(8deg)';
-                                        e.currentTarget.querySelector('[data-label]').style.color = '#FFC107';
-                                        e.currentTarget.querySelector('[data-underline]').style.transform = 'scaleX(1)';
-                                        e.currentTarget.querySelector('[data-underline]').style.opacity = '1';
-                                    }}
-                                    onMouseLeave={e => {
-                                        e.currentTarget.style.transform = 'translateX(0)';
-                                        e.currentTarget.querySelector('[data-icon]').style.transform = 'scale(1) rotate(0deg)';
-                                        e.currentTarget.querySelector('[data-label]').style.color = isDark ? '#e5e5e5' : '#1a1a1a';
-                                        e.currentTarget.querySelector('[data-underline]').style.transform = 'scaleX(0)';
-                                        e.currentTarget.querySelector('[data-underline]').style.opacity = '0';
-                                    }}
+                                    style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, padding: '7px 10px', borderRadius: 8, transition: 'background 0.2s ease', position: 'relative' }}
+                                    className="hover:bg-slate-50 dark:hover:bg-slate-800/50"
                                 >
-                                    {/* Icon — spring bounce */}
-                                    <span data-icon style={{ display: 'inline-flex', flexShrink: 0, transition: 'transform 0.3s cubic-bezier(0.34,1.56,0.64,1)' }}>
+                                    {/* Icon */}
+                                    <span style={{ display: 'inline-flex', flexShrink: 0 }}>
                                         {BrandIcon ? (
                                             <img src={BrandIcon} alt={sub.name} style={{ width: 22, height: 22, objectFit: 'contain' }} />
                                         ) : (
                                             <FcIcon size={22} />
                                         )}
                                     </span>
-                                    {/* Label + underline wrapper */}
-                                    <span style={{ position: 'relative', display: 'inline-block' }}>
-                                        <span data-label style={{ fontSize: 13, fontWeight: 600, lineHeight: 1.3, color: isDark ? '#e5e5e5' : '#1a1a1a', transition: 'color 0.18s ease' }}>
-                                            {sub.name}
-                                        </span>
-                                        {/* Yellow underline */}
-                                        <span data-underline style={{ position: 'absolute', left: 0, bottom: -2, width: '100%', height: 2, borderRadius: 2, background: '#FFC107', transform: 'scaleX(0)', opacity: 0, transition: 'transform 0.22s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s ease', transformOrigin: 'left' }} />
+                                    {/* Label */}
+                                    <span style={{ fontSize: 13, fontWeight: 600, color: isDark ? '#e5e5e5' : '#1a1a1a' }}>
+                                        {sub.name}
                                     </span>
                                 </Link>
                             );
@@ -599,16 +575,22 @@ const Navbar = () => {
                 }
                 @keyframes logo-bounce {
                     0% { transform: scale(1); }
-                    30% { transform: scale(1.2) rotate(-5deg); }
-                    50% { transform: scale(0.9) rotate(5deg); }
-                    70% { transform: scale(1.1) rotate(-2deg); }
+                    30% { transform: scale(1.1) rotate(-3deg); }
+                    50% { transform: scale(0.95) rotate(3deg); }
+                    70% { transform: scale(1.05) rotate(-1deg); }
                     100% { transform: scale(1) rotate(0); }
+                }
+                .luxury-shadow {
+                    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+                }
+                .dark .luxury-shadow {
+                    box-shadow: 0 10px 40px -15px rgba(0,0,0,0.5);
                 }
             `}</style>
 
             {/* ══ TOP BAR ══ */}
-            <div className={`h-[60px] flex items-center border-b ${isDark ? 'border-[#222]' : 'border-gray-100'}`}>
-                <div className='w-full max-w-[1440px] mx-auto px-1 lg:px-2 flex items-center gap-2'>
+            <div className={`h-[72px] flex items-center border-b transition-all duration-300 ${isDark ? 'border-slate-800 bg-[#0f1115]/90' : 'border-slate-100 bg-white/90'}`}>
+                <div className='w-full max-w-[1440px] mx-auto px-4 lg:px-8 flex items-center gap-4'>
 
                     {/* Logo */}
                     <Link href='/' className='flex items-center gap-0 shrink-0 group/logo logo-container'>
@@ -625,46 +607,35 @@ const Navbar = () => {
                         </div>
                     </Link>
 
-                    {/* Search */}
-                    <div className={`hidden md:flex w-[240px] lg:w-[300px] shrink-0 items-center rounded-lg border px-3 gap-2 h-9 transition-all duration-200 ${isDark
-                        ? 'bg-[#1a1a1a] border-[#333] focus-within:border-[#FFC107] focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.12)]'
-                        : 'bg-gray-50 border-gray-200 focus-within:border-[#FFC107] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgba(255,193,7,0.1)]'
-                        }`}>
-                        <Search size={14} className='text-gray-400 shrink-0' />
-                        <input
-                            type='text'
-                            placeholder='Search exams, courses...'
-                            className='flex-1 min-w-0 bg-transparent text-[13px] outline-none placeholder-gray-400'
-                            spellCheck='false'
-                        />
-                        <kbd className={`text-[10px] font-medium px-1.5 py-0.5 rounded hidden lg:inline shrink-0 ${isDark ? 'bg-[#2a2a2a] text-gray-500' : 'bg-gray-200 text-gray-500'
+                    {/* Search Bar - Fixed Single Line */}
+                    <div className='hidden xl:flex items-center px-4 py-1.5 h-8 bg-white/10 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-md gap-3 cursor-pointer group transition-all duration-200 min-w-[180px] max-w-[280px] flex-1'>
+                        <Search size={14} className='text-slate-400 group-hover:text-emerald-500 shrink-0' />
+                        <span className='text-[11px] text-slate-400 font-medium truncate whitespace-nowrap'>Search materials, exams...</span>
+                        <kbd className={`hidden md:flex ml-auto items-center px-1.5 py-0.5 rounded text-[10px] font-medium border shrink-0 ${
+                                isDark ? 'border-white/10 text-white/40' : 'border-black/5 text-black/40'
                             }`}>⌘K</kbd>
                     </div>
 
-                    {/* ── Quick Feature Pills ── */}
-                    <div className='hidden 2xl:flex items-center gap-1.5 flex-1 justify-center max-w-[800px]'>
+                    {/* Feature Buttons - Recovered ORIGINAL PROPER STYLE */}
+                    <div className='hidden 2xl:flex items-center gap-1.5 flex-1 justify-center max-w-[960px]'>
                         {[
-                            { label: 'Free Mock Test', path: '/mock-tests', LIcon: Target, hot: true, bg: '#d97706', iconBg: '#92400e' },
-                            { label: 'Daily GK', path: '/current-affairs/daily', LIcon: Globe2, bg: '#2563eb', iconBg: '#1e3a8a' },
-                            { label: 'Latest News', path: '/current-affairs', LIcon: Newspaper, bg: '#16a34a', iconBg: '#14532d' },
-                            { label: 'Leaderboard', path: '/dashboard', LIcon: Trophy, bg: '#db2777', iconBg: '#831843' },
-                            { label: 'Study PDFs', path: '/study-materials', LIcon: Library, bg: '#7c3aed', iconBg: '#4c1d95' },
-                        ].map(({ label, path, LIcon, hot, bg, iconBg }) => (
+                            { label: 'Mock Tests', path: '/mock-tests', LIcon: Target, bg: 'bg-orange-600', iconBg: 'bg-orange-700' },
+                            { label: 'Institutes', path: '/current-affairs/daily', LIcon: Globe2, bg: 'bg-indigo-600', iconBg: 'bg-indigo-700' },
+                            { label: 'Exams hub', path: '/current-affairs', LIcon: Newspaper, bg: 'bg-emerald-600', iconBg: 'bg-emerald-700' },
+                            { label: 'Leaderboard', path: '/dashboard', LIcon: Trophy, bg: 'bg-pink-600', iconBg: 'bg-pink-700' },
+                            { label: 'Library', path: '/study-materials', LIcon: Library, bg: 'bg-purple-600', iconBg: 'bg-purple-700' },
+                        ].map(({ label, path, LIcon, bg, iconBg }) => (
                             <Link
                                 key={label}
                                 href={path}
-                                className='relative flex items-center h-[30px] rounded-[6px] whitespace-nowrap overflow-hidden transition-all duration-150 border border-white/10'
-                                style={{ background: bg }}
+                                className={`flex items-center h-8 rounded-md overflow-hidden border border-white/5 transition-all duration-200 ${bg} hover:brightness-110 active:scale-[0.98] shadow-sm shrink-0`}
                             >
-                                {hot && <span className='absolute top-0.5 right-0.5 w-[6px] h-[6px] rounded-full bg-white' style={{ opacity: 0.9 }} />}
-                                {/* Icon zone — darker bg */}
-                                <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 30, height: 30, background: iconBg, flexShrink: 0 }}>
-                                    <LIcon size={13} color='rgba(255,255,255,0.9)' strokeWidth={2.2} />
+                                <span className={`flex items-center justify-center w-8 h-8 ${iconBg} shrink-0`}>
+                                    <LIcon size={13} color='white' strokeWidth={2.5} />
                                 </span>
-                                {/* Divider */}
-                                <span style={{ width: 1, height: 16, background: 'rgba(255,255,255,0.25)', flexShrink: 0 }} />
-                                {/* Label */}
-                                <em style={{ padding: '0 11px 0 9px', fontSize: 12, fontWeight: 600, fontStyle: 'normal', color: '#fff', letterSpacing: '0.01em' }}>{label}</em>
+                                <span className='px-3.5 text-[10px] font-black uppercase tracking-widest text-white whitespace-nowrap leading-[1] mt-[0.5px]'>
+                                    {label}
+                                </span>
                             </Link>
                         ))}
                     </div>
