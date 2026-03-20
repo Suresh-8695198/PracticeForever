@@ -8,7 +8,7 @@ import {
 import { 
   FcOrganization, 
   FcGlobe, 
-  FcShield, 
+  FcDepartment, 
   FcCurrencyExchange, 
   FcIdea, 
   FcLineChart,
@@ -30,7 +30,7 @@ const exams = [
         title: 'UPSC Merit.',
         desc: 'Indian administrative service modules. IAS, IPS, and IFS tracks.',
         path: '/exams/upsc',
-        icon: FcShield,
+        icon: FcDepartment,
         tag: 'Elite'
     },
     {
