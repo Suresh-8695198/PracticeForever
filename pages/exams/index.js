@@ -72,7 +72,7 @@ const ExamsLandingPage = () => {
             <main className="max-w-[1280px] mx-auto px-6 py-12 lg:py-20">
                 
                 {/* Header Section - Minimalist */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-10 border-b ${colors.border}">
+                <div className={`flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 pb-10 border-b ${colors.border}`}>
                      <div className="space-y-3">
                          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
                              Competitive <span className="text-[#059669]">Assessment Hub</span>
@@ -116,7 +116,7 @@ const ExamsLandingPage = () => {
                                     </div>
                                 </div>
 
-                                <div className="pt-6 border-t ${colors.border} flex items-center justify-between">
+                                <div className={`pt-6 border-t ${colors.border} flex items-center justify-between`}>
                                      <div className="flex -space-x-2">
                                           {[1,2,3].map(i => (
                                               <div key={i} className={`w-8 h-8 rounded-full border-2 ${isDark ? 'border-[#1e1e1e]' : 'border-white'} bg-slate-200 dark:bg-neutral-700`} />
