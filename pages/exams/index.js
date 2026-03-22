@@ -2,29 +2,55 @@ import React, { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ArrowRight, ArrowUpRight, ChevronRight, ChevronLeft, Download,
-  Landmark, Building2, Globe, Banknote, Shield, Train, Users,
-  BookOpen, FileText, Bell, Clock, Search, ExternalLink,
-  CheckCircle, TrendingUp, Star, Zap, Award, Target,
-  Calendar, Newspaper, GraduationCap, Briefcase, MapPin
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronRight, ExternalLink } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 import {
   sscData, bankingData, railwayData, policeData, statePscData,
   latestNotifications, syllabusHub, pyqHub, dailyStudyTips, motivationalQuotes
 } from '../../data/exams/govt-exams-data';
 
+// ─── ICONS8 COLOR ICON MAP ─────────────────────────
+const i8 = {
+  ssc: 'https://img.icons8.com/color/96/parliament.png',
+  banking: 'https://img.icons8.com/color/96/bank-building.png',
+  railway: 'https://img.icons8.com/color/96/train.png',
+  police: 'https://img.icons8.com/color/96/policeman-male.png',
+  statepsc: 'https://img.icons8.com/color/96/india-map.png',
+  bell: 'https://img.icons8.com/color/96/appointment-reminders.png',
+  pyq: 'https://img.icons8.com/color/96/documents.png',
+  syllabus: 'https://img.icons8.com/color/96/open-book--v1.png',
+  star: 'https://img.icons8.com/color/48/star--v1.png',
+  target: 'https://img.icons8.com/color/48/goal--v1.png',
+  graduation: 'https://img.icons8.com/color/48/graduation-cap.png',
+  tnpsc: 'https://img.icons8.com/color/96/museum.png',
+  upsc: 'https://img.icons8.com/color/96/medal2.png',
+  zap: 'https://img.icons8.com/color/48/flash-on.png',
+  clock: 'https://img.icons8.com/color/48/clock--v1.png',
+  download: 'https://img.icons8.com/color/48/download--v1.png',
+  check: 'https://img.icons8.com/color/48/checkmark--v1.png',
+  bookopen: 'https://img.icons8.com/color/48/open-book--v1.png',
+  calendar: 'https://img.icons8.com/color/48/planner.png',
+  news: 'https://img.icons8.com/color/48/news.png',
+  test: 'https://img.icons8.com/color/48/test-passed.png',
+  papers: 'https://img.icons8.com/color/48/documents.png',
+  external: 'https://img.icons8.com/color/48/external-link.png',
+};
+
+// ─── ICONS8 IMAGE COMPONENT ────────────────────────
+const I8 = ({ src, alt = 'icon', size = 22 }) => (
+  <img src={src} alt={alt} width={size} height={size} className="inline-block" style={{ width: size, height: size }} />
+);
+
 // ─── MODULE COLOR CONFIG ───────────────────────────
 const moduleConfig = {
-  ssc: { color: '#1565C0', light: '#E3F2FD', icon: Building2, label: 'SSC' },
-  banking: { color: '#00695C', light: '#E0F2F1', icon: Banknote, label: 'Banking' },
-  railway: { color: '#C62828', light: '#FFEBEE', icon: Train, label: 'Railways' },
-  police: { color: '#37474F', light: '#ECEFF1', icon: Shield, label: 'Police' },
-  statepsc: { color: '#6A1B9A', light: '#F3E5F5', icon: MapPin, label: 'State PSC' },
-  notifications: { color: '#E65100', light: '#FFF3E0', icon: Bell, label: 'Notifications' },
-  pyq: { color: '#1B5E20', light: '#E8F5E9', icon: FileText, label: 'PYQ Vault' },
-  syllabus: { color: '#4527A0', light: '#EDE7F6', icon: BookOpen, label: 'Syllabus' }
+  ssc: { color: '#1565C0', light: '#E3F2FD', iconSrc: i8.ssc, label: 'SSC' },
+  banking: { color: '#00695C', light: '#E0F2F1', iconSrc: i8.banking, label: 'Banking' },
+  railway: { color: '#C62828', light: '#FFEBEE', iconSrc: i8.railway, label: 'Railways' },
+  police: { color: '#37474F', light: '#ECEFF1', iconSrc: i8.police, label: 'Police' },
+  statepsc: { color: '#6A1B9A', light: '#F3E5F5', iconSrc: i8.statepsc, label: 'State PSC' },
+  notifications: { color: '#E65100', light: '#FFF3E0', iconSrc: i8.bell, label: 'Notifications' },
+  pyq: { color: '#1B5E20', light: '#E8F5E9', iconSrc: i8.pyq, label: 'PYQ Vault' },
+  syllabus: { color: '#4527A0', light: '#EDE7F6', iconSrc: i8.syllabus, label: 'Syllabus' }
 };
 
 // ─── LIVE NUMBER COMPONENT ─────────────────────────
@@ -67,9 +93,7 @@ const ExamModuleCard = ({ data, config, href, isDark }) => (
       <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: config.color }} />
       
       <div className="flex items-start justify-between mb-5">
-        <div className="w-11 h-11 rounded-lg flex items-center justify-center" style={{ backgroundColor: config.light }}>
-          <config.icon size={22} style={{ color: config.color }} />
-        </div>
+        <I8 src={config.iconSrc} alt={config.label} size={32} />
         <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded" 
               style={{ color: config.color, backgroundColor: config.light }}>
           {data.stats?.examsPerYear || data.stats?.totalCommissions || '4+'} Exams
@@ -88,8 +112,7 @@ const ExamModuleCard = ({ data, config, href, isDark }) => (
           <p className={`text-[9px] font-bold uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Vacancies</p>
           <p className="text-[14px] font-bold" style={{ color: config.color }}>{data.stats?.vacancies || data.stats?.totalCommissions || '—'}</p>
         </div>
-        <div className={`w-8 h-8 rounded flex items-center justify-center transition-all ${isDark ? 'bg-[#21262d]' : 'bg-slate-50'}`}
-             style={{ '--hover-bg': config.color }}>
+        <div className={`w-8 h-8 rounded flex items-center justify-center transition-all ${isDark ? 'bg-[#21262d]' : 'bg-slate-50'}`}>
           <ArrowRight size={14} className={`transition-transform group-hover:translate-x-0.5 ${isDark ? 'text-slate-400' : 'text-slate-400'}`} />
         </div>
       </div>
@@ -121,11 +144,11 @@ const ExamsLandingPage = () => {
   }, []);
 
   const tabs = [
-    { id: 'overview', label: 'All Exams', icon: Target },
-    { id: 'notifications', label: 'Notifications', icon: Bell },
-    { id: 'syllabus', label: 'Syllabus Hub', icon: BookOpen },
-    { id: 'pyq', label: 'PYQ Vault', icon: FileText },
-    { id: 'tips', label: 'Study Tips', icon: Zap }
+    { id: 'overview', label: 'All Exams', iconSrc: i8.target },
+    { id: 'notifications', label: 'Notifications', iconSrc: i8.bell },
+    { id: 'syllabus', label: 'Syllabus Hub', iconSrc: i8.syllabus },
+    { id: 'pyq', label: 'PYQ Vault', iconSrc: i8.pyq },
+    { id: 'tips', label: 'Study Tips', iconSrc: i8.zap }
   ];
 
   const cl = {
@@ -199,7 +222,7 @@ const ExamsLandingPage = () => {
                     : `${cl.sub} hover:${isDark ? 'bg-[#161b22]' : 'bg-white'}`
                 }`}
               >
-                <tab.icon size={14} />
+                <I8 src={tab.iconSrc} alt={tab.label} size={14} />
                 {tab.label}
               </button>
             ))}
@@ -218,20 +241,18 @@ const ExamsLandingPage = () => {
               {/* Quick Access — TNPSC & UPSC */}
               <div>
                 <h2 className="text-[15px] font-bold mb-5 flex items-center gap-2">
-                  <Star size={15} style={{ color: '#E65100' }} /> Featured Modules
+                  <I8 src={i8.star} alt="Featured" size={16} /> Featured Modules
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {[
-                    { title: 'TNPSC', desc: 'Tamil Nadu PSC — Groups 1, 2, 2A & 4 examination prep.', path: '/exams/tnpsc', color: '#065f46', light: '#ecfdf5', icon: Landmark, tag: 'Tamil Nadu' },
-                    { title: 'UPSC', desc: 'Civil Services — IAS, IPS, IFS elite preparation module.', path: '/exams/upsc', color: '#002147', light: '#eff6ff', icon: Award, tag: 'National' }
+                    { title: 'TNPSC', desc: 'Tamil Nadu PSC — Groups 1, 2, 2A & 4 examination prep.', path: '/exams/tnpsc', color: '#065f46', light: '#ecfdf5', iconSrc: i8.tnpsc, tag: 'Tamil Nadu' },
+                    { title: 'UPSC', desc: 'Civil Services — IAS, IPS, IFS elite preparation module.', path: '/exams/upsc', color: '#002147', light: '#eff6ff', iconSrc: i8.upsc, tag: 'National' }
                   ].map((item, i) => (
                     <Link href={item.path} key={i}>
                       <motion.div whileHover={{ y: -2 }} className={`group relative p-7 rounded-lg border-2 cursor-pointer transition-all overflow-hidden ${isDark ? 'bg-[#161b22] border-[#30363d]' : 'bg-white border-slate-200'}`}
                         style={{ borderTopColor: item.color, borderTopWidth: '3px' }}>
                         <div className="flex items-start justify-between mb-4">
-                          <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: item.light }}>
-                            <item.icon size={24} style={{ color: item.color }} />
-                          </div>
+                          <I8 src={item.iconSrc} alt={item.title} size={36} />
                           <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded" style={{ color: item.color, backgroundColor: item.light }}>{item.tag}</span>
                         </div>
                         <h3 className={`text-xl font-extrabold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
@@ -249,7 +270,7 @@ const ExamsLandingPage = () => {
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <h2 className="text-[15px] font-bold flex items-center gap-2">
-                    <GraduationCap size={15} style={{ color: '#E65100' }} /> All Exam Modules
+                    <I8 src={i8.graduation} alt="Modules" size={16} /> All Exam Modules
                   </h2>
                   <span className={`text-[10px] font-bold uppercase tracking-widest ${cl.sub}`}>8 Categories</span>
                 </div>
@@ -264,8 +285,8 @@ const ExamsLandingPage = () => {
                   {/* Notifications Card */}
                   <div onClick={() => setActiveTab('notifications')} className={`cursor-pointer group relative h-full p-6 rounded-lg border-2 transition-all overflow-hidden ${isDark ? 'bg-[#161b22] border-[#30363d]' : 'bg-white border-slate-200'}`}>
                     <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: '#E65100' }} />
-                    <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: '#FFF3E0' }}>
-                      <Bell size={22} style={{ color: '#E65100' }} />
+                    <div className="mb-5">
+                      <I8 src={i8.bell} alt="Notifications" size={32} />
                     </div>
                     <h3 className={`text-[17px] font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>Notifications</h3>
                     <p className={`text-[12px] ${cl.sub} mb-5`}>Live exam alerts from all commissions</p>
@@ -274,8 +295,8 @@ const ExamsLandingPage = () => {
                   {/* PYQ Card */}
                   <div onClick={() => setActiveTab('pyq')} className={`cursor-pointer group relative h-full p-6 rounded-lg border-2 transition-all overflow-hidden ${isDark ? 'bg-[#161b22] border-[#30363d]' : 'bg-white border-slate-200'}`}>
                     <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: '#1B5E20' }} />
-                    <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: '#E8F5E9' }}>
-                      <FileText size={22} style={{ color: '#1B5E20' }} />
+                    <div className="mb-5">
+                      <I8 src={i8.pyq} alt="PYQ" size={32} />
                     </div>
                     <h3 className={`text-[17px] font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>PYQ Vault</h3>
                     <p className={`text-[12px] ${cl.sub} mb-5`}>Previous year papers from all exams</p>
@@ -284,8 +305,8 @@ const ExamsLandingPage = () => {
                   {/* Syllabus Card */}
                   <div onClick={() => setActiveTab('syllabus')} className={`cursor-pointer group relative h-full p-6 rounded-lg border-2 transition-all overflow-hidden ${isDark ? 'bg-[#161b22] border-[#30363d]' : 'bg-white border-slate-200'}`}>
                     <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: '#4527A0' }} />
-                    <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5" style={{ backgroundColor: '#EDE7F6' }}>
-                      <BookOpen size={22} style={{ color: '#4527A0' }} />
+                    <div className="mb-5">
+                      <I8 src={i8.syllabus} alt="Syllabus" size={32} />
                     </div>
                     <h3 className={`text-[17px] font-bold mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>Syllabus Hub</h3>
                     <p className={`text-[12px] ${cl.sub} mb-5`}>Complete syllabus for every major exam</p>
@@ -298,9 +319,7 @@ const ExamsLandingPage = () => {
               <div className={`${cl.surface} border ${cl.border} rounded-lg overflow-hidden`}>
                 <div className={`p-5 border-b ${cl.border} flex items-center justify-between`}>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded flex items-center justify-center" style={{ backgroundColor: '#FFF3E0' }}>
-                      <Bell size={16} style={{ color: '#E65100' }} />
-                    </div>
+                    <I8 src={i8.bell} alt="Notifications" size={22} />
                     <div>
                       <h3 className="text-[14px] font-bold">Latest Exam Notifications</h3>
                       <p className={`text-[10px] ${cl.sub} font-medium uppercase tracking-widest`}>From all commissions</p>
@@ -334,9 +353,7 @@ const ExamsLandingPage = () => {
 
               {/* Motivational Quote */}
               <div className={`${cl.surface} border ${cl.border} rounded-lg p-6 flex items-center gap-5`}>
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: '#FFF3E0' }}>
-                  <Zap size={18} style={{ color: '#E65100' }} />
-                </div>
+                <I8 src={i8.zap} alt="Quote" size={26} />
                 <AnimatePresence mode="wait">
                   <motion.div key={quoteIdx} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }}>
                     <p className="text-[13px] font-medium italic leading-relaxed">"{motivationalQuotes[quoteIdx].quote}"</p>
@@ -347,7 +364,7 @@ const ExamsLandingPage = () => {
 
               {/* Coming Soon */}
               <div className={`border-2 border-dashed ${cl.border} rounded-lg p-8 text-center`}>
-                <Clock size={28} className={`mx-auto mb-3 ${cl.sub}`} />
+                <I8 src={i8.clock} alt="Coming Soon" size={32} />
                 <h3 className="text-[16px] font-bold mb-1">More Modules Coming Soon</h3>
                 <p className={`text-[12px] ${cl.sub}`}>Defence Exams, Teaching Exams (CTET/TET), Insurance Exams & more updates weekly.</p>
               </div>
@@ -367,8 +384,8 @@ const ExamsLandingPage = () => {
                     <a key={n.id} href={n.link} target="_blank" rel="noopener noreferrer" className={`block p-5 transition-all group ${isDark ? 'hover:bg-[#21262d]' : 'hover:bg-slate-50'}`}>
                       <div className="flex items-center justify-between">
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: isDark ? 'rgba(255,255,255,0.04)' : `${n.color}08` }}>
-                            <Bell size={16} style={{ color: n.color }} />
+                          <div className="shrink-0 mt-0.5">
+                            <I8 src={i8.bell} alt="Alert" size={24} />
                           </div>
                           <div>
                             <h4 className="text-[14px] font-bold mb-1.5 group-hover:text-orange-600 transition-colors">{n.title}</h4>
@@ -379,7 +396,7 @@ const ExamsLandingPage = () => {
                             </div>
                           </div>
                         </div>
-                        <ExternalLink size={14} className={`${cl.sub} shrink-0`} />
+                        <I8 src={i8.external} alt="Link" size={14} />
                       </div>
                     </a>
                   ))}
@@ -398,12 +415,10 @@ const ExamsLandingPage = () => {
                   <div key={i} className={`${cl.surface} border ${cl.border} rounded-lg overflow-hidden`}>
                     <div className="p-5 border-b flex items-center justify-between" style={{ borderBottomColor: isDark ? '#30363d' : '#e2e8f0' }}>
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded flex items-center justify-center" style={{ backgroundColor: `${s.color}12` }}>
-                          <BookOpen size={16} style={{ color: s.color }} />
-                        </div>
+                        <I8 src={i8.syllabus} alt="Syllabus" size={24} />
                         <h3 className="text-[14px] font-bold">{s.exam}</h3>
                       </div>
-                      {s.link !== '#' && <a href={s.link} target="_blank" rel="noopener noreferrer" className={`text-[9px] font-bold uppercase tracking-widest ${cl.sub} hover:text-orange-600 flex items-center gap-1`}>Official <ExternalLink size={10} /></a>}
+                      {s.link !== '#' && <a href={s.link} target="_blank" rel="noopener noreferrer" className={`text-[9px] font-bold uppercase tracking-widest ${cl.sub} hover:text-orange-600 flex items-center gap-1`}>Official <I8 src={i8.external} alt="Link" size={10} /></a>}
                     </div>
                     <div className="p-5 space-y-4">
                       <div>
@@ -411,7 +426,7 @@ const ExamsLandingPage = () => {
                         <ul className="space-y-1.5">
                           {s.prelims.map((p, j) => (
                             <li key={j} className={`text-[12px] ${cl.sub} flex items-start gap-2`}>
-                              <CheckCircle size={12} className="mt-0.5 shrink-0" style={{ color: s.color }} />
+                              <I8 src={i8.check} alt="✓" size={13} />
                               {p}
                             </li>
                           ))}
@@ -422,7 +437,7 @@ const ExamsLandingPage = () => {
                         <ul className="space-y-1.5">
                           {s.mains.map((m, j) => (
                             <li key={j} className={`text-[12px] ${cl.sub} flex items-start gap-2`}>
-                              <CheckCircle size={12} className="mt-0.5 shrink-0 opacity-50" style={{ color: s.color }} />
+                              <I8 src={i8.check} alt="✓" size={13} />
                               {m}
                             </li>
                           ))}
@@ -443,7 +458,7 @@ const ExamsLandingPage = () => {
                 {pyqHub.map((ex, i) => (
                   <div key={i} className={`${cl.surface} border ${cl.border} rounded-lg overflow-hidden`}>
                     <div className="p-4 flex items-center gap-3" style={{ borderBottom: `2px solid ${ex.color}` }}>
-                      <FileText size={16} style={{ color: ex.color }} />
+                      <I8 src={i8.pyq} alt="Papers" size={18} />
                       <h3 className="text-[14px] font-bold">{ex.exam}</h3>
                     </div>
                     <div className="p-4 space-y-4">
@@ -453,7 +468,7 @@ const ExamsLandingPage = () => {
                           <ul className="space-y-1.5">
                             {yr.papers.map((p, k) => (
                               <li key={k} className={`text-[12px] ${cl.sub} flex items-center gap-2`}>
-                                <Download size={11} style={{ color: ex.color }} />
+                                <I8 src={i8.download} alt="Download" size={13} />
                                 {p}
                               </li>
                             ))}
@@ -476,9 +491,7 @@ const ExamsLandingPage = () => {
                 {dailyStudyTips.map((tip, i) => (
                   <div key={i} className={`${cl.surface} border ${cl.border} rounded-lg p-6`}>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#FFF3E0' }}>
-                        <Zap size={16} style={{ color: '#E65100' }} />
-                      </div>
+                      <I8 src={i8.zap} alt="Tip" size={24} />
                       <h3 className="text-[14px] font-bold">{tip.title}</h3>
                     </div>
                     <p className={`text-[13px] ${cl.sub} leading-relaxed`}>{tip.tip}</p>
@@ -488,19 +501,19 @@ const ExamsLandingPage = () => {
               {/* Recommended Books section */}
               <div className={`${cl.surface} border ${cl.border} rounded-lg p-6`}>
                 <h3 className="text-[14px] font-bold mb-4 flex items-center gap-2">
-                  <BookOpen size={15} style={{ color: '#E65100' }} /> Top Recommended Books
+                  <I8 src={i8.bookopen} alt="Books" size={16} /> Top Recommended Books
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[...sscData.importantBooks, ...bankingData.importantBooks.slice(0, 2)].map((book, i) => (
                     <div key={i} className={`text-[12px] ${cl.sub} flex items-center gap-2 py-1.5`}>
-                      <CheckCircle size={12} className="text-emerald-500 shrink-0" />
+                      <I8 src={i8.check} alt="✓" size={13} />
                       {book}
                     </div>
                   ))}
                 </div>
               </div>
               <div className={`border-2 border-dashed ${cl.border} rounded-lg p-8 text-center`}>
-                <Clock size={24} className={`mx-auto mb-2 ${cl.sub}`} />
+                <I8 src={i8.clock} alt="Coming Soon" size={28} />
                 <h4 className="text-[14px] font-bold mb-1">More Study Strategies Coming Soon</h4>
                 <p className={`text-[11px] ${cl.sub}`}>Subject-wise preparation plans, topper interviews & strategy videos.</p>
               </div>
