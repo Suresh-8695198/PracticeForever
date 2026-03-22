@@ -450,9 +450,11 @@ const TNPSCPage = () => {
                                                             <p className="text-[12px] opacity-80 leading-relaxed mb-6">
                                                                 Professional grade simulation of the actual TNPSC environment.
                                                             </p>
-                                                            <button className="w-full py-3 bg-white text-[#064e3b] font-bold text-[11px] uppercase tracking-widest rounded transition-all hover:bg-slate-100 hover:scale-[1.01] active:scale-[0.99] shadow-sm">
-                                                                Launch Simulator
-                                                            </button>
+                                                             <Link href="/mock-tests" className="block w-full">
+                                                                <button className="w-full py-3 bg-white text-[#064e3b] font-bold text-[11px] uppercase tracking-widest rounded transition-all hover:bg-slate-100 hover:scale-[1.01] active:scale-[0.99] shadow-sm">
+                                                                    Launch Simulator
+                                                                </button>
+                                                             </Link>
                                                        </div>
                                                   </div>
 
