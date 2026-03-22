@@ -72,65 +72,65 @@ export const tnpscNotifications = [
 export const previousYearPapers = [
   {
     year: "2024",
-    icon: "https://img.icons8.com/color/96/000000/folder-invoices.png",
+    icon: "folder",
     exams: [
       {
         title: "Group IV & VAO - General Tamil / GS",
         link: "https://tnpsc.gov.in/Tentative/Document/01_2024_GR_IV_GENERAL_TAMIL.pdf",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       },
       {
         title: "Group I Prelims - GS & Aptitude",
         link: "https://tnpsc.gov.in/Tentative/Document/04_2024_CCSE_P_I_13_07_24.pdf",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       }
     ]
   },
   {
     year: "2023",
-    icon: "https://img.icons8.com/color/96/000000/folder-invoices.png",
+    icon: "folder",
     exams: [
       {
         title: "Group II/IIA Prelims Archive",
         link: "https://www.tnpsc.gov.in/english/answerkeys.aspx",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       },
       {
         title: "Combined Engineering Services",
         link: "https://www.tnpsc.gov.in/english/answerkeys.aspx",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       }
     ]
   },
   {
     year: "2022",
-    icon: "https://img.icons8.com/color/96/000000/folder-invoices.png",
+    icon: "folder",
     exams: [
       {
         title: "Group IV Services Paper - July",
         link: "https://tnpsc.gov.in/Tentative/Document/CCS4T_2022_OPT.pdf",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       },
       {
         title: "Group II Mains (Descriptive)",
         link: "https://tnpsc.gov.in/Tentative/Document/General%20Studies%20-%20CCS2E%20-%202022%20-%20Answer%20Key_opt.pdf",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       }
     ]
   },
   {
     year: "2021",
-    icon: "https://img.icons8.com/color/96/000000/folder-invoices.png",
+    icon: "folder",
     exams: [
       {
         title: "Group I Services Prelims",
         link: "https://www.tnpsc.gov.in/English/previous-year-question-papers",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       },
       {
         title: "Assistant Agricultural Officer",
         link: "https://www.tnpsc.gov.in/English/previous-year-question-papers",
-        icon: "https://img.icons8.com/color/48/000000/pdf.png"
+        icon: "pdf"
       }
     ]
   }
@@ -143,17 +143,17 @@ export const studyMaterials = [
       { 
         title: "Official 1st to 12th Std Books", 
         link: "https://www.tntextbooks.in/",
-        icon: "https://img.icons8.com/color/96/000000/books.png"
+        icon: "books"
       },
       { 
         title: "TN Textbook Corporation (TNBESC)", 
         link: "https://www.textbookcorp.in/",
-        icon: "https://img.icons8.com/color/96/000000/geography.png"
+        icon: "globe"
       },
       { 
         title: "Official NCERT / SCERT Repository", 
         link: "https://www.tntextbooks.in/",
-        icon: "https://img.icons8.com/color/96/000000/biotech.png"
+        icon: "science"
       }
     ]
   },
@@ -163,17 +163,17 @@ export const studyMaterials = [
       { 
         title: "Official Group I/II Syllabus", 
         link: "https://tnpsc.gov.in/static_pdf/syllabus/495_Group%20II%20and%20IIA%20prelims.pdf",
-        icon: "https://img.icons8.com/color/96/000000/parliament.png"
+        icon: "government"
       },
       { 
         title: "Official Group IV Syllabus", 
         link: "https://tnpsc.gov.in/static_pdf/syllabus/496_Group%20IV%20Syllabus.pdf",
-        icon: "https://img.icons8.com/color/96/000000/law.png"
+        icon: "law"
       },
       { 
         title: "Commission Answer Key Vault", 
         link: "https://www.tnpsc.gov.in/english/answerkeys.aspx",
-        icon: "https://img.icons8.com/color/96/000000/pi.png"
+        icon: "math"
       }
     ]
   }
@@ -183,56 +183,56 @@ export const examGroups = [
   {
     id: 'grp-1',
     title: "Group I Services",
-    icon: "https://img.icons8.com/color/96/000000/government-city.png",
+    icon: "government",
     description: "Highest civil services in Tamil Nadu including Deputy Collector & DSP.",
     salary: "₹56,100 - ₹2,05,700 (Level 22)",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   },
   {
     id: 'grp-2',
     title: "Group II & IIA Services",
-    icon: "https://img.icons8.com/color/96/000000/find-user-male.png",
+    icon: "search-user",
     description: "Municipal Commissioner, Sub-Registrar, and Assistant Section Officer.",
     salary: "₹37,200 - ₹1,17,600 (Level 19)",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   },
   {
     id: 'grp-4',
     title: "Group IV & VAO",
-    icon: "https://img.icons8.com/color/96/000000/administrator-male.png",
+    icon: "admin",
     description: "Village Administrative Officer, Junior Assistant, and Typist roles.",
     salary: "₹19,500 - ₹62,000 (Level 8)",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   },
   {
     id: 'grp-cts-i',
     title: "Combined Tech Services (I)",
-    icon: "https://img.icons8.com/color/96/000000/engineer.png",
+    icon: "tech",
     description: "Senior Technical roles requiring specific Engineering/Tech degrees.",
     salary: "₹56,100 - ₹2,05,700",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   },
   {
     id: 'grp-cts-di',
     title: "CTS (Diploma/ITI Level)",
-    icon: "https://img.icons8.com/color/96/000000/work.png",
+    icon: "work",
     description: "Technical Support & Junior roles for Diploma and ITI holders.",
     salary: "₹35,400 - ₹1,12,400",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   },
   {
     id: 'grp-cts-ni',
     title: "CTS (Non-Interview)",
-    icon: "https://img.icons8.com/color/96/000000/briefcase.png",
+    icon: "briefcase",
     description: "Specialized non-interview posts in various Govt departments.",
     salary: "₹35,900 - ₹1,13,500",
     link: "https://www.tnpsc.gov.in/English/annual_planner.html",
-    pdfLink: "https://www.tnpsc.gov.in/StaticFiles/Planner/Annual_Planner_2026.pdf"
+    pdfLink: "https://tnpsc.gov.in/document/pressenglish/PR_1712025.pdf"
   }
 ];
 
@@ -243,22 +243,22 @@ export const syllabus = {
       { 
         subject: "General Tamil / English", 
         content: "Grammar, Literature, Authors & their Works. High focus on 6th-10th Samacheer Kalvi books.",
-        icon: "https://img.icons8.com/color/96/000000/books.png"
+        icon: "books"
       },
       { 
         subject: "General Studies (Polity & History)", 
         content: "Indian Constitution, Preamble, Fundamental Rights, Indus Valley Civilization, South Indian History.",
-        icon: "https://img.icons8.com/color/96/000000/parliament.png"
+        icon: "government"
       },
       { 
         subject: "General Science & Geography", 
         content: "Nature of Universe, Physics (Electricity/Magnetism), Geography of India (Monsoon, Rainfall).",
-        icon: "https://img.icons8.com/color/96/000000/biotech.png"
+        icon: "science"
       },
       { 
         subject: "Aptitude & Mental Ability", 
         content: "Simplification, Percentage, Ratio & Proportion, HCF & LCM, Simple & Compound Interest.",
-        icon: "https://img.icons8.com/color/96/000000/pi.png"
+        icon: "math"
       }
     ]
   },
@@ -268,17 +268,17 @@ export const syllabus = {
       { 
         subject: "General Studies (Core)", 
         content: "Indian Economy, National Movement, Development Administration in Tamil Nadu (Unit 9).",
-        icon: "https://img.icons8.com/color/96/000000/bank.png"
+        icon: "bank"
       },
       { 
         subject: "Aptitude & Reasoning", 
         content: "Data Interpretation, Logical Reasoning, Number Series, Visual Reasoning.",
-        icon: "https://img.icons8.com/color/96/000000/idea.png"
+        icon: "idea"
       },
       { 
         subject: "Main Written Exam", 
         content: "Tamil to English Translation, English to Tamil, Precis Writing, Comprehension, Letter Writing.",
-        icon: "https://img.icons8.com/color/96/000000/edit-property.png"
+        icon: "pencil"
       }
     ]
   },
@@ -288,17 +288,17 @@ export const syllabus = {
       { 
         subject: "General Studies (Prelims)", 
         content: "Indian Culture, Social Justice, TN History, Culture, and Social Movements (Unit 8 & 9).",
-        icon: "https://img.icons8.com/color/96/000000/parliament.png"
+        icon: "government"
       },
       { 
         subject: "General Studies (Mains)", 
         content: "Modern History, Indian Polity, Science & Tech, Geography, Environment.",
-        icon: "https://img.icons8.com/color/96/000000/law.png"
+        icon: "law"
       },
       { 
         subject: "Aptitude & Mental Ability", 
         content: "High-level Analytical Reasoning, Data interpretation, and Logical Aptitude.",
-        icon: "https://img.icons8.com/color/96/000000/pi.png"
+        icon: "math"
       }
     ]
   }

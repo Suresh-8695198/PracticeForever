@@ -9,6 +9,21 @@ import {
   Download,
   ArrowUpRight,
   Search,
+  Landmark,
+  FileText,
+  Book,
+  Globe as GlobeIcon,
+  FlaskConical,
+  Gavel,
+  Calculator,
+  UserSearch,
+  UserRound,
+  Wrench,
+  Briefcase,
+  Banknote,
+  Lightbulb as LightbulbIcon,
+  Pencil,
+  FolderClosed
 } from 'lucide-react';
 import { 
   FcLineChart, 
@@ -125,6 +140,30 @@ const TNPSCPage = () => {
             setShowPrev(false);
         }
     };
+    // Mapping identifiers to Lucide components for reliability
+    const IconRenderer = ({ icon, className = "w-10 h-10" }) => {
+        const iconMap = {
+            'government': Landmark,
+            'pdf': FileText,
+            'books': Book,
+            'globe': GlobeIcon,
+            'science': FlaskConical,
+            'law': Gavel,
+            'math': Calculator,
+            'search-user': UserSearch,
+            'admin': UserRound,
+            'tech': Wrench,
+            'work': Briefcase,
+            'briefcase': Briefcase,
+            'bank': Banknote,
+            'idea': LightbulbIcon,
+            'pencil': Pencil,
+            'folder': FolderClosed
+        };
+
+        const IconComponent = iconMap[icon] || Search;
+        return <IconComponent className={`${className} text-[#059669]`} />;
+    };
 
     return (
         <div className={`min-h-screen ${colors.bg} ${colors.text} font-sans selection:bg-[#065f46] selection:text-white overflow-x-hidden`}>
@@ -224,31 +263,30 @@ const TNPSCPage = () => {
                                      {showPrev && (
                                          <div className="absolute left-0 top-0 bottom-4 w-16 bg-gradient-to-r from-[#fcfdfc] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
                                      )}
-                                     <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-[#fcfdfc] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-                                     
-                                     {/* Persistent Controls - Intelligent Visibility */}
-                                     {showPrev && (
-                                         <button 
-                                             onClick={() => {
-                                                 if(scrollRef.current) scrollRef.current.scrollBy({ left: -150, behavior: 'smooth' });
-                                             }}
-                                             className="absolute left-0 top-[3px] z-20 flex items-center justify-center h-[38px] w-10 rounded-md border border-[#059669]/20 bg-white/90 dark:bg-[#1a1a1a]/90 text-[#059669] shadow-lg backdrop-blur-sm active:scale-95 transition-all"
-                                         >
-                                             <ChevronLeft size={20} strokeWidth={3} />
-                                         </button>
-                                     )}
+                    <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-[#fcfdfc] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+                    
+                    {/* Persistent Controls - Intelligent Visibility */}
+                    <button 
+                         onClick={() => {
+                             if(scrollRef.current) scrollRef.current.scrollBy({ left: -150, behavior: 'smooth' });
+                             setShowPrev(true);
+                         }}
+                         className={`absolute left-0 top-[3px] z-20 flex items-center justify-center h-[38px] w-10 rounded-md border border-[#059669]/20 bg-white/90 dark:bg-[#1a1a1a]/90 text-[#059669] shadow-lg backdrop-blur-sm active:scale-95 transition-all ${!showPrev && 'hidden'}`}
+                    >
+                         <ChevronLeft size={20} strokeWidth={3} />
+                    </button>
 
-                                     <button 
-                                        onClick={() => {
-                                            if(scrollRef.current) {
-                                                scrollRef.current.scrollBy({ left: 150, behavior: 'smooth' });
-                                                setShowPrev(true);
-                                            }
-                                        }}
-                                        className="absolute right-0 top-[3px] z-20 flex items-center justify-center h-[38px] w-10 rounded-md border border-[#059669]/20 bg-white/90 dark:bg-[#1a1a1a]/90 text-[#059669] shadow-lg backdrop-blur-sm active:scale-95 transition-all"
-                                    >
-                                        <ChevronRight size={20} strokeWidth={3} />
-                                     </button>
+                    <button 
+                       onClick={() => {
+                           if(scrollRef.current) {
+                               scrollRef.current.scrollBy({ left: 150, behavior: 'smooth' });
+                               setShowPrev(true);
+                           }
+                       }}
+                       className="absolute right-0 top-[3px] z-20 flex items-center justify-center h-[38px] w-10 rounded-md border border-[#059669]/20 bg-white/90 dark:bg-[#1a1a1a]/90 text-[#059669] shadow-lg backdrop-blur-sm active:scale-95 transition-all"
+                   >
+                       <ChevronRight size={20} strokeWidth={3} />
+                    </button>
 
                                      <div 
                                         ref={scrollRef}
@@ -367,9 +405,13 @@ const TNPSCPage = () => {
                                                             </div>
 
                                                             <div className="mt-8 flex justify-center">
-                                                                 <button className="text-[11px] font-bold text-slate-400 hover:text-[#059669] uppercase tracking-widest transition-colors flex items-center gap-1.5">
+                                                                 <Link 
+                                                                    href="https://www.tnpsc.gov.in/English/annual_planner.html"
+                                                                    target="_blank"
+                                                                    className="text-[11px] font-bold text-slate-400 hover:text-[#059669] uppercase tracking-widest transition-colors flex items-center gap-1.5"
+                                                                 >
                                                                       Full Exam Calendar <ArrowUpRight size={14} />
-                                                                 </button>
+                                                                 </Link>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -461,7 +503,7 @@ const TNPSCPage = () => {
                                         >
                                             <div className="flex items-start justify-between mb-6">
                                                 <div className="p-3 bg-slate-50 dark:bg-neutral-900 border border-slate-100 dark:border-neutral-800 rounded">
-                                                    <img src={group.icon} alt={group.title} className="w-10 h-10 grayscale-0 group-hover:scale-110 transition-transform" />
+                                                    <IconRenderer icon={group.icon} className="w-10 h-10 group-hover:scale-110 transition-transform" />
                                                 </div>
                                                 <ArrowUpRight className="text-slate-300 group-hover:text-[#059669] transition-colors" size={24} />
                                             </div>
@@ -510,7 +552,7 @@ const TNPSCPage = () => {
                                                 <div key={i} className={`group bg-white dark:bg-neutral-950 border-2 ${colors.border} p-6 h-full hover:border-[#059669] transition-all relative`}>
                                                     <div className="flex items-start gap-6">
                                                         <div className="flex-shrink-0 p-3 bg-slate-50 dark:bg-neutral-900 border border-slate-100 dark:border-neutral-800 rounded">
-                                                            <img src={subj.icon} alt={subj.subject} className="w-10 h-10 grayscale-0 group-hover:scale-110 transition-transform" />
+                                                            <IconRenderer icon={subj.icon} className="w-10 h-10 group-hover:scale-110 transition-transform" />
                                                         </div>
                                                         <div className="flex-grow">
                                                             <div className="flex items-center justify-between mb-2">
@@ -537,7 +579,7 @@ const TNPSCPage = () => {
                                     <div key={yearFolder.year} className={`p-8 border-2 ${colors.border} bg-white dark:bg-neutral-950 rounded-none relative overflow-hidden`}>
                                         <div className="flex items-center gap-4 mb-8 border-b-2 border-slate-900 dark:border-white pb-4">
                                             <div className="p-2 bg-slate-50 dark:bg-neutral-900 border border-slate-100 dark:border-neutral-800 rounded">
-                                                <img src={yearFolder.icon} alt={yearFolder.year} className="w-10 h-10" />
+                                                <IconRenderer icon={yearFolder.icon} className="w-10 h-10" />
                                             </div>
                                             <div>
                                                 <h3 className="text-[22px] font-black text-black dark:text-white leading-none">ARCHIVE {yearFolder.year}</h3>
@@ -554,7 +596,7 @@ const TNPSCPage = () => {
                                                     className={`p-4 border ${colors.border} hover:border-[#059669] flex items-center justify-between group transition-all`}
                                                 >
                                                     <div className="flex items-center gap-4">
-                                                        <img src={paper.icon} alt="pdf" className="w-6 h-6 grayscale group-hover:grayscale-0 transition-all" />
+                                                        <IconRenderer icon={paper.icon} className="w-6 h-6 grayscale group-hover:grayscale-0 transition-all" />
                                                         <span className="text-[13px] font-bold text-black dark:text-white uppercase tracking-tight">{paper.title}</span>
                                                     </div>
                                                     <div className="flex flex-col items-end">
@@ -587,7 +629,7 @@ const TNPSCPage = () => {
                                                     className={`p-6 bg-white dark:bg-neutral-950 border-2 ${colors.border} hover:border-[#059669] transition-all flex items-center gap-4 group`}
                                                 >
                                                     <div className="flex-shrink-0 p-3 bg-slate-50 dark:bg-neutral-900 border border-slate-100 dark:border-neutral-800 rounded">
-                                                        <img src={item.icon} alt={item.title} className="w-10 h-10 group-hover:scale-110 transition-transform" />
+                                                        <IconRenderer icon={item.icon} className="w-10 h-10 group-hover:scale-110 transition-transform" />
                                                     </div>
                                                     <div className="flex-grow">
                                                         <h4 className="text-[13px] font-black text-black dark:text-white uppercase leading-tight mb-1">{item.title}</h4>
