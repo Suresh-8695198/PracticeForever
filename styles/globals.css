@@ -430,7 +430,7 @@ body.dark .highlight-yellow { color: #FBBF24 !important; }
 
 /* News Article Professional Styling */
 .news-feed-content strong.section-title {
-  @apply block text-[20px] font-extrabold text-black dark:text-white mb-5 tracking-tight leading-tight !bg-transparent !p-0 !shadow-none !rounded-none;
+  @apply block text-[20px] font-bold text-black dark:text-white mb-5 tracking-tight leading-tight !bg-transparent !p-0 !shadow-none !rounded-none;
 }
 
 .news-feed-content strong.sub-title {
@@ -474,7 +474,7 @@ body.dark .highlight-yellow { color: #FBBF24 !important; }
   @apply border-emerald-600 bg-emerald-50/40 dark:bg-emerald-900/10;
 }
 
-.news-feed-content .editorial-box strong {
+.news-feed-content .editorial-box > strong {
   @apply block text-[12px] font-black uppercase tracking-wider mb-2.5 !p-0 !bg-transparent !shadow-none !rounded-none;
   font-family: inherit;
 }

@@ -3,17 +3,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRight, 
+  ArrowRight, Landmark, Building2, Shield, Globe, Banknote, LineChart, Lightbulb, History
 } from 'lucide-react';
-import { 
-  FcOrganization, 
-  FcGlobe, 
-  FcDepartment, 
-  FcCurrencyExchange, 
-  FcIdea, 
-  FcLineChart,
-  FcTimeline
-} from 'react-icons/fc';
 import { useTheme } from '@/context/ThemeContext';
 
 const exams = [
@@ -22,7 +13,7 @@ const exams = [
         title: 'TNPSC Exam.',
         desc: 'Official state-level civil services path for Tamil Nadu. Groups 1, 2, & 4.',
         path: '/exams/tnpsc',
-        icon: FcOrganization,
+        icon: Landmark,
         tag: 'Recommended'
     },
     {
@@ -30,7 +21,7 @@ const exams = [
         title: 'UPSC Merit.',
         desc: 'Indian administrative service modules. IAS, IPS, and IFS tracks.',
         path: '/exams/upsc',
-        icon: FcDepartment,
+        icon: Building2,
         tag: 'Elite'
     },
     {
@@ -38,7 +29,7 @@ const exams = [
         title: 'SSC Central.',
         desc: 'Staff selection for diverse central ministries and departments.',
         path: '/exams/ssc',
-        icon: FcGlobe,
+        icon: Globe,
         tag: 'Federal'
     },
     {
@@ -46,7 +37,7 @@ const exams = [
         title: 'Banking HQ.',
         desc: 'IBPS, SBI, and RBI specific quantitative and verbal tracks.',
         path: '/exams/banking',
-        icon: FcCurrencyExchange,
+        icon: Banknote,
         tag: 'Corporate'
     }
 ];
@@ -132,19 +123,19 @@ const ExamsLandingPage = () => {
                 </div>
 
                 {/* Status Row */}
-                <div className="mt-16 pt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+                 <div className="mt-16 pt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
                      <div className="space-y-4">
-                         <FcLineChart size={32} />
+                         <LineChart size={32} className="text-emerald-500" />
                          <h4 className="text-[16px] font-bold">Data Integration.</h4>
                          <p className={`text-[12px] ${colors.subtext} leading-relaxed font-medium`}>Direct pipelines from official commission notification servers.</p>
                      </div>
                      <div className="space-y-4">
-                         <FcIdea size={32} />
+                         <Lightbulb size={32} className="text-amber-500" />
                          <h4 className="text-[16px] font-bold">Verified Content.</h4>
                          <p className={`text-[12px] ${colors.subtext} leading-relaxed font-medium`}>Every paper vault is cross-checked by year-specific toppers.</p>
                      </div>
                      <div className="space-y-4">
-                         <FcTimeline size={32} />
+                         <History size={32} className="text-blue-500" />
                          <h4 className="text-[16px] font-bold">Verified Roadmap.</h4>
                          <p className={`text-[12px] ${colors.subtext} leading-relaxed font-medium`}>Follow a structural path verified by commission protocol.</p>
                      </div>

@@ -1,3 +1,777 @@
+export const MARCH_19_ARTICLE = {
+    id: 19032026,
+    title: "Daily Current Affairs – 19 March 2026",
+    publish_date: "2026-03-19",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>19 March 2026</strong> current affairs covering <strong>international relations</strong>, economy, <strong>polity</strong>, security, and <strong>Tamil Nadu politics</strong> for all competitive exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Iran Attacks Gulf Energy Sites</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Iran</strong> launched strikes on oil and gas facilities in <strong>Gulf countries</strong> after attacks on its gas fields.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Triggered by <strong>US-Israel strikes</strong> on Iran.</li>
+                <li>Target: <strong>South Pars gas field</strong> (world’s largest gas reserve).</li>
+                <li>Iran warned of <strong>retaliatory attacks</strong> in the region.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Impacts <strong>global energy supply</strong>, oil prices, and overall <strong>geopolitical stability</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/iran_strike.png" alt="Iran Attack" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. 22 India-Bound Ships in Hormuz Evacuation List</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>India</strong> identified 22 ships for <strong>evacuation</strong> from the <strong>Strait of Hormuz</strong> due to rising tensions.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Carry <strong>2.15 lakh tonnes LNG</strong> and 3.21 lakh tonnes LPG.</li>
+                <li>Contains <strong>16.76 lakh tonnes crude oil</strong> for Indian refineries.</li>
+                <li>20 ships are <strong>critical for India’s energy security</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Strait of Hormuz handles <strong>major global oil trade</strong>, making it <strong>crucial for India</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/hormuz_evac.png" alt="Hormuz Evacuation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Government Increases LPG Allocation</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Government</strong> plans to allocate <strong>10% more LPG</strong> to states to ensure domestic supply.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Aim: Reduce impact of <strong>West Asia tensions</strong> on households.</li>
+                <li>Promote <strong>PNG usage</strong> for the commercial sector.</li>
+                <li>A new <strong>tier-based supply system</strong> is being planned.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Ensures <strong>fuel availability</strong> and reduces <strong>import dependency</strong> during global crises.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/lpg.png" alt="LPG Allocation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Drone Threat Along India Borders</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A <strong>Parliament panel report</strong> revealed frequent <strong>drone sightings</strong> and incursions along Indian borders.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Around <strong>2–3 drones</strong> are sighted daily on average.</li>
+                <li>Total cases: <strong>4,323 sightings</strong> over 5 years.</li>
+                <li>Interceptions led to <strong>seizure of weapons</strong> and drugs.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Shows rising <strong>border security challenges</strong> and the use of <strong>drones in smuggling</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/drone.png" alt="Drone Threat" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Major Fire Incidents Kill 17 People</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Tragic <strong>fires</strong> in <strong>Delhi and Indore</strong> resulted in the death of 17 people recently.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Many victims were <strong>children and elderly residents</strong>.</li>
+                <li>Additional fires reported in <strong>Ahmedabad and Chandigarh</strong>.</li>
+                <li>High-level <strong>investigations ordered</strong> by local authorities.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>Highlights the urgent need for <strong>fire safety regulations</strong> and strict <strong>enforcement</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/fire.png" alt="Fire incidents" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. U.S. Offers Exit Bonus for Illegal Migrants</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>U.S.</strong> announced a <strong>$2,600 incentive</strong> for voluntary deportation of illegal migrants.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Includes <strong>free travel support</strong> to their home countries.</li>
+                <li>Uses a <strong>mobile application system</strong> for registration.</li>
+                <li>Applies only to <strong>undocumented migrants</strong> currently in the US.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Represents a <strong>major shift</strong> in international <strong>immigration policy</strong> and border control.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/exit_bonus.png" alt="Exit Bonus" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. PM Modi Addresses Retiring Rajya Sabha MPs</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Rajya Sabha</strong> bid farewell to <strong>59 retiring MPs</strong>, including several veteran leaders.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>PM stated: <strong>“No full stop in politics”</strong> during his speech.</li>
+                <li>Leaders: <strong>H.D. Deve Gowda</strong> and Mallikarjun Kharge.</li>
+                <li>Veteran <strong>Sharad Pawar</strong> also completed his current term.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Highlights <strong>parliamentary continuity</strong> and the importance of <strong>legislative experience</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/pm_farewell.png" alt="PM Farewell" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Russian Oil Tanker Diverted to India</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A <strong>tanker</strong> originally heading to China is now being <strong>diverted to India</strong> for unloading.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Carrying <strong>1.1 lakh tonnes crude oil</strong> from Russia.</li>
+                <li>Expected at <strong>New Mangalore port</strong> within this week.</li>
+                <li>Reflects <strong>changing global oil</strong> trade routes and dynamics.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Strengthens India’s <strong>energy imports diversification</strong> and <strong>strategic reserves</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/russian_tanker.png" alt="Russian Tanker" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">9. Consumer Justice System Weakening: Report</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A new <strong>report</strong> highlighted critical structural issues in <strong>consumer courts</strong> in India.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Problems include <strong>high vacancies</strong> and backlog of cases.</li>
+                <li>Lack of <strong>transparency</strong> and slow digital adoption noticed.</li>
+                <li>Major complaints relate to <strong>insurance and housing</strong> sectors.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Directly affects the <strong>consumer rights protection</strong> system and <strong>legal redressal</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/civil_service.png" alt="Consumer Justice" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">10. Tamil Nadu Politics – DMK Seat Sharing</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>DMK</strong> finalized its election <strong>alliance with CPI</strong> for the Tamil Nadu state elections.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>CPI has been <strong>allotted 5 seats</strong> in the coalition.</li>
+                <li>Talks with <strong>CPI(M) are ongoing</strong> to finalize numbers.</li>
+                <li>Mission led by <strong>M.K. Stalin</strong> and M. Veerapandian.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Critical step for <strong>Tamil Nadu Assembly elections</strong> and <strong>coalition strategy</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/tn_politics.png" alt="DMK CPI Alliance" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">11. Vijay (TVK) Rejects Alliances</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>TVK leader Vijay</strong> has ruled out any political <strong>alliances</strong> for the upcoming polls.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Statement: <strong>No alliance with NDA</strong> or other majors.</li>
+                <li>Focus areas: <strong>Secularism</strong> and social justice themes.</li>
+                <li>Announcement made during an <strong>Iftar event</strong> in Chennai.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>May significantly impact <strong>Tamil Nadu political dynamics</strong> and <strong>voter splitting</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/tn_alliance.png" alt="Vijay TVK" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">12. TN launches 24/7 Helpline for Mental Health</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Tamil Nadu Government</strong> launched a new <strong>24/7 helpline</strong> for mental health support.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Helpline number: <strong>14416</strong>, available across the state.</li>
+                <li>Staffed by <strong>trained psychologists</strong> and social workers.</li>
+                <li>Focus on <strong>youth and students</strong> during exam seasons.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Promotes <strong>mental well-being</strong> and accessible <strong>healthcare support</strong> in TN.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/tn_health.png" alt="TN Health Helpline" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">13. Chennai Metro Phase II Breakthrough</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Chennai Metro</strong> Phase II expansion achieved a major <strong>tunneling breakthrough</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Connecting <strong>Poonamallee to Lighthouse</strong> corridor.</li>
+                <li>Work completed ahead of <strong>project deadlines</strong> in some areas.</li>
+                <li>State-of-the-art <strong>tunnel boring machines</strong> (TBM) used.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Essential for <strong>Chennai urban mobility</strong> and reducing <strong>traffic congestion</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/bridge_collapse.png" alt="Chennai Metro" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">14. TN Climate Mission App Launched</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A new app for the <strong>TN Climate Mission</strong> was launched to track <strong>carbon footprints</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>TN is the <strong>first state in India</strong> with own mission.</li>
+                <li>App helps citizens <strong>calculate emissions</strong> daily.</li>
+                <li>Supports <strong>Green Tamil Nadu</strong> afforestation goals.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Pioneering move for <strong>environmental sustainability</strong> and <strong>climate action</strong> in India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar19/tn_water.png" alt="TN Climate Mission" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Iran initiates strikes on energy facilities in the Gulf following regional tensions.</li>
+        <li>India prepares evacuation plans for 22 ships currently in the Strait of Hormuz.</li>
+        <li>Centre increases LPG state allocation by 10% to secure domestic fuel supply.</li>
+        <li>Parliamentary report warns of increasing drone incursions along Indian borders.</li>
+        <li>Fire incidents in Delhi, Indore, and Ahmedabad claim 17 lives; probes underway.</li>
+        <li>U.S. introduces $2,600 'Exit Bonus' to encourage voluntary deportation of migrants.</li>
+        <li>PM Modi addresses 59 retiring Rajya Sabha MPs, emphasizing political continuity.</li>
+        <li>Russia diverts India-bound oil tanker from China to New Mangalore port.</li>
+        <li>Consumer court system faces weakening due to high vacancies and case backlogs.</li>
+        <li>DMK finalizes alliance with CPI, allotting 5 seats for Tamil Nadu assembly polls.</li>
+        <li>Actor-politician Vijay (TVK) rejects all alliances, focusing on social justice.</li>
+        <li>Tamil Nadu launches dedicated 14416 mental health helpline for 24/7 support.</li>
+        <li>Chennai Metro Phase II achieves critical tunneling breakthrough near Lighthouse.</li>
+        <li>TN Climate Mission launches mobile app to track individual carbon footprints.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Which port will receive the diverted Russian oil tanker?</h4>
+    <p>The tanker is expected at the New Mangalore port in India.</p>
+
+    <h4>2. What is the amount of the U.S. voluntary deportation bonus?</h4>
+    <p>The U.S. government is offering a $2,600 incentive per person for exit support.</p>
+
+    <h4>3. How many seats were allotted to CPI in the DMK alliance?</h4>
+    <p>CPI has been allotted 5 seats for the Tamil Nadu assembly elections.</p>
+
+    <h4>4. What is the name of Vijay's political party?</h4>
+    <p>The party is called TVK (Thamizhaga Vettri Kazhagam).</p>
+
+    <h4>5. What is the TN mental health helpline number?</h4>
+    <p>The helpline number is 14416, providing 24/7 counseling support.</p>
+</div>
+`
+};
+
+export const MARCH_18_ARTICLE = {
+    id: 18032026,
+    title: "Daily Current Affairs – 18 March 2026",
+    publish_date: "2026-03-18",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>18 March 2026</strong> current affairs covering <strong>polity</strong>, international relations, <strong>economy</strong>, governance, and <strong>social issues</strong> for UPSC, SSC, Banking, and TNPSC exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. 8 MPs Reinstated in Lok Sabha</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Lok Sabha</strong> revoked the suspension of <strong>8 opposition MPs</strong> who were earlier suspended for <strong>unruly behaviour</strong> in the House.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>MPs were <strong>suspended since February 3</strong>.</li>
+                <li>Speaker <strong>Om Birla</strong> stressed on House discipline.</li>
+                <li>New rules: Ban on <strong>placards, posters, and AI images</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Ensures <strong>smooth functioning</strong> of Parliament and sets strict rules for <strong>legislative discipline</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/mps_reinstated_mar18.png" alt="MPs Reinstated Lok Sabha" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Supreme Court Pushes for Paternity Leave Law</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Supreme Court</strong> urged the government to introduce a <strong>paternity leave law</strong> to encourage shared parenting.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Parenthood is a <strong>shared responsibility</strong> between both parents.</li>
+                <li>Policy decision aimed at <strong>promoting gender equality</strong>.</li>
+                <li>Court also extended <strong>maternity leave</strong> for all <strong>adoptive mothers</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Promotes <strong>equal parenting roles</strong> and improves the <strong>child development</strong> support system in India.</p>
+            </div>
+        </div>
+        <img src="/images/paternity_leave_mar18.png" alt="Supreme Court Paternity Leave" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. 7 Foreign Nationals Arrested in Drone Terror Plot</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Seven foreigners, including <strong>6 Ukrainians</strong> and 1 US citizen, were arrested for planning <strong>drone-based terror</strong> activities.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Accused used <strong>tourist visas</strong> to enter India illegally.</li>
+                <li>Investigation linked them with <strong>Myanmar armed groups</strong>.</li>
+                <li>All suspects were charged under the <strong>UAPA act</strong>.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Highlights rising <strong>drone warfare</strong> threats and serious <strong>cross-border security</strong> risks.</p>
+            </div>
+        </div>
+        <img src="/images/drone_terror_arrest_mar18.png" alt="Drone Terror Plot Arrests" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Kabul Hospital Airstrike Kills Hundreds</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Taliban</strong> accused Pakistan of launching an <strong>airstrike</strong> on a medical facility in Kabul.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Around <strong>400 killed</strong> and over 250 injured in the strike.</li>
+                <li>Target was a <strong>drug rehabilitation centre</strong> in the capital.</li>
+                <li>Pakistan has <strong>denied all allegations</strong> regarding the incident.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>Raises global concerns about <strong>civilian safety</strong> and violations of <strong>humanitarian law</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/kabul_hospital_airstrike_mar18.png" alt="Kabul Hospital Airstrike" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Mamata Banerjee Announces Election Strategy</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Trinamool Congress</strong> (TMC) released the candidate list for the upcoming <strong>West Bengal Assembly Elections</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>TMC is <strong>contesting 291 seats</strong> across the state.</li>
+                <li>Party <strong>dropped 74 sitting MLAs</strong> in a major move.</li>
+                <li>High-profile fight expected: <strong>Banerjee vs Suvendu Adhikari</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Shows an aggressive <strong>anti-incumbency strategy</strong> and a major <strong>political reshuffle</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/mamata_strategy_mar18.png" alt="TMC Election Strategy" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Bank of Maharashtra ₹1.78 Lakh Crore Defaults</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Bank of Maharashtra</strong> reported huge unpaid loans from several <strong>corporate defaulters</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Total dues reached <strong>₹1.78 lakh crore</strong> mark.</li>
+                <li>Major defaulters listed: <strong>Reliance Group</strong> and Videocon.</li>
+                <li>Includes cases like <strong>Winsome Diamonds</strong> and Videocon.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>Directly impacts <strong>banking sector stability</strong> and the <strong>loan recovery</strong> system.</p>
+            </div>
+        </div>
+        <img src="/images/bom_default_mar18.png" alt="Bank of Maharashtra Default" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. India Rejects Iran Tanker Swap Reports</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Government of <strong>India denied</strong> claims of a deal involving a <strong>tanker exchange</strong> with Iran.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Continuous talks for the <strong>safe return</strong> of hijacked ships.</li>
+                <li><strong>Strait of Hormuz</strong> crisis continues to escalate.</li>
+                <li>Around <strong>20% global oil</strong> passes through this route.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Critical for India’s <strong>energy security</strong> and overall <strong>global trade stability</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/india_iran_swap_mar18.png" alt="India Iran Tanker Swap Rejection" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Advisory Issued for Civil Service Aspirants</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>LBSNAA</strong> issued new guidelines for <strong>newly selected</strong> civil servants regarding discipline.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Aspirants advised to <strong>avoid social media misuse</strong>.</li>
+                <li>Mandatory to maintain <strong>professional conduct</strong> at all times.</li>
+                <li>Strict rules against <strong>personal self-promotion</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Aims to build an <strong>ethical governance</strong> culture right from the <strong>training phase</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/civil_service_advisory_mar18.png" alt="LBSNAA Civil Service Advisory" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">9. Health Insurance for All by 2033</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Finance Minister</strong> announced a landmark plan for <strong>universal health insurance</strong> coverage.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Target: Achieve <strong>coverage for all</strong> by the year 2033.</li>
+                <li>Around <strong>58 crore people</strong> are already covered under schemes.</li>
+                <li>The healthcare sector is <strong>growing rapidly</strong> in the country.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Significantly strengthens <strong>healthcare accessibility</strong> and financial protection in India.</p>
+            </div>
+        </div>
+        <img src="/images/health_insurance_mar18.png" alt="Universal Health Insurance 2033" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">10. Delhi Bridge Collapse Kills Woman</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A woman died after a <strong>foot overbridge collapsed</strong> in the Roop Nagar area of <strong>Delhi</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The bridge was <strong>33 years old</strong> and in poor condition.</li>
+                <li>Structure was already <strong>declared unsafe</strong> by authorities.</li>
+                <li>Maintenance and <strong>enforcement gaps</strong> led to the tragedy.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Highlights critical <strong>infrastructure safety</strong> failures and urgent need for <strong>public safety</strong> audits.</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Lok Sabha reinstates 8 suspended opposition MPs after disciplinary review.</li>
+        <li>Supreme Court urges Centre to enact a nationwide paternity leave law.</li>
+        <li>Seven foreign nationals arrested in drone-based terror conspiracy investigation.</li>
+        <li>Death toll reaches 400 in Kabul hospital strike; Pakistan denies involvement.</li>
+        <li>TMC drops 74 MLAs and announces candidate list for WB Assembly polls.</li>
+        <li>Bank of Maharashtra faces ₹1.78 lakh crore defaults from major corporates.</li>
+        <li>India rejects reports of oil tanker swap deal with Iran amid maritime crisis.</li>
+        <li>LBSNAA issues strict social media and conduct guidelines for new civil servants.</li>
+        <li>Union Government targets universal health insurance coverage for all by 2033.</li>
+        <li>Bridge collapse in Delhi’s Roop Nagar reveals critical urban safety lapses.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Who reinstated the suspended MPs in Lok Sabha?</h4>
+    <p>The suspension was revoked by the Lok Sabha Speaker after disciplinary considerations.</p>
+
+    <h4>2. What is the target year for universal health insurance in India?</h4>
+    <p>The government aims to achieve universal health insurance coverage for all citizens by 2033.</p>
+
+    <h4>3. Which bank reported a ₹1.78 lakh crore default recently?</h4>
+    <p>The Bank of Maharashtra reported large defaults from several corporate groups.</p>
+
+    <h4>4. Where did the foot overbridge collapse occur?</h4>
+    <p>The tragic bridge collapse happened in the Roop Nagar locality of Delhi.</p>
+
+    <h4>5. Why were the 8 MPs originally suspended?</h4>
+    <p>They were suspended for unruly behaviour and disrupting parliamentary proceedings.</p>
+</div>
+`
+};
+
+export const MARCH_17_ARTICLE = {
+    id: 17032026,
+    title: "Daily Current Affairs 17 March 2026 – Top News for UPSC, SSC, Banking, TNPSC Exams",
+    publish_date: "2026-03-17",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>17 March 2026</strong> current affairs covering <strong>polity</strong>, economy, international relations, environment, and <strong>national news</strong> for all competitive exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. ECI Transfers Officials in West Bengal Before Elections</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>Election Commission of India</strong> (ECI) ordered a <strong>late-night transfer</strong> of senior officials in West Bengal ahead of elections.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Chief Secretary and <strong>Home Secretary</strong> were transferred.</li>
+                <li>Officials restricted from <strong>election-related work</strong>.</li>
+                <li>Triggered protests by <strong>Trinamool Congress</strong> (TMC).</li>
+                <li>Opposition accused ECI of <strong>overstepping authority</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Ensures <strong>free and fair elections</strong>, but raises concerns about <strong>federalism</strong> and administrative control.</p>
+            </div>
+        </div>
+        <img src="/images/eci_transfer_wb_mar17.png" alt="ECI Transfer Officials West Bengal" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. NDA Wins Rajya Sabha Seats in Bihar</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The <strong>National Democratic Alliance</strong> (NDA) won all <strong>Rajya Sabha seats</strong> in Bihar.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Winners include <strong>Nitish Kumar</strong> and Nitin Nabin.</li>
+                <li><strong>Cross-voting</strong> impacted results significantly.</li>
+                <li>NDA secured a <strong>strong legislative position</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Shows <strong>political dominance</strong> and affects future <strong>policy decisions</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/nda_bihar_rs_mar17.png" alt="NDA Wins Rajya Sabha Bihar" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. 10 Die in Odisha Hospital Fire</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A <strong>fire broke out</strong> in SCB Medical College, Cuttack, killing 10 patients.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Fire started in <strong>ICU ward</strong>.</li>
+                <li>Likely cause: <strong>short circuit</strong>.</li>
+                <li>Government announced <strong>₹25 lakh compensation</strong>.</li>
+                <li>Investigation committee formed.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Highlights need for <strong>hospital safety standards</strong> and <strong>emergency preparedness</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/odisha_hospital_fire_mar17.png" alt="Odisha Hospital Fire SCB Medical College" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Bank of Baroda Faces ₹2.21 Lakh Crore Default</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p><strong>Bank of Baroda</strong> reported large unpaid loans from <strong>corporate defaulters</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Total dues: <strong>₹2.21 lakh crore</strong>.</li>
+                <li>Major defaulter: <strong>Reliance Communications</strong>.</li>
+                <li>Over 9,000 <strong>recovery cases filed</strong>.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>Impacts <strong>banking sector stability</strong> and <strong>public money recovery</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/bob_default_mar17.png" alt="Bank of Baroda Default" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. India Engages Iran for Safe Oil Transport</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India ensured <strong>safe passage</strong> of oil tankers through the <strong>Strait of Hormuz</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Talks led by External Affairs Minister <strong>S. Jaishankar</strong>.</li>
+                <li>No permanent agreement, <strong>case-by-case coordination</strong>.</li>
+                <li>Important due to <strong>West Asia tensions</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Critical for India’s <strong>energy security</strong> and <strong>global trade routes</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/india_iran_oil_mar17.png" alt="India Iran Oil Transport Strait of Hormuz" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Women Reservation Act Amendment Likely</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Government may amend the <strong>Women Reservation Act</strong> (2023) for early implementation.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Provides <strong>33% reservation</strong> for women.</li>
+                <li>Implementation linked to <strong>delimitation process</strong>.</li>
+                <li>Amendment may allow <strong>earlier rollout</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Improves <strong>women political representation</strong> in India.</p>
+            </div>
+        </div>
+        <img src="/images/women_reservation_mar17.png" alt="Women Reservation Act Amendment" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. 47% MLAs in West Bengal Have Criminal Cases</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A report revealed <strong>high criminal cases</strong> among MLAs in <strong>West Bengal</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li><strong>47% MLAs</strong> have criminal cases.</li>
+                <li>37% <strong>serious cases</strong>.</li>
+                <li>Includes cases like <strong>attempt to murder</strong>.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Raises concerns about <strong>criminalization of politics</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/wb_mla_criminal_mar17.png" alt="West Bengal MLAs Criminal Cases" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">8. Government Promotes PNG to Reduce LPG Pressure</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Government advised industries to shift to <strong>Piped Natural Gas</strong> (PNG).</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Due to <strong>LPG supply pressure</strong>.</li>
+                <li><strong>Incentives offered</strong> for PNG connections.</li>
+                <li>Domestic LPG supply remains <strong>stable</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Helps manage <strong>energy crisis</strong> and promotes <strong>clean fuel usage</strong>.</p>
+            </div>
+        </div>
+        <img src="/images/png_promotion_mar17.png" alt="PNG Promotion LPG Pressure Reduction" class="w-full h-48 md:h-44 object-cover rounded-xl shadow-md border border-zinc-200/50" />
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>ECI ordered late-night transfer of West Bengal Chief and Home Secretaries.</li>
+        <li>NDA won all Rajya Sabha seats in Bihar; Nitish Kumar among winners.</li>
+        <li>Tragedy in Odisha as 10 die in SCB Medical College ICU fire.</li>
+        <li>Bank of Baroda reports ₹2.21 lakh crore default, mainly corporate.</li>
+        <li>India coordinates with Iran for safe oil passage in Strait of Hormuz.</li>
+        <li>Amendment to Women Reservation Act likely for earlier implementation.</li>
+        <li>Report shows 47% of West Bengal MLAs face criminal charges.</li>
+        <li>Industries encouraged to shift to PNG to maintain domestic LPG stability.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Who were the senior officials transferred in West Bengal?</h4>
+    <p>The Chief Secretary and Home Secretary of West Bengal were transferred by the ECI.</p>
+
+    <h4>2. Which major corporate defaulter was mentioned for Bank of Baroda?</h4>
+    <p>Reliance Communications was mentioned as a major defaulter for Bank of Baroda.</p>
+
+    <h4>3. What is the cause of the Odisha hospital fire?</h4>
+    <p>The fire in the ICU ward of SCB Medical College was likely caused by a short circuit.</p>
+
+    <h4>4. What percentage of West Bengal MLAs have serious criminal cases?</h4>
+    <p>According to the report, 37% of MLAs in West Bengal have serious criminal cases.</p>
+
+    <h4>5. Why is the government promoting Piped Natural Gas (PNG)?</h4>
+    <p>The government is promoting PNG to reduce the supply pressure on Liquefied Petroleum Gas (LPG).</p>
+</div>
+`
+};
+
 export const MARCH_16_ARTICLE = {
     id: 16032026,
     title: "Daily Current Affairs – 16 March 2026",

@@ -4,12 +4,13 @@ import {
     Calendar, Clock, ChevronRight,
     LayoutGrid, BookOpen, Search,
     Share2, Printer, ChevronLeft, Star, PhoneCall,
-    HelpCircle, CheckCircle2, Languages
+    HelpCircle, CheckCircle2, Languages, Mail, Lock
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { useSession } from 'next-auth/react';
+import { MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -134,7 +135,62 @@ const HIGHLIGHT_MAP = {
     "Vellimalai": "highlight-yellow",
     "Theni district": "highlight-yellow",
     "Brihanmumbai Municipal Corporation": "highlight-blue",
-    "VIP culture": "highlight-rose"
+    "VIP culture": "highlight-rose",
+    
+    // NEW March 17 Keywords
+    "ECI Transfers Officials": "highlight-blue",
+    "Late-night transfer": "highlight-rose",
+    "Chief Secretary": "highlight-yellow",
+    "Home Secretary": "highlight-yellow",
+    "NDA Wins Rajya Sabha": "highlight-orange",
+    "Nitin Nabin": "highlight-yellow",
+    "SCB Medical College": "highlight-rose",
+    "Cuttack": "highlight-teal",
+    "hospital fire": "highlight-rose",
+    "short circuit": "highlight-orange",
+    "Bank of Baroda": "highlight-blue",
+    "Reliance Communications": "highlight-yellow",
+    "corporate defaulters": "highlight-rose",
+    "safe passage": "highlight-green",
+    "S. Jaishankar": "highlight-yellow",
+    "West Asia tensions": "highlight-rose",
+    "Women Reservation Act": "highlight-teal",
+    "33% reservation": "highlight-orange",
+    "delimitation process": "highlight-blue",
+    "criminal cases": "highlight-rose",
+    "MLAs": "highlight-blue",
+    "attempt to murder": "highlight-rose",
+    "criminalization of politics": "highlight-rose",
+    "Piped Natural Gas": "highlight-green",
+    "PNG": "highlight-green",
+    "LPG supply pressure": "highlight-orange",
+
+    // NEW March 18 Keywords
+    "MPs Reinstated": "highlight-blue",
+    "Paternity Leave": "highlight-green",
+    "Drone Terror Plot": "highlight-rose",
+    "UAPA": "highlight-rose",
+    "Kabul Hospital": "highlight-rose",
+    "Airstrike": "highlight-rose",
+    "Bank of Maharashtra": "highlight-blue",
+    "₹1.78 Lakh Crore": "highlight-orange",
+    "Universal Health Insurance": "highlight-green",
+    "by 2033": "highlight-orange",
+    "Bridge Collapse": "highlight-rose",
+    "Roop Nagar": "highlight-teal",
+    "LBSNAA": "highlight-blue",
+
+    // NEW March 19 Keywords
+    "South Pars": "highlight-purple",
+    "voluntary deportation": "highlight-rose",
+    "Exit Bonus": "highlight-green",
+    "TVK": "highlight-blue",
+    "M. Veerapandian": "highlight-yellow",
+    "Climate Mission": "highlight-green",
+    "14416": "highlight-teal",
+    "New Mangalore": "highlight-teal",
+    "Sharad Pawar": "highlight-yellow",
+    "Mallikarjun Kharge": "highlight-yellow"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -236,8 +292,42 @@ const extractMCQs = (content) => {
             options = ["Kharif season", "Rabi season", "Zaid season", "Annual crop"];
         } else if (qLow.includes('farooq abdullah')) {
             options = ["Jammu", "Srinagar", "Leh", "Udhampur"];
-        } else if (qLow.includes('lpg') || qLow.includes('rationing')) {
-            options = ["Equitable distribution", "Industrial use", "Export surplus", "Price hike"];
+        } else if (qLow.includes('lpg') || qLow.includes('rationing') || qLow.includes('png')) {
+            options = ["Equitable distribution", "Industrial use", "Export surplus", "Reduce supply pressure"];
+        } else if (qLow.includes('transferred') && qLow.includes('west bengal')) {
+            options = ["Chief Secretary and Home Secretary", "DGP and Chief Secretary", "District Magistrate", "Election Commissioner"];
+        } else if (qLow.includes('bank of baroda') || qLow.includes('defaulter')) {
+            options = ["Reliance Communications", "Tata Group", "Adani Group", "Mahindra Group"];
+        } else if (qLow.includes('hospital fire') || qLow.includes('odisha')) {
+            options = ["Short circuit", "Gas leak", "Arson", "Natural cause"];
+        } else if (qLow.includes('criminal cases') || qLow.includes('mlas')) {
+            options = ["37%", "47%", "25%", "50%"];
+        } else if (qLow.includes('women reservation')) {
+            options = ["33%", "50%", "25%", "10%"];
+        } else if (qLow.includes('mps reinstated') || qLow.includes('lok sabha')) {
+            options = ["8 MPs", "12 MPs", "5 MPs", "2 MPs"];
+        } else if (qLow.includes('paternity leave')) {
+            options = ["Supreme Court", "High Court", "Parliament", "Cabinet"];
+        } else if (qLow.includes('foreigners arrested') || qLow.includes('drone')) {
+            options = ["7 Nationals", "10 Nationals", "5 Nationals", "15 Nationals"];
+        } else if (qLow.includes('kabul hospital') || qLow.includes('airstrike')) {
+            options = ["400", "200", "100", "500"];
+        } else if (qLow.includes('bank of maharashtra') || qLow.includes('1.78')) {
+            options = ["₹1.78 lakh crore", "₹2.21 lakh crore", "₹1 lakh crore", "₹3 lakh crore"];
+        } else if (qLow.includes('health insurance for all') || qLow.includes('2033')) {
+            options = ["2033", "2030", "2025", "2040"];
+        } else if (qLow.includes('bridge collapse')) {
+            options = ["Roop Nagar, Delhi", "Mumbai", "Kolkata", "Chennai"];
+        } else if (qLow.includes('south pars') || qLow.includes('iran strike')) {
+            options = ["World's largest gas reserve", "Small oil field", "Coal mine", "Nuclear site"];
+        } else if (qLow.includes('strait of hormuz') || qLow.includes('22 ships')) {
+            options = ["22 ships", "50 ships", "10 ships", "5 ships"];
+        } else if (qLow.includes('exit bonus') || qLow.includes('deportation')) {
+            options = ["$2,600", "$1,000", "$5,000", "$500"];
+        } else if (qLow.includes('dmk') || qLow.includes('cpi') || qLow.includes('5 seats')) {
+            options = ["5 seats", "10 seats", "2 seats", "15 seats"];
+        } else if (qLow.includes('helpline') || qLow.includes('14416')) {
+            options = ["14416", "108", "100", "1098"];
         } else {
             options = [answerText.substring(0, 30), "Policy changes", "Economic growth", "Institutional reforms"];
         }
@@ -260,6 +350,7 @@ const extractMCQs = (content) => {
 
 const CurrentAffairs = () => {
     const { isDark } = useTheme();
+    const { data: session } = useSession();
     const router = useRouter();
     const { category: urlCategory } = router.query;
     
@@ -277,7 +368,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-16');
+    const [selectedDate, setSelectedDate] = useState('2026-03-19');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -290,6 +381,135 @@ const CurrentAffairs = () => {
         rating: 4.8,
         count: 85
     });
+    
+    // ── ANALYTICS TRACKING ──
+    const [startTime] = useState(Date.now());
+    const [timeSpent, setTimeSpent] = useState(0);
+    const [isReporting, setIsReporting] = useState(false);
+    const [reportSent, setReportSent] = useState(false);
+    
+    // ── LOCKING & GRACE PERIOD STATE ──
+    const [isLocked, setIsLocked] = useState(false);
+    const [lockTimer, setLockTimer] = useState(0);
+    const lockEffectRef = React.useRef(null);
+    const finalReportDataRef = React.useRef({ feedback: null, rating: null, feedbackLabel: null });
+
+    // ── DEBOUNCED REPORTING STATE ──
+    const reportTimeoutRef = React.useRef(null);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            setTimeSpent(elapsed);
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [startTime]);
+
+    // Format time spent (e.g. 2m 45s)
+    const formatTimeSpent = (totalSeconds) => {
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+    };
+
+    const sendAnalyticsReport = async (payload) => {
+        setIsReporting(true);
+        const duration = formatTimeSpent(timeSpent);
+        
+        try {
+            const res = await fetch('/api/send-analytics', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    selectedDate,
+                    duration,
+                    timeSpent,
+                    actionType: payload.actionType || "Consolidated Feedback",
+                    value: payload.value,
+                    userInfo: session ? { name: session.user.name, email: session.user.email } : null,
+                    deviceInfo: navigator.userAgent,
+                    resolution: `${window.screen.width}x${window.screen.height}`,
+                    timestamp: new Date().toLocaleString()
+                })
+            });
+
+            if (res.ok) {
+                setReportSent(true);
+                setTimeout(() => setReportSent(false), 3000);
+            }
+        } catch (error) {
+            console.error('Analytics Report Error:', error);
+        } finally {
+            setIsReporting(false);
+        }
+    };
+
+    // ── DEBOUNCE & LOCKING LOGIC ──
+    const triggerDebouncedReport = (newValues) => {
+        // Update the reference data immediately for the final dispatch
+        finalReportDataRef.current = { ...finalReportDataRef.current, ...newValues };
+
+        // Reset and start/restart the 3-second grace period
+        if (lockEffectRef.current) clearInterval(lockEffectRef.current);
+        setLockTimer(3); 
+        
+        lockEffectRef.current = setInterval(() => {
+            setLockTimer(prev => {
+                if (prev <= 1) {
+                    clearInterval(lockEffectRef.current);
+                    setIsLocked(true);
+                    
+                    // ── SEND THE REPORT ONLY AFTER LOCKING IS COMPLETE ──
+                    const final = finalReportDataRef.current;
+                    const finalValue = [
+                        final.feedback ? `Reaction: ${final.feedbackLabel}` : null,
+                        final.rating ? `Rating: ${final.rating} Stars` : null
+                    ].filter(Boolean).join(" | ");
+
+                    sendAnalyticsReport({
+                        actionType: "Consolidated Interaction (Locked)",
+                        value: finalValue
+                    });
+
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+    };
+
+    const saveStats = (newStats) => {
+        setStats(newStats);
+        if (selectedArticle) {
+            localStorage.setItem(`ca_stats_${selectedArticle.id}`, JSON.stringify(newStats));
+        }
+    };
+
+    // Sync stats with localStorage (ARTICLE SPECIFIC)
+    useEffect(() => {
+        if (!selectedArticle) return;
+        
+        const savedStats = localStorage.getItem(`ca_stats_${selectedArticle.id}`);
+        if (savedStats) {
+            setStats(JSON.parse(savedStats));
+        } else {
+            // ── DYNAMIC BASE GENERATOR ──
+            // Create a unique baseline based on the article's numeric ID (if available) or string hash
+            const idString = String(selectedArticle.id);
+            const seed = idString.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+            const baseResponses = 50 + (seed % 150); // Randomish but consistent 50-200
+            const baseCount = Math.floor(baseResponses * 0.7); // Roughly 70% of responses are ratings
+            const baseRating = (4 + (seed % 10) / 10).toFixed(1); // 4.0 - 4.9
+
+            const newStats = { 
+                responses: baseResponses, 
+                rating: Number(baseRating), 
+                count: baseCount 
+            };
+            setStats(newStats);
+            localStorage.setItem(`ca_stats_${selectedArticle.id}`, JSON.stringify(newStats));
+        }
+    }, [selectedArticle]);
     
     const [quizAnswers, setQuizAnswers] = useState({});
     const [activeQuizId, setActiveQuizId] = useState(null);
@@ -339,22 +559,35 @@ const CurrentAffairs = () => {
     };
 
     const handleFeedback = (id) => {
-        if (feedback === id) return;
+        if (isLocked || feedback === id) return;
         setFeedback(id);
-        setStats(prev => ({ ...prev, responses: prev.responses + 1 }));
+        const newStats = { ...stats, responses: stats.responses + 1 };
+        saveStats(newStats);
+        
+        // Find label
+        const labels = { '100': 'This helped!', 'heart': 'Can do better..', 'update': 'Update needed..' };
+        triggerDebouncedReport({ feedback: id, feedbackLabel: labels[id] });
     };
 
     const handleRating = (val) => {
+        if (isLocked) return;
+        const isEdit = rating > 0;
         setRating(val);
-        setStats(prev => {
-            const newCount = prev.count + 1;
-            const newRating = ((prev.rating * prev.count) + val) / newCount;
-            return {
-                ...prev,
-                count: newCount,
-                rating: Number(newRating.toFixed(1))
-            };
-        });
+        
+        const newCount = isEdit ? stats.count : stats.count + 1;
+        const totalRating = isEdit 
+            ? (stats.rating * stats.count) - rating + val 
+            : (stats.rating * stats.count) + val;
+        const newRating = totalRating / newCount;
+        
+        const newStats = {
+            ...stats,
+            count: newCount,
+            rating: Number(newRating.toFixed(1))
+        };
+        saveStats(newStats);
+
+        triggerDebouncedReport({ rating: val });
     };
 
     // Update category when URL changes
@@ -366,7 +599,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);
@@ -576,7 +809,7 @@ const CurrentAffairs = () => {
 
                                 {/* Title */}
                                 <h1 
-                                    className="text-[20px] sm:text-[24px] md:text-[36px] lg:text-[40px] font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.2] sm:leading-[1.15] mb-6 drop-shadow-sm"
+                                    className="text-[20px] sm:text-[24px] md:text-[36px] lg:text-[40px] font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.2] sm:leading-[1.15] mb-6 drop-shadow-sm"
                                     dangerouslySetInnerHTML={{ __html: applyWordHighlights(selectedArticle.title) }}
                                 />
 
@@ -631,17 +864,20 @@ const CurrentAffairs = () => {
                                         text-[17px] leading-[1.85] tracking-[0.01em] text-zinc-800 dark:text-zinc-300
                                         font-medium
                                         [&>p]:mb-6 [&>p:empty]:hidden
-                                        [&>h1]:text-[32px] [&>h1]:font-black [&>h1]:mt-12 [&>h1]:mb-6 [&>h1]:leading-tight [&>h1]:text-black dark:[&>h1]:text-white [&>h1]:tracking-tight
+                                        [&>h1]:text-[32px] [&>h1]:font-bold [&>h1]:mt-12 [&>h1]:mb-6 [&>h1]:leading-tight [&>h1]:text-black dark:[&>h1]:text-white [&>h1]:tracking-tight
                                         [&>h2]:text-[26px] [&>h2]:font-bold [&>h2]:mt-10 [&>h2]:mb-5 [&>h2]:leading-tight [&>h2]:text-black dark:[&>h2]:text-white [&>h2]:tracking-tight
                                         [&>h3]:text-[20px] [&>h3]:font-bold [&>h3]:mt-8 [&>h3]:mb-4 [&>h3]:text-black dark:[&>h3]:text-white
-                                        [&>h4]:text-[18px] [&>h4]:font-bold [&>h4]:mt-6 [&>h4]:mb-3 [&>h4]:text-black dark:[&>h4]:text-zinc-100
+                                        [&>h4]:text-[18px] [&>h4]:font-semibold [&>h4]:mt-6 [&>h4]:mb-3 [&>h4]:text-black dark:[&>h4]:text-zinc-100
                                         [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol>li]:mb-2 [&>ol>li]:pl-2
                                         [&>blockquote]:border-l-4 [&>blockquote]:border-amber-400 [&>blockquote]:pl-5 [&>blockquote]:italic [&>blockquote]:text-zinc-600 dark:[&>blockquote]:text-zinc-400 [&>blockquote]:mb-6 [&>blockquote]:py-1 [&>blockquote]:bg-amber-50 dark:[&>blockquote]:bg-amber-500/5 [&>blockquote]:rounded-r-lg
                                         
-                                        [&_strong]:font-bold [&_strong]:px-1.5 [&_strong]:py-[1px] [&_strong]:rounded-[3px]
-                                        [&_strong:nth-of-type(3n+1)]:text-rose-700 [&_strong:nth-of-type(3n+1)]:bg-rose-100/70 dark:[&_strong:nth-of-type(3n+1)]:text-rose-400 dark:[&_strong:nth-of-type(3n+1)]:bg-rose-500/15
-                                        [&_strong:nth-of-type(3n+2)]:text-emerald-700 [&_strong:nth-of-type(3n+2)]:bg-emerald-100/70 dark:[&_strong:nth-of-type(3n+2)]:text-emerald-400 dark:[&_strong:nth-of-type(3n+2)]:bg-emerald-500/15
-                                        [&_strong:nth-of-type(3n)]:text-blue-700 [&_strong:nth-of-type(3n)]:bg-blue-100/70 dark:[&_strong:nth-of-type(3n)]:text-blue-400 dark:[&_strong:nth-of-type(3n)]:bg-blue-500/15
+                                        [&_strong]:font-semibold [&_strong]:inline-block [&_strong]:whitespace-nowrap [&_strong]:mx-0.5
+                                        [&_strong:nth-of-type(3n+1)]:text-rose-700 dark:[&_strong:nth-of-type(3n+1)]:text-rose-400
+                                        [&_strong:nth-of-type(3n+2)]:text-emerald-700 dark:[&_strong:nth-of-type(3n+2)]:text-emerald-400
+                                        [&_strong:nth-of-type(3n)]:text-blue-700 dark:[&_strong:nth-of-type(3n)]:text-blue-400
+                                        
+                                        [&_.section-title]:!text-black dark:[&_.section-title]:!text-white [&_.section-title]:!bg-transparent [&_.section-title]:!p-0
+                                        [&_.sub-title]:!text-rose-600 dark:[&_.sub-title]:!text-rose-400 [&_.sub-title]:!bg-transparent [&_.sub-title]:!p-0
                                         
                                         [&_h1_strong]:!bg-transparent [&_h1_strong]:!text-black dark:[&_h1_strong]:!text-white [&_h1_strong]:!px-0
                                         [&_h2_strong]:!bg-transparent [&_h2_strong]:!text-black dark:[&_h2_strong]:!text-white [&_h2_strong]:!px-0
@@ -669,9 +905,9 @@ const CurrentAffairs = () => {
                                                         return `<h4>${p1}</h4>`;
                                                     }
 
-                                                    // 3. Is it an Answer / Sentence? 
-                                                    if (text.endsWith('.') && !/^\d+\./.test(text) && text.length > 25) {
-                                                        return `<p class="!mt-1 !mb-6 !font-medium !leading-[1.7] text-zinc-700 dark:text-zinc-300">${p1}</p>`;
+                                                    // 3. Is it an Answer / Sentence? (Only if it's a long standalone sentence)
+                                                    if (text.endsWith('.') && !/^\d+\./.test(text) && text.length > 80) {
+                                                        return `<p class="!mt-4 !mb-6 !font-medium !leading-[1.7] text-zinc-700 dark:text-zinc-300 block w-full !px-0 !bg-transparent !shadow-none !rounded-none">${p1}</p>`;
                                                     }
 
                                                     // 4. Leave short keywords untouched to get the dynamic pink/green/blue pills
@@ -759,6 +995,25 @@ const CurrentAffairs = () => {
                                         ))}
                                     </div>
                                     <p className={`text-[13px] font-medium ${mutedColor}`}>{stats.responses} Responses</p>
+                                    <div className="h-1 w-1 rounded-full bg-zinc-300" />
+                                    <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold">
+                                        <Clock className="w-3 h-3" /> {formatTimeSpent(timeSpent)}
+                                    </div>
+                                    {lockTimer > 0 && !isLocked && (
+                                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase tracking-widest animate-pulse">
+                                            Locking in {lockTimer}s...
+                                        </div>
+                                    )}
+                                    {isLocked && (
+                                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 text-[10px] font-black uppercase tracking-widest">
+                                            <Lock className="w-3 h-3" /> Locked
+                                        </div>
+                                    )}
+                                    <div className={`flex items-center gap-1.5 transition-all duration-500 overflow-hidden ${reportSent ? 'max-w-[150px] opacity-100 ml-2' : 'max-w-0 opacity-0'}`}>
+                                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
+                                            <CheckCircle2 className="w-3 h-3" /> Report Sent
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mb-14">
@@ -767,12 +1022,13 @@ const CurrentAffairs = () => {
                                         { id: 'heart', icon: 'https://img.icons8.com/fluency/96/filled-like.png', label: 'Can do better..' },
                                         { id: 'update', icon: 'https://img.icons8.com/fluency/96/restart--v1.png', label: 'Update needed..' },
                                     ].map(item => (
-                                        <button 
-                                            key={item.id}
-                                            onClick={() => handleFeedback(item.id)}
-                                            className={`flex flex-col items-center gap-3 transition-all hover:-translate-y-1.5 ${feedback === item.id ? 'opacity-100 scale-110 drop-shadow-md' : 'opacity-60 hover:opacity-100 grayscale hover:grayscale-0'}`}
-                                        >
-                                            <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] flex items-center justify-center transition-transform group-hover:scale-110">
+                                            <button 
+                                                key={item.id}
+                                                onClick={() => handleFeedback(item.id)}
+                                                disabled={isLocked}
+                                                className={`flex flex-col items-center gap-3 transition-all ${isLocked ? 'cursor-default' : 'hover:-translate-y-1.5'} ${feedback === item.id ? 'opacity-100 scale-110 drop-shadow-md' : isLocked ? 'opacity-20 grayscale scale-90' : 'opacity-60 hover:opacity-100 grayscale hover:grayscale-0'}`}
+                                            >
+                                                <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] flex items-center justify-center transition-transform group-hover:scale-110">
                                                 <img 
                                                     src={item.icon} 
                                                     alt={item.label} 
@@ -792,9 +1048,10 @@ const CurrentAffairs = () => {
                                             <button 
                                                 key={star} 
                                                 onClick={() => handleRating(star)}
-                                                className="transition-transform hover:scale-120 active:scale-90"
+                                                disabled={isLocked}
+                                                className={`transition-transform ${isLocked ? 'cursor-default' : 'hover:scale-120 active:scale-90'}`}
                                             >
-                                                <Star className={`w-8 h-8 ${rating >= star || (rating === 0 && stats.rating >= star) ? 'fill-amber-400 text-amber-400 drop-shadow-[0_2px_8px_rgba(251,191,36,0.4)]' : 'fill-zinc-100 text-zinc-100 dark:fill-zinc-800 dark:text-zinc-800'}`} />
+                                                <Star className={`w-8 h-8 ${rating >= star || (rating === 0 && stats.rating >= star) ? 'fill-amber-400 text-amber-400 drop-shadow-[0_2px_8px_rgba(251,191,36,0.4)]' : 'fill-zinc-100 text-zinc-100 dark:fill-zinc-800 dark:text-zinc-800'} ${isLocked && rating > 0 && rating < star ? 'opacity-20' : ''}`} />
                                             </button>
                                         ))}
                                     </div>
