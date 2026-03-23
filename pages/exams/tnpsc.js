@@ -222,14 +222,19 @@ const TNPSCPage = () => {
                                 <button
                                     key={item.id}
                                     onClick={() => setActiveSection(item.id)}
-                                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-[13px] font-bold transition-all ${
+                                    className={`group relative w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-[13.5px] font-bold transition-all ${
                                         activeSection === item.id 
-                                        ? 'bg-[#065f46] text-white' 
-                                        : `hover:bg-slate-100 dark:hover:bg-neutral-800 ${colors.subtext}`
+                                        ? 'bg-[#065f46] text-white shadow-md' 
+                                        : `${colors.subtext}`
                                     }`}
                                 >
-                                    <item.icon size={18} />
-                                    {item.name}
+                                    <item.icon size={18} className={`transition-transform duration-300 group-hover:scale-110 ${activeSection === item.id ? 'text-white' : ''}`} />
+                                    <span className="relative">
+                                        {item.name}
+                                        {activeSection !== item.id && (
+                                            <span className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 bg-[#065f46] transition-all duration-300 group-hover:w-full" />
+                                        )}
+                                    </span>
                                 </button>
                             ))}
                         </nav>

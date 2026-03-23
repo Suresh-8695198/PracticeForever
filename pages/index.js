@@ -266,7 +266,7 @@ const Home = () => {
 
       {/* ══ 1. TOP ANNOUNCEMENT BAR ══ */}
       <div className={`border-b overflow-hidden ${isDark ? 'border-[#1e1e1e] bg-[#111]' : 'border-amber-200 bg-amber-50'}`}>
-        <style>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           @keyframes notice-slide {
             0%   { transform:translateY(0); opacity:1; }
             13%  { transform:translateY(0); opacity:1; }
@@ -304,8 +304,8 @@ const Home = () => {
             50% { opacity: 0.6; }
             100% { opacity: 1; }
           }
-        `}</style>
-        <style>{`
+        ` }} />
+        <style dangerouslySetInnerHTML={{ __html: `
           .hover-pause:hover { animation-play-state: paused !important; }
           @media (max-width: 768px) {
             .ticker-strip { flex-direction: column !important; height: auto !important; padding: 2px 0 !important; align-items: flex-start !important; }
@@ -315,7 +315,7 @@ const Home = () => {
             .live-badge-container { position: relative !important; padding-left: 8px !important; padding-bottom: 0px !important; background: transparent !important; scale: 0.8; transform-origin: left; }
             .live-ticker { padding-left: 8px !important; height: 30px !important; margin-top: -4px !important; }
           }
-        `}</style>
+        ` }} />
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 flex items-center ticker-strip h-8 sm:h-10">
           <span className="shrink-0 ticker-badge" style={{ display: 'inline-flex', alignItems: 'center', height: 24 }}>
             <span style={{
@@ -385,13 +385,25 @@ const Home = () => {
 
       {/* ══ MARQUEE STRIP ══ */}
       <div className="live-strip" style={{ position: 'relative', overflow: 'hidden', height: 46, borderBottom: `1px solid ${isDark ? '#1c1c1c' : '#e8e8e8'}`, background: isDark ? '#0b0b0b' : '#ffffff' }}>
-        <style>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           @keyframes mq-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
           @keyframes notice-ticker { 0% { transform:translateX(0) } 100% { transform:translateX(-100%) } }
           .mq-ticker { display:flex; width:max-content; align-items:center; height:46px; animation:mq-ticker 64s linear infinite; }
           .mq-ticker:hover { animation-play-state:paused; }
           .mq-item:hover .mq-title { color: #FFC107 !important; }
-        `}</style>
+          .mq-title { position: relative; }
+          .mq-title::after { 
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            bottom: -2px; 
+            width: 0; 
+            height: 1.5px; 
+            background: #FFC107; 
+            transition: width 0.3s ease; 
+          }
+          .mq-item:hover .mq-title::after { width: 100%; }
+        ` }} />
 
         {/* Left anchor — LIVE label */}
         <div className="live-badge-container" style={{ position: 'absolute', left: 0, top: 0, bottom: 0, zIndex: 10, display: 'flex', alignItems: 'center', pointerEvents: 'none', background: isDark ? 'linear-gradient(to right,#0b0b0b 76%,transparent)' : 'linear-gradient(to right,#ffffff 76%,transparent)' }}>

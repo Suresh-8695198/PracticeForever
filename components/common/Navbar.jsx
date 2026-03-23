@@ -355,10 +355,16 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                     <Link
                         href={cat.path}
                         className='sidebar-dark-pill relative z-10 mt-3 inline-flex items-center justify-between gap-2 transition-all group'
-                        style={{ background: '#ffffff', border: 'none', textDecoration: 'none', padding: '8px 12px' }}
+                        style={{ background: '#ffffff', border: 'none', textDecoration: 'none', padding: '8px 12px', borderRadius: 6 }}
                     >
-                        <span style={{ fontSize: 12, fontWeight: 600, color: '#333' }}>Explore all</span>
-                        <ArrowRight size={13} strokeWidth={2} color='#555' className='transition-transform group-hover:translate-x-0.5' />
+                        <span className="relative">
+                            <span style={{ fontSize: 12, fontWeight: 700, color: '#333' }}>Explore all</span>
+                            <span 
+                                className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full" 
+                                style={{ backgroundColor: '#1a1a1a', display: 'block' }}
+                            />
+                        </span>
+                        <ArrowRight size={13} strokeWidth={2} color='#111' className='transition-transform group-hover:translate-x-0.5' />
                     </Link>
                 </div>
 
@@ -385,11 +391,11 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                                 <Link
                                     key={sub.name}
                                     href={sub.path}
-                                    style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, padding: '7px 10px', borderRadius: 8, transition: 'background 0.2s ease', position: 'relative' }}
-                                    className="hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                                    style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, padding: '7px 10px', borderRadius: 8, transition: 'all 0.2s ease', position: 'relative' }}
+                                    className="group"
                                 >
                                     {/* Icon */}
-                                    <span style={{ display: 'inline-flex', flexShrink: 0 }}>
+                                    <span style={{ display: 'inline-flex', flexShrink: 0 }} className="group-hover:scale-110 transition-transform duration-200">
                                         {BrandIcon ? (
                                             <img src={BrandIcon} alt={sub.name} style={{ width: 22, height: 22, objectFit: 'contain' }} />
                                         ) : (
@@ -397,8 +403,14 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                                         )}
                                     </span>
                                     {/* Label */}
-                                    <span style={{ fontSize: 13, fontWeight: 600, color: isDark ? '#e5e5e5' : '#1a1a1a' }}>
-                                        {sub.name}
+                                    <span className="relative">
+                                        <span style={{ fontSize: 13, fontWeight: 600, color: isDark ? '#e5e5e5' : '#1a1a1a' }} className="transition-colors duration-200">
+                                            {sub.name}
+                                        </span>
+                                        <span 
+                                            className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full" 
+                                            style={{ backgroundColor: c1, display: 'block' }}
+                                        />
                                     </span>
                                 </Link>
                             );
@@ -602,9 +614,9 @@ const Navbar = () => {
                             priority={true}
                             className='h-10 sm:h-14 w-auto object-contain logo-icon transition-transform duration-300'
                         />
-                        <div className='block ml-[-8px] sm:ml-[-12px] scale-[0.6] min-[400px]:scale-[0.7] min-[540px]:scale-[0.85] sm:scale-100 origin-left'>
+                        <span className='block ml-[-8px] sm:ml-[-12px] scale-[0.6] min-[400px]:scale-[0.7] min-[540px]:scale-[0.85] sm:scale-100 origin-left'>
                             <AnimatedLogo size="sm" loopInterval={30000} />
-                        </div>
+                        </span>
                     </Link>
 
                     {/* Search Bar - Fixed Single Line */}
@@ -735,7 +747,7 @@ const Navbar = () => {
                                                 <div className={`my-2 h-px ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
                                                 <button 
                                                     onClick={logout} 
-                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-red-500 transition-all ${isDark ? 'hover:bg-red-500/10' : 'hover:bg-red-50'}`}
+                                                    className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-red-500 transition-all`}
                                                 >
                                                     <LogOut size={17} /> Sign Out
                                                 </button>
@@ -783,12 +795,17 @@ const Navbar = () => {
                     <div className='flex items-center gap-x-0 overflow-x-auto no-scrollbar'>
 
                         {/* Home */}
-                        <Link href='/' className={`shrink-0 flex items-center h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors ${location.pathname === '/'
-                            ? 'border-[#FFC107] text-[#FFC107]'
-                            : isDark
-                                ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
-                                : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
-                            }`}>Home</Link>
+                        <Link href='/' className="shrink-0 flex items-center h-11 px-2.5 group relative">
+                            <span className={`text-[12.5px] font-semibold transition-colors ${location.pathname === '/'
+                                ? 'text-[#FFC107]'
+                                : isDark
+                                    ? 'text-gray-100 hover:text-white'
+                                    : 'text-gray-800 hover:text-black'
+                                }`}>Home</span>
+                            <span className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${
+                                location.pathname === '/' ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
+                            }`} style={{ display: 'block' }} />
+                        </Link>
 
                         {mainCategories.map((cat) => (
                             <div
@@ -797,17 +814,20 @@ const Navbar = () => {
                                 onMouseEnter={() => handleMenuEnter(cat.title)}
                                 onMouseLeave={handleMenuLeave}
                             >
-                                <button className={`flex items-center gap-1 h-11 px-2.5 text-[12.5px] font-semibold border-b-2 transition-colors whitespace-nowrap ${activeMenu === cat.title || isActive(cat.path)
-                                    ? 'border-[#FFC107] text-[#FFC107]'
+                                <button className={`group relative flex items-center gap-1 h-11 px-2.5 text-[12.5px] font-semibold transition-colors whitespace-nowrap ${activeMenu === cat.title || isActive(cat.path)
+                                    ? 'text-[#FFC107]'
                                     : isDark
-                                        ? 'border-transparent text-gray-100 hover:text-white hover:border-gray-600'
-                                        : 'border-transparent text-gray-800 hover:text-black hover:border-gray-300'
+                                        ? 'text-gray-100 hover:text-white'
+                                        : 'text-gray-800 hover:text-black'
                                     }`}>
                                     {cat.title}
                                     {cat.subcategories && (
-                                        <ChevronDown size={12} className={`transition-transform duration-150 ${activeMenu === cat.title ? 'rotate-180 text-[#FFC107]' : 'opacity-60'
+                                        <ChevronDown size={12} className={`transition-transform duration-150 ${activeMenu === cat.title ? 'rotate-180 text-[#FFC107]' : 'opacity-60 group-hover:opacity-100'
                                             }`} />
                                     )}
+                                    <div className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${
+                                        activeMenu === cat.title || isActive(cat.path) ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
+                                    }`} />
                                 </button>
                             </div>
                         ))}
@@ -898,7 +918,7 @@ const Navbar = () => {
                             <nav className='flex-1 overflow-y-auto px-1 py-1 custom-scrollbar' style={{ minHeight: '0' }}>
                                 <div className="px-2 mb-4">
                                     <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Main</h4>
-                                    <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-12 px-4 text-[14px] font-bold rounded-2xl mb-1.5 transition-all ${isDark ? 'text-gray-100 hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}>
+                                    <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-12 px-4 text-[14px] font-bold rounded-2xl mb-1.5 transition-all ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
                                         Home
                                     </Link>
                                 </div>

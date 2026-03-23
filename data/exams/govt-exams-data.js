@@ -16,7 +16,9 @@ export const sscData = {
     vacancies: "67,000+",
     candidates: "3.5 Cr+",
     examsPerYear: "8+",
-    avgSalary: "₹25,500 - ₹1,51,100"
+    avgSalary: "₹25,500 - ₹1,51,100",
+    ageLimit: "18-32 years",
+    qualification: "10th / 12th / Graduate"
   },
   exams: [
     {
@@ -117,7 +119,9 @@ export const bankingData = {
     vacancies: "45,000+",
     candidates: "2.8 Cr+",
     examsPerYear: "6+",
-    avgSalary: "₹36,000 - ₹1,80,000"
+    avgSalary: "₹36,000 - ₹1,80,000",
+    ageLimit: "20-30 years",
+    qualification: "Graduate (Any Discipline)"
   },
   exams: [
     {
@@ -216,7 +220,9 @@ export const railwayData = {
     vacancies: "1,03,000+",
     candidates: "4.5 Cr+",
     examsPerYear: "5+",
-    avgSalary: "₹21,700 - ₹1,12,400"
+    avgSalary: "₹21,700 - ₹1,12,400",
+    ageLimit: "18-33 years",
+    qualification: "10th / ITI / Diploma / Degree"
   },
   exams: [
     {
@@ -316,7 +322,9 @@ export const policeData = {
     vacancies: "82,000+",
     candidates: "3.2 Cr+",
     examsPerYear: "10+",
-    avgSalary: "₹21,700 - ₹1,32,000"
+    avgSalary: "₹21,700 - ₹1,32,000",
+    ageLimit: "18-28 years",
+    qualification: "10th / 12th / Graduate"
   },
   exams: [
     {
@@ -416,7 +424,8 @@ export const statePscData = {
     totalCommissions: "28+",
     vacancies: "1,20,000+",
     examsPerYear: "50+",
-    avgSalary: "₹25,500 - ₹2,09,200"
+    avgSalary: "₹25,500 - ₹2,09,200",
+    qualification: "Graduate / Post Graduate"
   },
   commissions: [
     { id: "uppsc", name: "UPPSC", state: "Uttar Pradesh", site: "https://uppsc.up.nic.in", color: "#4CAF50" },
@@ -448,6 +457,12 @@ export const statePscData = {
     "Current Affairs (National & International)",
     "State-Specific Geography, History & Culture",
     "Environmental Ecology & Biodiversity"
+  ],
+  importantBooks: [
+    "Laxmikanth - Indian Polity",
+    "Spectrum - Modern Indian History",
+    "Mrunal Patel - Economy Notes",
+    "State Board Textbooks for State GK"
   ]
 };
 

@@ -369,14 +369,19 @@ const UPSCPage = () => {
                       <button
                         key={item.id}
                         onClick={() => setActiveSection(item.id)}
-                        className={`w-full flex items-center gap-4 px-5 py-4 rounded-md text-[14px] font-bold transition-all ${
+                        className={`group relative w-full flex items-center gap-4 px-5 py-4 rounded-md text-[14.5px] font-bold transition-all ${
                           activeSection === item.id 
-                          ? 'bg-[#002147] text-white shadow-md' 
-                          : `hover:bg-slate-50 dark:hover:bg-slate-800 ${colors.subtext}`
+                          ? 'bg-[#002147] text-white shadow-lg' 
+                          : `${colors.subtext}`
                         }`}
                       >
-                         <IconRenderer icon={item.icon} className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                         {item.name}
+                         <IconRenderer icon={item.icon} className={`w-6 h-6 transition-transform duration-300 group-hover:scale-110 ${activeSection === item.id ? 'brightness-0 invert' : ''}`} />
+                         <span className="relative">
+                            {item.name}
+                            {activeSection !== item.id && (
+                                <span className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 bg-[#FF9933] transition-all duration-300 group-hover:w-full" />
+                            )}
+                         </span>
                       </button>
                    ))}
                 </nav>
