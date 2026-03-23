@@ -265,7 +265,7 @@ const Home = () => {
       </Head>
 
       {/* ══ 1. TOP ANNOUNCEMENT BAR ══ */}
-      <div className={`border-b overflow-hidden ${isDark ? 'border-[#1e1e1e] bg-[#111]' : 'border-amber-200 bg-amber-50'}`}>
+      <div className={`mt-2 sm:mt-3 border-b border-t overflow-hidden ${isDark ? 'border-[#1e1e1e] bg-[#111]' : 'border-amber-200 bg-amber-50'}`}>
         <style dangerouslySetInnerHTML={{ __html: `
           @keyframes notice-slide {
             0%   { transform:translateY(0); opacity:1; }
