@@ -122,8 +122,13 @@ const PrivacyPolicy = () => {
                         </div>
                         <div className={`lg:col-span-8 space-y-6 text-[15px] md:text-[16px] leading-relaxed font-medium ${subTextColor}`}>
                             <p>
-                                We partner with Google AdSense to sustain our free educational layer. Google use cookies to serve ads based on your previous interaction with PracticeForever. 
+                                We partner with <strong className="font-bold">Google AdSense</strong> to sustain our free educational layer. We use cookies to help serve the ads it displays on the websites of its partners, such as websites displaying Google ads or participating in Google certified ad networks. When users visit a partner's website, a cookie may be dropped on that end user's browser.
                             </p>
+                            <ul className="list-disc pl-5 space-y-3 marker:text-blue-600">
+                                <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
+                                <li>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+                                <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" className="text-blue-600 underline">Ads Settings</a>.</li>
+                            </ul>
                             <div className="p-6 border-l-4 border-black dark:border-white bg-black/[0.02] dark:bg-white/5">
                                 <p className="text-[14px] font-bold italic">"You can manage your ad personalization settings via your Google Account at any time."</p>
                             </div>

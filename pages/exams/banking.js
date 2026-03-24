@@ -16,6 +16,8 @@ const i8 = {
 };
 const I8 = ({ src, alt = '', size = 22 }) => <img src={src} alt={alt} width={size} height={size} className="inline-block" style={{ width: size, height: size }} />;
 
+import GoogleAd from '../../components/common/GoogleAd';
+
 const BankingPage = () => {
   const { isDark } = useTheme();
   const cl = { bg: isDark ? 'bg-[#0d1117]' : 'bg-[#f6f8fa]', surface: isDark ? 'bg-[#161b22]' : 'bg-white', border: isDark ? 'border-[#30363d]' : 'border-[#d0d7de]', text: isDark ? 'text-[#e6edf3]' : 'text-[#1f2328]', sub: isDark ? 'text-[#8b949e]' : 'text-[#656d76]' };
@@ -42,6 +44,11 @@ const BankingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Ad Placement */}
+      <div className="max-w-[1280px] mx-auto px-5">
+        <GoogleAd adSlot="YOUR_AD_SLOT_ID_HERE" />
+      </div>
 
       <main className="max-w-[1280px] mx-auto px-5 py-8 space-y-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
