@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useTheme } from '../../../../context/ThemeContext';
+import ComingSoon from '@/components/common/ComingSoon';
 
 // HR Topic Data Imports
 import { questions as tellMeQ } from '../../../../data/company/tcs/hr/tell-me-about-yourself';
@@ -143,6 +144,14 @@ export default function HRTopicPage() {
   };
 
   if (!router.isReady) return null;
+
+  if (questions.length === 0) {
+    return (
+      <div className={`min-h-screen pt-28 ${isDark ? 'bg-[#111]' : 'bg-[#f5f5f5]'}`}>
+        <ComingSoon topicName={topicName} category={company} />
+      </div>
+    );
+  }
 
   const companyBackUrl = `/interviews/company/${company}${router.query.tab !== undefined ? `?tab=${router.query.tab}` : ''}`;
 

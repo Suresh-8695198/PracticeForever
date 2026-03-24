@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../../../context/ThemeContext';
 import { topicData } from '../../../data/aptitude';
+import ComingSoon from '@/components/common/ComingSoon';
 import { useSession, signIn } from 'next-auth/react';
 import ElectricBorder from '../../../components/common/ElectricBorder';
 import axios from 'axios';
@@ -169,6 +170,14 @@ const QuestionPage = () => {
   }, [currentQuestions]);
 
   if (!router.isReady) return null;
+
+  if (!loading && (!allQuestions || allQuestions.length === 0)) {
+    return (
+      <div className={`min-h-screen pt-28 ${bg}`}>
+        <ComingSoon topicName={topicName} category={category} />
+      </div>
+    );
+  }
 
   const handleOptionClick = async (qId, optId, correctAnswer) => {
     const currentAttempts = attempts[qId] || [];

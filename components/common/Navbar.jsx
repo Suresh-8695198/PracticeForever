@@ -85,22 +85,22 @@ const mainCategories = [
             { name: 'Shortcut Tricks', path: '/aptitude/tricks', Icon: Wand2 },
         ],
     },
-    {
-        title: 'Programming', path: '/programming',
-        Icon: Terminal, colorCls: 'text-green-500', bgCls: 'bg-green-500/10',
-        description: 'Learn C, Java, Python, DSA, Web Dev & Cybersecurity from scratch.',
-        subcategories: [
-            { name: 'C Programming', path: '/programming/c', Icon: FileCode },
-            { name: 'C++', path: '/programming/cpp', Icon: Code2 },
-            { name: 'Java', path: '/programming/java', Icon: Coffee },
-            { name: 'Python', path: '/programming/python', Icon: Terminal },
-            { name: 'JavaScript', path: '/programming/javascript', Icon: Braces },
-            { name: 'Data Structures', path: '/programming/data-structures', Icon: Network },
-            { name: 'Algorithms', path: '/programming/algorithms', Icon: Workflow },
-            { name: 'Web Development', path: '/programming/web', Icon: LayoutTemplate },
-            { name: 'Cybersecurity Basics', path: '/programming/cybersecurity', Icon: KeyRound },
-        ],
-    },
+    // {
+    //     title: 'Programming', path: '/programming',
+    //     Icon: Terminal, colorCls: 'text-green-500', bgCls: 'bg-green-500/10',
+    //     description: 'Learn C, Java, Python, DSA, Web Dev & Cybersecurity from scratch.',
+    //     subcategories: [
+    //         { name: 'C Programming', path: '/programming/c', Icon: FileCode },
+    //         { name: 'C++', path: '/programming/cpp', Icon: Code2 },
+    //         { name: 'Java', path: '/programming/java', Icon: Coffee },
+    //         { name: 'Python', path: '/programming/python', Icon: Terminal },
+    //         { name: 'JavaScript', path: '/programming/javascript', Icon: Braces },
+    //         { name: 'Data Structures', path: '/programming/data-structures', Icon: Network },
+    //         { name: 'Algorithms', path: '/programming/algorithms', Icon: Workflow },
+    //         { name: 'Web Development', path: '/programming/web', Icon: LayoutTemplate },
+    //         { name: 'Cybersecurity Basics', path: '/programming/cybersecurity', Icon: KeyRound },
+    //     ],
+    // },
     {
         title: 'Interview Preparation', path: '/interviews',
         Icon: Mic, colorCls: 'text-orange-500', bgCls: 'bg-orange-500/10',
@@ -127,60 +127,60 @@ const mainCategories = [
             { name: 'Important GK Topics', path: '/current-affairs/gk', Icon: Globe2 },
         ],
     },
-    {
-        title: 'Mock Tests', path: '/mock-tests',
-        Icon: Timer, colorCls: 'text-cyan-500', bgCls: 'bg-cyan-500/10',
-        description: 'Timed, exam-pattern practice tests to track your real progress.',
-        subcategories: [
-            { name: 'Aptitude Tests', path: '/mock-tests/aptitude', Icon: Calculator },
-            { name: 'Government Exam Tests', path: '/mock-tests/govt', Icon: Award },
-            { name: 'Programming MCQs', path: '/mock-tests/programming', Icon: Code },
-            { name: 'Technical Tests', path: '/mock-tests/technical', Icon: Wrench },
-            { name: 'Full Length Practice Tests', path: '/mock-tests/full-length', Icon: AlarmClock },
-        ],
-    },
-    {
-        title: 'Study Materials', path: '/study-materials',
-        Icon: Library, colorCls: 'text-indigo-500', bgCls: 'bg-indigo-500/10',
-        description: 'Free notes, PDFs, cheat sheets and formula books for every exam.',
-        subcategories: [
-            { name: 'Notes', path: '/study-materials/notes', Icon: FileText },
-            { name: 'PDFs', path: '/study-materials/pdfs', Icon: FileDown },
-            { name: 'Cheat Sheets', path: '/study-materials/cheat-sheets', Icon: Scroll },
-            { name: 'Important Formulas', path: '/study-materials/formulas', Icon: Sigma },
-            { name: 'Exam Guides', path: '/study-materials/guides', Icon: GraduationCap },
-        ],
-    },
-    {
-        title: 'Blog', path: '/blog',
-        Icon: Feather, colorCls: 'text-pink-500', bgCls: 'bg-pink-500/10',
-        description: 'Career guidance, exam tips, tutorials and student success stories.',
-        subcategories: [
-            { name: 'Career Guidance', path: '/blog/career', Icon: TrendingUp },
-            { name: 'Exam Preparation Tips', path: '/blog/exam-prep', Icon: Lightbulb },
-            { name: 'Programming Tutorials', path: '/blog/tutorials', Icon: MonitorPlay },
-            { name: 'Productivity', path: '/blog/productivity', Icon: Zap },
-            { name: 'Student Success Stories', path: '/blog/success', Icon: Medal },
-        ],
-    },
-    {
-        title: 'Jobs & Internships', path: '/jobs',
-        Icon: Handshake, colorCls: 'text-emerald-500', bgCls: 'bg-emerald-500/10',
-        description: 'IT jobs, government jobs, internships and placement drives.',
-        subcategories: [
-            { name: 'IT Jobs', path: '/jobs/it', Icon: Laptop },
-            { name: 'Government Jobs', path: '/jobs/govt', Icon: Building2 },
-            { name: 'Internships', path: '/jobs/internships', Icon: GraduationCap },
-            { name: 'Walk-In Drives', path: '/jobs/walkin', Icon: CalendarCheck },
-            { name: 'Placement Updates', path: '/jobs/placement', Icon: TrendingUp },
-        ],
-    },
-    {
-        title: 'Resources', path: '/resources',
-        Icon: Package, colorCls: 'text-yellow-500', bgCls: 'bg-yellow-500/10',
-        description: 'Curated tools, links and reference materials for serious learners.',
-        subcategories: null,
-    },
+    // {
+    //     title: 'Mock Tests', path: '/mock-tests',
+    //     Icon: Timer, colorCls: 'text-cyan-500', bgCls: 'bg-cyan-500/10',
+    //     description: 'Timed, exam-pattern practice tests to track your real progress.',
+    //     subcategories: [
+    //         { name: 'Aptitude Tests', path: '/mock-tests/aptitude', Icon: Calculator },
+    //         { name: 'Government Exam Tests', path: '/mock-tests/govt', Icon: Award },
+    //         { name: 'Programming MCQs', path: '/mock-tests/programming', Icon: Code },
+    //         { name: 'Technical Tests', path: '/mock-tests/technical', Icon: Wrench },
+    //         { name: 'Full Length Practice Tests', path: '/mock-tests/full-length', Icon: AlarmClock },
+    //     ],
+    // },
+    // {
+    //     title: 'Study Materials', path: '/study-materials',
+    //     Icon: Library, colorCls: 'text-indigo-500', bgCls: 'bg-indigo-500/10',
+    //     description: 'Free notes, PDFs, cheat sheets and formula books for every exam.',
+    //     subcategories: [
+    //         { name: 'Notes', path: '/study-materials/notes', Icon: FileText },
+    //         { name: 'PDFs', path: '/study-materials/pdfs', Icon: FileDown },
+    //         { name: 'Cheat Sheets', path: '/study-materials/cheat-sheets', Icon: Scroll },
+    //         { name: 'Important Formulas', path: '/study-materials/formulas', Icon: Sigma },
+    //         { name: 'Exam Guides', path: '/study-materials/guides', Icon: GraduationCap },
+    //     ],
+    // },
+    // {
+    //     title: 'Blog', path: '/blog',
+    //     Icon: Feather, colorCls: 'text-pink-500', bgCls: 'bg-pink-500/10',
+    //     description: 'Career guidance, exam tips, tutorials and student success stories.',
+    //     subcategories: [
+    //         { name: 'Career Guidance', path: '/blog/career', Icon: TrendingUp },
+    //         { name: 'Exam Preparation Tips', path: '/blog/exam-prep', Icon: Lightbulb },
+    //         { name: 'Programming Tutorials', path: '/blog/tutorials', Icon: MonitorPlay },
+    //         { name: 'Productivity', path: '/blog/productivity', Icon: Zap },
+    //         { name: 'Student Success Stories', path: '/blog/success', Icon: Medal },
+    //     ],
+    // },
+    // {
+    //     title: 'Jobs & Internships', path: '/jobs',
+    //     Icon: Handshake, colorCls: 'text-emerald-500', bgCls: 'bg-emerald-500/10',
+    //     description: 'IT jobs, government jobs, internships and placement drives.',
+    //     subcategories: [
+    //         { name: 'IT Jobs', path: '/jobs/it', Icon: Laptop },
+    //         { name: 'Government Jobs', path: '/jobs/govt', Icon: Building2 },
+    //         { name: 'Internships', path: '/jobs/internships', Icon: GraduationCap },
+    //         { name: 'Walk-In Drives', path: '/jobs/walkin', Icon: CalendarCheck },
+    //         { name: 'Placement Updates', path: '/jobs/placement', Icon: TrendingUp },
+    //     ],
+    // },
+    // {
+    //     title: 'Resources', path: '/resources',
+    //     Icon: Package, colorCls: 'text-yellow-500', bgCls: 'bg-yellow-500/10',
+    //     description: 'Curated tools, links and reference materials for serious learners.',
+    //     subcategories: null,
+    // },
 ];
 
 // ─────────────────────────────────────────────
@@ -792,7 +792,7 @@ const Navbar = () => {
             <div className={`hidden md:block border-b backdrop-blur-md ${isDark ? 'bg-[#0f0f0f]/80 border-[#1a1a1a]' : 'bg-white/80 border-gray-100'}`}>
                 {/* outer relative container — mega panel is positioned relative to this */}
                 <div className='relative w-full max-w-[1440px] mx-auto px-2 lg:px-6'>
-                    <div className='flex items-center gap-x-0 overflow-x-auto no-scrollbar'>
+                    <div className='flex items-center justify-center gap-x-2 overflow-x-auto no-scrollbar'>
 
                         {/* Home */}
                         <Link href='/' className="shrink-0 flex items-center h-11 px-2.5 group relative">

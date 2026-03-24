@@ -15,6 +15,7 @@ import { useTheme } from '../../../../context/ThemeContext';
 import { topicData as aptitudeData } from '../../../../data/aptitude';
 import { useSession, signIn } from 'next-auth/react';
 import ElectricBorder from '../../../../components/common/ElectricBorder';
+import ComingSoon from '@/components/common/ComingSoon';
 import axios from 'axios';
 
 // Import TCS topic-specific question data
@@ -349,6 +350,14 @@ const CompanyTopicPageInner = () => {
   }, [currentQuestions]);
 
   if (!router.isReady) return null;
+
+  if (!loading && (!allQuestions || allQuestions.length === 0)) {
+    return (
+      <div className={`min-h-screen pt-28 ${bg}`}>
+        <ComingSoon topicName={topicName} category={company} />
+      </div>
+    );
+  }
 
   const handleOptionClick = async (qId, optId, correctAnswer) => {
     const currentAttempts = attempts[qId] || [];

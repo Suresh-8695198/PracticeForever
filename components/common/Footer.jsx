@@ -21,26 +21,25 @@ const footerLinks = [
       { label: 'Non-Verbal Reasoning',   path: '/aptitude/non-verbal' },
     ],
   },
+  // {
+  //   heading: 'Preparation Resources',
+  //   links: [
+  //     { label: 'Mock Tests',             path: '/mock-tests' },
+  //     { label: 'Daily Current Affairs',  path: '/current-affairs/daily' },
+  //     { label: 'Study Notes & PDFs',     path: '/study-materials' },
+  //     { label: 'Important Formulas',     path: '/study-materials/formulas' },
+  //     { label: 'Previous Year Papers',   path: '/exams/pyq' },
+  //     { label: 'Exam Syllabus',          path: '/exams/syllabus' },
+  //   ],
+  // },
   {
-    heading: 'Preparation Resources',
-    links: [
-      { label: 'Mock Tests',             path: '/mock-tests' },
-      { label: 'Daily Current Affairs',  path: '/current-affairs/daily' },
-      { label: 'Study Notes & PDFs',     path: '/study-materials' },
-      { label: 'Important Formulas',     path: '/study-materials/formulas' },
-      { label: 'Previous Year Papers',   path: '/exams/pyq' },
-      { label: 'Exam Syllabus',          path: '/exams/syllabus' },
-    ],
-  },
-  {
-    heading: 'Career & Jobs',
+    heading: 'Career & Preparation',
     links: [
       { label: 'Interview Questions',    path: '/interviews' },
       { label: 'HR Interview Guide',     path: '/interviews/hr' },
-      { label: 'Government Jobs',        path: '/jobs/govt' },
-      { label: 'IT Jobs for Freshers',   path: '/jobs/it' },
-      { label: 'Walk-in Interviews',     path: '/jobs/walkin' },
-      { label: 'Internship Openings',    path: '/jobs/internships' },
+      { label: 'Daily Current Affairs',  path: '/current-affairs/daily' },
+      { label: 'Exam Hub & News',        path: '/exams' },
+      { label: 'Previous Year Papers',   path: '/exams/pyq' },
     ],
   },
 ];
@@ -105,7 +104,7 @@ export default function Footer() {
 
       {/* ── Main footer grid ── */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
           {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
