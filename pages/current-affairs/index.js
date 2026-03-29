@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
-import { MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -190,7 +190,96 @@ const HIGHLIGHT_MAP = {
     "14416": "highlight-teal",
     "New Mangalore": "highlight-teal",
     "Sharad Pawar": "highlight-yellow",
-    "Mallikarjun Kharge": "highlight-yellow"
+    "Mallikarjun Kharge": "highlight-yellow",
+    "South Pars gas field": "highlight-purple",
+    "Sensex and Nifty": "highlight-orange",
+    "FTA Talks": "highlight-teal",
+    "Drone Hub": "highlight-blue",
+    "Maternity Leave": "highlight-green",
+    "Electric Mini Buses": "highlight-eco",
+    "Renewable Energy": "highlight-green",
+    "POCSO Act": "highlight-rose",
+    "Thoothukudi": "highlight-teal",
+    "H5N1": "highlight-rose",
+    "Avian Influenza": "highlight-rose",
+    "Bangladeshi nationals": "highlight-blue",
+    "Salem district": "highlight-teal",
+    "TB-Free India": "highlight-green",
+    "Velachery": "highlight-teal",
+    "District Metered Areas": "highlight-blue",
+    "Suvidha 2.0": "highlight-teal",
+    "IoT sensors": "highlight-blue",
+    "DMA": "highlight-blue",
+    "EOW": "highlight-rose",
+    "crypto scam": "highlight-rose",
+    "chain snatching": "highlight-rose",
+    "silver fraud": "highlight-rose",
+    "Four-Cornered Contest": "highlight-teal",
+    "Cabinet Committee on Security": "highlight-blue",
+    "CCS": "highlight-blue",
+    "ULFA(I)": "highlight-rose",
+    "IRCTC": "highlight-blue",
+    "QR codes": "highlight-teal",
+    "Hibiscus Herbal Tea": "highlight-green",
+    "Idhazh": "highlight-green",
+    "Kidult": "highlight-orange",
+    "Puducherry Election": "highlight-teal",
+    "Delimitation": "highlight-blue",
+    "Sattankulam": "highlight-rose",
+    "CSIR–SERC": "highlight-teal",
+    "Self-identification rights": "highlight-amber",
+    "Packaged Water": "highlight-blue",
+    "custodial death": "highlight-rose",
+    "816 seats": "highlight-orange",
+    "Women Reservation Bill": "highlight-blue",
+    "Clause 3": "highlight-blue",
+    "Scheduled Castes Order, 1950": "highlight-blue",
+    "Permanent Commission": "highlight-teal",
+    "VCK": "highlight-teal",
+    "DMDK": "highlight-teal",
+    "AIADMK Manifesto": "highlight-amber",
+    "S.P. Velumani": "highlight-yellow",
+    "Colorectal Cancer": "highlight-rose",
+    "NDPS Act": "highlight-rose",
+    "NH716A": "highlight-blue",
+    "Ponmudy": "highlight-yellow",
+    "Transgender Persons (Protection of Rights) Act, 2019": "highlight-blue",
+    "NALSA vs Union of India": "highlight-blue",
+    "Chennai Photo Biennale": "highlight-teal",
+    "IMSc": "highlight-teal",
+    "Science at the Sabha": "highlight-teal",
+    "scientific temper": "highlight-green",
+    "experience economy": "highlight-blue",
+    "RJ Balaji": "highlight-yellow",
+    "Roar 26": "highlight-orange",
+    "MS Dhoni": "highlight-yellow",
+    "Strategic Petroleum Reserves": "highlight-blue",
+    "SPR": "highlight-blue",
+    "campaign finance transparency": "highlight-teal",
+    "Green Hydrogen Mission": "highlight-green",
+    "Net-zero by 2070": "highlight-orange",
+    "rural internet connectivity": "highlight-teal",
+    "bridging the digital divide": "highlight-teal",
+    "online scams": "highlight-rose",
+    "financial frauds": "highlight-rose",
+    "multidisciplinary approach": "highlight-blue",
+    "CPI": "highlight-rose",
+    "Consumer Price Index": "highlight-rose",
+    "Right to a Speedy Trial": "highlight-blue",
+    "4 crore cases": "highlight-orange",
+    "electrolyzer capacity": "highlight-teal",
+    "Cyber Surakshita Bharat": "highlight-blue",
+    "multidisciplinary credit system": "highlight-blue",
+    "Digital learning hubs": "highlight-teal",
+    "energy diplomacy": "highlight-blue",
+    "strategic autonomy": "highlight-blue",
+    "flying squads": "highlight-amber",
+    "surveillance teams": "highlight-amber",
+    "unaccounted cash distribution": "highlight-rose",
+    "Digital Voting Rights": "highlight-blue",
+    "youth training hubs": "highlight-teal",
+    "National Skill Mission": "highlight-blue",
+    "online fraud prevention": "highlight-rose"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -368,7 +457,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-19');
+    const [selectedDate, setSelectedDate] = useState('2026-03-29');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -599,7 +688,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);

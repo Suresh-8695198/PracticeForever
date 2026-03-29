@@ -1,3 +1,1866 @@
+export const MARCH_29_ARTICLE = {
+    id: 29032026,
+    title: "Daily Current Affairs – 29 March 2026",
+    publish_date: "2026-03-29",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Global Perspective</strong>
+        <p>This edition for <strong>29 March 2026</strong> highlights India's <strong>diplomatic agility</strong> in West Asia, advanced <strong>election monitoring</strong> protocols, rising <strong>climate risks</strong>, and significant strides in <strong>skill development</strong> programs.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Geopolitics: India’s Diplomatic Push for Energy Security</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Fluctuating oil prices (around <strong>$105–110/barrel</strong>) have prompted India to intensify talks with key West Asian partners.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>High-level diplomatic discussions with <strong>Iran and Gulf nations</strong> to ensure unobstructed oil transport through the <strong>Strait of Hormuz</strong>.</li>
+                <li>Emphasis on <strong>trade stability</strong> and mitigating the impact of West Asia conflict on global maritime routes.</li>
+                <li>Inflationary impact on <strong>transport and food prices</strong> remains a key concern for the central government and RBI.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>International Relations</strong>
+                <p>India’s <strong>strategic autonomy</strong> is reflected in its ability to engage diverse stakeholders in the Gulf to safeguard its energy basket.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="Energy Diplomacy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Governance: Election Commission Toughens Surveillance</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Stricter monitoring protocols have been introduced ahead of the 2026 assembly elections to ensure transparency.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Deployment of specialized <strong>flying squads</strong> and multi-disciplinary <strong>surveillance teams</strong> to prevent illicit activities.</li>
+                <li>Focus on curbing <strong>unaccounted cash distribution</strong> and maintaining a level playing field for all political candidates.</li>
+                <li>Increased voter awareness initiatives emphasizing <strong>Digital Voting Rights</strong> and ethical participation.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Elections</strong>
+                <p>The <strong>Election Commission of India (ECI)</strong> continues to evolve with technology to maintain the sanctity of the democratic process.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="Election Monitoring" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Environment: Global Reports Sound Alarm on Climate Change</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>New environmental assessments warn of unprecedented climate risks and rising average temperatures in the subcontinent.</p>
+            <strong class="sub-title">Major Priorities</strong>
+            <ul>
+                <li>Urgent call for scaling <strong>sustainable practices</strong> across urban and rural infrastructure development.</li>
+                <li>Focus on accelerating <strong>Renewable Energy</strong> adoption to meet national carbon reduction targets.</li>
+                <li>Integration of <strong>climate resilience</strong> into long-term agricultural and maritime planning.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Environment</strong>
+                <p>Climate change is no longer a future threat; it is an active **economic and social risk** requiring immediate policy response.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/renewable_energy_conflict.png" alt="Climate Resilience" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Economy & Skill: Expansion of Youth Development Initiatives</strong>
+            <strong class="sub-title">Key Priorities</strong>
+            <ul>
+                <li>Scaling up of specialized **youth training hubs** focusing on advanced <strong>skill-based education</strong> in emerging tech.</li>
+                <li>Targeted efforts to align regional workforce skills with the demands of the **Digital Infrastructure** expansion.</li>
+                <li>Incentivized <strong>job creation</strong> models for the private sector participating in the National Skill Mission.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Social Sector</strong>
+                <p>Empowering the <strong>youth through skill development</strong> is the only sustainable way to capitalize on India's demographic dividend.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Public Safety & Health: Cybersecurity and Healthcare Expansion</strong>
+            <strong class="sub-title">Key Highlights</strong>
+            <ul>
+                <li><strong>Public Health</strong>: Increased government investment in **rural healthcare infrastructure** and insurance scheme accessibility.</li>
+                <li><strong>Cybersecurity</strong>: Nation-wide campaign to educate the elderly and rural populations on <strong>online fraud prevention</strong>.</li>
+                <li><strong>Infrastructure</strong>: New milestones in extending <strong>Digital Networks</strong> to the farthest corners of rural India.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Internal Security</strong>
+                <p>A <strong>digitally aware citizenry</strong> is the first line of defense against modern cyber warfare and financial crimes.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/welfare.png" alt="Health & Security" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Oil prices remain unstable ($105–110/barrel) due to ongoing tensions in West Asia.</li>
+        <li>India strengthens energy diplomacy through high-level talks with Iran and Gulf nations.</li>
+        <li>Election Commission introduces stricter surveillance protocols and flying squads for 2026 polls.</li>
+        <li>Fuel-led inflation concerns continue to rise, impacting food prices and domestic transportation.</li>
+        <li>Digital network expansion focuses on achieving near-universal internet access in rural areas.</li>
+        <li>New climate reports warn of increasing temperature risks, urging faster renewable energy shifts.</li>
+        <li>Tamil Nadu election campaigns focus heavily on youth employment and welfare scheme delivery.</li>
+        <li>Government launches national cybersecurity campaigns to mitigate the rise in online frauds.</li>
+        <li>Expansion of public healthcare coverage to improve insurance reach for low-income families.</li>
+        <li>Scaling up of youth skill development initiatives to support long-term economic job creation.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What measures is the ECI taking for fair monitoring?</h4>
+    <p>The Election Commission has deployed flying squads and increased surveillance to prevent unaccounted cash distribution and ensure a level playing field.</p>
+
+    <h4>2. Why is India engaging in West Asia diplomacy?</h4>
+    <p>To ensure safe oil transport through the Strait of Hormuz and secure stable energy prices amidst the ongoing regional conflicts.</p>
+
+    <h4>3. How does digital infrastructure benefit rural populations?</h4>
+    <p>By enabling access to digital healthcare, education (e-learning), and government welfare services that were previously unreachable due to geography.</p>
+</div>
+`
+};
+
+export const MARCH_28_ARTICLE = {
+    id: 28032026,
+    title: "Daily Current Affairs – 28 March 2026",
+    publish_date: "2026-03-28",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Insight</strong>
+        <p>This edition for <strong>28 March 2026</strong> covers the <strong>RBI's inflation monitoring</strong>, judicial reforms in the <strong>Supreme Court</strong>, India’s expansion of <strong>strategic reserves</strong>, and the latest in green energy technologies.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Economy & Policy: RBI Monitors Inflation amidst Oil Volatility</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Geopolitical tensions in West Asia continue to fuel inflationary pressures across the globe.</p>
+            <strong class="sub-title">Key Insights</strong>
+            <ul>
+                <li>Oil prices remain volatile around <strong>$110/barrel</strong>; RBI maintains a hawk-like watch on the <strong>consumer price index (CPI)</strong>.</li>
+                <li>Strategic expansion of <strong>Strategic Petroleum Reserves (SPR)</strong> to buffer against global supply chain disruptions.</li>
+                <li>Monetary policy decisions to be closely linked to the <strong>fuel inflation trajectory</strong> over the next quarter.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Macro-Economics</strong>
+                <p>Rising fuel costs significantly impact <strong>transportation and logistics</strong>, leading to broader cost-push inflation.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="Economy Outlook" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Judiciary: Supreme Court on Delay in Justice Delivery</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The apex court has raised concerns over the high number of pending cases and stalled judicial reforms.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Emphasis on the <strong>Right to a Speedy Trial</strong> as an implicit fundamental right under Article 21.</li>
+                <li>Call for modernizing <strong>judicial infrastructure</strong> and implementing digital court systems for faster disposal.</li>
+                <li>Highlighting the need for immediate <strong>filling of vacancies</strong> in the higher and lower judiciary.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Governance</strong>
+                <p>"Justice delayed is justice denied"—Addressing the <strong>pendency of over 4 crore cases</strong> is crucial for India’s legal integrity.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/supreme_court_mar12.png" alt="Judicial Reforms" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Environment: Scaling the National Green Hydrogen Mission</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India is accelerating its transition to clean energy to meet international climate targets.</p>
+            <strong class="sub-title">Major Priorities</strong>
+            <ul>
+                <li>Increase in <strong>electrolyzer capacity</strong> to support the large-scale production of Green Hydrogen.</li>
+                <li>Focus on decarbonizing hard-to-abate sectors like <strong>steel, fertilizer, and long-range transport</strong>.</li>
+                <li>Integral part of India's vision to achieve <strong>Net-zero emissions by 2070</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Environment</strong>
+                <p>Green Hydrogen is the key to <strong>decarbonizing heavy industries</strong> while ensuring energy independence.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/renewable_energy_conflict.png" alt="Green Energy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Science: ISRO’s Next-Gen Communication Satellite</strong>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Successful development milestones for a new <strong>high-throughput communication satellite</strong>.</li>
+                <li>Aimed at enhancing <strong>broadband services</strong> in hilly and remote border regions of India.</li>
+                <li>Strengthens India's <strong>digital infrastructure</strong> for the upcoming generation of tele-connectivity.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Science & Tech</strong>
+                <p>Advanced satellite tech is the backbone of **Digital India**, bridging the connectivity gap in geographical extremes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Social Sector: Health Insurance and NEP 2020 Implementation</strong>
+            <strong class="sub-title">Key Highlights</strong>
+            <ul>
+                <li><strong>Healthcare</strong>: Expansion of premium <strong>public health insurance services</strong> for rural and informal sector workers.</li>
+                <li><strong>Education</strong>: NEP 2020 progress emphasizes <strong>digital learning hubs</strong> and a multidisciplinary credit system.</li>
+                <li><strong>Security</strong>: Surge in <strong>Digital Payment Frauds</strong>; government to launch 'Cyber Surakshita Bharat' awareness campaign.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Education & Health</strong>
+                <p>Coordinated <strong>social safety nets</strong> are essential for sustainable and inclusive economic growth.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/welfare.png" alt="Welfare Coverage" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Global oil volatility continues around $110/barrel, increasing domestic inflation pressure.</li>
+        <li>Strategic Petroleum Reserves (SPR) expansion is underway to reduce import-dependency risks.</li>
+        <li>Supreme Court flags concerns over pending cases, calling for judicial speed and reforms.</li>
+        <li>RBI maintains a hawk-like watch on inflation fueled by high energy and logistics costs.</li>
+        <li>ISRO advances a new communication satellite for high-speed internet in remote rural regions.</li>
+        <li>National Green Hydrogen Mission scaled up as a pioneer project for India's 2070 Net-zero goal.</li>
+        <li>Tamil Nadu election campaigns see intensified focus on welfare schemes and youth employment.</li>
+        <li>Sharp rise reported in digital payment frauds, triggering new 'Cyber Surakshita Bharat' campaigns.</li>
+        <li>Public health insurance coverage expanded to include additional rural beneficiaries.</li>
+        <li>NEP 2020 implementation focuses on multidisciplinary systems and digital learning expansion.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What is the significance of the "Right to a Speedy Trial"?</h4>
+    <p>Recognized by the Supreme Court as a fundamental right under Article 21, it ensures that criminal and civil proceedings are not delayed indefinitely.</p>
+
+    <h4>2. How does the National Green Hydrogen Mission benefit the environment?</h4>
+    <p>It aims to replace fossil fuels in heavy industries with Green Hydrogen produced from renewable energy, thus dramatically reducing carbon footprints.</p>
+
+    <h4>3. What is the status of the SPR expansion in India?</h4>
+    <p>India is significantly increasing its long-term underground storage capacity for crude oil to safeguard against future global energy supply shocks.</p>
+</div>
+`
+};
+
+export const MARCH_27_ARTICLE = {
+    id: 27032026,
+    title: "Daily Current Affairs – 27 March 2026",
+    publish_date: "2026-03-27",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Global Update</strong>
+        <p>This edition for <strong>27 March 2026</strong> focuses on India's <strong>strategic energy resilience</strong>, economic growth forecasts, <strong>Space & Tech breakthroughs</strong>, and major governance reforms for competitive exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Energy & Economy: Global Oil Tensions vs. India's Strategy</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Crude oil prices remain volatile as geopolitical instability in West Asia persists.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Oil prices stay above <strong>$110/barrel</strong>; focus remains on the critical <strong>Strait of Hormuz</strong> shipping lanes.</li>
+                <li>India is diversifying its energy basket by increasing imports from <strong>Russia and the USA</strong>.</li>
+                <li>Active development of <strong>Strategic Petroleum Reserves (SPR)</strong> to buffer against global supply shocks.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Macro-Economics</strong>
+                <p>Ensuring <strong>energy stability</strong> is vital for maintaining India's target GDP growth amid high global inflation.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="Energy Security" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Science & Tech: ISRO’s Rural Connectivity Initiative</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India’s space agency makes significant strides in bridging the digital divide.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Launch of a dedicated <strong>Satellite Communication Project</strong> focused on bringing high-speed internet to rural villages.</li>
+                <li>Leverages high-throughput satellites to enable <strong>tele-education and tele-medicine</strong> in remote areas.</li>
+                <li>Supports the <strong>Digital India</strong> vision by ensuring universal connectivity regardless of geography.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Space tech</strong>
+                <p>Bridging the <strong>digital divide</strong> is essential for equitable social development across rural India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/drone_hub_india_mar19.png" alt="ISRO Project" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Polity & Governance: Electoral and Education Reform Updates</strong>
+            <strong class="sub-title">Major Developments</strong>
+            <ul>
+                <li><strong>Electoral Reform</strong>: Parliament discusses the role of the Election Commission in <strong>campaign finance transparency</strong> and digital voting awareness.</li>
+                <li><strong>Education (NEP 2020)</strong>: New implementation update focuses on <strong>skill-based learning</strong> and a multidisciplinary approach for higher education.</li>
+                <li><strong>Green Energy</strong>: India expands its <strong>Green Hydrogen Mission</strong> capacity to target Net-zero emissions by 2070.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Reforms</strong>
+                <p>Modernizing <strong>electoral and educational frameworks</strong> is the cornerstone of 21st-century national development.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="Governance Reform" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Security: Combating the Rise in Cyber Crimes</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Recent government data indicates a sharp increase in sophisticated online scams and financial frauds.</p>
+            <strong class="sub-title">Key Observations</strong>
+            <ul>
+                <li>Significant rise in <strong>Aadhaar-linked scams</strong> and international phishing operations targeting Indian bank accounts.</li>
+                <li>Home Ministry to launch a nationwide <strong>Digital Safety Awareness</strong> drive to educate rural and urban users alike.</li>
+                <li>Strengthening of <strong>cyber-forensic labs</strong> to expedite the investigation of high-value financial crimes.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Internal Security</strong>
+                <p>Cybersecurity is no longer just a tech issue; it is a critical component of <strong>National Internal Security (GS-3)</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Social Sector: Scaling Health and Welfare Schemes</strong>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Expansion of <strong>public health insurance coverage</strong> to include more low-income rural families.</li>
+                <li>Targeted upgrades to <strong>primary health infrastructure</strong> in tier-3 cities to reduce the burden on metro hospitals.</li>
+                <li>Intensification of <strong>voter awareness drives</strong> in Tamil Nadu ahead of the 2026 assembly elections.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Welfare</strong>
+                <p>Equitable access to <strong>Healthcare and Education</strong> remains the benchmark for successful policy implementation.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/welfare.png" alt="Health & Welfare" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Global oil prices stay above $110/barrel due to ongoing West Asia conflict and shipping risks.</li>
+        <li>India is diversifying energy sourcing from Russia and the USA to ensure strategic resilience.</li>
+        <li>Parliamentary debates focus on campaign finance transparency and Election Commission reforms.</li>
+        <li>India’s GDP growth forecast for 2026 is projected between 6.5% and 7.0%.</li>
+        <li>ISRO’s Satellite Communication Project aims to bridge the digital divide in rural India.</li>
+        <li>India’s Green Hydrogen Mission is scaled up as part of the Net-zero by 2070 commitment.</li>
+        <li>Cyber crime data shows a sharp rise in online scams; government pushes for digital safety awareness.</li>
+        <li>The National Education Policy (NEP 2020) implementation enters the skill-based learning phase.</li>
+        <li>Tamil Nadu sees intensified election campaigns focusing on employment and local welfare.</li>
+        <li>Expansion of rural healthcare insurance to cover 2 million additional households nationwide.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why is India importing more oil from Russia and the USA?</h4>
+    <p>To diversify energy sources, reduce dependency on the volatile West Asia region, and secure better pricing for long-term strategic reserves.</p>
+
+    <h4>2. What is the main objective of ISRO’s latest satellite project?</h4>
+    <p>The primary aim is to provide high-speed rural internet connectivity, enabling tele-medicine and tele-education in remote parts of the country.</p>
+
+    <h4>3. What is the "Net-Zero" target set by the Indian government?</h4>
+    <p>India aims to achieve Net-Zero carbon emissions by the year 2070 through missions like Green Hydrogen and expanding renewable energy capacity.</p>
+</div>
+`
+};
+
+export const MARCH_26_ARTICLE = {
+    id: 26032026,
+    title: "Daily Current Affairs – 26 March 2026",
+    publish_date: "2026-03-26",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box rose mb-12">
+        <strong>MetroPlus Edition</strong>
+        <p>This edition of <strong>26 March 2026</strong> current affairs features deep dives into <strong>social justice</strong>, cultural identity, <strong>scientific outreach</strong>, and evolving urban lifestyles for Mains enrichment.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Social Justice: The Transgender Rights Amendment Debate</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Ongoing protests and parliamentary discussions regarding the proposed amendments to the 2019 Act.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Concerns that the amendment limits <strong>identity recognition</strong> to specific traditional categories like hijra or kinner.</li>
+                <li>Critics argue it ignores <strong>trans men</strong> and significantly dilutes **self-identification rights**.</li>
+                <li>Impact on accessing <strong>healthcare, education</strong>, and legal protections guaranteed by the landmark **2014 NALSA vs Union of India** judgment.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Rights</strong>
+                <p>The **Right to Self-Identification** is a core component of human dignity as recognized by the Supreme Court.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/welfare.png" alt="Transgender Rights" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Culture: Chennai Photo Biennale (International Art Event)</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>One of Asia's premier photography festivals opens in Chennai with global participation.</p>
+            <strong class="sub-title">Event Highlights</strong>
+            <ul>
+                <li>Features over <strong>100+ photographs</strong> from artists across <strong>37 countries</strong>.</li>
+                <li>Themes explore <strong>climate change</strong>, cultural identity, women's safety, and the human impact of industrialization.</li>
+                <li>Exhibitions are spread across heritage and public spaces including OSR Park and VR Chennai.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Society & Art</strong>
+                <p>Art festivals play a vital role in <strong>sensitizing the public</strong> to global challenges like climate change.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/firefly_biodiversity_mar14.png" alt="Arts Festival" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Science & Tech: "Science at the Sabha" – Bridging the Gap</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>An outreach initiative by the Institute of Mathematical Sciences (IMSc) to simplify complex scientific concepts for the general public.</p>
+            <strong class="sub-title">Key Topics</strong>
+            <ul>
+                <li>Academic experts delivered talks on <strong>gravitational waves</strong>, AI ethics, human behavior, and advanced mathematics.</li>
+                <li>Aimed at fostering a <strong>scientific temper</strong> (an Indian constitutional duty under Article 51A).</li>
+                <li>Shows a growing trend of scientists engaging directly with the local community to improve <strong>science accessibility</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Science Communication</strong>
+                <p>Simplified communication is key to building a <strong>rational and informed society</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/responsible_ai_mar12.png" alt="Science Outreach" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. IPL 2026: The Cultural Impact of "Roar 26"</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Indian Premier League acts as a massive tool for social bonding and cultural identity in Chennai.</p>
+            <strong class="sub-title">Key Insights</strong>
+            <ul>
+                <li>Special focus on legacy players like <strong>MS Dhoni</strong> reuniting under the "Roar 26" event at Chepauk.</li>
+                <li>Sports as a medium for <strong>regional pride</strong> and emotional connection across generations.</li>
+                <li>Significant increase in <strong>Tamil commentary</strong> led by RJ Balaji, improving accessibility and audience engagement.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Sports & Identity</strong>
+                <p>Mass-market sports like IPL transcend physical games to become <strong>cultural symbols</strong> for the city.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Urban Trends: The Rise of the "Experience Economy"</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Shift in urban spending patterns from simple goods to premium, curated experiences.</p>
+            <strong class="sub-title">Observations</strong>
+            <ul>
+                <li>Rapid rise of <strong>premium mixology culture</strong> and lifestyle bars in Chennai.</li>
+                <li>Urban urbanization is leading to the growth of niche hospitality sectors focused on **curated experiences**.</li>
+                <li>Reflects changing <strong>middle-class psychology</strong> and discretionary spending habits in smart cities.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Economics</strong>
+                <p>The **Experience Economy** is a post-service era development where the experience itself is the primary value.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/chennai_ebus_mar19.png" alt="Urban Lifestyle" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Proposed amendments to the Transgender Act face criticism for ignoring trans men and limiting identity.</li>
+        <li>2014 NALSA vs Union of India judgment recognized the third gender and self-identification rights.</li>
+        <li>Chennai Photo Biennale features 100+ photos from 37 countries focusing on climate and identity.</li>
+        <li>"Science at the Sabha" makes complex concepts like gravitational waves accessible to all.</li>
+        <li>Article 51A of the Indian Constitution mandates the development of a "scientific temper."</li>
+        <li>Group art exhibitions like "Oviya Tharunangal" showcase high-fidelity regional artworks.</li>
+        <li>IPL 2026's "Roar 26" event emphasizes emotional and cultural bonding through cricket.</li>
+        <li>Regional language media (Tamil) sees a spike in engagement for major sporting events.</li>
+        <li>Urban lifestyles in Chennai shift toward an "Experience Economy" through premium hospitality.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What was the central outcome of the 2014 NALSA vs Union of India case?</h4>
+    <p>It officially recognized the "third gender" and granted individuals the legal right to self-identify their gender.</p>
+
+    <h4>2. How does the Chennai Photo Biennale contribute to society?</h4>
+    <p>It uses visual storytelling to raise international awareness on climate change, women's safety, and cultural identity.</p>
+
+    <h4>3. What is meant by the "Experience Economy"?</h4>
+    <p>It is an economic stage where consumers prioritize paying for memorable experiences—such as curated dining or art events—over just buying products.</p>
+</div>
+`
+};
+
+export const MARCH_25_ARTICLE = {
+    id: 25032026,
+    title: "Daily Current Affairs – 25 March 2026",
+    publish_date: "2026-03-25",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>25 March 2026</strong> current affairs covering <strong>Supreme Court judgments</strong>, election manifestos, <strong>international diplomacy</strong>, and healthcare awareness for UPSC, TNPSC, and Banking exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Supreme Court: SC Status Rule for Conversion</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Supreme Court delivered a major constitutional judgment regarding the eligibility of Scheduled Caste status.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>The Court ruled that Scheduled Caste (SC) status is restricted to <strong>Hindus, Buddhists, and Sikhs</strong> only.</li>
+                <li>Conversion to any other religion leads to the <strong>immediate loss</strong> of SC status and associated benefits.</li>
+                <li>Based on <strong>Clause 3 of the Constitution (Scheduled Castes) Order, 1950</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity</strong>
+                <p>This ruling clarifies the <strong>constitutional boundaries</strong> of affirmative action for the Scheduled Castes.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/supreme_court_mar12.png" alt="Supreme Court" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. India–U.S. Diplomacy: Trump and Modi Discuss West Asia War</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A high-level diplomatic call between the world's two largest democracies amid the regional crisis.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Discussions focused on the security of the <strong>Strait of Hormuz</strong> and the ongoing West Asia conflict.</li>
+                <li>At least <strong>6 Indians confirmed killed</strong> in the regional turmoil; focus on protecting the Indian diaspora.</li>
+                <li>Collaboration on energy market stability and ensuring safe global trade routes.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>International Relations</strong>
+                <p>The safety of <strong>Indian citizens abroad</strong> remains a top priority during global security disruptions.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="India-US Diplomacy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. TN Elections 2026: AIADMK Manifesto & Alliance Seat Allocation</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Political activity peaks in Tamil Nadu as parties finalize alliances and promises.</p>
+            <strong class="sub-title">Major Updates</strong>
+            <ul>
+                <li><strong>AIADMK Manifesto</strong>: Promises free Dal, cooking oil, and refrigerators; Minimum Support Price (MSP) for Paddy at <strong>₹3500/quintal</strong>.</li>
+                <li><strong>DMK Alliance</strong>: Finalized seats for DMDK (10 seats) and VCK (8 seats).</li>
+                <li><strong>Seizures</strong>: Total election-related seizures in TN have crossed <strong>₹178.78 crore</strong>.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Elections 2026</strong>
+                <p>Manifesto promises are centered on <strong>social welfare</strong> and agricultural support to woo voters.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="TN Politics" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Judiciary: Women in Defence Uphold Permanent Commission</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Supreme Court continues to push for full parity in the armed forces.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>SC reiterated that women officers are eligible for <strong>permanent commission</strong> on par with male counterparts.</li>
+                <li>Decision promotes <strong>gender equality</strong> in leadership roles across the Army, Navy, and Air Force.</li>
+                <li>Removal of traditional barriers in strategic and operational roles for women.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Women Empowerment</strong>
+                <p>Full parity in the <strong>Permanent Commission</strong> is a transformative step for India's defence modernization.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/women_reservation_mar17.png" alt="Women in Defence" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Health Awareness: Risk of Colorectal Cancer in India</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Recent health surveys highlight a critical lack of awareness regarding early symptoms.</p>
+            <strong class="sub-title">Key Statistics</strong>
+            <ul>
+                <li>Only <strong>11.7%</strong> of the surveyed population is aware of early cancer symptoms.</li>
+                <li>Nearly <strong>80% delay doctor visits</strong> until the disease progresses to advanced stages.</li>
+                <li>Early warning signs like "blood in stool" are frequently misdiagnosed or ignored.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Public Health</strong>
+                <p>Improving <strong>early detection</strong> is essential for reducing the mortality rate of colorectal cancer.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">6. Infrastructure & Transport: NHAI Road De-Notification</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Re-classification of national highways to streamline road maintenance and development.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li><strong>NH716A</strong> to be de-notified and handed over to State Highways for better local management.</li>
+                <li>Decision triggered by the development of a <strong>new parallel highway</strong> handled by NHAI.</li>
+                <li>Infrastructure updates: Focus on Alandur where drainage and water supply persist despite Metro integration.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Infrastructure</strong>
+                <p>Coordinated efforts between <strong>State and NHAI</strong> are required for efficient highway networks.</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Supreme Court rules SC status is limited to Hindus, Buddhists, and Sikhs by law.</li>
+        <li>SC upholds the right of women officers to obtain Permanent Commission in all armed forces.</li>
+        <li>Donald Trump and Narendra Modi hold talks on West Asia conflict and Strait of Hormuz.</li>
+        <li>Regional conflict: U.S. airstrikes in Iran and drone attacks reported on Israeli military sites.</li>
+        <li>AIADMK launches 2026 election manifesto promising free household items and ₹3500 MSP for Paddy.</li>
+        <li>DMK-led alliance finalizes seat-sharing: 10 seats for DMDK and 8 seats for VCK.</li>
+        <li>Tamil Nadu election surveillance: Total seizures reach a high of ₹178.78 crore cash and gold.</li>
+        <li>Madras High Court dismisses S.P. Velumani’s plea over a ₹7 crore unexplained expenditure case.</li>
+        <li>Health report: Only 11.7% of Indians are aware of early symptoms of colorectal cancer.</li>
+        <li>Narcotics Control: 5 kg of ganja seized at Chennai airport under the NDPS Act.</li>
+        <li>Infrastructure: NHAI to hand over road maintenance of NH716A to TN State Highways.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Which religions qualify for Scheduled Caste (SC) status in India?</h4>
+    <p>Only people belonging to Hindu, Buddhist, and Sikh religions are eligible for SC status as per the 1950 Order.</p>
+
+    <h4>2. What are the key highlights of the AIADMK 2026 manifesto?</h4>
+    <p>Major promises include free refrigerators, a Minimum Support Price of ₹3500 for Paddy, and free Dal/oil distributions.</p>
+
+    <h4>3. What is the "Click & Commit" campaign about?</h4>
+    <p>It is a public awareness campaign dedicated to ending Tuberculosis (TB) and committing to health protocols.</p>
+</div>
+`
+};
+
+export const MARCH_24_ARTICLE = {
+    id: 24032026,
+    title: "Daily Current Affairs – 24 March 2026",
+    publish_date: "2026-03-24",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>24 March 2026</strong> current affairs covering <strong>international diplomacy</strong>, women reservation proposals, <strong>judiciary verdicts</strong>, and social justice updates for UPSC, TNPSC, and Banking exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. U.S.–Iran Tensions: Conflict Postponed for 5 Days</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A slight easing of global tensions as the U.S. President signaled a roadmap for productive talks.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>U.S. postponed planned military attacks on Iran by <strong>5 days</strong> to allow for a peace deal.</li>
+                <li>Iran officially denied any negotiations; IRGC launched fresh drone/missile attacks on U.S. bases.</li>
+                <li>Geopolitical stability remains fragile; global markets are monitoring the 5-day window.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>The **5-day postponement** is a crucial period for international mediation and energy market stability.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="US-Iran Diplomacy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Indian LPG Ships Safely Cross the Strait of Hormuz</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Two major Indian vessels successfully navigated the critical trade route amid regional threats.</p>
+            <strong class="sub-title">Key Ships</strong>
+            <ul>
+                <li><strong>Jag Vasant</strong> and <strong>Pine Gas</strong> crossed with ~93,000 tonnes of LPG combined.</li>
+                <li>The crossing marks a win for **India’s strategic resilience** in securing energy supplies.</li>
+                <li>Continuous monitoring by the Indian Navy and global maritime security agencies.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Energy Security</strong>
+                <p>Ensuring the flow of <strong>essential fuels</strong> like LPG is vital for Indian household and industrial needs.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_warning_mar13.png" alt="Indian Ships" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Women Reservation & Delimitation: Proposed Expansion to 816 Seats</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Government outlines a major political reform to implement women reservation before the 2029 elections.</p>
+            <strong class="sub-title">Key Proposals</strong>
+            <ul>
+                <li>Expanding Lok Sabha strength from <strong>543 to 816 seats</strong> based on the Census.</li>
+                <li>Allocation of <strong>33% reservation</strong> for women (equivalent to 273 seats).</li>
+                <li>Expected to fundamentally change the **distribution of power** in the Indian Parliament.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Polity & Constitution</strong>
+                <p>Delimitation is the act of redrawing boundaries to represent <strong>population changes</strong> fairly.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/women_reservation_mar17.png" alt="Women Reservation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Judiciary: 9 Policemen Convicted in Sattankulam Case</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A historic verdict in a major custodial death case that sparked nationwide outrage in 2020.</p>
+            <strong class="sub-title">Verdict Details</strong>
+            <ul>
+                <li>A special court convicted 9 policemen of **murder and custodial torture**.</li>
+                <li>Incident dates back to the 2020 lockdown; highlights the need for **police accountability**.</li>
+                <li>Sentencing is scheduled to be announced shortly.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Human Rights</strong>
+                <p>This verdict reaffirms the <strong>supremacy of law</strong> over institutional misuse of power.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/supreme_court_mar12.png" alt="Judiciary Verdict" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Chennai Metro: CSIR–SERC Deploys Smart Bridge Sensors</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Technological integration to ensure the structural longevity of urban transit infrastructure.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Installation of **15 high-precision sensors** for real-time safety monitoring.</li>
+                <li>Tracks bridge health and detects early signs of structural stress or damage.</li>
+                <li>Model for **Smart City Engineering** and tech-led maintenance.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Infrastructure</strong>
+                <p>Digitalized safety systems are essential for <strong>modern urban transportation</strong> networks.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Social Justice: Protest Against Transgender Bill Amendments</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The transgender community is protesting the removal of self-identification rights.</p>
+            <strong class="sub-title">Key Issues</strong>
+            <ul>
+                <li>Mandatory medical certification proposed, which opposes the 2014 NALSA judgment.</li>
+                <li>Demand for **Self-identification rights** without administrative barriers.</li>
+                <li>Hundreds of activists gathered in Chennai to submit their opposition.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Rights</strong>
+                <p>Equal rights and **dignity for all genders** are fundamental constitutional mandates.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/welfare.png" alt="Social Justice" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">7. Economy: Packaged Water Prices Hike Due to Conflict</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Rising raw material costs are impacting everyday consumer goods.</p>
+            <strong class="sub-title">Key Factors</strong>
+            <ul>
+                <li>Cost of plastic raw materials increased by <strong>60%</strong> due to the West Asia conflict.</li>
+                <li>1-litre water bottles now priced up to **₹25** in many retail outlets.</li>
+                <li>Highlights the **global supply chain linkage** of domestic inflation.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Inflation Watch</strong>
+                <p>Geopolitical unrest often leads to <strong>indirect cost hikes</strong> in non-energy sectors.</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>U.S. President postpones planned military action on Iran by 5 days.</li>
+        <li>Indian ships *Jag Vasant* and *Pine Gas* cross Strait of Hormuz with ~93,000 tonnes of LPG.</li>
+        <li>Government proposes Lok Sabha strength expansion to 816 seats with 33% women reservation.</li>
+        <li>NDA seat sharing in TN: BJP to contest 27, PMK 18, and AMMK 11 seats.</li>
+        <li>9 policemen convicted in the 2020 Sattankulam custodial death case for murder.</li>
+        <li>Supreme Court rules party symbol disputes should be decided by civil courts.</li>
+        <li>Chennai Metro bridge updated with real-time sensors by CSIR-SERC for safety monitoring.</li>
+        <li>Transgender persons protest mandatory medical certification in bill amendment.</li>
+        <li>Packaged water prices rise to ₹25 as plastic raw material costs jump by 60%.</li>
+        <li> Karur Petrol bomb case: 9 accused convicted for the death of 7 people in 2012.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What is the proposed Lok Sabha strength after the next delimitation?</h4>
+    <p>The government has proposed increasing the seats from 543 to 816.</p>
+
+    <h4>2. What was the central issue in the Sattankulam case?</h4>
+    <p>The case involved the custodial torture and death of a father-son duo by the police in 2020.</p>
+
+    <h4>3. How much did plastic raw material costs increase?</h4>
+    <p>Costs increased by ~60% primarily due to the ongoing West Asia regional conflict.</p>
+</div>
+`
+};
+
+export const MARCH_23_ARTICLE = {
+    id: 23032026,
+    title: "Daily Current Affairs – 23 March 2026",
+    publish_date: "2026-03-23",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>23 March 2026</strong> current affairs covering <strong>international tensions</strong>, Indian security review, TN elections, <strong>governance</strong>, and social issues for UPSC, TNPSC, and Banking exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Iran Threatens to Completely Close Strait of Hormuz</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Tensions between the U.S. and Iran have reached a critical point following military threats.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Iran warned it may shut down the <strong>Strait of Hormuz</strong> if U.S. attacks its power plants.</li>
+                <li>Strait handles nearly <strong>20% of global oil trade</strong>; disruption is already partial.</li>
+                <li>Sparks fears of a wider regional conflict across West Asia.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>A closure would lead to a <strong>global energy crisis</strong> and direct impact on India’s oil imports.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="Strait of Hormuz" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. India Reviews Impact of West Asia Conflict (CCS Meeting)</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Prime Minister chaired a high-level Security committee meeting to assess the global crisis.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li><strong>Cabinet Committee on Security (CCS)</strong> reviewed short and long-term economic impacts.</li>
+                <li>Focus on mitigating <strong>energy security risks</strong> and domestic preparedness.</li>
+                <li>Discussion on the safety of the Indian diaspora in conflict zones.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>National Security</strong>
+                <p>CCS is the top decision-making body for <strong>India's strategic and security</strong> policies.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/parliament.png" alt="CCS Meeting" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Puducherry Election: Congress–DMK Seat Sharing Talks</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Alliances are shaping up ahead of the Puducherry Assembly elections 2026.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Congress likely to contest 15–16 seats; remaining for DMK and allies.</li>
+                <li>Focus on alliance leadership and <strong>joint manifesto</strong> development.</li>
+                <li>Strategic seat-sharing to tackle the NDA front in the Union Territory.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Polity</strong>
+                <p>Puducherry's political landscape is witness to intense <strong>coalition negotiations</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="Puducherry Elections" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Political Shuffles in TN: TVK Exits DMK Alliance</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Tamizhaga Vazhvurimai Katchi (TVK) officially exited the DMK-led alliance.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Leader <strong>T. Velmurugan</strong> declared exit due to insufficient seat allocation.</li>
+                <li>Demand for <strong>10.5% Vanniyar reservation</strong> remains a key political issue.</li>
+                <li>TVK clarified it will not join the NDA, seeking independent political space.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Elections 2026</strong>
+                <p>Seat allocation dissatisfaction is causing <strong>realignment</strong> in TN political blocks.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="TVK Exit" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Internal Security: Assam Police Camp Attack</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Militants launched a coordinated attack on a police commando camp in the Northeast.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Attributed to <strong>ULFA(I) militants</strong>; targeted a camp on the Assam-Arunachal border.</li>
+                <li>4 commandos injured during the 30-minute gunfight.</li>
+                <li>Highlight's ongoing <strong>security challenges</strong> in the sensitive border zones.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Security Alert</strong>
+                <p>Counter-insurgency operations have been intensified in the region following the attack.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/drone_terror_arrest_mar18.png" alt="Security Attack" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Governor emphasizes Human Values in Justice System</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Statements made during a legal conference regarding the state of the Indian judiciary.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Justice must prioritize <strong>fairness and human values</strong> over mere procedures.</li>
+                <li>Criticism of <strong>judicial delays</strong> affecting administration and university appointments.</li>
+                <li>Call for institutional reforms to ensure "Justice for All" without barriers.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Governance</strong>
+                <p>Addressing <strong>pendency of cases</strong> is critical for maintaining public trust in the law.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/supreme_court_mar12.png" alt="Judiciary" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. Railway Reforms: IRCTC Catering Transparency via QR Codes</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A digital initiative to improve food quality and accountability in Indian Railways.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>QR codes on food packets to show kitchen details and manufacturing date.</li>
+                <li>Strict penalties (up to ₹5,000) for caterers failing to meet service standards.</li>
+                <li>Enhances <strong>passenger trust</strong> and catering transparency.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>E-Governance</strong>
+                <p>Leveraging <strong>digital tools</strong> to improve high-volume public utility services.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Agri-Innovation: Hibiscus Herbal Tea “Idhazh” in TN</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A horticultural success story in Tamil Nadu focusing on agro-based items.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>New herbal tea produced using <strong>solar drying</strong> techniques at State farms.</li>
+                <li>Health benefits: Improves metabolism and aids digestion effectively.</li>
+                <li>Promotes local <strong>entrepreneurship</strong> and agricultural value-addition.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Agriculture</strong>
+                <p>Value-added products provide <strong>better income</strong> for local horticultural units.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/firefly_biodiversity_mar14.png" alt="Agri Innovation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">9. Social Trend: The Rise of “Kidult” Culture</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A global economic trend where adults become major consumers of Toys and collectibles.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Adults buying toys for <strong>stress relief</strong> and hobbyist collections.</li>
+                <li>Market Impact: "Kidults" now account for 28% of global toy sales.</li>
+                <li>Shows a shift in <strong>social behavior</strong> regarding leisure and mental health.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Society</strong>
+                <p>Economic trends are increasingly driven by <strong>niche consumer psychology</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Iran warns of complete closure of the Strait of Hormuz amid U.S. tension.</li>
+        <li>PM chairing CCS meeting to review West Asia conflict impacts on India.</li>
+        <li>Seat sharing talks between DMK and Congress progress for Puducherry polls.</li>
+        <li>TVK party led by Velmurugan exits DMK alliance over seat allocation.</li>
+        <li>Security alert in Assam after ULFA(I) militants attack police commando camp.</li>
+        <li>Governor calls for human values and fairness to reduce judicial delays.</li>
+        <li>Urban issues: T. Nagar in Chennai faces 20% growth in commercial traffic.</li>
+        <li>IRCTC introduces QR code system for tracking food manufacturing details.</li>
+        <li>Hibiscus-based "Idhazh" herbal tea launched by TN Horticulture Dept.</li>
+        <li>Kidult culture: Trend of adults buying toys increases to 28% global share.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why is the Strait of Hormuz so critical?</h4>
+    <p>It is the world’s most important oil transit point, handling ~20% of global oil trade.</p>
+
+    <h4>2. What is the CCS in the Indian government?</h4>
+    <p>The Cabinet Committee on Security (CCS) is the apex body for national security and strategic decisions.</p>
+
+    <h4>3. What are the benefits of Hibiscus tea (Idhazh)?</h4>
+    <p>It helps in improving metabolism and aiding digestion through natural herbal properties.</p>
+</div>
+`
+};
+
+export const MARCH_22_ARTICLE = {
+    id: 22032026,
+    title: "Daily Current Affairs – 22 March 2026",
+    publish_date: "2026-03-22",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>22 March 2026</strong> current affairs covering <strong>international diplomacy</strong>, TN elections, economy, <strong>infrastructure</strong>, and crime updates—crucial for UPSC, TNPSC, and Banking exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. U.S. May Wind Down War on Iran</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The U.S. President indicated a possible de-escalation of the conflict with Iran.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>U.S. considering ending active hostilities; sanctions on Iranian oil temporarily eased.</li>
+                <li>Focus on <strong>Strait of Hormuz</strong> security and global trade and maritime stability.</li>
+                <li>Iran recently claimed attacks on two U.S. military bases in the region.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Impacts <strong>global oil supply</strong> and energy prices, critical for India's economy.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_mar12.png" alt="US-Iran Diplomacy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. India Pushes for Secure Global Shipping Lanes</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>PM engaged in diplomatic talks with the Iranian President regarding maritime security.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Emphasized <strong>Freedom of navigation</strong> in international waters.</li>
+                <li>Expressed concern over disruptions in the <strong>Strait of Hormuz</strong>.</li>
+                <li>Goal: Protect India's trade and vital oil imports from the Middle East.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Diplomacy</strong>
+                <p>India plays a key role in mediating <strong>geopolitical stability</strong> for maritime trade.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/strait_of_hormuz_warning_mar13.png" alt="Secure Shipping" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Gov’t Increases Commercial LPG Allocation to 50%</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A relief measure for businesses amid rising fuel and energy costs.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Additional <strong>20% LPG allocation</strong> for commercial users.</li>
+                <li>Total allocation reached 50%; supports restaurants and industries.</li>
+                <li>Helps in controlling <strong>operational inflation</strong> for small businesses.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Business Welfare</strong>
+                <p>Supports <strong>MSMEs</strong> and industrial growth during the energy crisis.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/energy.png" alt="LPG Allocation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Tamil Nadu Election 2026: A Four-Cornered Contest</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Political dynamics in TN are intensifying as several major parties prepare for the 2026 battle.</p>
+            <strong class="sub-title">Key Players</strong>
+            <ul>
+                <li><strong>DMK Alliance</strong> vs <strong>AIADMK+BJP Alliance</strong>.</li>
+                <li>Growth of <strong>TVK</strong> (Vijay’s party) and <strong>NTK</strong> (Seeman) as influential forces.</li>
+                <li>Strong competition expected with shifting seat-sharing dynamics.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Politics</strong>
+                <p>The 2026 elections will test the strength of <strong>new regional players</strong> in Tamil Nadu.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="TN Elections" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. ₹75 Crore Seized in Tamil Nadu Election Monitoring</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Seizures continue as authorities monitor election spending and illegal distributions.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Total seizure: <strong>₹75.03 crore</strong>; includes cash, gold, and freebies.</li>
+                <li>Over <strong>₹23 crore in cash</strong> and ₹23 crore in gold/valuables seized.</li>
+                <li>Multiple static and mobile observers deployed across the state.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Election Watch</strong>
+                <p>Ensures <strong>transparency</strong> and prevents illegal influence in the polling process.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/election_announcement_mar16.png" alt="Election Seizure" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Chennai Water Management: IoT-based DMA Upgrade</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Metrowater plans to introduce <strong>District Metered Areas (DMA)</strong> to reduce water loss.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Aim: Reduce physical water loss by 20–30% using <strong>IoT sensors</strong>.</li>
+                <li>Real-time leak detection in areas like Semmenchery and Neelankarai.</li>
+                <li>A major step towards <strong>Smart Water Management</strong> in Chennai.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Infrastructure</strong>
+                <p>Innovative technology to ensure <strong>equitable water distribution</strong> in urban areas.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/greenbudget.png" alt="Water Management" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. Cryptocurrency Fraud Case Exposed in Chennai</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A major financial scam involving crypto investments was busted by the EOW.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Company allegedly collected <strong>₹20–30 crore</strong> from investors.</li>
+                <li>Promised unrealistic <strong>15–20% monthly returns</strong>.</li>
+                <li>Investors reported failure to repay; legal action initiated by EOW.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Financial Literacy</strong>
+                <p>Beware of <strong>high-return get-rich-quick</strong> schemes in unregulated markets.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/economic_stabilisation_fund_mar14.png" alt="Crypto Fraud" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Fatal Road Accident in Chennai</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A tragic accident claimed the lives of a woman and her daughter in the city.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Two-wheeler collided with a <strong>parked truck</strong> at night.</li>
+                <li>A 3-year-old child miraculously survived the impact.</li>
+                <li>Issues: Need for better <strong>street lighting</strong> and parking regulations.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Road Safety</strong>
+                <p>Safe driving and <strong>helmet usage</strong> are vital for urban commuting.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/salem_accident.png" alt="Road Safety" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">9. Law & Order: Chain Snatching & Silver Fraud in Chennai</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Chennai police arrested multiple suspects in recent crime cases.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Chain snatching: 3 arrested, <strong>₹1.91 lakh</strong> worth valuables recovered.</li>
+                <li>Silver fraud: 45 kg silver cheating case busted; 3 suspects in custody.</li>
+                <li>Increased patrolling implemented in sensitive urban zones.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Public Safety</strong>
+                <p>Police vigilance and <strong>surveillance</strong> are key to urban security.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/governance.png" alt="Law & Order" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">10. Election Arrangements: 350+ Venues for Meetings in Chennai</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Election commission designated hundreds of spots for public political meetings.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>140 places for large public meetings; 214 for street meetings.</li>
+                <li>Use of <strong>Suvidha 2.0 app</strong> mandatory for venue permissions.</li>
+                <li>Strict monitoring of <strong>Model Code of Conduct (MCC)</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Administration</strong>
+                <p>Digital tools are streamlining <strong>election management</strong> in urban centers.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/polling_booth_mar16.png" alt="Election Administration" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>U.S. President indicates potential de-escalation of war with Iran.</li>
+        <li>PM discusses Freedom of Navigation and secure shipping with Iran President.</li>
+        <li>Commercial LPG allocation hiked to 50% to support businesses.</li>
+        <li>TN Election 2026: DMK, AIADMK+, TVK, and NTK in a major contest.</li>
+        <li>Election monitoring: ₹75.03 crore seized so far in Tamil Nadu.</li>
+        <li>Chennai Metrowater to use IoT and DMA for reducing water leakages.</li>
+        <li>EOW registers case against Chennai firm for ₹30 crore crypto scam.</li>
+        <li>Fatal accident in Chennai highlights road safety and parking risks.</li>
+        <li>Police arrests suspects in 45kg silver fraud and chain snatching cases.</li>
+        <li>Chennai allocates 354 venues for election meetings via Suvidha app.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What is the purpose of District Metered Areas (DMA)?</h4>
+    <p>DMAs are designed to reduce water loss and improve supply efficiency using localized sensors.</p>
+
+    <h4>2. How much has been seized in TN elections so far?</h4>
+    <p>A total of ₹75.03 crore (including cash and gold) has been seized by observers.</p>
+
+    <h4>3. What is the Suvidha 2.0 app used for?</h4>
+    <p>It is used by political candidates to apply for permissions for meetings and rallies digitially.</p>
+</div>
+`
+};
+
+export const MARCH_21_ARTICLE = {
+    id: 21032026,
+    title: "Daily Current Affairs – 21 March 2026",
+    publish_date: "2026-03-21",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>21 March 2026</strong> current affairs covering <strong>international conflict</strong>, Tamil Nadu updates, economy, <strong>environment</strong>, and polity for UPSC, TNPSC, SSC, and Banking exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Iran Intensifies Attacks on Israel & Gulf Energy Sites</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Iran launched fresh drone attacks on critical energy infrastructure in the Gulf region.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Target: <strong>Kuwaiti oil refinery</strong> (Mina Al-Ahmadi), Saudi Arabia, and Bahrain.</li>
+                <li>Oil infrastructure severely targeted, disrupting global supply.</li>
+                <li>Impact: Increases <strong>global oil prices</strong> and affects the Indian economy.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Directly impacts <strong>energy security</strong> and fuel prices in India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/iran_gulf_attacks.png" alt="Iran Attack Energy" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Avian Flu Outbreak in Chennai (H5N1)</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Bird deaths reported in <strong>Guindy Children’s Park</strong>, Chennai, confirmed as Avian Influenza.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Nearly <strong>40 birds died</strong>; virus confirmed as <strong>H5N1</strong>.</li>
+                <li>Park temporarily closed since March 20 for disinfection and monitoring.</li>
+                <li>Authorities are on high alert to prevent further spread.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Public Health</strong>
+                <p>Bird flu monitoring is crucial for <strong>zoonotic disease</strong> prevention.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/tn_health.png" alt="Avian Flu Monitoring" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Petrol Prices increased in India due to Oil Crisis</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Oil companies raised prices of petrol and industrial diesel following the global energy crisis.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Premium petrol price increased by <strong>₹2–₹3</strong>.</li>
+                <li>Industrial diesel saw a sharp hike of <strong>₹22 per litre</strong>.</li>
+                <li>Price hike is directly linked to the <strong>West Asia conflict</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Economy Impact</strong>
+                <p>Leads to <strong>inflation</strong> and increased operational costs for transportation.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/petrol_price_hike.png" alt="Petrol Price Hike" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Major Road Accident in Salem, Tamil Nadu</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A fatal accident in Salem district claimed the lives of 8 people recently.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>8 victims include a <strong>pregnant woman</strong> and an 11-month-old baby.</li>
+                <li>Cause: Critical <strong>bus brake failure</strong> leading to a collision.</li>
+                <li>Highlights the urgent need for <strong>public transport safety</strong> audits.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Safety Awareness</strong>
+                <p>Regular maintenance of government buses is essential for passenger safety.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/salem_accident.png" alt="Salem Road Accident" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Illegal Immigrants deported from Tamil Nadu</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Government took action to deport <strong>33 Bangladeshi nationals</strong> residing illegally.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Deportation carried out via the <strong>West Bengal border</strong>.</li>
+                <li>Operation involved a <strong>Special Task Force</strong>.</li>
+                <li>Part of regular enforcement of immigration policies.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Policy</strong>
+                <p>Strengthens <strong>national security</strong> and border management protocols.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/immigrant_deportation.png" alt="Deportation" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Veterinary Officer Killed in Hippopotamus Attack</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A senior veterinary officer was killed by a hippo during a medical check in Karnataka.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Incident occurred during a routine health examination.</li>
+                <li>Official probe ordered to investigate safety lapses.</li>
+                <li>Highlights <strong>wildlife management risks</strong> for front-line workers.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Safety Alert</strong>
+                <p>Ensuring safety protocols in zoos and sanctuaries is mandatory.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/hippo_attack.png" alt="Hippo Attack" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. Tamil Nadu Political Updates & Alliances</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Political developments regarding <strong>DGP selection</strong> and election alliances.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li><strong>UPSC meeting</strong> for TN DGP selection postponed.</li>
+                <li><strong>AIADMK</strong> alliance talks active; <strong>PMK & Sasikala</strong> alliance formed.</li>
+                <li>Puducherry NDA seat-sharing finalized for the 2026 elections.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Election 2026</strong>
+                <p>Shifting political dynamics will define the <strong>2026 Assembly polls</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar21/tn_politics.png" alt="TN Politics" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Tuberculosis Awareness & Challenges in India</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India faces significant challenges with ~25 lakh TB patients currently under treatment.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Statistic: <strong>1 death every 5 minutes</strong> in India due to TB.</li>
+                <li>Govt provides <strong>₹1000/month</strong> nutritional support to patients.</li>
+                <li>Focus on <strong>shorter treatment regimes</strong> and early diagnosis.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Public Health</strong>
+                <p>Achieving <strong>TB-Free India</strong> requires community participation and awareness.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/tn_health.png" alt="TB Awareness" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">9. Chennai Infrastructure: Velachery lake mismanagement</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Velachery residents raised complaints regarding flooding and drainage issues.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Recurring flooding due to lakewater mismanagement and poor drainage.</li>
+                <li>Severe <strong>traffic congestion</strong> reported in sub-urban areas.</li>
+                <li>Demand for sustainable urban planning in <strong>South Chennai</strong>.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Urban Planning</strong>
+                <p>Sustainable <strong>stormwater drainage</strong> is critical for urban resilience.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/tn_water.png" alt="Velachery Flooding" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">10. Chennai Metro: Rule Enforcement for Discipline</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Passengers demanded stricter enforcement of rules regarding <strong>loud music</strong> and noise.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Complaints about people playing loud videos in train cabins.</li>
+                <li>Demand for <strong>on-spot fines</strong> to maintain travel decorum.</li>
+                <li>Improves <strong>public transport</strong> experience for daily commuters.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Public Discipline</strong>
+                <p>Fostering a culture of civic responsibility in public utilities.</p>
+            </div>
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Iran intensifies attacks on oil refineries in Kuwait and Saudi Arabia.</li>
+        <li>Chennai's Guindy Park closed after H5N1 Avian Flu confirmation in birds.</li>
+        <li>Petrol and industrial diesel prices hiked due to West Asia energy crisis.</li>
+        <li>Tragic road accident in Salem kills 8, including a child and pregnant woman.</li>
+        <li>Tamil Nadu deports 33 illegal Bangladeshi nationals via West Bengal border.</li>
+        <li>Vet officer killed by a hippopotamus in Karnataka during routine checkup.</li>
+        <li>Postponement of TN DGP selection meeting; new political alliances formed.</li>
+        <li>India reports 25 lakh TB patients; government scales up nutritional support.</li>
+        <li>Velachery residents protest against lake mismanagement and flooding issues.</li>
+        <li>Metro commuters seek fines for playing loud music/videos inside coaches.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Which virus caused bird deaths in Chennai?</h4>
+    <p>The deaths were caused by H5N1 (Avian Influenza) virus.</p>
+
+    <h4>2. Why did petrol prices increase recently?</h4>
+    <p>Prices increased due to the global oil crisis triggered by the Iran-Middle East conflict.</p>
+
+    <h4>3. How many illegal immigrants were deported from TN?</h4>
+    <p>A total of 33 Bangladeshi nationals were deported from Tamil Nadu.</p>
+
+    <h4>4. Where did the major road accident occur in TN?</h4>
+    <p>The major road accident occurred in the Salem district of Tamil Nadu.</p>
+
+    <h4>5. What is the support provided to TB patients by the Govt?</h4>
+    <p>The government provides ₹1000 per month for nutritional support to TB patients.</p>
+</div>
+`
+};
+
+export const MARCH_20_ARTICLE = {
+    id: 20032026,
+    title: "Daily Current Affairs – 20 March 2026",
+    publish_date: "2026-03-20",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Update</strong>
+        <p>Stay updated with <strong>20 March 2026</strong> current affairs covering <strong>international relations</strong>, economy, <strong>polity</strong>, environment, and <strong>Tamil Nadu news</strong> for all competitive exams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Israel-Iran Conflict Escalates Over Gas Field</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Tensions increased after attacks on <strong>South Pars gas field</strong> and Gulf energy facilities.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Iran launched strikes on Qatar, Saudi Arabia, and UAE.</li>
+                <li>U.S. clarified it was not involved in Israeli attack.</li>
+                <li>Warning issued to prevent further escalation.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Impacts <strong>global oil supply</strong>, energy prices, and <strong>geopolitical stability</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/israel_iran_gas.png" alt="Israel-Iran Conflict" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Indian Stock Markets Crash Over 3%</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Stock markets fell sharply due to <strong>rising oil prices</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Oil price reached <strong>$114 per barrel</strong>.</li>
+                <li>Sensex and Nifty dropped over 3%.</li>
+                <li>Worst fall since June 2024.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>High oil prices affect <strong>inflation</strong>, the <strong>economy</strong>, and investment sentiment.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/stock_market_crash.png" alt="Stock Market Crash" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. India’s FTA Talks Delayed Due to West Asia Crisis</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India’s trade negotiations with <strong>Gulf countries</strong> and Israel may slow down.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Affected FTAs: GCC countries and Israel.</li>
+                <li>UK FTA likely by <strong>May 1, 2026</strong>.</li>
+                <li>EU agreement expected by <strong>November 2026</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>FTA delays impact <strong>international trade growth</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/fta_talks_delay.png" alt="FTA Talks Delayed" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Iran May Allow Safe Passage Through Hormuz</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Iran is working on a system to allow ships through <strong>Strait of Hormuz</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>India identified <strong>22 ships</strong> for evacuation.</li>
+                <li>Carrying <strong>LNG, LPG, and crude oil</strong>.</li>
+                <li>Alternate routes being explored.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Ensures <strong>energy supply security</strong> for India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/hormuz_passage.png" alt="Strait of Hormuz" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Defence Push: India Aims to Become Drone Hub</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Defence Minister emphasized building India as a <strong>global drone hub</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Focus on <strong>drone manufacturing</strong> and defence innovation.</li>
+                <li>Linked to border security and surveillance.</li>
+                <li>Boosts <strong>Make in India</strong> and defence capabilities.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Strengthens <strong>national security</strong> and technological self-reliance.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/drone_hub_india.png" alt="Drone Hub India" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">6. Tamil Nadu Amends Maternity Leave Rules</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Tamil Nadu government <strong>relaxed rules</strong> for women employees.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Easier access to <strong>maternity leave benefits</strong>.</li>
+                <li>Supports working women in <strong>government sector</strong>.</li>
+                <li>Promotes <strong>women welfare</strong> and work-life balance.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>A step forward in <strong>social security</strong> for women employees.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/tn_maternity_leave.png" alt="TN Maternity Leave" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">7. Chennai to Introduce 300 Electric Mini Buses</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>MTC plans to deploy <strong>300 small electric buses</strong> in Chennai.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Focus on <strong>last-mile connectivity</strong> across 162 routes.</li>
+                <li>Waiting time: <strong>10–20 minutes</strong>.</li>
+                <li>Improves urban transport and supports <strong>green mobility</strong>.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Why It Matters</strong>
+                <p>Reduces <strong>carbon footprint</strong> and urban congestion.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/chennai_ebus.png" alt="Chennai E-Buses" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">8. Renewable Energy Projects Causing Land Conflicts</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Experts raised concerns over <strong>large renewable projects</strong> causing environmental damage.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Issues: <strong>Land conflicts</strong> and water usage.</li>
+                <li>Projects exempt from <strong>Environmental Impact Assessment (EIA)</strong>.</li>
+                <li>Highlights balance between <strong>development and environment</strong>.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Why It Matters</strong>
+                <p>Sustainable development requires <strong>careful planning</strong>.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/renewable_energy_conflict.png" alt="Renewable Energy Conflicts" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">9. POCSO Case: 20-Year Jail Sentence in Tamil Nadu</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Court sentenced a man for child assault under <strong>POCSO Act</strong>.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Total punishment: <strong>20 years imprisonment</strong>.</li>
+                <li>Case from <strong>2018 incident</strong>.</li>
+                <li>Strengthens <strong>child protection laws</strong>.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Why It Matters</strong>
+                <p>Ensures <strong>justice</strong> for victims and acts as a deterrent.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/pocso_court_tn.png" alt="POCSO Case Sentence" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">10. Thoothukudi Murder Case – Accused Arrested</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Police arrested a suspect in a <strong>student murder case</strong> using scientific methods.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Victim: <strong>Class 12 girl</strong>.</li>
+                <li>Investigation involved <strong>multiple teams</strong>.</li>
+                <li>Shows importance of <strong>modern policing techniques</strong>.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Why It Matters</strong>
+                <p>Commitment to <strong>public safety</strong> and law enforcement efficiency.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar20/thoothukudi_police.png" alt="Thoothukudi Murder Case" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Israel-Iran conflict escalates with energy facility attacks.</li>
+        <li>Indian stock markets crash due to oil price spike ($114/barrel).</li>
+        <li>India's FTA talks with Gulf and Israel delayed.</li>
+        <li>Iran proposes safe passage plan for ships in Hormuz.</li>
+        <li>India pushes to become a global drone hub for defence.</li>
+        <li>Tamil Nadu relaxes maternity leave rules for government employees.</li>
+        <li>Chennai to introduce 300 electric mini buses for last-mile connectivity.</li>
+        <li>Renewable energy projects face land and water conflict concerns.</li>
+        <li>POCSO Act: 20-year sentence awarded in Tamil Nadu child assault case.</li>
+        <li>Thoothukudi student murder accused arrested using scientific methods.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why did stock markets fall?</h4>
+    <p>Due to increase in oil prices and global tensions.</p>
+
+    <h4>2. What is South Pars gas field?</h4>
+    <p>It is the world’s largest natural gas field, shared by Iran and Qatar.</p>
+
+    <h4>3. What is last-mile connectivity?</h4>
+    <p>Transport that connects people from main routes (like metro or bus terminals) to final destinations.</p>
+</div>
+`
+};
+
 export const MARCH_19_ARTICLE = {
     id: 19032026,
     title: "Daily Current Affairs – 19 March 2026",
@@ -237,7 +2100,7 @@ export const MARCH_19_ARTICLE = {
             </div>
         </div>
         <div class="hidden md:block">
-            <img src="/images/mar19/tn_alliance.png" alt="Vijay TVK" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+            <img src="/images/mar19/vijay_tvk.png" alt="Vijay TVK" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
         </div>
     </div>
 

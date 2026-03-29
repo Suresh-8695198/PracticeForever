@@ -359,8 +359,8 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                     >
                         <span className="relative">
                             <span style={{ fontSize: 12, fontWeight: 700, color: '#333' }}>Explore all</span>
-                            <span 
-                                className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full" 
+                            <span
+                                className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full"
                                 style={{ backgroundColor: '#1a1a1a', display: 'block' }}
                             />
                         </span>
@@ -407,8 +407,8 @@ const MegaPanel = ({ cat, isDark, onMouseEnter, onMouseLeave }) => {
                                         <span style={{ fontSize: 13, fontWeight: 600, color: isDark ? '#e5e5e5' : '#1a1a1a' }} className="transition-colors duration-200">
                                             {sub.name}
                                         </span>
-                                        <span 
-                                            className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full" 
+                                        <span
+                                            className="absolute left-0 bottom-[-2px] h-[1.5px] w-0 transition-all duration-300 group-hover:w-full"
                                             style={{ backgroundColor: c1, display: 'block' }}
                                         />
                                     </span>
@@ -429,7 +429,7 @@ const Navbar = () => {
     const { user: authUser, logout: authLogout, isAuthenticated: authIsAuthenticated } = useAuth();
     const { data: session } = useSession();
     const { isDark, toggleTheme } = useTheme();
-    
+
     // Normalize user data
     const user = session?.user || authUser;
     const isAuthenticated = !!session || authIsAuthenticated;
@@ -446,7 +446,7 @@ const Navbar = () => {
             if (session?.user?.backendId) {
                 await axios.delete(`http://localhost:5000/api/progress/${session.user.backendId}`);
             }
-            
+
             // Clear all progress storage
             const keys = Object.keys(localStorage);
             keys.forEach(key => {
@@ -536,7 +536,7 @@ const Navbar = () => {
     const handleMenuEnter = useCallback((title) => {
         // Clear any pending close timers
         clearTimeout(closeTimer.current);
-        
+
         // If a menu is ALREADY open, switch instantly for better UX
         // If NO menu is open, wait 150ms to confirm "hover intent" (prevents accidental "grazing" triggers)
         if (activeMenu) {
@@ -623,8 +623,7 @@ const Navbar = () => {
                     <div className='hidden xl:flex items-center px-4 py-1.5 h-8 bg-white/10 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-md gap-3 cursor-pointer group transition-all duration-200 min-w-[180px] max-w-[280px] flex-1'>
                         <Search size={14} className='text-slate-400 group-hover:text-emerald-500 shrink-0' />
                         <span className='text-[11px] text-slate-400 font-medium truncate whitespace-nowrap'>Search materials, exams...</span>
-                        <kbd className={`hidden md:flex ml-auto items-center px-1.5 py-0.5 rounded text-[10px] font-medium border shrink-0 ${
-                                isDark ? 'border-white/10 text-white/40' : 'border-black/5 text-black/40'
+                        <kbd className={`hidden md:flex ml-auto items-center px-1.5 py-0.5 rounded text-[10px] font-medium border shrink-0 ${isDark ? 'border-white/10 text-white/40' : 'border-black/5 text-black/40'
                             }`}>⌘K</kbd>
                     </div>
 
@@ -632,7 +631,7 @@ const Navbar = () => {
                     <div className='hidden 2xl:flex items-center gap-1.5 flex-1 justify-center max-w-[960px]'>
                         {[
                             { label: 'Mock Tests', path: '/mock-tests', LIcon: Target, bg: 'bg-orange-600', iconBg: 'bg-orange-700' },
-                            { label: 'Institutes', path: '/current-affairs/daily', LIcon: Globe2, bg: 'bg-indigo-600', iconBg: 'bg-indigo-700' },
+                            { label: 'Daily Affairs', path: '/current-affairs/daily', LIcon: Globe2, bg: 'bg-indigo-600', iconBg: 'bg-indigo-700' },
                             { label: 'Exams hub', path: '/current-affairs', LIcon: Newspaper, bg: 'bg-emerald-600', iconBg: 'bg-emerald-700' },
                             { label: 'Leaderboard', path: '/dashboard', LIcon: Trophy, bg: 'bg-pink-600', iconBg: 'bg-pink-700' },
                             { label: 'Library', path: '/study-materials', LIcon: Library, bg: 'bg-purple-600', iconBg: 'bg-purple-700' },
@@ -655,24 +654,24 @@ const Navbar = () => {
 
                     {/* Right controls */}
                     <div className='flex items-center gap-1'>
-                         {/* Notification Bell - Desktop only */}
-                         <button 
-                             aria-label="Notifications"
-                             className={`hidden md:flex relative w-9 h-9 rounded-lg items-center justify-center transition-all duration-150 ${isDark
-                             ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
-                             : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
-                             }`}>
-                             <Bell size={16} />
-                             <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
-                         </button>
+                        {/* Notification Bell - Desktop only */}
+                        <button
+                            aria-label="Notifications"
+                            className={`hidden md:flex relative w-9 h-9 rounded-lg items-center justify-center transition-all duration-150 ${isDark
+                                ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20'
+                                : 'bg-amber-50 text-amber-500 hover:bg-amber-100 border border-amber-200'
+                                }`}>
+                            <Bell size={16} />
+                            <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
+                        </button>
 
                         {/* Theme Toggle */}
-                        <button 
+                        <button
                             aria-label="Toggle Theme"
                             onClick={toggleTheme} className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition-all duration-150 shrink-0 ${isDark
-                            ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
-                            : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
-                            }`}>
+                                ? 'bg-indigo-500/10 text-indigo-400 hover:bg-indigo-500/20 border border-indigo-500/20'
+                                : 'bg-sky-50 text-sky-500 hover:bg-sky-100 border border-sky-200'
+                                }`}>
                             {isDark ? <Sun size={14} className="sm:w-4" /> : <Moon size={14} className="sm:w-4" />}
                         </button>
 
@@ -684,12 +683,12 @@ const Navbar = () => {
                                         }`}
                                 >
                                     {user?.image && (
-                                        <Image 
-                                            src={user.image} 
-                                            alt={user.name || 'User'} 
+                                        <Image
+                                            src={user.image}
+                                            alt={user.name || 'User'}
                                             width={20}
                                             height={20}
-                                            className="w-5 h-5 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover" 
+                                            className="w-5 h-5 sm:w-7 sm:h-7 rounded-full border border-white/20 object-cover"
                                         />
                                     )}
                                     <div className={`user-initial-fallback w-5 h-5 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-[#FFC107] to-[#FF9800] text-black font-bold text-[9px] sm:text-[11px] items-center justify-center ${user?.image ? 'hidden' : 'flex'}`}>
@@ -710,12 +709,12 @@ const Navbar = () => {
                                         >
                                             <div className={`px-5 py-4 border-b flex items-center gap-4 ${isDark ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50/50'}`}>
                                                 {user?.image && (
-                                                    <Image 
-                                                        src={user.image} 
-                                                        alt={user.name} 
+                                                    <Image
+                                                        src={user.image}
+                                                        alt={user.name}
                                                         width={40}
                                                         height={40}
-                                                        className="w-10 h-10 rounded-full border-2 border-white/20 object-cover" 
+                                                        className="w-10 h-10 rounded-full border-2 border-white/20 object-cover"
                                                     />
                                                 )}
                                                 <div className={`dropdown-initial-fallback w-10 h-10 rounded-full bg-amber-500 text-black font-bold items-center justify-center text-lg ${user?.image ? 'hidden' : 'flex'}`}>
@@ -727,7 +726,7 @@ const Navbar = () => {
                                                 </div>
                                             </div>
                                             <div className='p-2 flex flex-col gap-1'>
-                                                { [
+                                                {[
                                                     { label: 'My Dashboard', href: '/dashboard', Icon: LayoutDashboard },
                                                     { label: 'Personal Profile', href: '/profile', Icon: User },
                                                     { label: 'Weekly Stats', href: '/dashboard', Icon: Trophy },
@@ -736,17 +735,17 @@ const Navbar = () => {
                                                         <item.Icon size={17} className="opacity-70" /> {item.label}
                                                     </Link>
                                                 ))}
-                                                
-                                                <button 
-                                                    onClick={handleResetAll} 
+
+                                                <button
+                                                    onClick={handleResetAll}
                                                     className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-orange-600 dark:text-orange-400 transition-all ${isDark ? 'hover:bg-orange-500/10' : 'hover:bg-orange-50'}`}
                                                 >
                                                     <RotateCcw size={17} className="opacity-70" /> Reset All Progress
                                                 </button>
 
                                                 <div className={`my-2 h-px ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
-                                                <button 
-                                                    onClick={logout} 
+                                                <button
+                                                    onClick={logout}
                                                     className={`flex items-center gap-3 px-4 py-3 text-[13.5px] font-bold rounded-xl text-red-500 transition-all`}
                                                 >
                                                     <LogOut size={17} /> Sign Out
@@ -760,11 +759,10 @@ const Navbar = () => {
                             <div className='flex items-center gap-1.5 ml-auto'>
                                 <button
                                     onClick={() => signIn('google')}
-                                    className={`hidden md:flex h-11 px-6 items-center gap-3 text-[14px] font-bold rounded-xl border transition-colors ${
-                                        isDark
+                                    className={`hidden md:flex h-11 px-6 items-center gap-3 text-[14px] font-bold rounded-xl border transition-colors ${isDark
                                         ? 'border-white/10 bg-white/5 text-white hover:bg-white/10 hover:border-white/20'
                                         : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300'
-                                    }`}
+                                        }`}
                                 >
                                     <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
                                     <span className="whitespace-nowrap">Sign in with Google</span>
@@ -775,11 +773,10 @@ const Navbar = () => {
                         {/* Burger Button - Enhanced visibility */}
                         <button
                             aria-label="Open Menu"
-                            className={`md:hidden shrink-0 ml-1 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all shadow-sm ${
-                                isDark 
-                                ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5' 
+                            className={`md:hidden shrink-0 ml-1 w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all shadow-sm ${isDark
+                                ? 'bg-white/5 text-gray-100 hover:bg-white/10 border border-white/5'
                                 : 'bg-gray-50 text-gray-800 hover:bg-gray-100 border border-gray-200'
-                            }`}
+                                }`}
                             onClick={() => setMobileOpen(true)}
                         >
                             <Menu size={18} strokeWidth={2.5} className="sm:w-[22px]" />
@@ -802,9 +799,8 @@ const Navbar = () => {
                                     ? 'text-gray-100 hover:text-white'
                                     : 'text-gray-800 hover:text-black'
                                 }`}>Home</span>
-                            <span className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${
-                                location.pathname === '/' ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
-                            }`} style={{ display: 'block' }} />
+                            <span className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${location.pathname === '/' ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
+                                }`} style={{ display: 'block' }} />
                         </Link>
 
                         {mainCategories.map((cat) => (
@@ -825,9 +821,8 @@ const Navbar = () => {
                                         <ChevronDown size={12} className={`transition-transform duration-150 ${activeMenu === cat.title ? 'rotate-180 text-[#FFC107]' : 'opacity-60 group-hover:opacity-100'
                                             }`} />
                                     )}
-                                    <div className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${
-                                        activeMenu === cat.title || isActive(cat.path) ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
-                                    }`} />
+                                    <div className={`absolute bottom-0 left-0 h-[2px] transition-all duration-300 ${activeMenu === cat.title || isActive(cat.path) ? 'w-full bg-[#FFC107]' : 'w-0 group-hover:w-full bg-[#FFC107]/60'
+                                        }`} />
                                 </button>
                             </div>
                         ))}
@@ -851,8 +846,8 @@ const Navbar = () => {
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
-                        initial={{ opacity: 0 }} 
-                        animate={{ opacity: 1 }} 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                         className='fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998] md:hidden'
@@ -861,154 +856,152 @@ const Navbar = () => {
                 )}
                 {mobileOpen && (
                     <motion.aside
-                            initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-y-0 left-0 w-[280px] min-[360px]:w-[320px] sm:w-[380px] z-[9999] flex flex-col border-r border-white/5"
-                            style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
-                        >
-                            {/* Drawer header */}
-                            <div className={`flex items-center justify-between px-3 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
-                                <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
-                                    <div className="flex items-center gap-1 min-w-0">
-                                        <Image 
-                                            src='/logo.png' 
-                                            alt='Logo' 
-                                            width={32}
-                                            height={32}
-                                            className='h-7 sm:h-8 w-auto object-contain shrink-0' 
-                                        />
-                                        <div className='overflow-hidden hidden min-[320px]:block scale-[0.9] origin-left'>
-                                            <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
-                                        </div>
-                                    </div>
-                                </Link>
-                                <div className='flex items-center gap-0.5 shrink-0'>
-                                    {/* Notifications in Sidebar */}
-                                    <button className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark
-                                        ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
-                                        : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
-                                        }`}>
-                                        <Bell size={16} />
-                                        <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
-                                    </button>
-                                    <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
-                                        <X size={18} />
-                                    </button>
-                                </div>
-                            </div>
-
-
-                            {/* Search - Enhanced for visibility */}
-                            <div className='p-4 pt-2'>
-                                <div className={`flex items-center gap-3 rounded-xl border px-4 h-11 transition-all ${
-                                    isDark 
-                                    ? 'bg-white/5 border-white/10 focus-within:border-amber-500/50 focus-within:bg-white/10' 
-                                    : 'bg-gray-50 border-gray-200 focus-within:border-amber-500/50 focus-within:bg-white focus-within:shadow-sm'
-                                }`}>
-                                    <Search size={16} className={isDark ? 'text-gray-500' : 'text-gray-400'} />
-                                    <input 
-                                        type='text' 
-                                        placeholder='Search for exams or topics...' 
-                                        className='flex-1 bg-transparent text-sm outline-none font-medium placeholder:font-normal' 
+                        initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                        className="fixed inset-y-0 left-0 w-[280px] min-[360px]:w-[320px] sm:w-[380px] z-[9999] flex flex-col border-r border-white/5"
+                        style={{ backgroundColor: isDark ? '#0a0a0a' : '#ffffff', height: '100dvh' }}
+                    >
+                        {/* Drawer header */}
+                        <div className={`flex items-center justify-between px-3 h-16 border-b ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+                            <Link href='/' onClick={() => setMobileOpen(false)} className='flex items-center min-w-0 flex-1 mr-2'>
+                                <div className="flex items-center gap-1 min-w-0">
+                                    <Image
+                                        src='/logo.png'
+                                        alt='Logo'
+                                        width={32}
+                                        height={32}
+                                        className='h-7 sm:h-8 w-auto object-contain shrink-0'
                                     />
+                                    <div className='overflow-hidden hidden min-[320px]:block scale-[0.9] origin-left'>
+                                        <AnimatedLogo size="sm" loopInterval={30000} className="whitespace-nowrap" />
+                                    </div>
                                 </div>
+                            </Link>
+                            <div className='flex items-center gap-0.5 shrink-0'>
+                                {/* Notifications in Sidebar */}
+                                <button className={`relative w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark
+                                    ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
+                                    : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
+                                    }`}>
+                                    <Bell size={16} />
+                                    <span className='absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 border-2 border-white' style={{ borderColor: isDark ? '#0f0f0f' : '#fff' }} />
+                                </button>
+                                <button onClick={() => setMobileOpen(false)} className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isDark ? 'text-gray-400 hover:bg-[#1e1e1e]' : 'text-gray-500 hover:bg-gray-100'}`}>
+                                    <X size={18} />
+                                </button>
+                            </div>
+                        </div>
+
+
+                        {/* Search - Enhanced for visibility */}
+                        <div className='p-4 pt-2'>
+                            <div className={`flex items-center gap-3 rounded-xl border px-4 h-11 transition-all ${isDark
+                                ? 'bg-white/5 border-white/10 focus-within:border-amber-500/50 focus-within:bg-white/10'
+                                : 'bg-gray-50 border-gray-200 focus-within:border-amber-500/50 focus-within:bg-white focus-within:shadow-sm'
+                                }`}>
+                                <Search size={16} className={isDark ? 'text-gray-500' : 'text-gray-400'} />
+                                <input
+                                    type='text'
+                                    placeholder='Search for exams or topics...'
+                                    className='flex-1 bg-transparent text-sm outline-none font-medium placeholder:font-normal'
+                                />
+                            </div>
+                        </div>
+
+                        {/* Nav items - Forced visibility and height */}
+                        <nav className='flex-1 overflow-y-auto px-1 py-1 custom-scrollbar' style={{ minHeight: '0' }}>
+                            <div className="px-2 mb-4">
+                                <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Main</h4>
+                                <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-12 px-4 text-[14px] font-bold rounded-2xl mb-1.5 transition-all ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
+                                    Home
+                                </Link>
                             </div>
 
-                            {/* Nav items - Forced visibility and height */}
-                            <nav className='flex-1 overflow-y-auto px-1 py-1 custom-scrollbar' style={{ minHeight: '0' }}>
-                                <div className="px-2 mb-4">
-                                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Main</h4>
-                                    <Link href='/' onClick={() => setMobileOpen(false)} className={`flex items-center h-12 px-4 text-[14px] font-bold rounded-2xl mb-1.5 transition-all ${isDark ? 'text-gray-100' : 'text-gray-900'}`}>
-                                        Home
-                                    </Link>
-                                </div>
-
-                                <div className="px-2">
-                                    <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Explore Categories</h4>
-                                    <div className="flex flex-col gap-1.5">
-                                        {mainCategories.map((cat) => {
-                                    const CatIcon = cat.Icon;
-                                    const isExpanded = mobileExpanded === cat.title;
-                                    return (
-                                        <div key={cat.title} className='mb-0.5'>
-                                            {cat.subcategories ? (
-                                                <button
-                                                    onClick={() => setMobileExpanded(isExpanded ? null : cat.title)}
-                                                    className={`w-full flex items-center justify-between h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isExpanded
-                                                        ? isDark ? 'bg-white/10 text-amber-500 shadow-lg' : 'bg-amber-50 text-amber-900 shadow-sm'
-                                                        : isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'
-                                                        }`}
-                                                >
-                                                    <div className='flex items-center gap-3'>
+                            <div className="px-2">
+                                <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mb-3 px-2 ${isDark ? 'text-white' : 'text-black'}`}>Explore Categories</h4>
+                                <div className="flex flex-col gap-1.5">
+                                    {mainCategories.map((cat) => {
+                                        const CatIcon = cat.Icon;
+                                        const isExpanded = mobileExpanded === cat.title;
+                                        return (
+                                            <div key={cat.title} className='mb-0.5'>
+                                                {cat.subcategories ? (
+                                                    <button
+                                                        onClick={() => setMobileExpanded(isExpanded ? null : cat.title)}
+                                                        className={`w-full flex items-center justify-between h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isExpanded
+                                                            ? isDark ? 'bg-white/10 text-amber-500 shadow-lg' : 'bg-amber-50 text-amber-900 shadow-sm'
+                                                            : isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'
+                                                            }`}
+                                                    >
+                                                        <div className='flex items-center gap-3'>
+                                                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-sm ${cat.bgCls} ${cat.colorCls}`}>
+                                                                <CatIcon size={16} strokeWidth={2.5} />
+                                                            </div>
+                                                            {cat.title}
+                                                        </div>
+                                                        <ChevronDown size={16} strokeWidth={3} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180 text-amber-500' : 'text-gray-400'}`} />
+                                                    </button>
+                                                ) : (
+                                                    <Link href={cat.path} onClick={() => setMobileOpen(false)} className={`flex items-center gap-3 h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'}`}>
                                                         <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-sm ${cat.bgCls} ${cat.colorCls}`}>
                                                             <CatIcon size={16} strokeWidth={2.5} />
                                                         </div>
                                                         {cat.title}
-                                                    </div>
-                                                    <ChevronDown size={16} strokeWidth={3} className={`transition-transform duration-300 ${isExpanded ? 'rotate-180 text-amber-500' : 'text-gray-400'}`} />
-                                                </button>
-                                            ) : (
-                                                <Link href={cat.path} onClick={() => setMobileOpen(false)} className={`flex items-center gap-3 h-12 px-4 text-[14px] font-bold rounded-2xl transition-all ${isDark ? 'text-gray-200 hover:bg-white/5' : 'text-gray-800 hover:bg-gray-50'}`}>
-                                                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-sm ${cat.bgCls} ${cat.colorCls}`}>
-                                                        <CatIcon size={16} strokeWidth={2.5} />
-                                                    </div>
-                                                    {cat.title}
-                                                </Link>
-                                            )}
-
-                                            <AnimatePresence initial={false}>
-                                                {cat.subcategories && isExpanded && (
-                                                    <motion.div
-                                                        initial={{ height: 0, opacity: 0 }}
-                                                        animate={{ height: 'auto', opacity: 1 }}
-                                                        exit={{ height: 0, opacity: 0 }}
-                                                        transition={{ duration: 0.2 }}
-                                                        className='overflow-hidden'
-                                                    >
-                                                        <div className={`ml-4 mt-2 mb-2 rounded-[20px] border overflow-hidden ${isDark ? 'bg-black/40 border-white/5' : 'bg-white shadow-inner border-gray-100'}`}>
-                                                            {cat.subcategories.map((sub) => {
-                                                                const BrandIcon = BRAND_ICON_MAP[sub.name];
-                                                                const SubIcon = sub.Icon;
-                                                                return (
-                                                                    <Link
-                                                                        key={sub.name}
-                                                                        href={sub.path}
-                                                                        onClick={() => setMobileOpen(false)}
-                                                                        className={`flex items-center gap-3.5 px-5 py-3.5 text-[13px] font-bold border-b last:border-0 transition-colors ${isDark
-                                                                            ? 'text-gray-400 border-white/5 hover:text-white hover:bg-white/5'
-                                                                            : 'text-gray-600 border-gray-50 hover:text-amber-600 hover:bg-amber-50/30'
-                                                                            }`}
-                                                                    >
-                                                                        {BrandIcon ? (
-                                                                            <img src={BrandIcon} alt={sub.name} style={{ width: 17, height: 17, objectFit: 'contain' }} className="shrink-0" />
-                                                                        ) : (
-                                                                            <SubIcon size={15} strokeWidth={2.5} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
-                                                                        )}
-                                                                        {sub.name}
-                                                                    </Link>
-                                                                );
-                                                            })}
-                                                        </div>
-                                                    </motion.div>
+                                                    </Link>
                                                 )}
-                                            </AnimatePresence>
-                                        </div>
-                                    );
-                                })}
-                                    </div>
-                                </div>
-                            </nav>
 
-                            <div className="mt-auto">
+                                                <AnimatePresence initial={false}>
+                                                    {cat.subcategories && isExpanded && (
+                                                        <motion.div
+                                                            initial={{ height: 0, opacity: 0 }}
+                                                            animate={{ height: 'auto', opacity: 1 }}
+                                                            exit={{ height: 0, opacity: 0 }}
+                                                            transition={{ duration: 0.2 }}
+                                                            className='overflow-hidden'
+                                                        >
+                                                            <div className={`ml-4 mt-2 mb-2 rounded-[20px] border overflow-hidden ${isDark ? 'bg-black/40 border-white/5' : 'bg-white shadow-inner border-gray-100'}`}>
+                                                                {cat.subcategories.map((sub) => {
+                                                                    const BrandIcon = BRAND_ICON_MAP[sub.name];
+                                                                    const SubIcon = sub.Icon;
+                                                                    return (
+                                                                        <Link
+                                                                            key={sub.name}
+                                                                            href={sub.path}
+                                                                            onClick={() => setMobileOpen(false)}
+                                                                            className={`flex items-center gap-3.5 px-5 py-3.5 text-[13px] font-bold border-b last:border-0 transition-colors ${isDark
+                                                                                ? 'text-gray-400 border-white/5 hover:text-white hover:bg-white/5'
+                                                                                : 'text-gray-600 border-gray-50 hover:text-amber-600 hover:bg-amber-50/30'
+                                                                                }`}
+                                                                        >
+                                                                            {BrandIcon ? (
+                                                                                <img src={BrandIcon} alt={sub.name} style={{ width: 17, height: 17, objectFit: 'contain' }} className="shrink-0" />
+                                                                            ) : (
+                                                                                <SubIcon size={15} strokeWidth={2.5} className={`shrink-0 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+                                                                            )}
+                                                                            {sub.name}
+                                                                        </Link>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </nav>
+
+                        <div className="mt-auto">
                             {!isAuthenticated ? (
                                 <div className={`p-5 border-t ${isDark ? 'border-white/5 bg-white/2' : 'border-gray-100 bg-gray-50/50'}`}>
                                     <button
                                         onClick={() => signIn('google')}
-                                        className={`w-full h-12 flex items-center justify-center gap-3 rounded-xl border font-bold text-[14px] transition-colors ${
-                                            isDark 
-                                            ? 'bg-white/5 border-white/10 text-white' 
+                                        className={`w-full h-12 flex items-center justify-center gap-3 rounded-xl border font-bold text-[14px] transition-colors ${isDark
+                                            ? 'bg-white/5 border-white/10 text-white'
                                             : 'bg-white border-gray-200 text-black'
-                                        }`}
+                                            }`}
                                     >
                                         <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" className="w-5 h-5" alt="Google" />
                                         Continue with Google
@@ -1028,8 +1021,8 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             )}
-                            </div>
-                        </motion.aside>
+                        </div>
+                    </motion.aside>
                 )}
             </AnimatePresence>
 
