@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
-import { MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
+import { APRIL_1_ARTICLE, MARCH_31_ARTICLE, MARCH_30_ARTICLE, MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
     "Lok Sabha": "highlight-blue",
@@ -279,7 +279,35 @@ const HIGHLIGHT_MAP = {
     "Digital Voting Rights": "highlight-blue",
     "youth training hubs": "highlight-teal",
     "National Skill Mission": "highlight-blue",
-    "online fraud prevention": "highlight-rose"
+    "online fraud prevention": "highlight-rose",
+
+    // NEW March 30 Keywords
+    "West Asia Conflict": "highlight-purple",
+    "$105 per barrel": "highlight-orange",
+    "judicial reforms": "highlight-blue",
+    "faster case disposal": "highlight-blue",
+    "Satellite-based communication": "highlight-teal",
+    "digital safety awareness": "highlight-blue",
+    "cyber fraud": "highlight-rose",
+    "DMK": "highlight-teal",
+    "AIADMK": "highlight-amber",
+    "BJP": "highlight-orange",
+
+    // NEW March 31 Keywords
+    "stabilization": "highlight-green",
+    "$100–105 per barrel": "highlight-orange",
+    "energy import strategy": "highlight-blue",
+    "digital infrastrucure development": "highlight-teal",
+    "cyber security measures": "highlight-rose",
+    "Model Code of Conduct (MCC)": "highlight-blue",
+
+    // NEW April 1 Keywords
+    "Financial Year 2026–27": "highlight-green",
+    "income tax slabs": "highlight-orange",
+    "Green Hydrogen Mission expansion": "highlight-teal",
+    "Net-zero target: 2070": "highlight-eco",
+    "voting started": "highlight-blue",
+    "digital tax filing": "highlight-teal"
 };
 
 // Sort keys by length descending to match longer phrases first
@@ -457,7 +485,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-03-29');
+    const [selectedDate, setSelectedDate] = useState('2026-04-01');
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -688,7 +716,7 @@ const CurrentAffairs = () => {
 
     // Fetch all articles (Completely Static Version)
     useEffect(() => {
-        const dailyArticles = [MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+        const dailyArticles = [APRIL_1_ARTICLE, MARCH_31_ARTICLE, MARCH_30_ARTICLE, MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
         setAllArticles(dailyArticles);
         setLoading(false);
     }, []);

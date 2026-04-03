@@ -361,13 +361,6 @@ const ExamsLandingPage = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-
-              {/* Coming Soon */}
-              <div className={`border-2 border-dashed ${cl.border} rounded-lg p-8 text-center`}>
-                <I8 src={i8.clock} alt="Coming Soon" size={32} />
-                <h3 className="text-[16px] font-bold mb-1">More Modules Coming Soon</h3>
-                <p className={`text-[12px] ${cl.sub}`}>Defence Exams, Teaching Exams (CTET/TET), Insurance Exams & more updates weekly.</p>
-              </div>
             </motion.div>
           )}
 
@@ -511,11 +504,6 @@ const ExamsLandingPage = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className={`border-2 border-dashed ${cl.border} rounded-lg p-8 text-center`}>
-                <I8 src={i8.clock} alt="Coming Soon" size={28} />
-                <h4 className="text-[14px] font-bold mb-1">More Study Strategies Coming Soon</h4>
-                <p className={`text-[11px] ${cl.sub}`}>Subject-wise preparation plans, topper interviews & strategy videos.</p>
               </div>
             </motion.div>
           )}

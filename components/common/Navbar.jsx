@@ -120,9 +120,6 @@ const mainCategories = [
         description: 'Daily, weekly & monthly updates, quizzes and GK for all exams.',
         subcategories: [
             { name: 'Daily Current Affairs', path: '/current-affairs/daily', Icon: CalendarDays },
-            { name: 'Weekly Current Affairs', path: '/current-affairs/weekly', Icon: CalendarClock },
-            { name: 'Monthly Current Affairs', path: '/current-affairs/monthly', Icon: CalendarRange },
-            { name: 'Current Affairs Quiz', path: '/current-affairs/quiz', Icon: CircleHelp },
             { name: 'Government Schemes', path: '/current-affairs/schemes', Icon: Flag },
             { name: 'Important GK Topics', path: '/current-affairs/gk', Icon: Globe2 },
         ],
@@ -630,11 +627,8 @@ const Navbar = () => {
                     {/* Feature Buttons - Recovered ORIGINAL PROPER STYLE */}
                     <div className='hidden 2xl:flex items-center gap-1.5 flex-1 justify-center max-w-[960px]'>
                         {[
-                            { label: 'Mock Tests', path: '/mock-tests', LIcon: Target, bg: 'bg-orange-600', iconBg: 'bg-orange-700' },
                             { label: 'Daily Affairs', path: '/current-affairs/daily', LIcon: Globe2, bg: 'bg-indigo-600', iconBg: 'bg-indigo-700' },
-                            { label: 'Exams hub', path: '/current-affairs', LIcon: Newspaper, bg: 'bg-emerald-600', iconBg: 'bg-emerald-700' },
                             { label: 'Leaderboard', path: '/dashboard', LIcon: Trophy, bg: 'bg-pink-600', iconBg: 'bg-pink-700' },
-                            { label: 'Library', path: '/study-materials', LIcon: Library, bg: 'bg-purple-600', iconBg: 'bg-purple-700' },
                         ].map(({ label, path, LIcon, bg, iconBg }) => (
                             <Link
                                 key={label}

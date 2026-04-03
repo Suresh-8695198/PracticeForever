@@ -63,6 +63,7 @@ export default function MockTestsComingSoon() {
     <div className="min-h-screen bg-[#5E00B3] selection:bg-yellow-400 selection:text-black overflow-x-hidden relative font-sans flex flex-col">
       <Head>
         <title>SOMETHING BIG! IS COMING | PracticeForever</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       {/* Background Doodles & Text - Zero Icons, 100% Human Feel */}

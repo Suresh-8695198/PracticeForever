@@ -1,3 +1,431 @@
+export const APRIL_1_ARTICLE = {
+    id: 1042026,
+    title: "Daily Current Affairs – 1 April 2026",
+    publish_date: "2026-04-01",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Fiscal Year Commencement</strong>
+        <p>This edition for <strong>1 April 2026</strong> welcomes the new <strong>Financial Year 2026–27</strong>, covers critical <strong>tax reforms</strong>, India's <strong>Green Hydrogen</strong> expansion, and the start of <strong>voting in Tamil Nadu</strong>.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Economy: Commencement of Financial Year 2026–27</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India officially enters a new fiscal cycle today, bringing several Union Budget provisions into direct effect.</p>
+            <strong class="sub-title">Key Highlights</strong>
+            <ul>
+                <li>Implementation of revised <strong>income tax slabs</strong> and new compliance rules for individuals and corporates.</li>
+                <li>Launch of new <strong>government welfare schemes</strong> and updated allocation for existing infrastructure projects.</li>
+                <li>Beginning of the <strong>new budget cycle</strong> with a focus on fiscal consolidation and digital economic growth.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Budget 2026-27</strong>
+                <p>The first day of the financial year is crucial for <strong>business planning</strong> and understanding new tax liabilities under the latest Finance Act.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr1/financial_year.png" alt="New Financial Year" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Environment: Scaling the National Green Hydrogen Mission</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Government intensifies efforts to meet renewable energy targets as part of the 2070 Net-Zero vision.</p>
+            <strong class="sub-title">Major Priorities</strong>
+            <ul>
+                <li>Expansion of <strong>solar and wind power</strong> capacity to support Green Hydrogen production.</li>
+                <li>Incentivizing industries to transition from traditional fossil fuels to <strong>sustainable green energy</strong>.</li>
+                <li>Strengthening <strong>climate resilience</strong> programs to mitigate the impact of rising global temperatures.</li>
+            </ul>
+            <div class="editorial-box green">
+                <strong>Environment & GS-3</strong>
+                <p>India’s <strong>renewable energy expansion</strong> is essential for ensuring long-term energy security and environmental sustainability.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr1/green_energy.png" alt="Green Hydrogen Mission" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Elections: Voting Phase Begins in Tamil Nadu</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The 2026 assembly elections in Tamil Nadu have entered the critical voting stage in designated constituencies.</p>
+            <strong class="sub-title">Key Observations</strong>
+            <ul>
+                <li>High <strong>voter turnout</strong> reported in early morning hours across urban and rural polling stations.</li>
+                <li>Tight security measures implemented by the <strong>Election Commission</strong> to ensure peaceful polling.</li>
+                <li>Symbolic importance of the <strong>first phase</strong> in setting the electoral tone for the entire state.</li>
+            </ul>
+            <div class="editorial-box amber">
+                <strong>Polity & Governance</strong>
+                <p>Ensuring <strong>voter participation</strong> and ethical polling is the cornerstone of a vibrant democratic process.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr1/tn_voting.png" alt="TN Voting Day" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Science & Tech: ISRO’s Satellite Internet for Rural Inclusion</strong>
+            <strong class="sub-title">Key Milestones</strong>
+            <ul>
+                <li>Operational rollout of <strong>high-speed satellite internet</strong> in remote villages previously lacking broadband.</li>
+                <li>Direct support for <strong>online education (e-Shala)</strong> and rural tele-medicine through satellite links.</li>
+                <li>Significant boost to <strong>digital inclusion</strong>, empowering rural entrepreneurs with global connectivity.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Digital India</strong>
+                <p>Bridging the <strong>digital divide</strong> through space technology is a major milestone in India's technology self-reliance (Atmanirbhar Bharat).</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr1/isro_internet.png" alt="ISRO Rural Connectivity" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Internal Security: Cybersecurity and Data Protection Measures</strong>
+            <strong class="sub-title">Key Initiatives</strong>
+            <ul>
+                <li>Introduction of stricter <strong>digital awareness campaigns</strong> to mitigate rising online financial frauds.</li>
+                <li>Focus on <strong>safe digital transactions</strong> during the peak of tax filing and financial year renewals.</li>
+                <li>Upgrading <strong>monitoring systems</strong> to identify and block malicious phishing attempts on government portals.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Social Security</strong>
+                <p>A <strong>secure digital ecosystem</strong> is vital for maintaining the integrity of the new financial year's economic activities.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr1/cyber_safety.png" alt="Cyber Security Reforms" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Financial Year 2026–27 officially begins today, April 1, with new budget provisions.</li>
+        <li>New tax reforms and revised income tax slabs come into effect for the current assessment year.</li>
+        <li>Global oil prices stabilize around $100/barrel as supply chains adjust to diplomatic shifts.</li>
+        <li>India intensifies renewable energy targets under the National Green Hydrogen Mission.</li>
+        <li>ISRO expands high-speed satellite internet services to remote rural schools and health centers.</li>
+        <li>The voting phase for Tamil Nadu assembly elections officially kicks off in several regions.</li>
+        <li>Government strengthens cybersecurity monitors to prevent frauds during new-year financial filings.</li>
+        <li>Healthcare reforms continue with expanded public health insurance and rural infra investments.</li>
+        <li>National Education Policy (NEP) progress focuses on skill-based curriculum and digital labs.</li>
+        <li>India reaffirms its commitment to become "Net-Zero" by 2070 via aggressive clean energy adoption.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. When does India's financial year typically start and end?</h4>
+    <p>The financial year in India starts on April 1 and ends on March 31 of the following year.</p>
+
+    <h4>2. What is India's target year for achieving Net-Zero carbon emissions?</h4>
+    <p>India has committed to achieving Net-Zero carbon emissions by the year 2070.</p>
+
+    <h4>3. How does ISRO's satellite internet program benefit rural India?</h4>
+    <p>It provides high-speed broadband connectivity to remote areas without physical fibers, enabling digital education, health services, and banking connectivity.</p>
+</div>
+`
+};
+
+export const MARCH_31_ARTICLE = {
+    id: 31032026,
+    title: "Daily Current Affairs – 31 March 2026",
+    publish_date: "2026-03-31",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Global Review</strong>
+        <p>This edition for <strong>31 March 2026</strong> highlights the <strong>stabilization of oil prices</strong>, the Election Commission's <strong>MCC enforcement</strong>, and the final stretch of <strong>Tamil Nadu's election campaign</strong>.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Geopolitics & Economy: Global Oil Prices Stabilize Slightly</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>After a period of intense volatility, global crude oil prices have shown signs of slight stabilization due to international diplomatic efforts.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Prices currently hover around <strong>$100–105 per barrel</strong>, offering a minor relief to major importers like India.</li>
+                <li>Stabilization is attributed to ongoing <strong>diplomatic talks</strong> in West Asia to secure trade routes.</li>
+                <li>Markets remain cautious as the long-term impact on global <strong>strategic energy planning</strong> is being reassessed.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Economic Stability</strong>
+                <p>Reduced volatility in oil prices is critical for managing <strong>cost-push inflation</strong> and maintaining macroeconomic stability.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar31/oil_stabilization.png" alt="Oil Price Stability" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Governance: EC Strengthens Model Code Enforcement</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The Election Commission of India (ECI) has intensified its monitoring systems as the election cycle nears its peak.</p>
+            <strong class="sub-title">Key Steps</strong>
+            <ul>
+                <li>Increased deployment of <strong>flying squads</strong> and multi-disciplinary <strong>surveillance teams</strong>.</li>
+                <li>Strict action initiated against the distribution of <strong>unaccounted cash and freebies</strong> to ensure a level playing field.</li>
+                <li>Ensuring the integrity of the democratic process through rigorous **Model Code of Conduct (MCC)** compliance.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Elections</strong>
+                <p>The <strong>ECI’s proactive role</strong> is fundamental to ensuring free, fair, and transparent elections in India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar31/election_monitoring.png" alt="Election Monitoring" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Science & Tech: Rural Digital Connectivity Initiatives Expand</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The government has accelerated the rollout of its broadband expansion program in rural districts.</p>
+            <strong class="sub-title">Major Priorities</strong>
+            <ul>
+                <li>Laying of high-speed <strong>fiber optic cables</strong> and installing towers in previously unreached rural blocks.</li>
+                <li>Focus on enhancing <strong>digital infrastructure</strong> to support e-governance and the rural digital economy.</li>
+                <li>Efforts aim to provide universal internet access, bridging the <strong>digital divide</strong> across the subcontinent.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Bridging the Divide</strong>
+                <p>Digital connectivity is no longer a luxury but an <strong>essential utility</strong> for social and economic empowerment.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar31/rural_internet.png" alt="Rural Digital Growth" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Internal Security: Intensified Monitoring of Cyber Crimes</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A surge in sophisticated financial scams has prompted a high-level review of national cybersecurity measures.</p>
+            <strong class="sub-title">Key Initiatives</strong>
+            <ul>
+                <li>Establishment of <strong>intensified monitoring units</strong> to track international phishing syndicates.</li>
+                <li>Nationwide <strong>awareness campaigns</strong> targeting digital safety for senior citizens and neo-digital users.</li>
+                <li>Integration of **AI-based fraud detection** tools in major public and private sector banks.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Cyber Security</strong>
+                <p>Strengthening **internal digital security** is a priority for protecting India’s growing digital financial ecosystem.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar31/cyber_monitoring.png" alt="Cyber Crime Prevention" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Elections: Tamil Nadu Campaign Concludes with Final Rallies</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The high-decibel campaigning for the 2026 assembly elections in Tamil Nadu has officially reached its final phase.</p>
+            <strong class="sub-title">Key Highlights</strong>
+            <ul>
+                <li>Major parties focus on the **manifesto delivery** phase, highlighting welfare and employment promises.</li>
+                <li>Crowds at final rallies of <strong>DMK, AIADMK, and BJP</strong> indicate high voter engagement.</li>
+                <li>Focus shifts to **ground-level booth management** as the quiet period before voting begins.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>TNPSC Insight</strong>
+                <p>The **completion of the campaign phase** marks a critical transition in the electoral cycle from outreach to voting.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar31/tn_campaign.png" alt="TN Election Grand Finale" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Oil prices show slight stabilization around $100–105/barrel due to diplomatic talks in West Asia.</li>
+        <li>India reviews its energy import strategy with a focus on diversification and renewable growth.</li>
+        <li>Election Commission intensifies MCC enforcement through extra flying squads and surveillance.</li>
+        <li>Retail inflation remains under close RBI watch as fuel price trends impact the cost of living.</li>
+        <li>Nationwide expansion of rural broadband connectivity accelerates to bridge the digital divide.</li>
+        <li>Climate action priorities shift toward enhancing urban and rural climate resilience.</li>
+        <li>The high-intensity Tamil Nadu election campaign officially concludes with grand final rallies.</li>
+        <li>Cyber crime monitoring is intensified with a focus on preventing sophisticated online financial frauds.</li>
+        <li>Healthcare coverage expanded to include additional beneficiaries in semi-urban and rural areas.</li>
+        <li>NEP 2020 implementation continues to focus on skill-based and digital-first education models.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. What factors contributed to the slight stabilization in global oil prices?</h4>
+    <p>Constructive diplomatic discussions in West Asia aimed at securing maritime shipping lanes helped reduce market volatility.</p>
+
+    <h4>2. How is the Election Commission curbing the influence of freebies?</h4>
+    <p>By deploying specialized flying squads and multi-disciplinary teams to monitor and prevent the distribution of unaccounted cash and goods.</p>
+
+    <h4>3. What is the focus of India’s updated energy import strategy?</h4>
+    <p>India is focusing on diversifying its energy sources (away from over-reliance on one region) and integrating more renewable energy into the national grid.</p>
+</div>
+`
+};
+
+export const MARCH_30_ARTICLE = {
+    id: 30032026,
+    title: "Daily Current Affairs – 30 March 2026",
+    publish_date: "2026-03-30",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Insight</strong>
+        <p>This edition for <strong>30 March 2026</strong> covers <strong>global oil volatility</strong>, critical <strong>judicial reforms</strong> in India, <strong>ISRO's connectivity</strong> milestones, and the peak of <strong>Tamil Nadu's election campaign</strong>.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Geopolitics & Economy: West Asia Conflict Impacts Global Markets</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Ongoing tensions in West Asia continue to destabilize global energy markets and supply chains.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Oil prices remain elevated above <strong>$105 per barrel</strong>, impacting global inflation.</li>
+                <li>The <strong>Strait of Hormuz</strong> remains a highly sensitive region for maritime trade.</li>
+                <li>Indian markets show volatility in response to fluctuating crude prices and fuel-led inflation.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>International Relations</strong>
+                <p>Ensuring <strong>energy stability</strong> is vital for maintaining India's target GDP growth amid high global inflation.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar30/west_asia_oil.png" alt="West Asia Oil Crisis" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Governance: Supreme Court Highlights Urgent Judicial Reforms</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The apex court has raised serious concerns regarding the backlog of cases and systemic delays.</p>
+            <strong class="sub-title">Key Insights</strong>
+            <ul>
+                <li>Significant emphasis on the need for <strong>faster case disposal</strong> to ensure the "Right to a Speedy Trial".</li>
+                <li>Call for updating <strong>judicial infrastructure</strong> across major High Courts and lower courts.</li>
+                <li>Discussion on implementing <strong>digital reform protocols</strong> to streamline legal documentation and hearings.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Governance</strong>
+                <p>Addressing the <strong>pendency of cases</strong> is crucial for maintaining public trust in India’s legal integrity.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar30/sc_reforms.png" alt="Judicial Reforms" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Science & Tech: ISRO’s Satellite-Based Rural Connectivity</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>India is leveraging space technology to bridge the digital divide in remote hinterlands.</p>
+            <strong class="sub-title">Major Priorities</strong>
+            <ul>
+                <li>Focus on expanding <strong>Satellite-based communication</strong> for high-speed internet in rural areas.</li>
+                <li>Enhancing digital access for <strong>tele-education and tele-medicine</strong> through next-gen satellites.</li>
+                <li>Strengthens India's <strong>digital infrastructure</strong> for the upcoming generation of connectivity.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Space tech</strong>
+                <p>Universal <strong>digital connectivity</strong> is the backbone of inclusive development in modern India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar30/isro_connectivity.png" alt="ISRO Rural Project" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. Internal Security: Rising Cyber Fraud and Digital Crimes</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>A significant increase in sophisticated phishing and cyber scams has been reported nationwide.</p>
+            <strong class="sub-title">Key Observations</strong>
+            <ul>
+                <li>Rising <strong>online scams</strong> targeting vulnerable digital users in both urban and rural areas.</li>
+                <li>Government scales up <strong>digital safety awareness</strong> programs through cybersecurity hubs.</li>
+                <li>Focus on strengthening <strong>financial fraud prevention</strong> mechanisms across banking platforms.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Internal Security</strong>
+                <p>A <strong>digitally aware citizenry</strong> is the first line of defense against modern financial crimes.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar30/cyber_safety.png" alt="Cyber Security" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8">
+        <div class="space-y-6">
+            <strong class="section-title">5. Elections: Tamil Nadu Campaign Reaches Final Peak</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Political momentum intensifies as major parties push their final campaign manifestos.</p>
+            <strong class="sub-title">Key Highlights</strong>
+            <ul>
+                <li><strong>Major Parties</strong>: DMK, AIADMK, and BJP focus heavily on local <strong>welfare schemes</strong>.</li>
+                <li>Employment opportunities and <strong>youth development</strong> emerge as central election issues.</li>
+                <li>Strengthening of <strong>social sector monitoring</strong> to ensure fair and ethical campaigning.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>TNPSC Special</strong>
+                <p>Regional political dynamics are a key study area for **State Services Examinations**.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/mar30/tn_politics.png" alt="TN Election Campaign" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Global oil prices stay above $105/barrel due to ongoing West Asia conflict and shipping risks.</li>
+        <li>India strengthens energy security by diversifying oil imports and increasing strategic reserves.</li>
+        <li>Supreme Court emphasizes the need for rapid judicial reforms and faster disposal of pending cases.</li>
+        <li>Fuel-led inflation pressure continues to impact household expenses and domestic trade.</li>
+        <li>ISRO focuses on enhancing rural digital infrastructure through satellite-based communication.</li>
+        <li>Climate change focus remains on accelerating renewable energy adoption and sustainable practices.</li>
+        <li>Tamil Nadu election campaigns peak with a focus on welfare schemes and youth employment.</li>
+        <li>Home Ministry reports an increase in cyber fraud cases, triggering nationwide digital safety drives.</li>
+        <li>Health infrastructure expansion focused on rural areas and strengthening insurance reach.</li>
+        <li>Skill and Education initiatives expanded under NEP implementation to support job creation.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why is inflation increasing in the current economic scenario?</h4>
+    <p>The primary driver is the rising fuel prices caused by geopolitical tensions in West Asia, which impacts logistics and commodity costs.</p>
+
+    <h4>2. What is India doing for long-term energy security?</h4>
+    <p>India is diversifying its oil imports beyond West Asia and significantly increasing its Strategic Petroleum Reserves (SPR) capacity.</p>
+
+    <h4>3. Why is the Strait of Hormuz considered strategically important?</h4>
+    <p>It is one of the world's most vital energy transit routes, through which a significant portion of global oil and LNG transport occurs.</p>
+</div>
+`
+};
+
 export const MARCH_29_ARTICLE = {
     id: 29032026,
     title: "Daily Current Affairs – 29 March 2026",

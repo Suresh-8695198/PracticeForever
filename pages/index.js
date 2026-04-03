@@ -70,17 +70,17 @@ const Home = () => {
   /* ── data ── */
   const trendingTopics = [
     { title: 'TNPSC Group 2 Preparation Guide 2026', path: '/exams/tnpsc', tag: 'Govt Exam' },
-    { title: 'Python Programming Roadmap for Beginners', path: '/programming/python', tag: 'Programming' },
+    { title: 'SBI PO/Clerk Reasoning Ability Guide', path: '/aptitude/logical', tag: 'Aptitude' },
     { title: 'TCS NQT Interview Questions and Answers', path: '/interviews/company', tag: 'Interview' },
     { title: 'Daily Current Affairs for Competitive Exams', path: '/current-affairs/daily', tag: 'Current Affairs' },
     { title: 'Top Aptitude Questions for Campus Placements', path: '/aptitude/quantitative', tag: 'Aptitude' },
-    { title: 'Data Structures Interview Questions', path: '/programming/data-structures', tag: 'DSA' },
+    { title: 'HR Interview Common Questions & Tips', path: '/interviews/hr', tag: 'Interview' },
   ];
 
   const learningPaths = [
     { title: 'Government Exam Preparation', desc: 'TNPSC, UPSC, SSC, Banking, Railway — curated study materials and mock tests.', path: '/exams', cta: 'Start Preparation', accent: '#1d4ed8', grad: ['#FFC107', '#F59E0B', '#D97706'], accentBg: 'rgba(29,78,216,0.08)', iconUrl: 'https://img.icons8.com/3d-fluency/94/book-shelf.png', stat: '10+ Exams', tag: 'Govt Exams', textColor: '#fff', textMuted: 'rgba(255,255,255,0.82)', chipBg: 'rgba(255,255,255,0.2)', tagBg: 'rgba(0,0,0,0.25)', divBorder: 'rgba(255,255,255,0.2)', arrowBg: 'rgba(255,255,255,0.25)', arrowColor: '#fff' },
     { title: 'Aptitude & Reasoning', desc: 'Quantitative aptitude, logical reasoning, data interpretation and verbal ability.', path: '/aptitude', cta: 'Practice Now', accent: '#7c3aed', grad: ['#c0392b', '#a93226', '#7b241c'], accentBg: 'rgba(109,40,217,0.08)', iconUrl: 'https://img.icons8.com/keek/100/math-folder.png', stat: '3,700+ Qs', tag: 'Placement', textColor: '#fff', textMuted: 'rgba(255,255,255,0.82)', chipBg: 'rgba(255,255,255,0.2)', tagBg: 'rgba(0,0,0,0.25)', divBorder: 'rgba(255,255,255,0.2)', arrowBg: 'rgba(255,255,255,0.25)', arrowColor: '#fff' },
-    { title: 'Programming & Coding', desc: 'Python, Java, C++, data structures and algorithms for coding interviews.', path: '/programming', cta: 'Start Learning', accent: '#15803d', grad: ['#00796b', '#00695c', '#004d40'], accentBg: 'rgba(21,128,61,0.08)', iconUrl: 'https://img.icons8.com/external-prettycons-flat-prettycons/47/external-coding-web-seo-prettycons-flat-prettycons.png', stat: '9 Languages', tag: 'Coding', textColor: '#fff', textMuted: 'rgba(255,255,255,0.82)', chipBg: 'rgba(255,255,255,0.2)', tagBg: 'rgba(0,0,0,0.25)', divBorder: 'rgba(255,255,255,0.2)', arrowBg: 'rgba(255,255,255,0.25)', arrowColor: '#fff' },
+    { title: 'Career Paths & Roadmaps', desc: 'Step-by-step guides for software engineering, government services, and more.', path: '/career', cta: 'Explore Paths', accent: '#15803d', grad: ['#00796b', '#00695c', '#004d40'], accentBg: 'rgba(21,128,61,0.08)', iconUrl: 'https://img.icons8.com/external-prettycons-flat-prettycons/47/external-coding-web-seo-prettycons-flat-prettycons.png', stat: '5 Paths', tag: 'Career', textColor: '#fff', textMuted: 'rgba(255,255,255,0.82)', chipBg: 'rgba(255,255,255,0.2)', tagBg: 'rgba(0,0,0,0.25)', divBorder: 'rgba(255,255,255,0.2)', arrowBg: 'rgba(255,255,255,0.25)', arrowColor: '#fff' },
     { title: 'Interview Preparation', desc: 'HR interviews, technical rounds, company-specific questions with answer guides.', path: '/interviews', cta: 'Prepare Now', accent: '#b45309', grad: ['#8e24aa', '#7b1fa2', '#6a1b9a'], accentBg: 'rgba(180,83,9,0.08)', iconUrl: 'https://img.icons8.com/external-nawicon-outline-color-nawicon/64/external-Interview-recruitment-nawicon-outline-color-nawicon.png', stat: '800+ Qs', tag: 'Interview', textColor: '#fff', textMuted: 'rgba(255,255,255,0.82)', chipBg: 'rgba(255,255,255,0.2)', tagBg: 'rgba(0,0,0,0.25)', divBorder: 'rgba(255,255,255,0.2)', arrowBg: 'rgba(255,255,255,0.25)', arrowColor: '#fff' },
   ];
 
@@ -93,10 +93,7 @@ const Home = () => {
   ];
 
   const mockTests = [
-    { label: 'TNPSC Group Exams Mock Test', path: '/mock-tests', tag: 'Govt Exam', status: 'Coming Soon' },
-    { label: 'SSC CGL / CHSL Mock Test', path: '/mock-tests', tag: 'Govt Exam', status: 'Coming Soon' },
-    { label: 'Aptitude Placement Test', path: '/mock-tests', tag: 'Placement', status: 'Coming Soon' },
-    { label: 'Programming MCQ Test', path: '/mock-tests', tag: 'Coding', status: 'Coming Soon' },
+    // Tests are coming soon... focus on practice instead.
   ];
 
   const mockFeatures = [
@@ -108,9 +105,9 @@ const Home = () => {
 
   const currentAffairsLinks = [
     { label: 'Daily Current Affairs', path: '/current-affairs/daily', icon: 'https://img.icons8.com/color/48/news.png' },
-    { label: 'Weekly Current Affairs', path: '/current-affairs/weekly', icon: 'https://img.icons8.com/color/48/calendar--v1.png' },
-    { label: 'Monthly Current Affairs', path: '/current-affairs/monthly', icon: 'https://img.icons8.com/color/48/timetable.png' },
-    { label: 'Current Affairs Quiz', path: '/current-affairs/quiz', icon: 'https://img.icons8.com/color/48/help.png' },
+    { label: 'Government Schemes', path: '/current-affairs/schemes', icon: 'https://img.icons8.com/color/48/calendar--v1.png' },
+    { label: 'Important GK Topics', path: '/current-affairs/gk', icon: 'https://img.icons8.com/color/48/timetable.png' },
+    { label: 'Practice Analysis', path: '/current-affairs/daily', icon: 'https://img.icons8.com/color/48/help.png' },
   ];
 
   const studyMaterials = [
@@ -147,15 +144,15 @@ const Home = () => {
 
   const quickLinks = [
     { label: 'TNPSC Questions', path: '/exams/tnpsc' },
-    { label: 'Python Interview Questions', path: '/programming/python' },
+    { label: 'Quantitative Aptitude', path: '/aptitude/quantitative' },
     { label: 'Aptitude Practice', path: '/aptitude/quantitative' },
     { label: 'Current Affairs 2026', path: '/current-affairs/daily' },
     { label: 'TCS Interview Questions', path: '/interviews/company' },
-    { label: 'Data Structures Questions', path: '/programming/data-structures' },
+    { label: 'Logical Reasoning Questions', path: '/aptitude/logical' },
     { label: 'UPSC Preparation', path: '/exams/upsc' },
     {label: 'SSC CGL Prep', path: '/exams' },
-    { label: 'Logical Reasoning PDF', path: '/study-materials' },
-    { label: 'Java Interview Questions', path: '/programming/java' },
+    { label: 'Verbal Ability PDF', path: '/aptitude/verbal' },
+    { label: 'HR Interview Questions', path: '/interviews/hr' },
   ];
 
   const tagColor = {
@@ -921,12 +918,12 @@ const Home = () => {
       </section>
 
       {/* ══ 5. MOCK TESTS ══ */}
+      {mockTests.length > 0 && (
       <section className={`py-16 border-t ${divider} ${isDark ? 'bg-[#0f0f0f]' : 'bg-[#fdf8f6]'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHead title="Mock Tests" sub="Timed, exam-pattern tests for government exams, placements and technical rounds." to="/mock-tests" linkLabel="All Tests" iconUrl="https://img.icons8.com/color/48/timer.png" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-2">
-            {/* Feature checklist */}
             <div className={`rounded-xl p-8 border transition-all duration-400 ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100'}`}>
               <p className="font-bold text-[15px] mb-6 tracking-tight">Why Take Our Mock Tests?</p>
               <ul className={`space-y-4 mb-8`}>
@@ -946,7 +943,6 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Test list */}
             <div className={`rounded-xl border overflow-hidden transition-all duration-400 ${isDark ? 'bg-[#141414] border-[#2a2a2a]' : 'bg-white border-gray-100'}`}>
               <div className={`px-7 py-5 border-b ${isDark ? 'border-[#2a2a2a]' : 'border-gray-100'}`}>
                 <p className={`text-[12px] font-extrabold uppercase tracking-widest ${isDark ? 'text-gray-400' : 'text-gray-900'}`}>Available Tests</p>
@@ -979,6 +975,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* ══ 6. CURRENT AFFAIRS ══ */}
       <section className={`py-16 border-t ${divider} ${isDark ? 'bg-[#0a0a0a]' : 'bg-[#f8fafc]'}`}>
