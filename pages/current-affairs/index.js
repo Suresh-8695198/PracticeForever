@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useSession } from 'next-auth/react';
+import RewardModal from '../../components/common/RewardModal';
+import api from '../../utils/api';
 import { APRIL_1_ARTICLE, MARCH_31_ARTICLE, MARCH_30_ARTICLE, MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE } from '../../data/current-affairs-data';
 
 const HIGHLIGHT_MAP = {
@@ -468,6 +470,7 @@ const extractMCQs = (content) => {
 const CurrentAffairs = () => {
     const { isDark } = useTheme();
     const { data: session } = useSession();
+    const [showRewardModal, setShowRewardModal] = useState(false);
     const router = useRouter();
     const { category: urlCategory } = router.query;
     
@@ -760,6 +763,8 @@ const CurrentAffairs = () => {
     const absoluteHeroImage = heroImage.startsWith('http') ? heroImage : `${siteDomain}${heroImage}`;
 
     return (
+        <>
+        <RewardModal isOpen={showRewardModal} onClose={() => setShowRewardModal(false)} pointsAwarded={50} title="Article Mastered!" />
         <div className={`min-h-screen ${bg} ${textColor} font-sans selection:bg-rose-200 selection:text-rose-900 pb-20 pt-[80px]`}>
             <Head>
                 <title>{pageTitle}</title>
@@ -1086,6 +1091,22 @@ const CurrentAffairs = () => {
                                     
                                     {/* Article Navigation inside card */}
                                     <div className="flex justify-center gap-3 mt-2 sm:mt-0">
+                                        <button 
+                                            onClick={async () => {
+                                                const count = parseInt(localStorage.getItem('ca_readings_count') || '0', 10);
+                                                localStorage.setItem('ca_readings_count', count + 1);
+                                                setShowRewardModal(true);
+                                                if (session?.user) {
+                                                    try {
+                                                        await api.post('/users/add-points', { xp: 50 });
+                                                    } catch(e) {}
+                                                }
+                                            }}
+                                            className="flex items-center justify-center gap-2 px-8 py-3 bg-[#58CC02] text-white text-[15px] font-black rounded-xl shadow-[0_5px_0_#46A301] hover:translate-y-[-2px] hover:shadow-[0_7px_0_#46A301] active:translate-y-[2px] active:shadow-none transition-all"
+                                        >
+                                            <CheckCircle2 size={20} strokeWidth={3} /> MARK AS COMPLETE
+                                        </button>
+                                        <div className="w-px h-10 bg-zinc-200 dark:bg-zinc-800 mx-2 hidden sm:block" />
                                         <button className={`w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center rounded border ${borderColor} bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm`}>
                                             <ChevronLeft className="w-5 h-5 text-zinc-500" />
                                         </button>
@@ -1117,7 +1138,7 @@ const CurrentAffairs = () => {
                                         <Clock className="w-3 h-3" /> {formatTimeSpent(timeSpent)}
                                     </div>
                                     {lockTimer > 0 && !isLocked && (
-                                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase tracking-widest animate-pulse">
+                                        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:amber-400 text-[10px] font-black uppercase tracking-widest animate-pulse">
                                             Locking in {lockTimer}s...
                                         </div>
                                     )}
@@ -1320,6 +1341,7 @@ const CurrentAffairs = () => {
             </div>
             
         </div>
+        </>
     );
 };
 

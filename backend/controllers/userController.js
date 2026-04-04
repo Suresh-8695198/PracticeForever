@@ -39,4 +39,21 @@ const getUserProfile = async (req, res) => {
     }
 };
 
-module.exports = { getUserProfile };
+// @desc    Get leaderboard (all users ranked by points)
+// @route   GET /api/users/leaderboard
+// @access  Public
+const getLeaderboard = async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: ['id', 'name', 'image', 'points', 'level'],
+            order: [['points', 'DESC']],
+            limit: 50
+        });
+        
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { getUserProfile, getLeaderboard };

@@ -4,6 +4,20 @@ const User = require('../models/userModel');
 const Progress = require('../models/progressModel');
 const { verifyToken: protect } = require('../middleware/authMiddleware');
 
+// Get Leaderboard
+router.get('/leaderboard', async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: ['id', 'name', 'image', 'points', 'level'],
+            order: [['points', 'DESC']],
+            limit: 50
+        });
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // Get Profile for Logged In User
 router.get('/profile', protect, async (req, res) => {
     try {
@@ -92,6 +106,35 @@ router.post('/sync', protect, async (req, res) => {
         
         await entry.save();
         res.json({ success: true, entry });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// POST /api/users/update-points
+router.post('/update-points', protect, async (req, res) => {
+    try {
+        const { points, level } = req.body;
+        const user = req.user;
+        user.points = points;
+        if (level) user.level = level;
+        await user.save();
+        res.json({ success: true, points: user.points, level: user.level });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// POST /api/users/add-points
+router.post('/add-points', protect, async (req, res) => {
+    try {
+        const { xp } = req.body;
+        if (!xp) return res.status(400).json({ error: "Missing xp amount" });
+        const user = req.user;
+        user.points = Math.max(0, (user.points || 0) + Number(xp));
+        user.level = Math.floor(user.points / 500) + 1;
+        await user.save();
+        res.json({ success: true, points: user.points, level: user.level });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

@@ -45,6 +45,14 @@ const User = sequelize.define('User', {
         set(value) {
             this.setDataValue('skills', JSON.stringify(value));
         }
+    },
+    points: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+    },
+    level: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1
     }
 });
 

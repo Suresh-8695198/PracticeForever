@@ -192,6 +192,10 @@ const QuestionPage = () => {
 
     if (optId === correctAnswer) {
       setOpenExplanations(prev => ({ ...prev, [qId]: true }));
+      // Reward points securely to backend
+      if (session?.user) {
+         axios.post(`${API_BASE}/api/users/add-points`, { xp: 10 }).catch(e => console.error("XP sync failed", e));
+      }
     }
 
     // Save to backend if logged in

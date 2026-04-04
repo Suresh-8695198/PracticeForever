@@ -1,0 +1,169 @@
+/* Leaderboard.css - Professional Clean UI */
+.pro-leaderboard-container {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px; /* sharp professional corners */
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* barely perceptible depth */
+}
+
+.pro-leaderboard-header {
+    padding: 24px 32px;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.pro-leaderboard-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+}
+
+.pro-leaderboard-subtitle {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.pro-loader-container {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pro-loader {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e2e8f0;
+    border-top-color: #0284c7; /* Professional Sky Blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.pro-leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pro-th {
+    padding: 12px 32px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+    background-color: #f8fafc; /* Subtle grey differentiation */
+}
+
+.pro-tr {
+    transition: background-color 0.15s ease;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pro-tr:hover {
+    background-color: #f8fafc;
+}
+
+/* My Rank Row Highlighting */
+.pro-tr.is-me {
+    background-color: #f0f9ff;
+}
+
+.pro-tr:last-child {
+    border-bottom: none;
+}
+
+.pro-td {
+    padding: 16px 32px;
+    vertical-align: middle;
+}
+
+.rank-col {
+    width: 60px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pro-rank {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.rank-1 .pro-rank { color: #ca8a04; font-weight: 700; }
+.rank-2 .pro-rank { color: #475569; font-weight: 700; }
+.rank-3 .pro-rank { color: #b45309; font-weight: 700; }
+
+.pro-user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.pro-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px; /* Subtle squarcle curve, purely professional */
+    object-fit: cover;
+    background-color: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+
+.pro-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pro-badge-me {
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #0284c7;
+    color: #ffffff !important;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.pro-level {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.pro-points {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+}
+
+.pro-empty {
+    text-align: center;
+    padding: 48px;
+    color: #64748b;
+    font-size: 14px;
+}

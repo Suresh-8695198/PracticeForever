@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import '../styles/globals.css';
 import '../components/common/ElectricBorder.css';
 import '../components/ui/PixelCard.css';
+import '../styles/Leaderboard.css';
 import { AuthProvider } from '../context/AuthContext';
 import { ProgressProvider } from '../context/ProgressContext';
 import { StreakProvider } from '../context/StreakContext';
