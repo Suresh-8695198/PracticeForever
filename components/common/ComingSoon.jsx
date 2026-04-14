@@ -45,9 +45,9 @@ const ComingSoon = ({ topicName, category }) => {
         variants={containerVariants}
       >
         <motion.div variants={itemVariants} className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20">
-            <img src="https://img.icons8.com/3d-fluency/94/rocket.png" alt="" className="w-5 h-5 object-contain" />
-            <span className="text-[10px] font-black uppercase tracking-[0.15em] text-[#FFC107]">Content Brewing</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20">
+            <img src="https://img.icons8.com/3d-fluency/94/book.png" alt="" className="w-5 h-5 object-contain" />
+            <span className="text-[10px] font-black uppercase tracking-[0.15em] text-blue-500">Resource Library</span>
           </div>
         </motion.div>
 
@@ -56,11 +56,11 @@ const ComingSoon = ({ topicName, category }) => {
           variants={itemVariants}
         >
           <div className={`p-8 rounded-full ${isDark ? 'bg-[#161616]' : 'bg-white'} shadow-xl border border-white/5 relative z-10`}>
-             <img src="https://img.icons8.com/3d-fluency/188/telescope.png" alt="" className="w-20 h-20 object-contain" />
+             <img src="https://img.icons8.com/3d-fluency/188/microscope.png" alt="" className="w-20 h-20 object-contain" />
           </div>
           <motion.div 
             className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-3xl opacity-30"
-            style={{ background: '#FFC107' }}
+            style={{ background: '#3b82f6' }}
             animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.3, 0.1] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
@@ -68,24 +68,24 @@ const ComingSoon = ({ topicName, category }) => {
 
         <motion.div variants={itemVariants} className="mb-10">
           <h1 className={`text-3xl md:text-5xl font-black mb-4 tracking-tight ${text}`}>
-            {topicName ? topicName : 'Something Great'} <span className="text-[#FFC107]">is Coming</span>
+            Explore <span className="text-blue-500">{topicName ? topicName : 'Our Library'}</span>
           </h1>
           <p className={`text-[15px] md:text-[17px] max-w-2xl mx-auto leading-relaxed ${textMuted} font-medium`}>
-            {topicName ? `The preparation materials for ${topicName} are currently being curated by our experts.` : "This section is currently under development to ensure you have the highest quality practice questions."} 
-            We're adding the final touches to make it perfect for your preparation.
+            {topicName ? `Dive into specialized preparation strategies and foundational resources for ${topicName}.` : "Explore curated preparation materials for your upcoming examinations."} 
+            Our platform continuously incorporates the latest high-yield topics and curated problem sets from industry experts.
           </p>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <Link 
             href={category ? `/aptitude/${category}` : "/"}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#FFC107] text-black text-[13px] font-black rounded-xl hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-blue-600 text-white text-[13px] font-black rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20"
           >
             <img src="https://img.icons8.com/3d-fluency/94/left.png" alt="" className="w-5 h-5 object-contain" />
-            Explore Other Topics
+            View Active Modules
           </Link>
           <div className="text-[12px] font-bold text-gray-500 tracking-tight">
-            Coming Soon™
+            Premium Verification
           </div>
         </motion.div>
 
@@ -93,7 +93,7 @@ const ComingSoon = ({ topicName, category }) => {
             <div className="flex items-center gap-4 mb-8">
                 <div className={`h-px flex-1 ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
                 <h2 className={`text-[9px] font-black uppercase tracking-[0.3em] ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>
-                    Active Learning paths
+                    Featured Learning Paths
                 </h2>
                 <div className={`h-px flex-1 ${isDark ? 'bg-white/5' : 'bg-gray-100'}`} />
             </div>

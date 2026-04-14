@@ -1,3 +1,286 @@
+export const APRIL_3_ARTICLE = {
+    id: 3042026,
+    title: "Daily Current Affairs – 3 April 2026",
+    publish_date: "2026-04-03",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Global Review</strong>
+        <p>This edition for <strong>3 April 2026</strong> covers economy, polity, international relations, environment, science, and Tamil Nadu updates — important for Prelims + Mains.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Global Oil Prices Fluctuate Amid West Asia Developments</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Global oil markets remain unstable due to geopolitical tensions.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Oil prices fluctuate around <strong>$100–105 per barrel</strong>.</li>
+                <li>The Strait of Hormuz remains a highly sensitive region for energy transport.</li>
+                <li>Supply concerns continue, impacting inflation and fuel prices in India.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>International Relations</strong>
+                <p>Rising fuel costs significantly impact inflation. Stabilizing fuel prices through international diplomacy is crucial.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr3/oil_prices.png" alt="Global Oil Prices" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. India Focuses on Energy Diversification</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The government is planning for long-term energy stability.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Increasing imports from Russia and the USA to diversify the energy basket.</li>
+                <li>Expanding renewable energy projects and strengthening strategic petroleum reserves.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Economy & Public Policy</strong>
+                <p>Ensuring energy security is essential to buffer against global supply chain disruptions.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr3/energy_diversification.png" alt="Energy Diversification" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. Election Commission Ensures Smooth Polling</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Ongoing elections are being monitored strictly to ensure transparency.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Increased deployment of security forces and flying surveillance teams.</li>
+                <li>Focus on maintaining a level playing field for free and fair elections.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Polity & Governance</strong>
+                <p>Ethical polling is the cornerstone of a vibrant democratic process in India.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr3/election_commission.png" alt="Election Commission" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. ISRO Strengthens Satellite Network</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>New developments in the space sector aim to improve rural connectivity.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Focus on high-throughput communication satellites.</li>
+                <li>Improves rural connectivity, supporting the Digital India initiative.</li>
+            </ul>
+            <div class="editorial-box green">
+                <strong>Science & Technology</strong>
+                <p>Bridging the digital divide is fundamental for inclusive social and economic development.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr3/isro_satellite.png" alt="ISRO Satellite Network" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Tamil Nadu Election Voting Continues & Social Reforms</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Polling is ongoing in phases with concurrent welfare initiatives being expanded.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Good voter turnout reported with a peaceful voting process under strict security.</li>
+                <li>The government continues accelerating <strong>climate action efforts</strong> with a focus on a Net-zero target by 2070.</li>
+                <li>A cyber security advisory has been issued against rising phishing and online scams.</li>
+                <li>Expansion of <strong>public health schemes</strong> and education sector reforms, focusing on skill-based employability, continues.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>TNPSC Insight</strong>
+                <p>Electoral participation combined with robust health and education reforms forms the core of effective state governance.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr3/tn_voting.png" alt="Tamil Nadu Voting" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Global oil prices fluctuate around $100-105 per barrel due to geopolitical tensions in West Asia.</li>
+        <li>India adopts an energy diversification strategy, increasing imports from Russia and the USA.</li>
+        <li>The Election Commission deploys strict monitoring to ensure smooth, free, and fair polling.</li>
+        <li>Inflation concerns persist as RBI monitors the impact of rising fuel costs on the cost of living.</li>
+        <li>ISRO strengthens its satellite network to drastically improve rapid rural internet connectivity.</li>
+        <li>Climate action initiatives accelerate, focusing heavily on renewable energy and sustainability.</li>
+        <li>Tamil Nadu elections continue with a high voter turnout and a peaceful electoral process.</li>
+        <li>Government issues a nationwide cyber security advisory amidst a surge in digital fraud cases.</li>
+        <li>Expansion of public health schemes increases vital insurance coverage for rural populations.</li>
+        <li>Education reforms emphasize digital learning expansion and skill-based employability under NEP.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why are oil prices fluctuating?</h4>
+    <p>Due to ongoing geopolitical tensions and conflicts in the West Asia region affecting supply chains.</p>
+
+    <h4>2. What is India doing for energy security?</h4>
+    <p>India is diversifying its energy imports and rapidly expanding its renewable energy infrastructure.</p>
+
+    <h4>3. What is India’s net-zero target?</h4>
+    <p>India has committed to achieving Net-Zero carbon emissions by the year 2070.</p>
+</div>
+`
+};
+
+export const APRIL_2_ARTICLE = {
+    id: 2042026,
+    title: "Daily Current Affairs – 2 April 2026",
+    publish_date: "2026-04-02",
+    category: "daily",
+    content: `
+<div class="news-feed-content">
+    <div class="editorial-box blue mb-12">
+        <strong>Daily Global Review</strong>
+        <p>This edition for <strong>2 April 2026</strong> covers economy, polity, international relations, environment, science, and Tamil Nadu updates — important for Prelims + Mains.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">1. Global Oil Prices Rise Again Amid West Asia Tensions & India Reviews Fuel Pricing Strategy</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Oil prices increased due to ongoing geopolitical tensions, while the government monitors fuel price impact.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Prices crossed <strong>$105 per barrel</strong> amid concerns over Strait of Hormuz disruption and supply chain uncertainty.</li>
+                <li>Impacts inflation in India and raises fuel prices, posing a major economic challenge.</li>
+                <li>The government is focusing on stabilizing fuel prices, managing subsidies, and holding discussions with oil companies.</li>
+            </ul>
+            <div class="editorial-box rose">
+                <strong>Economy & Public Policy</strong>
+                <p>Rising fuel costs significantly impact inflation. Stabilizing fuel prices and managing subsidies is crucial for economic stability.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr2/oil_prices.png" alt="Global Oil Prices" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">2. Supreme Court Highlights Need for Faster Justice</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Judiciary raised concerns over delays and the high number of pending cases.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>High number of pending cases poses a significant challenge to the justice system.</li>
+                <li>There is an urgent need for <strong>judicial reforms</strong> and speedy trials to ensure timely justice.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Governance</strong>
+                <p>Addressing the pendency of cases is critical for maintaining public trust and ensuring legal integrity.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr2/supreme_court.png" alt="Faster Justice" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">3. ISRO Develops New Satellite Communication System</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>Advancement in space technology to bridge the digital divide in remote areas.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Focus on achieving better rural connectivity via satellite links.</li>
+                <li>Supports the broader <strong>Digital India</strong> initiative, enabling tele-education and tele-medicine.</li>
+            </ul>
+            <div class="editorial-box blue">
+                <strong>Science & Technology</strong>
+                <p>Bridging the digital divide using advanced space technology is fundamental for inclusive development.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr2/isro_satellite.png" alt="ISRO Satellite Communication" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">4. India Expands Renewable Energy Projects</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The government is pushing green initiatives for long-term sustainability.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>Significant increase in <strong>solar and wind energy projects</strong>.</li>
+                <li>The Green Hydrogen Mission continues to expand to meet the Net-Zero reduction targets.</li>
+            </ul>
+            <div class="editorial-box green">
+                <strong>Environment</strong>
+                <p>Scaling up renewable energy is essential to tackle climate change and achieve long-term sustainability.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr2/renewable_energy.png" alt="Renewable Energy Expansion" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-8 border-b border-dashed border-zinc-200 dark:border-zinc-800 pb-12 mb-12">
+        <div class="space-y-6">
+            <strong class="section-title">5. Tamil Nadu Elections – High Voter Turnout & Social Welfare</strong>
+            <strong class="sub-title">Why in News?</strong>
+            <p>The voting phase continues with significant public participation and enhanced social security measures.</p>
+            <strong class="sub-title">Key Points</strong>
+            <ul>
+                <li>High voter participation observed across polling stations under tight security arrangements.</li>
+                <li>Simultaneously, the government continues expanding <strong>healthcare coverage</strong>, focusing on rural beneficiaries.</li>
+                <li>Rise in online financial frauds, particularly UPI and phishing attacks, led to nationwide awareness campaigns.</li>
+                <li>Digital learning and <strong>skill development</strong> initiatives are being strengthened through industry collaboration.</li>
+            </ul>
+            <div class="editorial-box emerald">
+                <strong>Polity & Society</strong>
+                <p>Electoral participation and robust social sector reforms form the core of good governance.</p>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <img src="/images/apr2/tn_elections.png" alt="Tamil Nadu Elections" class="w-full h-auto rounded-xl shadow-lg border border-zinc-100 dark:border-zinc-800" />
+        </div>
+    </div>
+
+    <h4>Quick Revision Points</h4>
+    <ul>
+        <li>Oil prices crossed $105/barrel amid Middle East tensions; India reviews its fuel pricing strategy.</li>
+        <li>Highest judicial body emphasizes the need for rapid judicial reforms and faster disposal of cases.</li>
+        <li>RBI continues monitoring inflation trends driven primarily by rising fuel and commodity costs.</li>
+        <li>ISRO advances rural connectivity through the development of a new satellite communication system.</li>
+        <li>Environment targets strengthened with the expansion of solar/wind projects and Green Hydrogen Mission.</li>
+        <li>Tamil Nadu elections register a high voter turnout under tight security and smooth polling conditions.</li>
+        <li>Surge in UPI and phishing frauds prompts the launch of rigorous cyber awareness campaigns.</li>
+        <li>Expansion of healthcare infrastructure to include more beneficiaries across rural and deep-rural regions.</li>
+        <li>Skill development schemes focus heavily on youth training programs and industry-aligned digital learning.</li>
+    </ul>
+
+    <h4>Frequently Asked Questions</h4>
+    <h4>1. Why are global oil prices increasing?</h4>
+    <p>Due to ongoing geopolitical tensions in West Asia and threats of disruption in the Strait of Hormuz.</p>
+
+    <h4>2. What is RBI actively monitoring?</h4>
+    <p>RBI is closely monitoring domestic inflation trends, largely fueled by rising energy costs.</p>
+
+    <h4>3. What is ISRO focusing on in its latest project?</h4>
+    <p>ISRO has developed a new satellite communication system to ensure rapid and robust internet connectivity for remote rural areas.</p>
+</div>
+`
+};
+
 export const APRIL_1_ARTICLE = {
     id: 1042026,
     title: "Daily Current Affairs – 1 April 2026",

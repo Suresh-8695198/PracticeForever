@@ -440,30 +440,7 @@ export const careerPaths = [
       }
     ]
   },
-  {
-    id: 'backend-developer',
-    title: 'Backend Developer',
-    description: 'Master server-side development and databases',
-    icon: '🔧',
-    color: 'from-green-500 to-emerald-500',
-    sections: []
-  },
-  {
-    id: 'data-analyst',
-    title: 'Data Analyst',
-    description: 'Analyze data and create insights',
-    icon: '📊',
-    color: 'from-purple-500 to-pink-500',
-    sections: []
-  },
-  {
-    id: 'devops-engineer',
-    title: 'DevOps Engineer',
-    description: 'Build and maintain infrastructure',
-    icon: '⚙️',
-    color: 'from-orange-500 to-red-500',
-    sections: []
-  }
+
 ];
 
 // Company-wise preparation data

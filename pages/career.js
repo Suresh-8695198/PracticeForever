@@ -213,10 +213,10 @@ const CareerPage = () => {
                     <div className="card text-center py-12 border-dashed border-2 border-dark-border bg-transparent">
                         <Target className="mx-auto mb-4 text-gray-600" size={48} />
                         <h3 className="text-lg font-semibold text-white mb-2">
-                            Content Coming Soon
+                            Curating Preparation Map
                         </h3>
                         <p className="text-gray-400">
-                            We're working on adding content for this career path
+                            Our team is compiling the optimal learning trajectory for this specialization.
                         </p>
                     </div>
                 )}

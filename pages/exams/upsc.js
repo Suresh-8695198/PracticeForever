@@ -601,12 +601,7 @@ const UPSCPage = () => {
                       </div>
                     ))}
                     
-                    {/* Coming Soon Post */}
-                    <div className={`${colors.surface} border-2 border-dashed ${colors.border} p-8 rounded-lg flex flex-col items-center justify-center text-center opacity-60`}>
-                       <IconRenderer icon="timeline" className="w-8 h-8 opacity-20 mb-4" />
-                       <h4 className="text-lg font-bold mb-2">Technical Services</h4>
-                       <p className="text-xs font-medium text-slate-400 uppercase tracking-widest label-font">Adding Soon: IES, IES/ISS & CMS</p>
-                    </div>
+
                   </motion.div>
                )}
 
@@ -689,14 +684,7 @@ const UPSCPage = () => {
                       </div>
                     ))}
                     
-                    {/* Coming Soon Folder */}
-                    <div className={`${colors.surface} border border-dashed ${colors.border} p-8 rounded-lg flex flex-col items-center justify-center text-center opacity-70`}>
-                       <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-full mb-4">
-                          <Archive className="text-slate-300" size={32} />
-                       </div>
-                       <h4 className="text-lg font-bold">Historical Vault (2014-2022)</h4>
-                       <p className="text-[10px] font-black text-[#FF9933] uppercase tracking-widest mt-2">Uploading Documents...</p>
-                    </div>
+
                  </motion.div>
                )}
 
@@ -734,23 +722,7 @@ const UPSCPage = () => {
                         </div>
                       ))}
                       
-                      {/* Interview Prep Coming Soon */}
-                      <div className="p-10 rounded-lg bg-gradient-to-r from-[#002147] to-[#121927] text-white text-center relative overflow-hidden group glare-auto-sweep">
-                         {/* Squared Grid Pattern */}
-                         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" 
-                              style={{ 
-                                  backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-                                  backgroundSize: '24px 24px'
-                              }} 
-                         />
-                         
-                         <Users className="mx-auto mb-4 opacity-70 relative z-10" size={40} />
-                         <h3 className="text-2xl font-bold serif-font mb-2 relative z-10">Personality Test Preparation</h3>
-                         <p className="text-white/60 text-sm max-w-md mx-auto mb-8 relative z-10">Video simulations, body language tips, and current affairs analysis for the ultimate phase.</p>
-                         <div className="relative z-10 inline-flex items-center gap-2 px-6 py-2 bg-[#FF9933] rounded-full text-[10px] font-black uppercase tracking-widest">
-                           <Clock size={12} /> Launching Soon
-                         </div>
-                      </div>
+
                   </motion.div>
                )}
 
