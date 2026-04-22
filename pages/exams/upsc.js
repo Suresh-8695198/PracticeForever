@@ -145,34 +145,8 @@ const LiveNumber = ({ value }) => {
 const UPSCPage = () => {
   const { isDark } = useTheme();
   const [activeSection, setActiveSection] = useState('dashboard');
-  const [engagement, setEngagement] = useState(8603);
   const scrollRef = useRef(null);
   const [showPrev, setShowPrev] = useState(false);
-
-  useEffect(() => {
-    // Generate a believable number based on time of day for "accuracy"
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const totalMinutes = hours * 60 + minutes;
-    
-    // Base traffic curve (higher during day, lower at night)
-    const base = 8500;
-    const variation = Math.sin((totalMinutes - 480) * (Math.PI / 720)) * 1500;
-    const initialValue = Math.floor(base + variation + (Math.random() * 300));
-    setEngagement(initialValue);
-
-    // Dynamic "real-time" updates
-    const timer = setInterval(() => {
-      setEngagement(prev => {
-        // Small fluctuation to feel live
-        const change = Math.random() > 0.4 ? Math.floor(Math.random() * 3) : -Math.floor(Math.random() * 1);
-        return prev + change;
-      });
-    }, 4000 + Math.random() * 2000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const colors = {
     bg: isDark ? 'bg-[#0A0E17]' : 'bg-[#F5F7FA]',
@@ -308,54 +282,25 @@ const UPSCPage = () => {
       {/* Secondary Nav & Main Content Wrapper */}
       <div className="max-w-[1280px] mx-auto px-6 mt-[-40px] relative z-20 pb-20">
         
-        {/* Engagement Strip */}
-        <div className={`w-full ${isDark ? 'bg-[#1E293B]' : 'bg-white'} rounded-lg premium-shadow border ${colors.border} p-4 md:p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-6`}>
-           <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center">
-                <IconRenderer icon="stats" className="w-8 h-8" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                   <div className="relative">
-                      <div className="w-2 h-2 rounded-full bg-red-500 animate-ping absolute inset-0" />
-                      <div className="w-2 h-2 rounded-full bg-red-600 relative z-10" />
-                   </div>
-                   <p className="text-[11px] font-medium text-slate-400 uppercase tracking-widest leading-none label-font">Live Engagement</p>
-                </div>
-                <p className="text-xl font-black flex items-center gap-2">
-                   <span className="min-w-[70px] tabular-nums">
-                     <LiveNumber value={engagement} />+
-                   </span>
-                   <span className="text-xs font-semibold text-green-500 bg-green-500/5 px-2 py-0.5 rounded-full border border-green-500/10">Active Today</span>
-                </p>
-              </div>
+        {/* AdSense Optimized Long Form Content Intro */}
+        <div className={`w-full ${isDark ? 'bg-[#121927]' : 'bg-white'} rounded-lg premium-shadow border ${colors.border} p-6 md:p-8 mb-8`}>
+           <div className="flex items-center justify-between mb-6">
+             <h2 className="text-2xl font-bold serif-font text-[#002147] dark:text-white">UPSC Civil Services Comprehensive Guide</h2>
+             <Link href="/exams" className="hidden md:flex items-center gap-2 text-xs font-black bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-4 py-2 rounded transition-all hover:bg-slate-200 dark:hover:bg-slate-700 uppercase tracking-widest">
+                <ArrowLeft size={14} /> Back to Exams
+             </Link>
            </div>
-
-           <div className="h-px w-full md:w-px md:h-12 bg-slate-200 dark:bg-slate-800" />
-
-           <div className="flex items-center gap-4">
-              <div className="w-12 h-12 flex items-center justify-center">
-                <IconRenderer icon="timeline" className="w-8 h-8" />
-              </div>
-              <div>
-                <p className="text-[11px] font-medium text-slate-400 uppercase tracking-widest leading-none mb-1 label-font">Countdown to Prelims '26</p>
-                <p className="text-xl font-black">70 Days <span className="text-xs font-medium text-amber-500">Remaining</span></p>
-              </div>
-           </div>
-
-           <div className="h-px w-full md:w-px md:h-12 bg-slate-200 dark:bg-slate-800" />
-
-           <div className="flex items-center gap-6">
-              <div className="text-right">
-                <p className="text-[11px] font-medium text-slate-400 uppercase tracking-widest leading-none mb-1 label-font">System Integrity</p>
-                <div className="flex items-center gap-2 justify-end">
-                   <IconRenderer icon="verify" className="w-4 h-4" />
-                   <p className="text-xs font-bold uppercase tracking-tight">Verified by UPSC Portal</p>
-                </div>
-              </div>
-              <Link href="/exams" className="flex items-center gap-3 text-xs font-black bg-[#002147] text-white px-5 py-2.5 rounded shadow-lg transition-all hover:bg-[#FF9933] uppercase tracking-widest">
-                 <ArrowLeft size={16} /> Back
-              </Link>
+           
+           <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+             <p className="mb-4 leading-relaxed font-medium">
+               The Union Public Service Commission (UPSC) Civil Services Examination (CSE) is one of the most prestigious and competitive assessments in India. It serves as the gateway to elite administrative, police, and diplomatic services, including the IAS, IPS, and IFS. To succeed, an aspirant fundamentally requires a structured approach, deeply analytical understanding of the syllabus, and consistent practice with past papers.
+             </p>
+             <p className="mb-4 leading-relaxed font-medium">
+               This dedicated portal is designed to provide you with high-quality, verified preparation materials. Unlike traditional study methods, our approach breaks down the vast UPSC syllabus into digestible, strictly relevant components. Whether you are navigating the intricacies of the Prelims General Studies papers, mastering CSAT, or organizing your thoughts for the Mains descriptive examinations, a clear roadmap is your greatest asset.
+             </p>
+             <p className="mb-0 leading-relaxed font-medium">
+               We emphasize the importance of <strong>Previous Year Questions (PYQs)</strong> as the absolute best indicator of the Commission’s mindset. By integrating historical trends with contemporary current affairs analysis, this module ensures that your preparation aligns perfectly precisely with the dynamic nature of the examination. Use this portal to track real-time notifications, access official syllabi, and practice comprehensively.
+             </p>
            </div>
         </div>
 

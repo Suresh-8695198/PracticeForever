@@ -245,12 +245,12 @@ export const theory = [
   {
     id: "dbms-intro",
     title: "Introduction to DBMS",
-    content: "A **DBMS (Database Management System)** is software used to store, retrieve, and run queries on data. It provides an interface between the data and the software applications."
+    content: "A **Database Management System (DBMS)** is specialized software designed to define, manipulate, retrieve and manage data in a database. A DBMS generally manipulates the data itself, the data format, field names, record structure and file structure. It also defines rules to validate and manipulate this data. DBMS systems are crucial for modern applications because they abstract the complexities of file storage from the user. Instead of reading or writing byte streams to a hard drive, a developer can simply write intuitive SQL queries like `SELECT * FROM Users`. Modern DBMS systems handle extremely complex tasks such as concurrency control (allowing thousands of users to read and write at the same time), indexing for rapid search speeds, data encryption, and automatic backups."
   },
   {
     id: "acid-properties",
     title: "The ACID Properties",
-    content: "1. **Atomicity**: The entire transaction takes place at once or not at all.\n2. **Consistency**: Database must be consistent before and after a transaction.\n3. **Isolation**: Multiple transactions occur independently without interference.\n4. **Durability**: The results of a successful transaction are permanent."
+    content: "When discussing database transaction models, ACID represents a set of properties that guarantee database transactions are processed reliably. In the context of databases, a 'transaction' is a single logical operation on the data.\n\n1. **Atomicity (All or Nothing)**: A transaction is treated as a single, indivisible unit. If a transaction consists of executing 5 SQL statements, and the 4th one fails, the entire transaction is rolled back. No partial data is saved.\n2. **Consistency**: A transaction must take the database from one valid state to another. Constraints, cascades, and triggers must be satisfied. You cannot write data that violates foreign key constraints, for instance.\n3. **Isolation**: Concurrent execution of transactions leaves the database in the same state that would have been obtained if the transactions were executed sequentially. One transaction cannot read intermediate, uncommitted data of another transaction (depending on the isolation level).\n4. **Durability**: Once a transaction has been committed, it will remain committed even in the case of a system failure (e.g., power outage or crash). The data is permanently written to non-volatile storage (hard drive/SSD)."
   },
   {
     id: "sql-categories",
