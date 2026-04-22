@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Brain, CheckCircle, Target, TrendingUp } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, CheckCircle, Target, TrendingUp, Timer } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 
 export default function MockTestsLanding() {

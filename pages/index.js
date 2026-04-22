@@ -9,6 +9,153 @@ import {
 } from 'lucide-react';
 
 
+const AnimatedStatsBar = ({ headFont, bodyFont }) => {
+  const statsRef = useRef(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
+  const statsData = [
+    { target: 8100, suffix: '+', lbl: 'Curated Questions', icon: '📝' },
+    { target: 12, suffix: '+', lbl: 'Exam Categories', icon: '🎯' },
+    { target: 24, suffix: '/7', lbl: 'Free Access', icon: '🔓' },
+    { target: 100, suffix: '%', lbl: 'Expert Verified', icon: '👨‍🎓' },
+  ];
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setStatsVisible(true); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!statsVisible) return;
+    const duration = 1800;
+    const steps = 60;
+    const interval = duration / steps;
+    let step = 0;
+    const timer = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setCounts(statsData.map(s => {
+        const val = Math.round(s.target * eased);
+        return val > s.target ? s.target : val;
+      }));
+      if (step >= steps) { clearInterval(timer); setCounts(statsData.map(s => s.target)); }
+    }, interval);
+    return () => clearInterval(timer);
+  }, [statsVisible]);
+
+  const formatNum = (n, i) => {
+    if (i === 1) return n.toLocaleString();
+    return n.toString();
+  };
+
+  return (
+    <div ref={statsRef} className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFC107 0%, #F59E0B 40%, #E8A317 70%, #D97706 100%)' }}>
+      <style>{`
+        @keyframes stats-grid-drift {
+          0%   { transform: translate(0, 0); }
+          100% { transform: translate(28px, 28px); }
+        }
+        @keyframes stats-shimmer {
+          0%   { transform: translateX(-100%) skewX(-15deg); }
+          100% { transform: translateX(300%) skewX(-15deg); }
+        }
+
+        @keyframes stats-card-in {
+          0%   { opacity:0; transform: translateY(16px) scale(0.96); }
+          100% { opacity:1; transform: translateY(0) scale(1); }
+        }
+        @keyframes stats-num-pop {
+          0%   { transform: scale(0.8); opacity:0; }
+          60%  { transform: scale(1.06); }
+          100% { transform: scale(1); opacity:1; }
+        }
+        @keyframes stats-border-glow {
+          0%, 100% { opacity: 0.2; }
+          50%      { opacity: 0.5; }
+        }
+      `}</style>
+
+      {/* Animated drifting grid */}
+      <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'hidden' }}>
+        <svg
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: '-28px',
+            width: 'calc(100% + 56px)',
+            height: 'calc(100% + 56px)',
+            animation: 'stats-grid-drift 4s linear infinite',
+          }}
+        >
+          <defs>
+            <pattern id="stats-grid-anim-next" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+              <rect x="1" y="1" width="26" height="26" rx="4" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="0.8" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#stats-grid-anim-next)" />
+        </svg>
+      </div>
+
+      {/* Shimmer light */}
+      <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', top: 0, left: 0, width: '40%', height: '100%',
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)',
+          animation: 'stats-shimmer 4.5s ease-in-out infinite',
+          animationDelay: '1s',
+        }} />
+      </div>
+
+      {/* Warm glow accents */}
+      <div className="absolute -left-20 -top-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'rgba(255,255,255,0.1)', filter: 'blur(50px)' }} />
+      <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'rgba(180,100,0,0.12)', filter: 'blur(50px)' }} />
+
+      {/* Stats content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4">
+          {statsData.map((s, i) => (
+            <div
+              key={s.lbl}
+              className="px-4 sm:px-6 py-5 sm:py-6 text-center"
+              style={{
+                borderLeft: i !== 0 ? '1px solid rgba(255,255,255,0.2)' : 'none',
+                animation: statsVisible ? `stats-card-in 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards` : 'none',
+                animationDelay: `${i * 0.12}s`,
+                opacity: statsVisible ? undefined : 0,
+              }}
+            >
+              <em style={{
+                fontStyle: 'normal', display: 'block', fontSize: 26, fontWeight: 900,
+                color: '#fff', ...headFont, letterSpacing: '-0.03em',
+                animation: statsVisible ? `stats-num-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards` : 'none',
+                animationDelay: `${0.3 + i * 0.12}s`,
+                opacity: statsVisible ? undefined : 0,
+                textShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              }}>
+                {formatNum(counts[i], i)}{s.suffix}
+              </em>
+              <em style={{
+                fontStyle: 'normal', display: 'block', fontSize: 11.5, fontWeight: 600,
+                color: 'rgba(255,255,255,0.9)', marginTop: 4, ...bodyFont,
+                letterSpacing: '0.03em', textTransform: 'uppercase',
+              }}>
+                {s.lbl}
+              </em>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 const Home = () => {
   const { isDark } = useTheme();
   const [notices, setNotices] = useState([
@@ -594,153 +741,7 @@ const Home = () => {
       </section>
 
       {/* ══ STATS BAR — Animated ══ */}
-      {(() => {
-        const statsRef = useRef(null);
-        const [statsVisible, setStatsVisible] = useState(false);
-        const [counts, setCounts] = useState([0, 0, 0, 0]);
-        const statsData = [
-          { target: 8100, suffix: '+', lbl: 'Curated Questions', icon: '📝' },
-          { target: 12, suffix: '+', lbl: 'Exam Categories', icon: '🎯' },
-          { target: 24, suffix: '/7', lbl: 'Free Access', icon: '🔓' },
-          { target: 100, suffix: '%', lbl: 'Expert Verified', icon: '👨‍🎓' },
-        ];
-
-        useEffect(() => {
-          const el = statsRef.current;
-          if (!el) return;
-          const obs = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) { setStatsVisible(true); obs.disconnect(); }
-          }, { threshold: 0.3 });
-          obs.observe(el);
-          return () => obs.disconnect();
-        }, []);
-
-        useEffect(() => {
-          if (!statsVisible) return;
-          const duration = 1800;
-          const steps = 60;
-          const interval = duration / steps;
-          let step = 0;
-          const timer = setInterval(() => {
-            step++;
-            const progress = step / steps;
-            const eased = 1 - Math.pow(1 - progress, 4);
-            setCounts(statsData.map(s => {
-              const val = Math.round(s.target * eased);
-              return val > s.target ? s.target : val;
-            }));
-            if (step >= steps) { clearInterval(timer); setCounts(statsData.map(s => s.target)); }
-          }, interval);
-          return () => clearInterval(timer);
-        }, [statsVisible]);
-
-        const formatNum = (n, i) => {
-          if (i === 1) return n.toLocaleString();
-          return n.toString();
-        };
-
-        return (
-          <div ref={statsRef} className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFC107 0%, #F59E0B 40%, #E8A317 70%, #D97706 100%)' }}>
-            <style>{`
-              @keyframes stats-grid-drift {
-                0%   { transform: translate(0, 0); }
-                100% { transform: translate(28px, 28px); }
-              }
-              @keyframes stats-shimmer {
-                0%   { transform: translateX(-100%) skewX(-15deg); }
-                100% { transform: translateX(300%) skewX(-15deg); }
-              }
-
-              @keyframes stats-card-in {
-                0%   { opacity:0; transform: translateY(16px) scale(0.96); }
-                100% { opacity:1; transform: translateY(0) scale(1); }
-              }
-              @keyframes stats-num-pop {
-                0%   { transform: scale(0.8); opacity:0; }
-                60%  { transform: scale(1.06); }
-                100% { transform: scale(1); opacity:1; }
-              }
-              @keyframes stats-border-glow {
-                0%, 100% { opacity: 0.2; }
-                50%      { opacity: 0.5; }
-              }
-            `}</style>
-
-            {/* Animated drifting grid */}
-            <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'hidden' }}>
-              <svg
-                aria-hidden="true"
-                style={{
-                  position: 'absolute',
-                  inset: '-28px',
-                  width: 'calc(100% + 56px)',
-                  height: 'calc(100% + 56px)',
-                  animation: 'stats-grid-drift 4s linear infinite',
-                }}
-              >
-                <defs>
-                  <pattern id="stats-grid-anim-next" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-                    <rect x="1" y="1" width="26" height="26" rx="4" fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="0.8" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#stats-grid-anim-next)" />
-              </svg>
-            </div>
-
-            {/* Shimmer light */}
-            <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'hidden' }}>
-              <div style={{
-                position: 'absolute', top: 0, left: 0, width: '40%', height: '100%',
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)',
-                animation: 'stats-shimmer 4.5s ease-in-out infinite',
-                animationDelay: '1s',
-              }} />
-            </div>
-
-
-
-            {/* Warm glow accents */}
-            <div className="absolute -left-20 -top-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'rgba(255,255,255,0.1)', filter: 'blur(50px)' }} />
-            <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full pointer-events-none" style={{ background: 'rgba(180,100,0,0.12)', filter: 'blur(50px)' }} />
-
-            {/* Stats content */}
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 sm:grid-cols-4">
-                {statsData.map((s, i) => (
-                  <div
-                    key={s.lbl}
-                    className="px-4 sm:px-6 py-5 sm:py-6 text-center"
-                    style={{
-                      borderLeft: i !== 0 ? '1px solid rgba(255,255,255,0.2)' : 'none',
-                      animation: statsVisible ? `stats-card-in 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards` : 'none',
-                      animationDelay: `${i * 0.12}s`,
-                      opacity: statsVisible ? undefined : 0,
-                    }}
-                  >
-                    <em style={{
-                      fontStyle: 'normal', display: 'block', fontSize: 26, fontWeight: 900,
-                      color: '#fff', ...headFont, letterSpacing: '-0.03em',
-                      animation: statsVisible ? `stats-num-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards` : 'none',
-                      animationDelay: `${0.3 + i * 0.12}s`,
-                      opacity: statsVisible ? undefined : 0,
-                      textShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    }}>
-                      {formatNum(counts[i], i)}{s.suffix}
-                    </em>
-                    <em style={{
-                      fontStyle: 'normal', display: 'block', fontSize: 11.5, fontWeight: 600,
-                      color: 'rgba(255,255,255,0.9)', marginTop: 4, ...bodyFont,
-                      letterSpacing: '0.03em', textTransform: 'uppercase',
-                    }}>
-                      {s.lbl}
-                    </em>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-      })()}
+      <AnimatedStatsBar headFont={headFont} bodyFont={bodyFont} />
 
       {/* ══ 2. TRENDING TOPICS ══ */}
       <section className={`py-12 ${isDark ? 'bg-[#111111]' : 'bg-[#f8fafc]'}`}>
