@@ -226,6 +226,22 @@ const AptitudePage = () => {
           )}
         </AnimatePresence>
 
+        {/* AdSense SEO Text Block */}
+        <div className="mb-16 p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 shadow-sm">
+          <h2 className="text-2xl font-extrabold mb-4 text-gray-900 dark:text-white" style={headFont}>How to Master Aptitude and Logical Reasoning for Placements</h2>
+          <div className="space-y-4 text-[15px] leading-relaxed text-gray-600 dark:text-gray-300">
+            <p>
+              Aptitude and logical reasoning tests form the cornerstone of almost every competitive examination and corporate recruitment process in India. Whether you are preparing for campus placements at top IT firms like TCS, Infosys, and Wipro, or aiming for prestigious government sectors through SSC and banking exams, demonstrating strong quantitative and analytical skills is non-negotiable. 
+            </p>
+            <p>
+              The key to cracking these assessments lies not just in mathematical capability, but in speed and accuracy. Most placement tests are strictly time-bound, forcing candidates to solve complex data interpretation problems and verbal reasoning puzzles in under a minute per question. Consistent practice using structured, topic-wise mock tests will help build the muscle memory required to identify patterns quickly and apply shortcut formulas effectively.
+            </p>
+            <p>
+              Our comprehensive aptitude modules below have been systematically categorized into Quantitative Aptitude, Logical Reasoning, Verbal Ability, and Data Interpretation. We strongly advise starting with foundational topics such as Number Systems and Percentages before moving on to advanced puzzles and analytical reasoning. Track your progress across the modules and ensure you revisit heavily weighted topics frequently before your final interview rounds.
+            </p>
+          </div>
+        </div>
+
         {/* Categories Grid */}
         <div className="space-y-32">
           {filteredData.map((section, sIdx) => (

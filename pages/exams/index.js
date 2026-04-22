@@ -124,19 +124,8 @@ const ExamModuleCard = ({ data, config, href, isDark }) => (
 const ExamsLandingPage = () => {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('overview');
-  const [engagement, setEngagement] = useState(14280);
   const [quoteIdx, setQuoteIdx] = useState(0);
   const scrollRef = useRef(null);
-
-  useEffect(() => {
-    const now = new Date();
-    const base = 14000 + Math.sin((now.getHours() * 60 + now.getMinutes() - 480) * (Math.PI / 720)) * 3000;
-    setEngagement(Math.floor(base + Math.random() * 500));
-    const t = setInterval(() => {
-      setEngagement(p => p + (Math.random() > 0.35 ? Math.floor(Math.random() * 4) : -Math.floor(Math.random() * 2)));
-    }, 3500 + Math.random() * 2500);
-    return () => clearInterval(t);
-  }, []);
 
   useEffect(() => {
     const q = setInterval(() => setQuoteIdx(i => (i + 1) % motivationalQuotes.length), 8000);
@@ -189,20 +178,15 @@ const ExamsLandingPage = () => {
               </p>
             </div>
 
-            {/* Live Stats Strip */}
-            <div className={`flex items-center gap-5 ${cl.surface} border ${cl.border} rounded-lg px-5 py-4`}>
-              <div>
-                <div className="flex items-center gap-1.5 mb-1">
-                  <div className="relative"><div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping absolute" /><div className="w-1.5 h-1.5 rounded-full bg-red-500 relative" /></div>
-                  <span className={`text-[9px] font-bold uppercase tracking-widest ${cl.sub}`}>Live</span>
-                </div>
-                <p className="text-lg font-extrabold"><LiveNumber value={engagement} /><span className="text-[11px] font-medium text-emerald-500 ml-1">active</span></p>
+            {/* Platform Trust Signals */}
+            <div className={`flex flex-col gap-2 ${cl.surface} border ${cl.border} rounded-lg px-5 py-4 max-w-sm`}>
+              <div className="flex items-center gap-2">
+                <I8 src={i8.check} alt="Verified" size={16} />
+                <span className="text-[11px] font-bold uppercase tracking-widest text-emerald-600">Verified Study Material</span>
               </div>
-              <div className={`w-px h-10 ${isDark ? 'bg-[#30363d]' : 'bg-slate-200'}`} />
-              <div>
-                <p className={`text-[9px] font-bold uppercase tracking-widest ${cl.sub} mb-1`}>Modules</p>
-                <p className="text-lg font-extrabold">10 <span className={`text-[11px] font-medium ${cl.sub}`}>exams</span></p>
-              </div>
+              <p className={`text-[12px] leading-relaxed ${cl.sub}`}>
+                All our previous year questions (PYQs) and mock assessments are strictly aligned with the latest commission guidelines, ensuring zero guesswork for your 2026 attempt.
+              </p>
             </div>
           </div>
         </div>
@@ -237,6 +221,22 @@ const ExamsLandingPage = () => {
           {/* ─── OVERVIEW TAB ─── */}
           {activeTab === 'overview' && (
             <motion.div key="overview" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="space-y-10">
+
+              {/* AdSense SEO Long Form Content */}
+              <div className={`${cl.surface} border ${cl.border} rounded-lg overflow-hidden p-6 md:p-8`}>
+                 <h2 className="text-2xl font-extrabold leading-tight mb-4">Complete Blueprint for Govt Exam Success in 2026</h2>
+                 <div className={`space-y-4 text-[14px] leading-relaxed ${cl.sub}`}>
+                   <p>
+                     Securing a government job in India—whether through the Staff Selection Commission (SSC), Banking boards (IBPS/SBI), or State Public Service Commissions (like TNPSC and UPPSC)—demands unwavering dedication and a structured study paradigm. Candidates are evaluated across multiple competencies: Quantitative Aptitude, Logical Reasoning, General Awareness, and English Comprehension.
+                   </p>
+                   <p>
+                     The most successful aspirants rely heavily on analyzing Previous Year Questions (PYQs). PYQs act as a compass, revealing the exam setter's mindset, the weightage of different topics, and the subtle changes in question patterns over the years. By integrating daily mock tests with comprehensive syllabus coverage, aspirants can drastically reduce their margin of error. 
+                   </p>
+                   <p>
+                     We strongly advise candidates to stay updated with official employment news and commission notifications. Do not rely on unverified rumors. Use our daily updated Current Affairs dashboard and meticulously verified syllabus hubs to streamline your preparation process. Start localizing your weaknesses today by navigating through the specific exam modules below.
+                   </p>
+                 </div>
+              </div>
 
               {/* Quick Access — TNPSC & UPSC */}
               <div>

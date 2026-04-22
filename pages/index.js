@@ -1282,6 +1282,18 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ══ 13. PLATFORM OVERVIEW (SEO) ══ */}
+      <section className={`py-12 border-t ${divider} ${isDark ? 'bg-[#0a0a0a]' : 'bg-gray-50'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <h2 className={`text-xl font-bold mb-4 ${textColor}`}>About PracticeForever: Your Complete Career Preparation Hub</h2>
+           <div className={`space-y-4 text-[13px] leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              <p>PracticeForever is India's premier online educational platform dedicated to helping students and job seekers crack competitive exams, technical interviews, and university placements. Our mission is to democratize education by providing high-quality, verified, and completely free study materials tailored for modern assessment standards.</p>
+              <p>Whether you are preparing for elite government examinations such as UPSC Civil Services, Staff Selection Commission (SSC CGL/CHSL), Banking (IBPS, SBI PO), and regional state board exams like TNPSC, or whether you are aiming for prestigious IT corporate placements at top multinational companies like TCS, Infosys, and Cognizant, our platform offers a highly structured testing environment. We host a massive repository of over 8,100 practice questions covering Quantitative Aptitude, Logical Reasoning, Verbal Ability, and Data Interpretation.</p>
+              <p>Furthermore, our dedicated Daily Current Affairs dashboard ensures that you never miss out on important national, international, and economic updates—a critical component for clearing the General Awareness section of any major screening test. By integrating real-time mock assessments, previous year question papers (PYQs), and comprehensive syllabus tracking, PracticeForever empowers you to transform your preparation strategy from ad-hoc learning into systematic mastery.</p>
+           </div>
+        </div>
+      </section>
+
     </div>
   );
 };
