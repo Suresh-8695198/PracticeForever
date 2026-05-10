@@ -110,6 +110,11 @@ const Carousel = ({ slides }) => {
 const TNPSCPage = () => {
     const { isDark } = useTheme();
     const [activeSection, setActiveSection] = useState('overview');
+    const [mounted, setMounted] = useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
     
     // Sober Institutional Palette - Zero AI "Gloss"
     const colors = {
@@ -368,7 +373,7 @@ const TNPSCPage = () => {
                                                                         <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
                                                                     </div>
                                                                     <span className="text-[10px] text-black dark:text-white font-bold uppercase tracking-widest">
-                                                                        Updated: {new Date().toLocaleDateString('en-GB')}
+                                                                        Updated: {mounted ? new Date().toLocaleDateString('en-GB') : '--/--/----'}
                                                                     </span>
                                                                 </div>
                                                             </div>

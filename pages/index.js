@@ -166,8 +166,10 @@ const Home = () => {
     'SSC CGL 2026 Exam Date Announced — Prepare with mock tests',
     'Free Aptitude PDFs Released — Download today',
   ]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const fetchNews = async () => {
       try {
         const [techRes, genRes] = await Promise.all([
@@ -1017,7 +1019,9 @@ const Home = () => {
                     <img src="https://img.icons8.com/color/48/new--v1.png" className="w-5 h-5 shrink-0" alt="" />
                     <em style={{ color: '#7c3aed', WebkitTextFillColor: '#7c3aed', fontStyle: 'normal' }}>LIVE ANALYSIS</em>
                   </div>
-                  <p className={`text-[14.5px] font-[900] tracking-tight ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>{new Date().toLocaleString('default', { month: 'long', year: 'numeric' })} Edition is now available.</p>
+                  <p className={`text-[14.5px] font-[900] tracking-tight ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
+                    {mounted ? new Date().toLocaleString('default', { month: 'long', year: 'numeric' }) : 'Loading'} Edition is now available.
+                  </p>
                 </div>
                 <Link href="/current-affairs/daily" className="px-7 py-3 bg-[#FFC107] text-black text-[13px] font-[900] uppercase tracking-wider rounded-lg hover:bg-black hover:text-white transition-all duration-300 flex items-center gap-2.5 shrink-0">
                   Read Analysis <ArrowRight size={15} />

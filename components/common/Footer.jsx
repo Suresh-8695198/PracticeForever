@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from '../../context/ThemeContext';
@@ -55,6 +56,11 @@ const legalLinks = [
 
 export default function Footer() {
   const { isDark } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const bg      = isDark ? 'bg-[#0a0a0a]'   : 'bg-[#f0f2f5]';
   const text    = isDark ? 'text-white'      : 'text-black font-medium';
@@ -207,7 +213,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
 
           <p className={`text-[11.5px] font-bold ${muted}`}>
-            &copy; {new Date().getFullYear()} PracticeForever. All rights reserved.
+            &copy; {mounted ? new Date().getFullYear() : '2026'} PracticeForever. All rights reserved.
           </p>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
