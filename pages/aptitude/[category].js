@@ -450,6 +450,30 @@ const CategoryPage = () => {
                  </div>
               </div>
            </div>
+
+           {/* Formula / Key Concepts Section — Added for AdSense Depth */}
+           <div className={`mt-12 pt-12 border-t ${isDark ? 'border-white/5' : 'border-gray-100'}`}>
+              <div className="flex flex-col md:flex-row gap-10 items-start">
+                 <div className="md:w-1/3">
+                    <h4 className={`text-xl font-black mb-4 ${textColor}`} style={headFont}>Fundamental <span className="text-blue-500">Playbook.</span></h4>
+                    <p className={`text-[13px] leading-relaxed font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                       Quick reference for core concepts. Memorizing these shortcuts can save you 15-20 seconds per question in live exams.
+                    </p>
+                 </div>
+                 <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className={`p-6 rounded-2xl ${isDark ? 'bg-zinc-800/50' : 'bg-gray-50'} border ${borderColor}`}>
+                       <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 mb-2 block">Quick Rule #1</span>
+                       <h5 className="font-bold mb-2">Pattern Recognition</h5>
+                       <p className="text-[12px] opacity-70 leading-relaxed">Always look for the difference between consecutive terms first. If the difference increases rapidly, consider squares or cubes.</p>
+                    </div>
+                    <div className={`p-6 rounded-2xl ${isDark ? 'bg-zinc-800/50' : 'bg-gray-50'} border ${borderColor}`}>
+                       <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-2 block">Quick Rule #2</span>
+                       <h5 className="font-bold mb-2">Elimination Method</h5>
+                       <p className="text-[12px] opacity-70 leading-relaxed">In multiple-choice questions, check the unit digit of the options. This can often help you eliminate 2-3 wrong answers instantly.</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
         </div>
         {/* Category Heading Section - Match Hub exactly */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-4 border-b border-gray-100 dark:border-gray-800">
