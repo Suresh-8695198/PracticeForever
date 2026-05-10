@@ -1120,13 +1120,13 @@ const Home = () => {
       <section className={`py-12 border-t ${divider} ${isDark ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-xl md:text-2xl font-black mb-10" style={headFont}>
-              Master Your Prep with Over <span className="text-[#FFC107]">8,100+</span> Curated Practice Questions
+              Master Your Prep with Over <span className="text-[#FFC107]">5,000+</span> Curated Practice Questions
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 { 
                   title: 'Expert Curated', 
-                  desc: 'Every question in our 8,100+ database is reviewed by subject matter experts to ensure accuracy and relevance to 2026 exam patterns.', 
+                  desc: 'Every question in our 5,000+ database is reviewed by subject matter experts to ensure accuracy and relevance to 2026 exam patterns.', 
                   icon: 'https://img.icons8.com/3d-fluency/94/approval.png' 
                 },
                 { 

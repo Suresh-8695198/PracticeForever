@@ -406,6 +406,51 @@ const CategoryPage = () => {
             ))}
           </div>
         </div>
+
+        {/* Depth Content Section for AdSense/SEO */}
+        <div className={`mb-16 p-8 md:p-12 rounded-[2.5rem] border ${isDark ? 'bg-white/5 border-white/5' : 'bg-white border-gray-100'} shadow-sm`}>
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div className="lg:col-span-4">
+                 <div className="flex items-center gap-3 mb-4">
+                    <Wand2 size={24} className="text-blue-500" />
+                    <h3 className="text-xl font-black tracking-tight" style={headFont}>Expert Strategy</h3>
+                 </div>
+                 <p className={`text-[14px] leading-relaxed font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                    Mastering {data.title} requires more than just knowing formulas. It demands a systematic approach to pattern recognition and time management.
+                 </p>
+                 <div className="mt-8 space-y-4">
+                    <div className="flex items-center gap-3">
+                       <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                          <Hash size={14} className="text-blue-500" />
+                       </div>
+                       <span className="text-[12px] font-bold uppercase tracking-wider">Concept First</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                       <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                          <Clock size={14} className="text-emerald-500" />
+                       </div>
+                       <span className="text-[12px] font-bold uppercase tracking-wider">Speed Practice</span>
+                    </div>
+                 </div>
+              </div>
+              <div className="lg:col-span-8">
+                 <h4 className="text-[15px] font-bold mb-4 uppercase tracking-widest text-blue-500">How to Prepare for {data.title}</h4>
+                 <div className={`space-y-4 text-[15px] leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p>
+                       The {data.title} section is often the deciding factor in competitive exams like SSC CGL, IBPS PO, and campus recruitment tests. The questions are designed to test your mental agility and logical consistency under pressure. To excel, you must transition from "solving" the problem to "identifying" the pattern.
+                    </p>
+                    <p>
+                       Start by exploring the topics below. We recommend spending at least 30 minutes on foundational concepts like {data.topics[0]} and {data.topics[1]} before moving to advanced analytical reasoning. Our platform tracks your progress with visual indicators—aim for a "Fully Completed" heart badge on every module to ensure comprehensive coverage of the syllabus.
+                    </p>
+                    <div className={`p-5 rounded-2xl border-2 border-dashed ${isDark ? 'border-white/10 bg-white/5' : 'border-blue-100 bg-blue-50/30'}`}>
+                       <p className="text-[13px] font-bold italic leading-relaxed">
+                          "Success in aptitude isn't about being a math genius; it's about being a pattern ninja. Practice until the solution becomes second nature."
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
         {/* Category Heading Section - Match Hub exactly */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-4 border-b border-gray-100 dark:border-gray-800">
           <div className="flex items-center gap-5">

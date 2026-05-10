@@ -4,7 +4,8 @@ import {
     Calendar, Clock, ChevronRight,
     LayoutGrid, BookOpen, Search,
     Share2, Printer, ChevronLeft, Star, PhoneCall,
-    HelpCircle, CheckCircle2, Languages, Mail, Lock
+    HelpCircle, CheckCircle2, Languages, Mail, Lock,
+    Sparkles, Loader2, RefreshCw, Zap
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -358,112 +359,49 @@ const extractRevisionPoints = (content) => {
 const extractMCQs = (content) => {
     if (!content) return [];
     
-    // Match Practice Quiz or FAQ section
-    const faqsMatch = content.match(/(?:Practice Quiz|Frequently Asked Questions|FAQs?|FAQ)[\s\S]*?(?:<\/h4>|:)([\s\S]*?)(?=<hr|$)/i);
-    if (!faqsMatch) return [];
+    // Match Practice Quiz or MCQ section
+    const quizMatch = content.match(/(?:Practice MCQ Quiz|Practice Quiz|Frequently Asked Questions|FAQs?|FAQ)[\s\S]*?(?:<\/h4>|:)([\s\S]*?)(?=<hr|$)/i);
+    if (!quizMatch) return [];
     
-    const questionBlocks = faqsMatch[1].split(/<h4[^>]*>|<strong>\d+\.|<b>\d+\./gi).filter(b => b.trim().length > 15);
+    const quizContent = quizMatch[1];
+    // Split by Question markers (e.g., Q1., Q2., etc.)
+    const questionBlocks = quizContent.split(/<p><strong>Q\d+\.|<strong>Q\d+\./gi).filter(b => b.trim().length > 20);
     
     return questionBlocks.map((block, idx) => {
-        const parts = block.split(/<\/h4>|<p>/i).map(p => p.replace(/<[^>]+>/g, '').trim()).filter(Boolean);
-        const question = parts[0] || "";
-        const answerText = parts[1] || "";
-        
-        let options = [];
-        const qLow = question.toLowerCase();
-        if (qLow.includes('upsc')) {
-            options = ["Anuj Agnihotri", "Sanjay Kumar", "Priya Singh", "Rohit Verma"];
-        } else if (qLow.includes('orunodoi')) {
-            options = ["Welfare scheme for women", "Industrial policy", "Agricultural grant", "Education loan"];
-        } else if (qLow.includes('green budget')) {
-            options = ["Sustainable development sector", "Heavy industry sector", "Tourism sector", "Defense sector"];
-        } else if (qLow.includes('natural gas')) {
-            options = ["High demand and import delays", "Low production only", "Pipeline leakage", "Export surge"];
-        } else if (qLow.includes('strait of hormuz')) {
-            options = ["Strait of Hormuz", "Palk Strait", "Malacca Strait", "Bab el-Mandeb"];
-        } else if (qLow.includes('ai committee') || qLow.includes('responsible ai')) {
-            options = ["Kris Gopalakrishnan", "Narayana Murthy", "Nandan Nilekani", "Azim Premji"];
-        } else if (qLow.includes('creamy layer') || qLow.includes('obc')) {
-            options = ["Parental income", "Educational status", "Social status", "Service category"];
-        } else if (qLow.includes('firefly')) {
-            options = ["92 species", "50 species", "120 species", "75 species"];
-        } else if (qLow.includes('petroleum') || qLow.includes('crude oil')) {
-            options = ["Hardeep Singh Puri", "Amit Shah", "Nirmala Sitharaman", "S. Jaishankar"];
-        } else if (qLow.includes('stabilisation fund')) {
-            options = ["₹57,381 crore", "₹25,000 crore", "₹1,00,000 crore", "₹10,000 crore"];
-        } else if (qLow.includes('freedom of religion bill')) {
-            options = ["Up to 10 years and ₹7 lakh fine", "Up to 5 years and ₹2 lakh fine", "Up to 3 years and ₹1 lakh fine", "Life imprisonment"];
-        } else if (qLow.includes('development boards')) {
-            options = ["Munda, Kora, Dom, Kumbhakar, Sadgope", "Santhal, Bhil, Gond, Oraon, Munda", "Toto, Rabha, Mech, Lepcha, Garo", "Bhumij, Lodha, Mahali, Savar, Bediya"];
-        } else if (qLow.includes('successor')) {
-            options = ["Samrat Choudhary", "Tejashwi Yadav", "Vijay Kumar Sinha", "Sushil Kumar Modi"];
-        } else if (qLow.includes('aircraft crashed')) {
-            options = ["U.S. KC-135", "Boeing 737", "F-16 Fighter", "Airbus A320"];
-        } else if (qLow.includes('sonam wangchuk') || qLow.includes('nsa')) {
-            options = ["170 days", "100 days", "200 days", "50 days"];
-        } else if (qLow.includes('kharg island')) {
-            options = ["Oil export terminal", "Naval base", "Air force station", "Research center"];
-        } else if (qLow.includes('vairamuthu') || qLow.includes('jnanpith')) {
-            options = ["Tamil writer", "Malayalam writer", "Hindi writer", "Bengali writer"];
-        } else if (qLow.includes('sabarimala')) {
-            options = ["Essential religious practice", "Cultural tradition", "Legal mandate", "Political decision"];
-        } else if (qLow.includes('fertilizer')) {
-            options = ["Kharif season", "Rabi season", "Zaid season", "Annual crop"];
-        } else if (qLow.includes('farooq abdullah')) {
-            options = ["Jammu", "Srinagar", "Leh", "Udhampur"];
-        } else if (qLow.includes('lpg') || qLow.includes('rationing') || qLow.includes('png')) {
-            options = ["Equitable distribution", "Industrial use", "Export surplus", "Reduce supply pressure"];
-        } else if (qLow.includes('transferred') && qLow.includes('west bengal')) {
-            options = ["Chief Secretary and Home Secretary", "DGP and Chief Secretary", "District Magistrate", "Election Commissioner"];
-        } else if (qLow.includes('bank of baroda') || qLow.includes('defaulter')) {
-            options = ["Reliance Communications", "Tata Group", "Adani Group", "Mahindra Group"];
-        } else if (qLow.includes('hospital fire') || qLow.includes('odisha')) {
-            options = ["Short circuit", "Gas leak", "Arson", "Natural cause"];
-        } else if (qLow.includes('criminal cases') || qLow.includes('mlas')) {
-            options = ["37%", "47%", "25%", "50%"];
-        } else if (qLow.includes('women reservation')) {
-            options = ["33%", "50%", "25%", "10%"];
-        } else if (qLow.includes('mps reinstated') || qLow.includes('lok sabha')) {
-            options = ["8 MPs", "12 MPs", "5 MPs", "2 MPs"];
-        } else if (qLow.includes('paternity leave')) {
-            options = ["Supreme Court", "High Court", "Parliament", "Cabinet"];
-        } else if (qLow.includes('foreigners arrested') || qLow.includes('drone')) {
-            options = ["7 Nationals", "10 Nationals", "5 Nationals", "15 Nationals"];
-        } else if (qLow.includes('kabul hospital') || qLow.includes('airstrike')) {
-            options = ["400", "200", "100", "500"];
-        } else if (qLow.includes('bank of maharashtra') || qLow.includes('1.78')) {
-            options = ["₹1.78 lakh crore", "₹2.21 lakh crore", "₹1 lakh crore", "₹3 lakh crore"];
-        } else if (qLow.includes('health insurance for all') || qLow.includes('2033')) {
-            options = ["2033", "2030", "2025", "2040"];
-        } else if (qLow.includes('bridge collapse')) {
-            options = ["Roop Nagar, Delhi", "Mumbai", "Kolkata", "Chennai"];
-        } else if (qLow.includes('south pars') || qLow.includes('iran strike')) {
-            options = ["World's largest gas reserve", "Small oil field", "Coal mine", "Nuclear site"];
-        } else if (qLow.includes('strait of hormuz') || qLow.includes('22 ships')) {
-            options = ["22 ships", "50 ships", "10 ships", "5 ships"];
-        } else if (qLow.includes('exit bonus') || qLow.includes('deportation')) {
-            options = ["$2,600", "$1,000", "$5,000", "$500"];
-        } else if (qLow.includes('dmk') || qLow.includes('cpi') || qLow.includes('5 seats')) {
-            options = ["5 seats", "10 seats", "2 seats", "15 seats"];
-        } else if (qLow.includes('helpline') || qLow.includes('14416')) {
-            options = ["14416", "108", "100", "1098"];
-        } else {
-            options = [answerText.substring(0, 30), "Policy changes", "Economic growth", "Institutional reforms"];
-        }
-        
-        if (!options.some(o => answerText.toLowerCase().includes(o.toLowerCase()) || o.toLowerCase().includes(answerText.toLowerCase()))) {
-            options[0] = answerText;
-        }
-        
-        if (question.length < 5) return null;
+        try {
+            // Extract Question Text
+            const qEnd = block.indexOf('</strong>');
+            const question = block.substring(0, qEnd).replace(/<[^>]+>/g, '').trim();
+            
+            // Extract Options
+            const liMatches = block.match(/<li>([\s\S]*?)<\/li>/gi);
+            let options = [];
+            if (liMatches) {
+                options = liMatches.map(li => li.replace(/<\/?li>/gi, '').replace(/^[A-D]\.\s*/i, '').trim());
+            }
 
-        return {
-            id: `q-${idx}`,
-            question,
-            options: options.filter(Boolean).sort(() => Math.random() - 0.5),
-            correctAnswer: answerText,
-            explanation: answerText
-        };
+            // Extract Answer
+            const ansMatch = block.match(/(?:Correct Answer|Answer):\s*([A-D])(?:\s*-?\s*([\s\S]*?))?<\/p>/i);
+            const ansLetter = ansMatch ? ansMatch[1].toUpperCase() : 'A';
+            const explanation = ansMatch ? (ansMatch[2] || "Refer to the article context for the correct explanation.") : "Refer to the article.";
+            
+            // Map letter to text if possible
+            const letterIdx = ansLetter.charCodeAt(0) - 65;
+            const correctAnswerText = options[letterIdx] || options[0] || "Correct Answer";
+
+            if (question.length < 5) return null;
+
+            return {
+                id: `q-${idx}-${Date.now()}`,
+                question,
+                options: options.length === 4 ? options : ["Option A", "Option B", "Option C", "Option D"],
+                correctAnswer: correctAnswerText,
+                explanation: explanation.length > 200 ? explanation.substring(0, 200) + '...' : explanation
+            };
+        } catch (e) {
+            console.error("MCQ Parse Error:", e);
+            return null;
+        }
     }).filter(Boolean).slice(0, 3);
 };
 
@@ -488,7 +426,7 @@ const CurrentAffairs = () => {
     };
 
     // State
-    const [selectedDate, setSelectedDate] = useState('2026-04-01');
+    const [selectedDate, setSelectedDate] = useState(getLocalISODate);
     const [articles, setArticles] = useState([]);
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -501,6 +439,12 @@ const CurrentAffairs = () => {
         rating: 4.8,
         count: 85
     });
+    
+    // ── AI GENERATION STATE ──
+    const [aiArticles, setAiArticles] = useState([]);
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [generateStatus, setGenerateStatus] = useState(null); // 'success' | 'error' | null
+    const [generateMessage, setGenerateMessage] = useState('');
     
     // ── ANALYTICS TRACKING ──
     const [startTime] = useState(Date.now());
@@ -717,12 +661,97 @@ const CurrentAffairs = () => {
         }
     }, [urlCategory]);
 
-    // Fetch all articles (Completely Static Version)
+    // ── FETCH AI-GENERATED ARTICLES ──
+    const fetchAiArticles = async () => {
+        try {
+            const res = await fetch('/api/generate-current-affairs');
+            if (res.ok) {
+                const data = await res.json();
+                if (data.success && data.articles) {
+                    setAiArticles(data.articles);
+                    return data.articles;
+                }
+            }
+        } catch (e) {
+            console.log('AI articles fetch skipped:', e.message);
+        }
+        return [];
+    };
+
+    // ── GENERATE CURRENT AFFAIRS FOR A DATE ──
+    const generateForDate = async (targetDate) => {
+        if (isGenerating) return;
+        setIsGenerating(true);
+        setGenerateStatus(null);
+        setGenerateMessage('');
+        
+        try {
+            const res = await fetch('/api/generate-current-affairs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ date: targetDate })
+            });
+            const data = await res.json();
+            
+            if (data.success) {
+                // Refresh AI articles list
+                const freshAi = await fetchAiArticles();
+                setGenerateStatus('success');
+                setGenerateMessage(data.cached ? 'Article already exists!' : `Generated for ${targetDate}!`);
+                
+                // Auto-clear status after 5s
+                setTimeout(() => { setGenerateStatus(null); setGenerateMessage(''); }, 5000);
+            } else {
+                setGenerateStatus('error');
+                // Clean error message for display
+                const errMsg = data.error || 'Generation failed';
+                if (errMsg.includes('quota') || errMsg.includes('429') || errMsg.includes('rate')) {
+                    setGenerateMessage('API quota exceeded. Please try again in a few minutes.');
+                } else {
+                    setGenerateMessage(errMsg.length > 80 ? errMsg.substring(0, 80) + '...' : errMsg);
+                }
+            }
+        } catch (e) {
+            setGenerateStatus('error');
+            setGenerateMessage(e.message || 'Network error');
+        } finally {
+            setIsGenerating(false);
+        }
+    };
+
+    // Fetch all articles (Static + AI-Generated)
     useEffect(() => {
         const dailyArticles = [APRIL_1_ARTICLE, MARCH_31_ARTICLE, MARCH_30_ARTICLE, MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
-        setAllArticles(dailyArticles);
-        setLoading(false);
+        
+        // Fetch AI articles and merge
+        fetchAiArticles().then(aiList => {
+            // Merge: AI articles first (newest), then static (also sorted newest first)
+            // Deduplicate by publish_date (AI takes priority)
+            const staticDates = new Set(aiList.map(a => a.publish_date));
+            const filteredStatic = dailyArticles.filter(a => !staticDates.has(a.publish_date));
+            const merged = [...aiList, ...filteredStatic].sort((a, b) => b.publish_date.localeCompare(a.publish_date));
+            setAllArticles(merged);
+            setLoading(false);
+
+            // Auto-generate for today if no article exists
+            const today = getLocalISODate();
+            const hasToday = merged.find(a => a.publish_date === today);
+            if (!hasToday) {
+                generateForDate(today);
+            }
+        });
     }, []);
+
+    // Re-merge when AI articles update (after generation)
+    useEffect(() => {
+        if (aiArticles.length > 0) {
+            const dailyArticles = [APRIL_1_ARTICLE, MARCH_31_ARTICLE, MARCH_30_ARTICLE, MARCH_29_ARTICLE, MARCH_28_ARTICLE, MARCH_27_ARTICLE, MARCH_26_ARTICLE, MARCH_25_ARTICLE, MARCH_24_ARTICLE, MARCH_23_ARTICLE, MARCH_22_ARTICLE, MARCH_21_ARTICLE, MARCH_20_ARTICLE, MARCH_19_ARTICLE, MARCH_18_ARTICLE, MARCH_17_ARTICLE, MARCH_16_ARTICLE, MARCH_15_ARTICLE, MARCH_14_ARTICLE, MARCH_13_ARTICLE, MARCH_12_ARTICLE, MARCH_11_ARTICLE];
+            const staticDates = new Set(aiArticles.map(a => a.publish_date));
+            const filteredStatic = dailyArticles.filter(a => !staticDates.has(a.publish_date));
+            const merged = [...aiArticles, ...filteredStatic].sort((a, b) => b.publish_date.localeCompare(a.publish_date));
+            setAllArticles(merged);
+        }
+    }, [aiArticles]);
 
     // Filter articles by selected local date
     useEffect(() => {
@@ -856,7 +885,37 @@ const CurrentAffairs = () => {
                             <div className="bg-[#ef4c66] hover:bg-[#d94159] transition-colors cursor-pointer text-white text-[13px] font-bold px-4 py-2 rounded-md shadow-sm whitespace-nowrap">
                                 {formatShortDate(selectedDate)}
                             </div>
+                            
+                            {/* AI Generate Button */}
+                            <button
+                                onClick={() => generateForDate(selectedDate)}
+                                disabled={isGenerating}
+                                className={`inline-flex items-center gap-2 text-[12px] font-bold px-4 py-2 rounded-md shadow-sm whitespace-nowrap transition-all duration-300 ${
+                                    isGenerating 
+                                        ? 'bg-zinc-300 dark:bg-zinc-700 text-zinc-500 cursor-wait'
+                                        : 'bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:from-violet-600 hover:to-fuchsia-600 text-white hover:shadow-md cursor-pointer'
+                                }`}
+                                title="Generate current affairs for this date using Gemini AI"
+                            >
+                                {isGenerating ? (
+                                    <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating...</>
+                                ) : (
+                                    <><Sparkles className="w-3.5 h-3.5" /> AI Generate</>
+                                )}
+                            </button>
                         </div>
+
+                        {/* Generation Status Toast */}
+                        {generateStatus && (
+                            <div className={`mt-2 inline-flex items-center gap-2 text-[11px] font-bold px-3 py-1.5 rounded-md ${
+                                generateStatus === 'success'
+                                    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                                    : 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'
+                            }`}>
+                                {generateStatus === 'success' ? <Zap className="w-3 h-3" /> : <HelpCircle className="w-3 h-3" />}
+                                {generateMessage}
+                            </div>
+                        )}
                     </div>
 
                     {/* ── COMPACT LANGUAGE SWITCHER ── */}
@@ -906,14 +965,46 @@ const CurrentAffairs = () => {
                                 ))}
                             </div>
                         ) : articles.length === 0 ? (
-                            <div className={`text-center py-24 rounded-xl border ${borderColor} ${cardBg} shadow-sm`}>
+                            <div className={`text-center py-16 rounded-xl border ${borderColor} ${cardBg} shadow-sm`}>
                                 <div className={`w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center ${isDark ? 'bg-zinc-800' : 'bg-gray-100'}`}>
-                                    <BookOpen size={32} className="text-zinc-400" />
+                                    {isGenerating ? (
+                                        <Loader2 size={32} className="text-amber-500 animate-spin" />
+                                    ) : (
+                                        <BookOpen size={32} className="text-zinc-400" />
+                                    )}
                                 </div>
-                                <h3 className="text-xl font-bold mb-2">No Current Affairs for this date</h3>
-                                <p className={`text-sm ${mutedColor}`}>
-                                    Check previous dates using the calendar picker above.
+                                <h3 className="text-xl font-bold mb-2">
+                                    {isGenerating ? 'Generating Current Affairs...' : 'No Current Affairs for this date'}
+                                </h3>
+                                <p className={`text-sm mb-6 ${mutedColor}`}>
+                                    {isGenerating 
+                                        ? 'Our AI is preparing today\'s current affairs. This takes about 10-15 seconds...' 
+                                        : 'Click below to generate current affairs using AI, or pick a different date.'
+                                    }
                                 </p>
+
+                                {/* Generate Button */}
+                                {!isGenerating && (
+                                    <button
+                                        onClick={() => generateForDate(selectedDate)}
+                                        className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 hover:from-amber-600 hover:via-orange-600 hover:to-rose-600 text-white font-bold text-sm px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
+                                    >
+                                        <Sparkles className="w-4 h-4" />
+                                        Generate with AI
+                                    </button>
+                                )}
+
+                                {/* Status Message */}
+                                {generateStatus && (
+                                    <div className={`mt-4 inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg ${
+                                        generateStatus === 'success' 
+                                            ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                                            : 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'
+                                    }`}>
+                                        {generateStatus === 'success' ? <CheckCircle2 className="w-4 h-4" /> : <HelpCircle className="w-4 h-4" />}
+                                        {generateMessage}
+                                    </div>
+                                )}
                             </div>
                         ) : selectedArticle ? (
                             <div className={`rounded-xl border ${borderColor} ${cardBg} shadow-sm p-6 md:p-10 relative overflow-hidden`}>

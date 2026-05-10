@@ -181,7 +181,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 sm:grid-cols-4">
             {[
               { num: 'Verified', lbl: 'Expert Content' },
-              { num: '8,100+', lbl: 'Practice Questions' },
+              { num: '5,000+', lbl: 'Practice Questions' },
               { num: 'Daily',    lbl: 'Current Affairs' },
               { num: '12+',     lbl: 'Exam Categories' },
             ].map(({ num, lbl }, i) => (

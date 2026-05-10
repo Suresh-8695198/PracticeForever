@@ -64,8 +64,8 @@ export default function MockTestsLanding() {
               Once you have completed the topic-wise practice, simulate the actual exam environment. 
               Our full-length mock test series is being calibrated to match the exact difficulty of 2026 exam patterns.
             </p>
-            <div className={`px-4 py-3 rounded-xl border ${isDark ? 'bg-amber-500/5 border-amber-500/20' : 'bg-amber-50 border-amber-200'} text-amber-600 font-bold text-sm text-center`}>
-              Full Mock Modules Updating for 2026
+            <div className={`px-4 py-3 rounded-xl border ${isDark ? 'bg-blue-500/5 border-blue-500/20' : 'bg-blue-50 border-blue-200'} text-blue-600 font-bold text-sm text-center`}>
+              Full Mock Series Available for Active Users
             </div>
           </div>
         </div>
