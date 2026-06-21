@@ -209,6 +209,7 @@ const CategoryPage = () => {
 
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f8fafc] text-gray-900';
   const borderColor = isDark ? 'border-gray-800' : 'border-gray-100';
+  const textColor = isDark ? 'text-white' : 'text-black';
   const headFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
   const bodyFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
 
