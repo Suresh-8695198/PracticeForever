@@ -22,7 +22,14 @@ async function generateCurrentAffairs(dateStr) {
     if (!ai) throw new Error('Gemini API key not configured');
 
     // Try models in order of preference (fallback if quota exceeded)
-    const modelsToTry = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-flash-8b'];
+    const modelsToTry = [
+        'gemini-3.5-flash',
+        'gemini-3.1-flash-lite',
+        'gemini-2.5-flash',
+        'gemini-2.0-flash',
+        'gemini-2.0-flash-lite',
+        'gemini-flash-latest'
+    ];
     let lastError = null;
 
     for (const modelName of modelsToTry) {

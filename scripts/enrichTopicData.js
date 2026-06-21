@@ -15,9 +15,32 @@ if (!GEMINI_API_KEY) {
 }
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 const DATA_DIR = path.join(__dirname, '../data/aptitude');
+const modelsToTry = [
+  'gemini-3.5-flash',
+  'gemini-3.1-flash-lite',
+  'gemini-2.5-flash',
+  'gemini-2.0-flash',
+  'gemini-2.0-flash-lite',
+  'gemini-flash-latest'
+];
+
+async function generateContentWithFallback(prompt, mimeType) {
+  let lastError = null;
+  const config = mimeType ? { generationConfig: { responseMimeType: mimeType } } : {};
+  for (const modelName of modelsToTry) {
+    try {
+      const model = genAI.getGenerativeModel({ model: modelName, ...config });
+      const result = await model.generateContent(prompt);
+      return result;
+    } catch (err) {
+      console.warn(`[Gemini] Model ${modelName} failed:`, err.message);
+      lastError = err;
+    }
+  }
+  throw new Error(`AI generation failed on all models. Last error: ${lastError ? lastError.message : 'Unknown'}`);
+}
 
 async function generateTheory(topicName) {
   const prompt = `You are an expert aptitude trainer. Provide a comprehensive "Theory & Concepts" guide for the topic "${topicName}". 
@@ -36,7 +59,7 @@ Each object must follow this structure:
 Ensure the content is deep, high-value, and SEO-friendly.
 `;
   try {
-    const result = await model.generateContent(prompt);
+    const result = await generateContentWithFallback(prompt, 'application/json');
     const text = result.response.text().trim().replace(/^```json/, '').replace(/```$/, '').trim();
     return JSON.parse(text);
   } catch (error) {
@@ -55,7 +78,7 @@ Current Explanation: ${oldExplanation}
 Please provide a highly detailed, step-by-step explanation that teaches the student HOW to solve this. Use Markdown for formatting. Do NOT wrap the output in JSON or backticks, just return the raw markdown string.`;
   
   try {
-    const result = await model.generateContent(prompt);
+    const result = await generateContentWithFallback(prompt);
     return result.response.text().trim();
   } catch (error) {
     console.error("Failed to generate explanation:", error);

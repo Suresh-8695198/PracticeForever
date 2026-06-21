@@ -10,7 +10,8 @@ import nodemailer from 'nodemailer';
 export default async function handler(req, res) {
   // Simple security check (replace with a real cron secret in production)
   const authHeader = req.headers.authorization;
-  if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  const isDev = process.env.NODE_ENV === 'development';
+  if (!isDev && process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
 
@@ -25,7 +26,6 @@ export default async function handler(req, res) {
     }
 
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
     // Determine what to generate (we can analyze leads to pick popular topics, or just pick random)
     // For this example, we generate a high-value "Question of the Day" with deep explanations
@@ -48,7 +48,36 @@ Format:
   "explanation": "[A detailed, step-by-step markdown explanation teaching how to solve it.]"
 }`;
 
-    const result = await model.generateContent(prompt);
+    const modelsToTry = [
+      'gemini-3.5-flash',
+      'gemini-3.1-flash-lite',
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-2.0-flash-lite',
+      'gemini-flash-latest'
+    ];
+    let result = null;
+    let lastError = null;
+
+    for (const modelName of modelsToTry) {
+      try {
+        console.log(`Attempting content generation with model: ${modelName}`);
+        const model = genAI.getGenerativeModel({ 
+          model: modelName,
+          generationConfig: { responseMimeType: 'application/json' }
+        });
+        result = await model.generateContent(prompt);
+        console.log(`Successfully generated content using model: ${modelName}`);
+        break;
+      } catch (err) {
+        console.warn(`[Gemini] Model ${modelName} failed:`, err.message);
+        lastError = err;
+      }
+    }
+
+    if (!result) {
+      throw new Error(`AI generation failed on all models. Last error: ${lastError ? lastError.message : 'Unknown'}`);
+    }
     let text = result.response.text().trim();
     
     // Clean up markdown
