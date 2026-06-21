@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import nodemailer from 'nodemailer';
 
 // This API route acts as a cron job to generate new content automatically
 // You can set this up with Vercel Cron or a similar service.
@@ -79,8 +80,44 @@ Format:
 
     fs.writeFileSync(dataFile, JSON.stringify(dailyQuestions, null, 2));
 
+    // Send Email Notification
+    if (process.env.EMAIL_USER && process.env.EMAIL_APP_PASSWORD) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_APP_PASSWORD,
+          },
+        });
+
+        const mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: 'suresh169073@gmail.com',
+          subject: '🚀 PracticeForever: Automated Content Updated!',
+          html: `
+            <h2>PracticeForever Automated Update</h2>
+            <p>The system has successfully generated new content via the Gemini API.</p>
+            <h3>New Question of the Day:</h3>
+            <p><strong>Topic:</strong> ${newContent.topic}</p>
+            <p><strong>Question:</strong> ${newContent.text}</p>
+            <p><strong>Correct Answer:</strong> ${newContent.answer}</p>
+            <br/>
+            <p><em>This is an automated notification from your Vercel deployment.</em></p>
+          `,
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log('Notification email sent successfully.');
+      } catch (emailError) {
+        console.error('Failed to send notification email:', emailError);
+      }
+    } else {
+      console.warn('EMAIL_USER or EMAIL_APP_PASSWORD not set. Skipping email notification.');
+    }
+
     return res.status(200).json({ 
-      message: 'Successfully generated new content', 
+      message: 'Successfully generated new content and sent email notification', 
       content: newContent 
     });
 
