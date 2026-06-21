@@ -8,8 +8,7 @@ import {
   Bookmark, ChevronLeft, ChevronRight,
   Printer, Check, X, Lightbulb, BookOpen,
   Save, Info, Award, Star, Heart, Flame, Lock,
-  Plus, Minus, Maximize2, Search, RotateCcw,
-  Cloud, ShieldCheck, Activity, Calculator, Brain, Languages, PieChart, Shapes, LayoutGrid, CheckCircle2, History
+  Plus, Minus, Maximize2, Search, RotateCcw
 } from 'lucide-react';
 import { useTheme } from '../../../context/ThemeContext';
 import { topicData } from '../../../data/aptitude';
@@ -373,10 +372,10 @@ const QuestionPage = () => {
   );
 
   const navItems = [
-    { name: 'Quantitative', icon: Calculator, href: '/aptitude/quantitative', active: category === 'quantitative' },
-    { name: 'Data Interpretation', icon: PieChart, href: '/aptitude/di', active: category === 'di' },
-    { name: 'Verbal Ability', icon: Languages, href: '/aptitude/verbal', active: category === 'verbal' },
-    { name: 'Logical Reasoning', icon: Brain, href: '/aptitude/logical', active: category === 'logical' }
+    { name: 'Quantitative', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: '/aptitude/quantitative', active: category === 'quantitative' },
+    { name: 'Data Interpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: '/aptitude/di', active: category === 'di' },
+    { name: 'Verbal Ability', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: '/aptitude/verbal', active: category === 'verbal' },
+    { name: 'Logical Reasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: '/aptitude/logical', active: category === 'logical' }
   ];
 
 
@@ -665,8 +664,12 @@ const QuestionPage = () => {
                 </div>
 
                 <div className="p-8 flex flex-col items-center text-center">
-                  <div className="mb-6 w-20 h-20 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                    <Cloud size={40} className="text-blue-500" />
+                  <div className="mb-6">
+                    <img 
+                      src="https://img.icons8.com/isometric/100/cloud-sync.png" 
+                      className="w-20 h-20" 
+                      alt="Sync" 
+                    />
                   </div>
                   
                   <h3 className="text-[22px] font-black text-gray-900 dark:text-white leading-tight mb-2">Save your progress</h3>
@@ -723,8 +726,8 @@ const QuestionPage = () => {
             </div>
 
             <div className="relative z-10 flex items-center gap-5 w-full sm:w-auto">
-              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
-                {session ? <CheckCircle2 size={24} className="text-emerald-500" /> : <History size={24} className="text-emerald-500" />}
+              <div className="flex-shrink-0">
+                <img src={session ? "https://img.icons8.com/isometric/100/checked-checkbox.png" : "https://img.icons8.com/isometric/100/time-machine.png"} className="w-10 h-10 drop-shadow-sm" alt="Stats" />
               </div>
               <div>
                 <p className="text-[10.5px] font-extrabold uppercase tracking-[0.15em] mb-1 keep-color text-emerald-800 dark:text-emerald-400">
@@ -746,10 +749,12 @@ const QuestionPage = () => {
 
             <div className="relative z-10 flex flex-col sm:flex-row items-center gap-6">
               <div className="flex items-center gap-2">
-                  {session ? <ShieldCheck size={16} className="text-emerald-500" /> : <History size={16} className="text-gray-400" />}
-                  <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono ml-1">
+                <div className="flex items-center gap-2 select-none">
+                  <img src={session ? "https://img.icons8.com/color/48/verified-account--v1.png" : "https://img.icons8.com/color/48/clock--v1.png"} className="w-4 h-4" alt="Status" />
+                  <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono">
                     {session ? "Real-time Sync" : "Saved Locally"}
                   </span>
+                </div>
               </div>
 
               <motion.button 
@@ -787,8 +792,12 @@ const QuestionPage = () => {
             className="mb-16"
           >
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-purple-50 dark:bg-purple-900/20 shrink-0">
-                <BookOpen size={24} className="text-purple-500" />
+              <div className="w-12 h-12 flex items-center justify-center transition-transform hover:scale-110 shrink-0">
+                <img 
+                  src="https://img.icons8.com/3d-fluency/94/open-book.png" 
+                  alt="Theory" 
+                  className="w-full h-full object-contain" 
+                />
               </div>
               <div>
                 <h2 
@@ -1332,10 +1341,10 @@ const QuestionPage = () => {
                <h3 className="text-[11px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 px-4">Subject Feed</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 pb-8">
                   {[
-                    { name: 'Quantitative\nProficiency', icon: Calculator, href: '/aptitude/quantitative', active: category === 'quantitative', color: 'bg-[#2563eb]' },
-                    { name: 'Data\nInterpretation', icon: PieChart, href: '/aptitude/di', active: category === 'di', color: 'bg-[#10b981]' },
-                    { name: 'Verbal\nAbility', icon: Languages, href: '/aptitude/verbal', active: category === 'verbal', color: 'bg-[#7c3aed]' },
-                    { name: 'Logical\nReasoning', icon: Brain, href: '/aptitude/logical', active: category === 'logical', color: 'bg-[#f59e0b]' }
+                    { name: 'Quantitative\nProficiency', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: '/aptitude/quantitative', active: category === 'quantitative', color: 'bg-[#2563eb]' },
+                    { name: 'Data\nInterpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: '/aptitude/di', active: category === 'di', color: 'bg-[#10b981]' },
+                    { name: 'Verbal\nAbility', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: '/aptitude/verbal', active: category === 'verbal', color: 'bg-[#7c3aed]' },
+                    { name: 'Logical\nReasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: '/aptitude/logical', active: category === 'logical', color: 'bg-[#f59e0b]' }
                   ].map((cat, i) => (
                     <Link 
                       key={i} 
@@ -1367,9 +1376,10 @@ const QuestionPage = () => {
                         </div>
                         
                         <div className="flex-1 flex items-center justify-center">
-                          <cat.icon 
-                            size={40} 
-                            className={`text-white drop-shadow-[0_15px_15px_rgba(0,0,0,0.4)] transition-transform duration-500 ${cat.active ? 'scale-110' : 'group-hover:scale-105'}`} 
+                          <img 
+                            src={cat.img} 
+                            alt="" 
+                            className={`w-16 h-16 object-contain drop-shadow-[0_15px_15px_rgba(0,0,0,0.4)] transition-transform duration-500 ${cat.active ? 'scale-110' : 'group-hover:scale-105'}`} 
                           />
                         </div>
                       </div>
@@ -1458,9 +1468,15 @@ const QuestionPage = () => {
                               className={`w-10 h-10 rounded-lg border flex items-center justify-center transition-all duration-700 overflow-hidden ${isThisPageMastered ? 'bg-white shadow-lg border-white/50' : 'bg-white/5 border-white/10 opacity-20'}`}
                               title={`Page ${idx + 1} Mastery`}
                             >
-                               <div className={`w-7 h-7 flex items-center justify-center transition-all duration-700 ${isThisPageMastered ? 'scale-110' : 'opacity-40'}`}>
-                                 <LayoutGrid size={20} className={isThisPageMastered ? 'text-green-500' : 'text-white'} />
-                               </div>
+                               <img 
+                                 src={`https://img.icons8.com/3d-fluency/94/${icon}.png`} 
+                                 alt={`Page ${idx + 1}`}
+                                 onError={(e) => {
+                                   e.target.onerror = null;
+                                   e.target.src = "https://img.icons8.com/3d-fluency/94/gift.png";
+                                 }}
+                                 className={`w-7 h-7 transition-all duration-700 ${isThisPageMastered ? 'grayscale-0 scale-110' : 'grayscale brightness-150'}`}
+                               />
                             </motion.div>
                             
                             {!isThisPageMastered && (
@@ -1544,16 +1560,17 @@ const QuestionPage = () => {
                            </h5>
                        </div>
                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-700 ${isPageMastered ? 'bg-orange-500/10 shadow-xl shadow-orange-500/10' : 'bg-emerald-500/5'}`}>
-                          <motion.div
-                            className={`w-11 h-11 flex items-center justify-center transition-all ${pageSolvedCount > 0 ? "text-orange-500" : "text-gray-400 opacity-20"}`}
+                          <motion.img 
+                            src="https://img.icons8.com/3d-fluency/94/fire-element.png" 
+                            alt="fire" 
+                            className={`w-11 h-11 object-contain transition-all ${pageSolvedCount > 0 ? "grayscale-0" : "grayscale opacity-10"}`}
                             animate={pageSolvedCount > 0 ? { 
-                              y: [0, -4, 0],
-                              scale: [1, 1.1, 1],
+                              y: [0, -8, 0],
+                              scale: [1, 1.2, 1],
+                              rotate: [0, 10, -10, 0]
                             } : {}}
                             transition={{ repeat: Infinity, duration: 2 }}
-                          >
-                            <Flame size={32} />
-                          </motion.div>
+                          />
                        </div>
                     </div>
                     
@@ -1637,6 +1654,7 @@ const QuestionPage = () => {
         }
         body.light { background-color: #ffffff !important; }
       `}</style>
+      
       {/* Additional Content / Modals */}
       <LeadCaptureModal 
         isOpen={isLeadModalOpen} 

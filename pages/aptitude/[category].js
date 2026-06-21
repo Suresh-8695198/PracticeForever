@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronRight, Search, ArrowLeft, ArrowRight, BookOpen, Clock, 
   Hash, LayoutGrid, Calculator, Brain, Languages, PieChart, Shapes, CircleHelp, Compass,
-  Command, RotateCcw, Check
+  Command, RotateCcw
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { topicData } from '../../data/aptitude';
@@ -16,7 +16,7 @@ const aptitudeCatalog = {
     title: 'Quantitative Aptitude',
     subtitle: 'Numerical Ability',
     description: 'Master mathematical concepts, arithmetic, and problem-solving techniques for all competitive exams.',
-    icon: Calculator,
+    icon: "https://img.icons8.com/3d-fluency/96/calculator.png",
     color: "#3b82f6",
     bgGradient: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
     topics: [
@@ -30,13 +30,16 @@ const aptitudeCatalog = {
       "Clocks and Calendar", "Stocks & Shares", "Probability",
       "Odd Man Out & Series"
     ],
-    symbols: [ Calculator, LayoutGrid ]
+    symbols: [
+      "https://img.icons8.com/3d-fluency/94/pi.png",
+      "https://img.icons8.com/3d-fluency/94/ruler.png"
+    ]
   },
   'logical': {
     title: 'Logical Reasoning',
     subtitle: 'Analytical Thinking',
     description: 'Develop logical deduction, pattern recognition, and critical thinking skills required for technical rounds.',
-    icon: Brain,
+    icon: "https://img.icons8.com/3d-fluency/94/brain-3--v1.png",
     color: "#8b5cf6",
     bgGradient: "linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%)",
     topics: [
@@ -45,13 +48,16 @@ const aptitudeCatalog = {
       "Verbal Reasoning", "Logical Problems", "Logical Games", "Analyzing Arguments",
       "Statement and Assumption", "Course of Action", "Statement and Conclusion"
     ],
-    symbols: [ Brain, Compass ]
+    symbols: [
+      "https://img.icons8.com/3d-fluency/94/brain.png",
+      "https://img.icons8.com/3d-fluency/94/idea.png"
+    ]
   },
   'verbal': {
     title: 'Verbal Ability',
     subtitle: 'Language Excellence',
     description: 'Enhance your English proficiency with grammar, vocabulary, and reading comprehension practice.',
-    icon: Languages,
+    icon: "https://img.icons8.com/3d-fluency/94/brick.png",
     color: "#10b981",
     bgGradient: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
     topics: [
@@ -61,25 +67,31 @@ const aptitudeCatalog = {
       "Comprehension", "One Word Substitution", "Idioms and Phrases", "Change of Voice",
       "Change of Speech", "Verbal Analogies"
     ],
-    symbols: [ Languages, BookOpen ]
+    symbols: [
+      "https://img.icons8.com/3d-fluency/94/alphabet.png",
+      "https://img.icons8.com/3d-fluency/94/book.png"
+    ]
   },
   'di': {
     title: 'Data Interpretation',
     subtitle: 'Data Analysis',
     description: 'Learn to analyze complex charts, tables, and graphs to extract meaningful business insights.',
-    icon: PieChart,
+    icon: "https://img.icons8.com/3d-fluency/94/line-chart.png",
     color: "#ec4899",
     bgGradient: "linear-gradient(135deg, #ec4899 0%, #db2777 100%)",
     topics: [
       "Tabulation", "Bar Graphs", "Pie Charts", "Line Graphs"
     ],
-    symbols: [ PieChart, Hash ]
+    symbols: [
+      "https://img.icons8.com/3d-fluency/94/line-chart.png",
+      "https://img.icons8.com/3d-fluency/94/pie-chart.png"
+    ]
   },
   'non-verbal': {
     title: 'Non-Verbal Reasoning',
     subtitle: 'Spatial Logic',
     description: 'Practice visual reasoning and spatial orientation through shapes, images, and pattern logic.',
-    icon: Shapes,
+    icon: "https://img.icons8.com/3d-fluency/94/rubiks-cube.png",
     color: "#f59e0b",
     bgGradient: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
     topics: [
@@ -88,7 +100,10 @@ const aptitudeCatalog = {
       "Paper Folding", "Paper Cutting", "Rule Detection", "Grouping of Images",
       "Dot Situation", "Shape Construction", "Image Analysis", "Cubes and Dice"
     ],
-    symbols: [ Shapes, LayoutGrid ]
+    symbols: [
+      "https://img.icons8.com/3d-fluency/94/rubiks-cube.png",
+      "https://img.icons8.com/3d-fluency/94/geometric-shapes.png"
+    ]
   }
 };
 
@@ -464,8 +479,8 @@ const CategoryPage = () => {
         {/* Category Heading Section - Match Hub exactly */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-4 border-b border-gray-100 dark:border-gray-800">
           <div className="flex items-center gap-5">
-            <div className="w-12 h-12 flex items-center justify-center shrink-0 rounded-2xl border" style={{ backgroundColor: `${data.color}15`, borderColor: `${data.color}30` }}>
-              <data.icon size={26} style={{ color: data.color }} />
+            <div className="w-12 h-12 flex items-center justify-center shrink-0">
+              <img src={data.icon} alt="" className="w-full h-full object-contain" />
             </div>
             <div>
               <h2 
@@ -489,13 +504,13 @@ const CategoryPage = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider bg-gray-50/80 dark:bg-[#141414] px-4 py-2.5 rounded-xl border border-gray-100 dark:border-gray-800">
-            <div className="flex items-center gap-2 text-emerald-500">
-              <Check size={16} strokeWidth={3} />
+            <div className="flex items-center gap-2">
+              <img src="https://img.icons8.com/3d-fluency/94/like--v3.png" alt="Fully Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
               <span>Fully Completed</span>
             </div>
             <div className="hidden sm:block w-px h-3.5 bg-gray-200 dark:bg-gray-800"></div>
-            <div className="flex items-center gap-2 text-blue-500">
-              <Compass size={16} strokeWidth={3} />
+            <div className="flex items-center gap-2">
+              <img src="https://img.icons8.com/3d-fluency/94/like--v8.png" alt="Partially Completed" className="w-[18px] h-[18px] object-contain drop-shadow-sm" />
               <span>Partially Completed</span>
             </div>
             <div className="hidden sm:block w-px h-3.5 bg-gray-200 dark:bg-gray-800"></div>
@@ -517,14 +532,11 @@ const CategoryPage = () => {
             const isCompleted = topicProgress.total > 0 && topicProgress.solved === topicProgress.total;
             const isPartiallyCompleted = topicProgress.total > 0 && topicProgress.solved > 0 && topicProgress.solved < topicProgress.total;
             
-            let statusIcon = null;
-            let statusColor = "";
+            let heartIcon = null;
             if (isCompleted) {
-              statusIcon = Check;
-              statusColor = "text-emerald-500";
+              heartIcon = "https://img.icons8.com/3d-fluency/94/like--v3.png";
             } else if (isPartiallyCompleted) {
-              statusIcon = Compass;
-              statusColor = "text-blue-500";
+              heartIcon = "https://img.icons8.com/3d-fluency/94/like--v8.png";
             }
 
             return (
@@ -554,8 +566,12 @@ const CategoryPage = () => {
               }}
             >
               <div className="flex items-center gap-3 min-w-0 flex-1 pr-2">
-                <div className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 duration-300" style={{ backgroundColor: `${data.color}10` }}>
-                   <BookOpen size={16} style={{ color: data.color }} />
+                <div className="shrink-0 w-6 h-6 transition-transform group-hover:scale-110 duration-300">
+                  <img 
+                    src="https://img.icons8.com/3d-fluency/94/folder-invoices.png" 
+                    alt="" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="flex items-center gap-1.5 transition-all duration-300 group-hover:translate-x-1 min-w-0">
                   <span 
@@ -567,9 +583,13 @@ const CategoryPage = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                {statusIcon && (
-                  <div className={`flex items-center justify-center w-6 h-6 rounded-full bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 ${statusColor}`}>
-                     {React.createElement(statusIcon, { size: 12, strokeWidth: 3 })}
+                {heartIcon && (
+                  <div className="flex items-center justify-center relative w-5 h-5">
+                    <img 
+                      src={heartIcon} 
+                      alt="Progress" 
+                      className="w-full h-full object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-110"
+                    />
                   </div>
                 )}
                 <ChevronRight 
