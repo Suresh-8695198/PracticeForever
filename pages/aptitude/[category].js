@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronRight, Search, ArrowLeft, ArrowRight, BookOpen, Clock, 
-  Hash, LayoutGrid, Calculator, Brain, Languages, PieChart, Shapes, CircleHelp, Wand2,
+  Hash, LayoutGrid, Calculator, Brain, Languages, PieChart, Shapes, CircleHelp, Compass,
   Command, RotateCcw
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
@@ -210,8 +210,8 @@ const CategoryPage = () => {
   const bg = isDark ? 'bg-[#0f0f0f] text-gray-100' : 'bg-[#f8fafc] text-gray-900';
   const borderColor = isDark ? 'border-gray-800' : 'border-gray-100';
   const textColor = isDark ? 'text-white' : 'text-black';
-  const headFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
-  const bodyFont = { fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' };
+  const headFont = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+  const bodyFont = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
 
   const filteredTopics = data.topics.filter(topic => 
     topic.toLowerCase().includes(searchQuery.toLowerCase())
@@ -413,7 +413,7 @@ const CategoryPage = () => {
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="lg:col-span-4">
                  <div className="flex items-center gap-3 mb-4">
-                    <Wand2 size={24} className="text-blue-500" />
+                    <Compass size={24} className="text-blue-500" />
                     <h3 className="text-xl font-black tracking-tight" style={headFont}>Expert Strategy</h3>
                  </div>
                  <p className={`text-[14px] leading-relaxed font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
