@@ -220,9 +220,9 @@ const QuestionPage = () => {
     const newAnswerCount = questionsAnsweredThisSession + 1;
     setQuestionsAnsweredThisSession(newAnswerCount);
     
-    // Check if user should see lead capture (e.g. not logged in and answered 3 questions)
-    if (!session && newAnswerCount === 3) {
-      setTimeout(() => setIsLeadModalOpen(true), 1500); // Small delay to let them see correct answer first
+    // TEMPORARY FOR TESTING: Trigger after 1 question, regardless of login state
+    if (newAnswerCount === 1) {
+      setTimeout(() => setIsLeadModalOpen(true), 1500); 
     }
   };
 
