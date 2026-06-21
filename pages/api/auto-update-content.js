@@ -9,7 +9,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 export default async function handler(req, res) {
   // Simple security check (replace with a real cron secret in production)
   const authHeader = req.headers.authorization;
-  if (process.env.CRON_SECRET && authHeader !== \`Bearer \${process.env.CRON_SECRET}\`) {
+  if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
 
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     // Determine what to generate (we can analyze leads to pick popular topics, or just pick random)
     // For this example, we generate a high-value "Question of the Day" with deep explanations
     
-    const prompt = \`Generate a highly engaging, difficult "Question of the Day" for Quantitative Aptitude.
+    const prompt = `Generate a highly engaging, difficult "Question of the Day" for Quantitative Aptitude.
 Provide the response as a raw JSON object (NO markdown backticks).
 Format:
 {
@@ -45,13 +45,13 @@ Format:
   ],
   "answer": "[A, B, C, or D]",
   "explanation": "[A detailed, step-by-step markdown explanation teaching how to solve it.]"
-}\`;
+}`;
 
     const result = await model.generateContent(prompt);
     let text = result.response.text().trim();
     
     // Clean up markdown
-    text = text.replace(/^\\\`\\\`\\\`json/, '').replace(/\\\`\\\`\\\`$/, '').trim();
+    text = text.replace(/^```json/, '').replace(/```$/, '').trim();
     
     const newContent = JSON.parse(text);
 

@@ -750,7 +750,6 @@ const QuestionPage = () => {
                   <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-gray-900 dark:text-white font-mono ml-1">
                     {session ? "Real-time Sync" : "Saved Locally"}
                   </span>
-                </div>
               </div>
 
               <motion.button 
