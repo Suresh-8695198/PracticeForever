@@ -5,6 +5,7 @@ const { verifyToken } = require('../middleware/authMiddleware');
 
 // Public routes
 router.get('/', blogController.getAllBlogs);
+router.get('/:slug', blogController.getBlogBySlug);
 
 // Admin protected routes
 router.post('/', verifyToken, blogController.createBlog);

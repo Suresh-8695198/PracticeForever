@@ -34,9 +34,10 @@ const HR_TOPICS_LIST = [
   "Role Awareness"
 ];
 
-export default function HRTopicPage() {
+export default function HRTopicPage({ company: ssrCompany, topic: ssrTopic }) {
   const router = useRouter();
-  const { company, topic } = router.query;
+  const company = ssrCompany || router.query.company;
+  const topic = ssrTopic || router.query.topic;
   const { isDark } = useTheme();
 
   const [currentPage, setCurrentPage] = useState(1);

@@ -150,9 +150,9 @@ export default function BlogList() {
                     </td>
                     <td className="px-8 py-6">
                       <div className="flex items-center justify-end gap-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                        <button className={`p-2 rounded-lg border transition-all ${isDark ? 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-white' : 'bg-white border-gray-200 text-gray-400 hover:text-gray-900 hover:shadow-sm'}`}>
+                        <Link href={`/blog/${blog.slug}`} target="_blank" className={`p-2 rounded-lg border transition-all ${isDark ? 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-white' : 'bg-white border-gray-200 text-gray-400 hover:text-gray-900 hover:shadow-sm'}`}>
                           <Eye size={16} />
-                        </button>
+                        </Link>
                         <button className={`p-2 rounded-lg border transition-all ${isDark ? 'bg-zinc-900 border-zinc-800 text-zinc-500 hover:text-amber-500' : 'bg-white border-gray-200 text-gray-400 hover:text-amber-600 hover:shadow-sm'}`}>
                           <Edit3 size={16} />
                         </button>

@@ -67,9 +67,24 @@ const processQuestion = (q) => {
   }
 };
 
-const QuestionPage = () => {
+const categoryMap = {
+  'quantitative-aptitude': 'quantitative',
+  'logical-reasoning': 'logical',
+  'verbal-ability': 'verbal',
+  'data-interpretation': 'di',
+  'non-verbal-reasoning': 'non-verbal',
+  'quantitative': 'quantitative',
+  'logical': 'logical',
+  'verbal': 'verbal',
+  'di': 'di',
+  'non-verbal': 'non-verbal'
+};
+
+const QuestionPage = ({ category: ssrCategory, topic: ssrTopic }) => {
   const router = useRouter();
-  const { category, topic } = router.query;
+  const category = ssrCategory || router.query.category;
+  const topic = ssrTopic || router.query.topic;
+  const normalizedCategory = categoryMap[category] || category || 'quantitative';
   const { isDark } = useTheme();
   const { data: session } = useSession();
   
@@ -372,10 +387,10 @@ const QuestionPage = () => {
   );
 
   const navItems = [
-    { name: 'Quantitative', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: '/aptitude/quantitative', active: category === 'quantitative' },
-    { name: 'Data Interpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: '/aptitude/di', active: category === 'di' },
-    { name: 'Verbal Ability', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: '/aptitude/verbal', active: category === 'verbal' },
-    { name: 'Logical Reasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: '/aptitude/logical', active: category === 'logical' }
+    { name: 'Quantitative', img: 'https://img.icons8.com/3d-fluency/94/calculator.png', href: '/aptitude/quantitative', active: normalizedCategory === 'quantitative' },
+    { name: 'Data Interpretation', img: 'https://img.icons8.com/3d-fluency/94/line-chart.png', href: '/aptitude/di', active: normalizedCategory === 'di' },
+    { name: 'Verbal Ability', img: 'https://img.icons8.com/3d-fluency/94/brick.png', href: '/aptitude/verbal', active: normalizedCategory === 'verbal' },
+    { name: 'Logical Reasoning', img: 'https://img.icons8.com/3d-fluency/94/brain-3--v1.png', href: '/aptitude/logical', active: normalizedCategory === 'logical' }
   ];
 
 
@@ -1664,5 +1679,49 @@ const QuestionPage = () => {
     </div>
   );
 };
+
+export async function getStaticPaths() {
+  const paths = [];
+  const aptitudeCatalog = {
+    'quantitative': ["Number System", "H.C.F. & L.C.M. of Numbers", "Decimal Fractions", "Simplification", "Square Roots & Cube Roots", "Permutations and Combination", "Problems on Trains", "Numbers and Ages", "Percentage problems", "Boats and Streams", "Ratio & Proportion", "Pipes and Cistern", "Surds and Indices", "Averages", "Simple Interest and Compound Interest", "Heights and Distances", "Profit and Loss", "Discount", "Partnership", "Mixture and Alligation", "Time and Distance", "Time & Work", "Volume & Surface Areas", "Clocks and Calendar", "Stocks & Shares", "Probability", "Odd Man Out & Series"],
+    'logical': ["Number Series", "Letter and Symbol Series", "Verbal Classification", "Essential Part", "Analogies", "Artificial Language", "Matching Definitions", "Making Judgments", "Verbal Reasoning", "Logical Problems", "Logical Games", "Analyzing Arguments", "Statement and Assumption", "Course of Action", "Statement and Conclusion"],
+    'verbal': ["Spotting Errors", "Synonyms", "Antonyms", "Selecting Words", "Spellings", "Sentence Formation", "Ordering of Words", "Sentence Correction", "Sentence Improvement", "Sentence Completion", "Ordering of Statements", "Paragraph Formation", "Cloze Test", "Comprehension", "One Word Substitution", "Idioms and Phrases", "Change of Voice", "Change of Speech", "Verbal Analogies"],
+    'di': ["Tabulation", "Bar Graphs", "Pie Charts", "Line Graphs"],
+    'non-verbal': ["Series", "Analogy", "Classification", "Analytical Reasoning", "Mirror Images", "Water Images", "Embedded Images", "Pattern Completion", "Figure Matrix", "Paper Folding", "Paper Cutting", "Rule Detection", "Grouping of Images", "Dot Situation", "Shape Construction", "Image Analysis", "Cubes and Dice"]
+  };
+  const categoryLongNames = {
+    'quantitative': 'quantitative-aptitude',
+    'logical': 'logical-reasoning',
+    'verbal': 'verbal-ability',
+    'di': 'data-interpretation',
+    'non-verbal': 'non-verbal-reasoning'
+  };
+
+  Object.entries(aptitudeCatalog).forEach(([cat, topics]) => {
+    const longCat = categoryLongNames[cat];
+    topics.forEach((topic) => {
+      const topicSlug = topic.toLowerCase().replace(/\s+/g, '-');
+      // Push short path
+      paths.push({
+        params: { category: cat, topic: topicSlug }
+      });
+      // Push long path
+      paths.push({
+        params: { category: longCat, topic: topicSlug }
+      });
+    });
+  });
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      category: params.category,
+      topic: params.topic,
+    },
+  };
+}
 
 export default QuestionPage;

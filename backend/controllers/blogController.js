@@ -102,3 +102,25 @@ exports.deleteBlog = async (req, res) => {
         res.status(500).json({ success: false, message: 'Database error' });
     }
 };
+
+// Get Single Blog by Slug
+exports.getBlogBySlug = async (req, res) => {
+    const { slug } = req.params;
+    try {
+        const query = `
+            SELECT b.*, c.name as category_name, a.name as author_name 
+            FROM blog_posts b
+            LEFT JOIN categories c ON b.category_id = c.id
+            LEFT JOIN admins a ON b.author_id = a.id
+            WHERE b.slug = $1
+        `;
+        const result = await pool.query(query, [slug]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ success: false, message: 'Blog post not found' });
+        }
+        res.json({ success: true, data: result.rows[0] });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Database error' });
+    }
+};

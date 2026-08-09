@@ -405,12 +405,13 @@ const extractMCQs = (content) => {
     }).filter(Boolean).slice(0, 3);
 };
 
-const CurrentAffairs = () => {
+const CurrentAffairs = ({ category: ssrCategory }) => {
     const { isDark } = useTheme();
     const { data: session } = useSession();
     const [showRewardModal, setShowRewardModal] = useState(false);
     const router = useRouter();
     const { category: urlCategory } = router.query;
+    const category = ssrCategory || urlCategory;
     
     // UI Colors mapping to the premium Vision IAS style format
     const bg = isDark ? 'bg-[#0f0f11]' : 'bg-[#f8f9fa]';
@@ -431,7 +432,7 @@ const CurrentAffairs = () => {
     const [allArticles, setAllArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedArticle, setSelectedArticle] = useState(null);
-    const [activeCategory, setActiveCategory] = useState(urlCategory || 'daily');
+    const [activeCategory, setActiveCategory] = useState(category || 'daily');
     const [feedback, setFeedback] = useState(null);
     const [rating, setRating] = useState(0);
     const [stats, setStats] = useState({

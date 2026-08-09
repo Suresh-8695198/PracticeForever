@@ -107,9 +107,23 @@ const aptitudeCatalog = {
   }
 };
 
-const CategoryPage = () => {
+const categoryMap = {
+  'quantitative-aptitude': 'quantitative',
+  'logical-reasoning': 'logical',
+  'verbal-ability': 'verbal',
+  'data-interpretation': 'di',
+  'non-verbal-reasoning': 'non-verbal',
+  'quantitative': 'quantitative',
+  'logical': 'logical',
+  'verbal': 'verbal',
+  'di': 'di',
+  'non-verbal': 'non-verbal'
+};
+
+const CategoryPage = ({ category: ssrCategory }) => {
   const router = useRouter();
-  const { category } = router.query;
+  const category = ssrCategory || router.query.category;
+  const normalizedCategory = categoryMap[category] || category || 'quantitative';
   const { isDark } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
   const [isExploreHovered, setIsExploreHovered] = useState(false);
@@ -117,7 +131,7 @@ const CategoryPage = () => {
   const [showResetModal, setShowResetModal] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
-  const data = useMemo(() => aptitudeCatalog[category] || aptitudeCatalog['quantitative'], [category]);
+  const data = useMemo(() => aptitudeCatalog[normalizedCategory] || aptitudeCatalog['quantitative'], [normalizedCategory]);
 
   React.useEffect(() => {
     if (!data || !data.topics) return;
@@ -392,14 +406,14 @@ const CategoryPage = () => {
                 href={`/aptitude/${key}`}
                 className={`
                   px-6 py-2 rounded-xl text-[12px] font-bold transition-all border keep-color
-                  ${category === key 
+                  ${normalizedCategory === key 
                     ? 'border-opacity-100' 
                     : 'bg-white dark:bg-[#141414] border-gray-100 dark:border-[#222] text-gray-500 hover:text-opacity-80'}
                 `}
                 style={{ 
-                  backgroundColor: category === key ? `${data.color}10` : '',
-                  borderColor: category === key ? data.color : '',
-                  color: category === key ? data.color : ''
+                  backgroundColor: normalizedCategory === key ? `${data.color}10` : '',
+                  borderColor: normalizedCategory === key ? data.color : '',
+                  color: normalizedCategory === key ? data.color : ''
                 }}
               >
                 {aptitudeCatalog[key].title}
@@ -622,5 +636,24 @@ const CategoryPage = () => {
     </div>
   );
 };
+
+export async function getStaticPaths() {
+  const categories = [
+    'quantitative', 'logical', 'verbal', 'di', 'non-verbal',
+    'quantitative-aptitude', 'logical-reasoning', 'verbal-ability', 'data-interpretation', 'non-verbal-reasoning'
+  ];
+  const paths = categories.map((cat) => ({
+    params: { category: cat },
+  }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      category: params.category,
+    },
+  };
+}
 
 export default CategoryPage;

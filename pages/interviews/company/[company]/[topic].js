@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../../../../context/ThemeContext';
 import { topicData as aptitudeData } from '../../../../data/aptitude';
+import { companyContent } from '../../../../data/company/companyContent';
 import { useSession, signIn } from 'next-auth/react';
 import ElectricBorder from '../../../../components/common/ElectricBorder';
 import ComingSoon from '@/components/common/ComingSoon';
@@ -236,9 +237,10 @@ const processQuestion = (q) => {
   }
 };
 
-const CompanyTopicPageInner = () => {
+const CompanyTopicPageInner = ({ company: ssrCompany, topic: ssrTopic }) => {
   const router = useRouter();
-  const { company, topic } = router.query;
+  const company = ssrCompany || router.query.company;
+  const topic = ssrTopic || router.query.topic;
   const { isDark } = useTheme();
   const { data: session } = useSession();
   
@@ -2003,16 +2005,53 @@ const CompanyTopicPageInner = () => {
 };
 
 // Wrapper that decides which page to render
-const CompanyTopicPage = () => {
+const CompanyTopicPage = ({ company: ssrCompany, topic: ssrTopic }) => {
   const router = useRouter();
-  const { topic } = router.query;
+  const company = ssrCompany || router.query.company;
+  const topic = ssrTopic || router.query.topic;
 
   // If this is an HR topic, render the IndiaBix-style discussion page
   if (topic && HR_TOPIC_SLUGS.has(topic.toLowerCase())) {
-    return <HRTopicPage />;
+    return <HRTopicPage company={company} topic={topic} />;
   }
 
-  return <CompanyTopicPageInner />;
+  return <CompanyTopicPageInner company={company} topic={topic} />;
 };
+
+export async function getStaticPaths() {
+  const companies = [
+    'tcs', 'infosys', 'wipro', 'cognizant', 'accenture', 'ibm', 'tech-mahindra', 'capgemini', 'hcl', 'ltimindtree', 'mphasis', 'hexaware', 'microsoft', 'google', 'amazon', 'apple', 'meta', 'netflix', 'cisco', 'adobe', 'vmware', 'salesforce', 'servicenow', 'uber', 'zoho', 'atlassian', 'paypal', 'intuit', 'linkedin', 'freshworks', 'flipkart', 'swiggy', 'zomato', 'paytm', 'razorpay', 'cred', 'oyo', 'ola', 'makemytrip', 'dream11', 'phonepe', 'postman', 'browserstack', 'chargebee', 'pine-labs', 'zerodha', 'meesho', 'cure-fit', 'upstox', 'deloitte', 'pwc', 'ey', 'kpmg', 'goldman-sachs', 'morgan-stanley', 'jpmorgan', 'barclays'
+  ];
+
+  const paths = [];
+
+  companies.forEach((comp) => {
+    const content = companyContent[comp.toLowerCase()] || companyContent.default;
+    content.rounds.forEach((round) => {
+      round.sections.forEach((section) => {
+        section.topics.forEach((topic) => {
+          const topicSlug = topic.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/-+$/, '')
+            .replace(/^-+/, '');
+          paths.push({
+            params: { company: comp, topic: topicSlug }
+          });
+        });
+      });
+    });
+  });
+
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      company: params.company,
+      topic: params.topic,
+    },
+  };
+}
 
 export default CompanyTopicPage;
