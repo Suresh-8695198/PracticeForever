@@ -87,6 +87,16 @@ const DisclaimerPage = () => {
                         </div>
                     </motion.section>
 
+                    <motion.section variants={fadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <h2 className="lg:col-span-4 text-xl font-black uppercase tracking-widest opacity-20 hidden lg:block">03/ Entities</h2>
+                        <div className="lg:col-span-8 space-y-6">
+                            <h3 className={`text-xl md:text-2xl font-bold ${textColor}`} style={headFont}>Government Non-Affiliation</h3>
+                            <p className={`text-[15px] md:text-[16px] leading-[1.8] font-medium ${subTextColor}`}>
+                                PracticeForever is an independent educational prep platform. We are <strong>not affiliated, associated, authorized, endorsed by, or in any way officially connected with</strong> any government organization, state agency, or examining body (including TNPSC, UPSC, SSC, IBPS, or NTA). All official exam information should be verified directly at respective official government portals.
+                            </p>
+                        </div>
+                    </motion.section>
+
                     <motion.div variants={fadeUp} className="p-8 md:p-10 border-2 border-rose-500/10 bg-rose-500/[0.02] dark:bg-rose-500/[0.05]">
                         <p className={`text-[15px] md:text-[16px] font-bold italic leading-relaxed text-center ${textColor}`}>
                             "The use of any information provided on this platform is strictly at your own risk. We are not liable for any personal or professional consequences resulting from site usage."

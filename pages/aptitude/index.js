@@ -142,9 +142,28 @@ const AptitudePage = () => {
   return (
     <div className={`min-h-screen pt-24 pb-20 ${bg}`} style={bodyFont}>
       <Head>
-        <title>Aptitude & Reasoning Hub | Career Platform</title>
-        <meta name="description" content="Prepare for placements with thousands of practice questions across quantitative, logical and verbal reasoning." />
+        <title>Aptitude & Reasoning Practice Hub | PracticeForever</title>
+        <meta name="description" content="Prepare for campus placement drives and competitive exams with thousands of practice questions across quantitative, logical, verbal, and non-verbal reasoning." />
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link rel="canonical" href="https://practiceforever.app/aptitude" />
+
+        {/* Structured Educational JSON-LD Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Course",
+              "name": "Quantitative Aptitude & Logical Reasoning Mastery",
+              "description": "Comprehensive practice modules covering quantitative aptitude, logical deduction, verbal ability, and non-verbal reasoning for job placement assessments.",
+              "provider": {
+                "@type": "EducationalOrganization",
+                "name": "PracticeForever",
+                "sameAs": "https://practiceforever.app/"
+              }
+            })
+          }}
+        />
       </Head>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

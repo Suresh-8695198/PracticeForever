@@ -118,20 +118,35 @@ const PrivacyPolicy = () => {
                             <div className="flex items-center gap-3 mb-2">
                                 <span className="text-[10px] font-semibold text-blue-600 uppercase tracking-widest">Section 03</span>
                             </div>
-                            <h2 className={`text-xl md:text-2xl font-bold ${textColor}`} style={headFont}>Ad Transparency</h2>
+                            <h2 className={`text-xl md:text-2xl font-bold ${textColor}`} style={headFont}>Advertising & Cookies</h2>
                         </div>
                         <div className={`lg:col-span-8 space-y-6 text-[15px] md:text-[16px] leading-relaxed font-medium ${subTextColor}`}>
                             <p>
-                                We partner with <strong className="font-bold">Google AdSense</strong> to sustain our free educational layer. We use cookies to help serve the ads it displays on the websites of its partners, such as websites displaying Google ads or participating in Google certified ad networks. When users visit a partner's website, a cookie may be dropped on that end user's browser.
+                                We partner with <strong className="font-bold">Google AdSense</strong> to support and sustain our free educational layer. Google and third-party vendors use cookies to serve ads based on your visit to PracticeForever and other sites across the Internet.
                             </p>
                             <ul className="list-disc pl-5 space-y-3 marker:text-blue-600">
-                                <li>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website or other websites.</li>
-                                <li>Google's use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
-                                <li>Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" className="text-blue-600 underline">Ads Settings</a>.</li>
+                                <li><strong>Third-Party Vendor Cookies:</strong> Third-party vendors, including Google, use cookies to serve personalized advertisements based on a user's previous visits to our website or other websites.</li>
+                                <li><strong>Google DART Cookie:</strong> Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to our site and/or other sites on the Internet.</li>
+                                <li><strong>Opting Out of Personalized Ads:</strong> Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-bold">Google Ads Settings</a> or visiting <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline font-bold">AboutAds.info</a>.</li>
                             </ul>
-                            <div className="p-6 border-l-4 border-black dark:border-white bg-black/[0.02] dark:bg-white/5">
-                                <p className="text-[14px] font-bold italic">"You can manage your ad personalization settings via your Google Account at any time."</p>
+                            <div className="p-6 border-l-4 border-blue-600 bg-blue-500/5 rounded-r-xl">
+                                <p className="text-[14px] font-bold">"We ensure zero invasive tracking. All advertising cookies are subject to strict privacy standards governed by Google AdSense Policies."</p>
                             </div>
+                        </div>
+                    </motion.section>
+
+                    {/* Section 4 */}
+                    <motion.section variants={fadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10">
+                        <div className="lg:col-span-4">
+                            <div className="flex items-center gap-3 mb-2">
+                                <span className="text-[10px] font-semibold text-blue-600 uppercase tracking-widest">Section 04</span>
+                            </div>
+                            <h2 className={`text-xl md:text-2xl font-bold ${textColor}`} style={headFont}>GDPR & CCPA Rights</h2>
+                        </div>
+                        <div className={`lg:col-span-8 space-y-4 text-[15px] md:text-[16px] leading-relaxed font-medium ${subTextColor}`}>
+                            <p>
+                                Regardless of your location, we respect your rights to inspect, modify, or request deletion of any stored personal information associated with your Google sign-in. You may exercise these rights at any time by contacting our support desk.
+                            </p>
                         </div>
                     </motion.section>
 

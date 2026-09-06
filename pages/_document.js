@@ -10,6 +10,9 @@ export default function Document() {
         
         {/* Google AdSense Verification & Connection */}
         <meta name="google-adsense-account" content="ca-pub-7964049406993810" />
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        )}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7964049406993810"

@@ -11,6 +11,7 @@ export default function LogoDemo() {
     <div className={`min-h-screen flex flex-col items-center justify-center gap-16 transition-colors duration-300 ${isDark ? 'bg-[#0a0a0a]' : 'bg-[#f5f3ef]'}`}>
       <Head>
         <title>Animated Logo Demo | PracticeForever</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       {/* Theme Toggle */}
